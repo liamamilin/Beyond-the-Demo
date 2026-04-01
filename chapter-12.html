@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -448,6 +483,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -464,6 +505,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#configuration-profiles" id="toc-configuration-profiles" class="nav-link" data-scroll-target="#configuration-profiles"><span class="header-section-number">13.0.4</span> Configuration Profiles</a></li>
   <li><a href="#the-minimal-environment-model" id="toc-the-minimal-environment-model" class="nav-link" data-scroll-target="#the-minimal-environment-model"><span class="header-section-number">13.0.5</span> The Minimal Environment Model</a></li>
   <li><a href="#from-local-scripts-to-deployable-systems" id="toc-from-local-scripts-to-deployable-systems" class="nav-link" data-scroll-target="#from-local-scripts-to-deployable-systems"><span class="header-section-number">13.0.6</span> From Local Scripts to Deployable Systems</a></li>
+  <li><a href="#实践指南配置管理sop" id="toc-实践指南配置管理sop" class="nav-link" data-scroll-target="#实践指南配置管理sop"><span class="header-section-number">13.1</span> 实践指南：配置管理SOP</a>
+  <ul class="collapse">
+  <li><a href="#配置项分类" id="toc-配置项分类" class="nav-link" data-scroll-target="#配置项分类"><span class="header-section-number">13.1.1</span> 配置项分类</a></li>
+  <li><a href="#配置管理sop" id="toc-配置管理sop" class="nav-link" data-scroll-target="#配置管理sop"><span class="header-section-number">13.1.2</span> 配置管理SOP</a></li>
+  <li><a href="#配置安全检查清单" id="toc-配置安全检查清单" class="nav-link" data-scroll-target="#配置安全检查清单"><span class="header-section-number">13.1.3</span> 配置安全检查清单</a></li>
+  <li><a href="#快速诊断你的配置管理是否健康" id="toc-快速诊断你的配置管理是否健康" class="nav-link" data-scroll-target="#快速诊断你的配置管理是否健康"><span class="header-section-number">13.1.4</span> 快速诊断：你的配置管理是否健康？</a></li>
+  </ul></li>
+  <li><a href="#本章总结" id="toc-本章总结" class="nav-link" data-scroll-target="#本章总结"><span class="header-section-number">13.2</span> 本章总结</a></li>
   </ul>
 </nav>
     </div>
@@ -490,6 +539,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/chapter-12.png" class="img-fluid figure-img"></p>
+<figcaption>Configuration</figcaption>
+</figure>
+</div>
 <p>Many practice projects begin with a simple assumption: the code will run in a single environment controlled entirely by the developer.</p>
 <p>Because of this assumption, important values are often written directly into the code. Database addresses, API keys, file paths, and service endpoints may all appear as fixed constants inside the program.</p>
 <p>At first, this approach seems convenient. Everything needed to run the system exists in one place, and the developer does not need to worry about external configuration.</p>
@@ -563,6 +618,161 @@ The environment used by real users. Stability, performance, and security are pri
 <p>This transformation may not change the visible functionality of the software, but it dramatically increases the system’s flexibility and reliability.</p>
 <p>The project is no longer tied to one specific machine or context.</p>
 <p>It becomes <strong>deployable</strong>.</p>
+<hr>
+</section>
+<section id="实践指南配置管理sop" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="实践指南配置管理sop"><span class="header-section-number">13.1</span> 实践指南：配置管理SOP</h2>
+<p>配置管理是将演示项目转化为可部署系统的关键步骤。以下是一个实用的配置管理框架，帮助你系统化地管理配置。</p>
+<section id="配置项分类" class="level3" data-number="13.1.1">
+<h3 data-number="13.1.1" class="anchored" data-anchor-id="配置项分类"><span class="header-section-number">13.1.1</span> 配置项分类</h3>
+<p><strong>敏感配置（必须使用环境变量）：</strong> - 数据库密码 - API密钥和Token - 加密密钥 - 第三方服务凭证</p>
+<p><strong>环境特定配置（使用配置文件）：</strong> - 数据库连接地址 - 服务端点URL - 日志级别 - 功能开关</p>
+<p><strong>运行时参数（使用配置文件）：</strong> - 端口号 - 超时时间 - 批处理大小 - 并发限制</p>
+</section>
+<section id="配置管理sop" class="level3" data-number="13.1.2">
+<h3 data-number="13.1.2" class="anchored" data-anchor-id="配置管理sop"><span class="header-section-number">13.1.2</span> 配置管理SOP</h3>
+<p><strong>第一步：识别配置项</strong></p>
+<ol type="1">
+<li>搜索代码中的硬编码值</li>
+<li>列出所有可能变化的参数</li>
+<li>分类为敏感配置、环境配置、运行时参数</li>
+</ol>
+<p><strong>第二步：选择配置方式</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 决策树：如何选择配置方式？</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>这个配置是否包含敏感信息？</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>├─ 是 → 使用环境变量（推荐）</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>│   └─ 示例：DATABASE_PASSWORD, API_KEY</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>└─ 否 → 这个配置是否在不同环境间变化？</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    ├─ 是 → 使用配置文件（推荐）</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    │   └─ 示例：config.dev.yaml, config.prod.yaml</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    └─ 否 → 考虑使用默认值</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        └─ 示例：端口号、超时时间</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>第三步：创建配置模板</strong></p>
+<p><strong>.env.example 文件模板：</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 数据库配置</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="va">DATABASE_URL</span><span class="op">=</span>postgresql://user:password@localhost:5432/mydb</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="va">DATABASE_PASSWORD</span><span class="op">=</span>your_password_here</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># API配置</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="va">API_KEY</span><span class="op">=</span>your_api_key_here</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="va">API_ENDPOINT</span><span class="op">=</span>https://api.example.com</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 功能开关</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="va">FEATURE_NEW_UI</span><span class="op">=</span>false</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="va">FEATURE_ANALYTICS</span><span class="op">=</span>true</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>config.yaml 配置文件模板：</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">host</span><span class="kw">:</span><span class="at"> localhost</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">debug</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">database</span><span class="kw">:</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">host</span><span class="kw">:</span><span class="at"> localhost</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">5432</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> myapp_dev</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span><span class="at"> DEBUG</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">format</span><span class="kw">:</span><span class="at"> json</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">features</span><span class="kw">:</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">new_ui</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">analytics</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>第四步：实现配置加载</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python示例：配置加载器</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Any</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yaml</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Config:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, env: <span class="bu">str</span> <span class="op">=</span> <span class="st">"development"</span>):</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.env <span class="op">=</span> env</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.load_from_file()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.load_from_env()</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.validate()</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> load_from_file(<span class="va">self</span>):</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""从配置文件加载配置"""</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        config_path <span class="op">=</span> Path(<span class="ss">f"config.</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>env<span class="sc">}</span><span class="ss">.yaml"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> config_path.exists():</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> <span class="bu">open</span>(config_path) <span class="im">as</span> f:</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.config <span class="op">=</span> yaml.safe_load(f)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> load_from_env(<span class="va">self</span>):</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""从环境变量加载配置（优先级更高）"""</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.config[<span class="st">"database"</span>][<span class="st">"password"</span>] <span class="op">=</span> os.getenv(</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">"DATABASE_PASSWORD"</span>,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.config.get(<span class="st">"database"</span>, {}).get(<span class="st">"password"</span>, <span class="st">""</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.config[<span class="st">"api"</span>][<span class="st">"key"</span>] <span class="op">=</span> os.getenv(</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>            <span class="st">"API_KEY"</span>,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.config.get(<span class="st">"api"</span>, {}).get(<span class="st">"key"</span>, <span class="st">""</span>)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> validate(<span class="va">self</span>):</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""验证配置的完整性"""</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        required_keys <span class="op">=</span> [</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">"database.url"</span>,</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>            <span class="st">"api.key"</span>,</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> key <span class="kw">in</span> required_keys:</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.get(key):</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>                <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"Missing required configuration: </span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get(<span class="va">self</span>, key: <span class="bu">str</span>, default: Any <span class="op">=</span> <span class="va">None</span>) <span class="op">-&gt;</span> Any:</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""获取配置值"""</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>        keys <span class="op">=</span> key.split(<span class="st">"."</span>)</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>        value <span class="op">=</span> <span class="va">self</span>.config</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> k <span class="kw">in</span> keys:</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>            value <span class="op">=</span> value.get(k, {})</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> value <span class="cf">if</span> value <span class="op">!=</span> {} <span class="cf">else</span> default</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>config <span class="op">=</span> Config(env<span class="op">=</span>os.getenv(<span class="st">"ENV"</span>, <span class="st">"development"</span>))</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>db_url <span class="op">=</span> config.get(<span class="st">"database.url"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>第五步：配置安全措施</strong></p>
+<ol type="1">
+<li>将 <code>.env</code> 文件添加到 <code>.gitignore</code></li>
+<li>提供清晰的 <code>.env.example</code> 模板</li>
+<li>实施配置验证机制</li>
+<li>使用密钥管理服务（生产环境）</li>
+</ol>
+</section>
+<section id="配置安全检查清单" class="level3" data-number="13.1.3">
+<h3 data-number="13.1.3" class="anchored" data-anchor-id="配置安全检查清单"><span class="header-section-number">13.1.3</span> 配置安全检查清单</h3>
+<p><strong>安全措施：</strong> - [ ] 敏感信息使用环境变量，不写入配置文件 - [ ] <code>.env</code> 文件已添加到 <code>.gitignore</code> - [ ] 提供完整的 <code>.env.example</code> 模板 - [ ] 配置有类型验证和默认值 - [ ] 不同环境有独立配置文件 - [ ] 生产环境配置不在代码库中</p>
+<p><strong>可维护性：</strong> - [ ] 配置文档清晰说明每个配置项的用途 - [ ] 配置变更需要代码审查 - [ ] 配置有版本控制（模板文件） - [ ] 配置错误有清晰的错误消息 - [ ] 支持配置热更新（可选）</p>
+</section>
+<section id="快速诊断你的配置管理是否健康" class="level3" data-number="13.1.4">
+<h3 data-number="13.1.4" class="anchored" data-anchor-id="快速诊断你的配置管理是否健康"><span class="header-section-number">13.1.4</span> 快速诊断：你的配置管理是否健康？</h3>
+<p>回答以下问题：</p>
+<ul class="task-list">
+<li><label><input type="checkbox">你能否在不修改代码的情况下，将系统部署到新环境？</label></li>
+<li><label><input type="checkbox">敏感信息是否从未提交到版本控制？</label></li>
+<li><label><input type="checkbox">新开发者能否通过 <code>.env.example</code> 快速配置环境？</label></li>
+<li><label><input type="checkbox">配置错误是否能在启动时被检测到？</label></li>
+<li><label><input type="checkbox">不同环境的配置是否清晰分离？</label></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="本章总结" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="本章总结"><span class="header-section-number">13.2</span> 本章总结</h2>
+<p>配置管理是将演示项目转化为可部署系统的关键步骤。通过将配置与代码分离，我们获得了灵活性、安全性和可维护性。</p>
+<p>环境变量适合敏感信息，配置文件适合复杂配置，配置验证确保系统健康。最小环境模型（开发、测试、生产）提供了清晰的部署路径。</p>
+<p>良好的配置管理使系统能够在不同环境中可靠运行，这是专业软件的基本要求。</p>
+<p>下一章，我们将探讨日志与可观测性。如何让系统变得可理解？当系统在生产环境中运行时，我们如何知道发生了什么？</p>
+<hr>
+<p><strong>实践建议：</strong></p>
+<ol type="1">
+<li><strong>尽早实施</strong>：不要等到部署时才考虑配置。从一开始就设计好配置管理策略。</li>
+<li><strong>文档先行</strong>：在添加配置项之前，先记录其用途和默认值。</li>
+<li><strong>安全优先</strong>：始终假设配置可能泄露，不要在配置中存储敏感信息的明文。</li>
+<li><strong>验证配置</strong>：在应用启动时验证配置的完整性，避免运行时错误。</li>
+</ol>
+<p><strong>立即行动：</strong></p>
+<p>检查你的项目，找出所有硬编码的值。创建一个 <code>.env.example</code> 文件，列出所有需要的配置项，并为每个配置项添加说明。</p>
 
 
 </section>

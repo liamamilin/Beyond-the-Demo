@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -448,6 +483,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -464,6 +505,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#indexing" id="toc-indexing" class="nav-link" data-scroll-target="#indexing"><span class="header-section-number">17.0.4</span> Indexing</a></li>
   <li><a href="#designing-with-limits-in-mind" id="toc-designing-with-limits-in-mind" class="nav-link" data-scroll-target="#designing-with-limits-in-mind"><span class="header-section-number">17.0.5</span> Designing With Limits in Mind</a></li>
   <li><a href="#writing-failure-into-the-design" id="toc-writing-failure-into-the-design" class="nav-link" data-scroll-target="#writing-failure-into-the-design"><span class="header-section-number">17.0.6</span> Writing Failure Into the Design</a></li>
+  <li><a href="#实践指南性能优化策略sop" id="toc-实践指南性能优化策略sop" class="nav-link" data-scroll-target="#实践指南性能优化策略sop"><span class="header-section-number">17.1</span> 实践指南：性能优化策略SOP</a>
+  <ul class="collapse">
+  <li><a href="#性能瓶颈分类" id="toc-性能瓶颈分类" class="nav-link" data-scroll-target="#性能瓶颈分类"><span class="header-section-number">17.1.1</span> 性能瓶颈分类</a></li>
+  <li><a href="#性能优化sop" id="toc-性能优化sop" class="nav-link" data-scroll-target="#性能优化sop"><span class="header-section-number">17.1.2</span> 性能优化SOP</a></li>
+  <li><a href="#性能优化检查清单" id="toc-性能优化检查清单" class="nav-link" data-scroll-target="#性能优化检查清单"><span class="header-section-number">17.1.3</span> 性能优化检查清单</a></li>
+  <li><a href="#快速诊断你的性能优化是否健康" id="toc-快速诊断你的性能优化是否健康" class="nav-link" data-scroll-target="#快速诊断你的性能优化是否健康"><span class="header-section-number">17.1.4</span> 快速诊断：你的性能优化是否健康？</a></li>
+  </ul></li>
+  <li><a href="#本章总结" id="toc-本章总结" class="nav-link" data-scroll-target="#本章总结"><span class="header-section-number">17.2</span> 本章总结</a></li>
   </ul>
 </nav>
     </div>
@@ -490,6 +539,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/chapter-16.png" class="img-fluid figure-img"></p>
+<figcaption>Performance</figcaption>
+</figure>
+</div>
 <p>In the early stages of development, performance rarely appears to be a problem.</p>
 <p>The system runs on a developer’s machine, the dataset is small, and operations complete almost instantly. Queries return results in milliseconds. Computations finish before anyone notices the delay.</p>
 <p>Under these conditions, it is easy to assume that performance will continue to behave the same way as the system grows.</p>
@@ -560,6 +615,280 @@ ul.task-list li input[type="checkbox"] {
 <p>Developers identify the points where the system might eventually struggle and ensure that mechanisms exist to manage those situations.</p>
 <p>In this way, the system becomes resilient not because it never encounters limits, but because it <strong>knows where its limits are</strong>.</p>
 <p>Understanding what might break—and preparing for it—is one of the quiet but essential characteristics of professional software.</p>
+<hr>
+</section>
+<section id="实践指南性能优化策略sop" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="实践指南性能优化策略sop"><span class="header-section-number">17.1</span> 实践指南：性能优化策略SOP</h2>
+<p>性能优化不是追求极致速度，而是理解系统边界并合理处理增长。以下是一个实用的性能优化框架。</p>
+<section id="性能瓶颈分类" class="level3" data-number="17.1.1">
+<h3 data-number="17.1.1" class="anchored" data-anchor-id="性能瓶颈分类"><span class="header-section-number">17.1.1</span> 性能瓶颈分类</h3>
+<p><strong>算法复杂度瓶颈：</strong> - 嵌套循环（O(n²)） - 重复计算 - 低效数据结构 - 全局搜索</p>
+<p><strong>数据库瓶颈：</strong> - 全表扫描 - 缺少索引 - N+1查询问题 - 大结果集</p>
+<p><strong>网络瓶颈：</strong> - 频繁的HTTP请求 - 大数据传输 - 同步调用链 - 缺少压缩</p>
+<p><strong>内存瓶颈：</strong> - 内存泄漏 - 大对象缓存 - 不必要的数据复制 - 内存碎片化</p>
+</section>
+<section id="性能优化sop" class="level3" data-number="17.1.2">
+<h3 data-number="17.1.2" class="anchored" data-anchor-id="性能优化sop"><span class="header-section-number">17.1.2</span> 性能优化SOP</h3>
+<p><strong>第一步：性能基准测试</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 性能基准测试示例</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statistics</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Callable</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> benchmark(func: Callable, iterations: <span class="bu">int</span> <span class="op">=</span> <span class="dv">100</span>):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""执行函数多次并统计性能"""</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    times <span class="op">=</span> []</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(iterations):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        start <span class="op">=</span> time.perf_counter()</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        func()</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        end <span class="op">=</span> time.perf_counter()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        times.append(end <span class="op">-</span> start)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"min"</span>: <span class="bu">min</span>(times),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"max"</span>: <span class="bu">max</span>(times),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"avg"</span>: statistics.mean(times),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"median"</span>: statistics.median(times),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"p95"</span>: statistics.quantiles(times, n<span class="op">=</span><span class="dv">20</span>)[<span class="dv">18</span>],  <span class="co"># 95th percentile</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"total"</span>: <span class="bu">sum</span>(times)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_function():</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 测试代码</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> [i <span class="op">*</span> <span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>)]</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> benchmark(test_function, iterations<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"平均执行时间: </span><span class="sc">{</span>results[<span class="st">'avg'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P95执行时间: </span><span class="sc">{</span>results[<span class="st">'p95'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>第二步：识别瓶颈</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用cProfile识别性能瓶颈</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cProfile</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pstats</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> io <span class="im">import</span> StringIO</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> profile_function(func: Callable, <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""分析函数性能瓶颈"""</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    pr <span class="op">=</span> cProfile.Profile()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    pr.enable()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    func(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    pr.disable()</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 输出分析结果</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> StringIO()</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    ps <span class="op">=</span> pstats.Stats(pr, stream<span class="op">=</span>s).sort_stats(<span class="st">'cumulative'</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    ps.print_stats(<span class="dv">20</span>)  <span class="co"># 显示前20个最耗时的函数</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(s.getvalue())</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> complex_operation():</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            total <span class="op">+=</span> i <span class="op">*</span> j</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>profile_function(complex_operation)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>第三步：优化策略</strong></p>
+<p><strong>策略1：分页（处理大数据集）</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 不好的做法：一次性加载所有数据</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_all_users():</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    users <span class="op">=</span> db.query(<span class="st">"SELECT * FROM users"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> users  <span class="co"># 可能有数百万条记录</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 好的做法：分页加载</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_users(page: <span class="bu">int</span> <span class="op">=</span> <span class="dv">1</span>, page_size: <span class="bu">int</span> <span class="op">=</span> <span class="dv">100</span>):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    offset <span class="op">=</span> (page <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> page_size</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    users <span class="op">=</span> db.query(</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"SELECT * FROM users LIMIT ? OFFSET ?"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        (page_size, offset)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> users</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 返回分页元数据</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_users_with_pagination(page: <span class="bu">int</span> <span class="op">=</span> <span class="dv">1</span>, page_size: <span class="bu">int</span> <span class="op">=</span> <span class="dv">100</span>):</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> db.query(<span class="st">"SELECT COUNT(*) FROM users"</span>)[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    users <span class="op">=</span> get_users(page, page_size)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"data"</span>: users,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"pagination"</span>: {</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"page"</span>: page,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">"page_size"</span>: page_size,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">"total"</span>: total,</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">"total_pages"</span>: (total <span class="op">+</span> page_size <span class="op">-</span> <span class="dv">1</span>) <span class="op">//</span> page_size</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>策略2：缓存（减少重复计算）</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 简单的内存缓存</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> lru_cache</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hashlib</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用LRU缓存</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">@lru_cache</span>(maxsize<span class="op">=</span><span class="dv">128</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> expensive_computation(x: <span class="bu">int</span>):</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""缓存计算结果"""</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">1</span>)  <span class="co"># 模拟耗时操作</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> x</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 手动实现缓存（支持过期时间）</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cache:</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, ttl: <span class="bu">int</span> <span class="op">=</span> <span class="dv">300</span>):</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.cache <span class="op">=</span> {}</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.ttl <span class="op">=</span> ttl</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get(<span class="va">self</span>, key: <span class="bu">str</span>):</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> key <span class="kw">in</span> <span class="va">self</span>.cache:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            value, timestamp <span class="op">=</span> <span class="va">self</span>.cache[key]</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> time.time() <span class="op">-</span> timestamp <span class="op">&lt;</span> <span class="va">self</span>.ttl:</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> value</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                <span class="kw">del</span> <span class="va">self</span>.cache[key]</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="bu">set</span>(<span class="va">self</span>, key: <span class="bu">str</span>, value):</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.cache[key] <span class="op">=</span> (value, time.time())</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> clear(<span class="va">self</span>):</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.cache.clear()</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>cache <span class="op">=</span> Cache(ttl<span class="op">=</span><span class="dv">60</span>)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_user_data(user_id: <span class="bu">str</span>):</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 先尝试从缓存获取</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    cached <span class="op">=</span> cache.get(<span class="ss">f"user:</span><span class="sc">{</span>user_id<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> cached:</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cached</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 缓存未命中，从数据库获取</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> db.query(<span class="st">"SELECT * FROM users WHERE id = ?"</span>, (user_id,))</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    cache.<span class="bu">set</span>(<span class="ss">f"user:</span><span class="sc">{</span>user_id<span class="sc">}</span><span class="ss">"</span>, user)</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> user</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>策略3：索引（加速数据库查询）</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- 创建索引</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_users_email <span class="kw">ON</span> users(email);</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_users_created_at <span class="kw">ON</span> users(created_at);</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_orders_user_id <span class="kw">ON</span> orders(user_id);</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">-- 复合索引</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_users_status_created <span class="kw">ON</span> users(status, created_at);</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">-- 查询优化</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">-- 不好的做法：全表扫描</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> users <span class="kw">WHERE</span> email <span class="op">=</span> <span class="st">'user@example.com'</span>;</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">-- 好的做法：使用索引</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="kw">EXPLAIN</span> <span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> users <span class="kw">WHERE</span> email <span class="op">=</span> <span class="st">'user@example.com'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>策略4：异步处理（提高并发）</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> aiohttp</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 同步方式（慢）</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_urls_sync(urls):</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> []</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> url <span class="kw">in</span> urls:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> requests.get(url)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        results.append(response.json())</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 异步方式（快）</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> fetch_url(session, url):</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> session.get(url) <span class="im">as</span> response:</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="cf">await</span> response.json()</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> fetch_urls_async(urls):</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> aiohttp.ClientSession() <span class="im">as</span> session:</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        tasks <span class="op">=</span> [fetch_url(session, url) <span class="cf">for</span> url <span class="kw">in</span> urls]</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        results <span class="op">=</span> <span class="cf">await</span> asyncio.gather(<span class="op">*</span>tasks)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> results</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>urls <span class="op">=</span> [</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://api.example.com/users/1"</span>,</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://api.example.com/users/2"</span>,</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://api.example.com/users/3"</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 异步执行</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> asyncio.run(fetch_urls_async(urls))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>第四步：验证优化效果</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 性能对比测试</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compare_performance(original_func, optimized_func, <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""对比优化前后的性能"""</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"=== 性能对比 ==="</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 测试原始函数</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    original_results <span class="op">=</span> benchmark(original_func, iterations<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"原始函数:"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  平均: </span><span class="sc">{</span>original_results[<span class="st">'avg'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  P95: </span><span class="sc">{</span>original_results[<span class="st">'p95'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 测试优化函数</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    optimized_results <span class="op">=</span> benchmark(optimized_func, <span class="op">*</span>args, <span class="op">**</span>kwargs, iterations<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"优化函数:"</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  平均: </span><span class="sc">{</span>optimized_results[<span class="st">'avg'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  P95: </span><span class="sc">{</span>optimized_results[<span class="st">'p95'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 计算改进</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    improvement <span class="op">=</span> (original_results[<span class="st">'avg'</span>] <span class="op">-</span> optimized_results[<span class="st">'avg'</span>]) <span class="op">/</span> original_results[<span class="st">'avg'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"性能提升: </span><span class="sc">{</span>improvement<span class="sc">:.2f}</span><span class="ss">%"</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> improvement</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> original_function():</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 原始实现</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>([i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>)])</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> optimized_function():</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 优化实现</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(<span class="bu">range</span>(<span class="dv">10000</span>))</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>compare_performance(original_function, optimized_function)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="性能优化检查清单" class="level3" data-number="17.1.3">
+<h3 data-number="17.1.3" class="anchored" data-anchor-id="性能优化检查清单"><span class="header-section-number">17.1.3</span> 性能优化检查清单</h3>
+<p><strong>数据库优化：</strong> - [ ] 查询使用了适当的索引 - [ ] 避免了SELECT *（只查询需要的字段） - [ ] 使用分页处理大数据集 - [ ] 避免了N+1查询问题 - [ ] 定期分析慢查询日志</p>
+<p><strong>缓存策略：</strong> - [ ] 识别了可缓存的数据 - [ ] 实现了缓存失效机制 - [ ] 设置了合理的缓存过期时间 - [ ] 监控缓存命中率 - [ ] 避免缓存雪崩</p>
+<p><strong>代码优化：</strong> - [ ] 避免了不必要的嵌套循环 - [ ] 使用了合适的数据结构 - [ ] 减少了重复计算 - [ ] 使用了异步处理提高并发 - [ ] 避免了内存泄漏</p>
+<p><strong>监控与测试：</strong> - [ ] 有性能基准测试 - [ ] 监控关键指标（响应时间、吞吐量） - [ ] 设置了性能告警阈值 - [ ] 定期进行性能测试 - [ ] 有性能优化文档</p>
+</section>
+<section id="快速诊断你的性能优化是否健康" class="level3" data-number="17.1.4">
+<h3 data-number="17.1.4" class="anchored" data-anchor-id="快速诊断你的性能优化是否健康"><span class="header-section-number">17.1.4</span> 快速诊断：你的性能优化是否健康？</h3>
+<p>回答以下问题：</p>
+<ul class="task-list">
+<li><label><input type="checkbox">你是否知道系统中最慢的5个操作是什么？</label></li>
+<li><label><input type="checkbox">数据库查询是否都使用了索引？</label></li>
+<li><label><input type="checkbox">是否有性能基准测试来跟踪优化效果？</label></li>
+<li><label><input type="checkbox">是否使用了缓存来减少重复计算？</label></li>
+<li><label><input type="checkbox">是否有监控来及时发现性能问题？</label></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="本章总结" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="本章总结"><span class="header-section-number">17.2</span> 本章总结</h2>
+<p>性能优化不是追求极致速度，而是理解系统边界并合理处理增长。通过理解复杂度、使用分页、缓存和索引，我们可以让系统在数据增长时保持稳定。</p>
+<p>好的性能优化从基准测试开始，识别瓶颈，然后应用合适的优化策略。最重要的是，系统应该知道自己的限制在哪里。</p>
+<p>一个了解自己边界的系统，比一个盲目追求速度的系统更可靠。</p>
+<p>下一章，我们将探讨视觉秩序。专业质量来自一致的设计规则。</p>
+<hr>
+<p><strong>实践建议：</strong></p>
+<ol type="1">
+<li><strong>测量优先</strong>：不要盲目优化。先测量，找出真正的瓶颈，再优化。</li>
+<li><strong>渐进式优化</strong>：不要一次性优化所有代码。优先优化最慢的路径。</li>
+<li><strong>权衡取舍</strong>：性能优化可能增加复杂度。在可读性和性能之间找到平衡。</li>
+<li><strong>持续监控</strong>：性能会随数据增长而变化。建立监控，及时发现问题。</li>
+</ol>
+<p><strong>立即行动：</strong></p>
+<p>选择你的项目中的一个关键功能，使用cProfile或类似工具分析其性能。找出最耗时的函数，并考虑如何优化它。</p>
 
 
 </section>
