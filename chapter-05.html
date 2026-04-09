@@ -65,8 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapter-06.html" rel="next">
-<link href="./chapter-04.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -74,14 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-969ddfa49e00a70eb3423444dbc81f6c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cb7011eeb8faf9e577c51abd71603fb6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-382efa32f65710287d6f3f98e15fe289.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-cb7011eeb8faf9e577c51abd71603fb6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -114,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -279,220 +277,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-05.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Beyond the Demo</a> 
-        <div class="sidebar-tools-main">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-05.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -521,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -707,6 +494,542 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="quick-diagnosis-is-your-naming-systematic" class="level3" data-number="6.1.4">
 <h3 data-number="6.1.4" class="anchored" data-anchor-id="quick-diagnosis-is-your-naming-systematic"><span class="header-section-number">6.1.4</span> Quick Diagnosis: Is Your Naming Systematic?</h3>
+</section>
+<section id="naming-template-library" class="level3" data-number="6.1.5">
+<h3 data-number="6.1.5" class="anchored" data-anchor-id="naming-template-library"><span class="header-section-number">6.1.5</span> Naming Template Library</h3>
+<p>The following templates provide detailed patterns for naming different types of code elements based on the object-action-state philosophy. Each template includes the naming pattern, examples, use cases, and important considerations.</p>
+<section id="object-naming-templates" class="level4" data-number="6.1.5.1">
+<h4 data-number="6.1.5.1" class="anchored" data-anchor-id="object-naming-templates"><span class="header-section-number">6.1.5.1</span> Object Naming Templates</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Template Type</th>
+<th>Naming Pattern</th>
+<th>Examples</th>
+<th>Use Cases</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Descriptive Objects</strong></td>
+<td><code>{DomainConcept}{OptionalModifier}</code></td>
+<td><code>ActiveUser</code>, <code>PendingOrder</code>, <code>ArchivedDocument</code>, <code>PremiumCustomer</code>, <code>VerifiedEmail</code></td>
+<td>Domain entities with state or quality modifiers</td>
+<td>Use single form, avoid plural unless truly represents multiple entities</td>
+</tr>
+<tr class="even">
+<td><strong>Technical Objects</strong></td>
+<td><code>{DomainConcept}{TechnicalSuffix}</code></td>
+<td><code>UserRepository</code>, <code>PaymentGateway</code>, <code>DataValidator</code>, <code>FileExporter</code>, <code>CacheManager</code></td>
+<td>Infrastructure components, services, utilities</td>
+<td>Suffix should indicate the technical role (Repository, Gateway, Validator)</td>
+</tr>
+<tr class="odd">
+<td><strong>Collection Objects</strong></td>
+<td><code>{ElementName}{CollectionType}</code></td>
+<td><code>UserList</code>, <code>OrderCollection</code>, <code>ProductSet</code>, <code>ItemMap</code>, <code>EventQueue</code></td>
+<td>Collections that organize multiple elements</td>
+<td>Alternative: <code>{ElementName}s</code> for simple lists</td>
+</tr>
+<tr class="even">
+<td><strong>Abstract Interfaces</strong></td>
+<td><code>I{InterfaceName}</code> or <code>{Concept}Base</code></td>
+<td><code>IUserService</code>, <code>UserRepositoryBase</code>, <code>PaymentProcessorAbstract</code></td>
+<td>Interfaces and abstract base classes</td>
+<td>Follow language conventions (C# uses I prefix, other languages use Base suffix)</td>
+</tr>
+<tr class="odd">
+<td><strong>Factory/Builder Objects</strong></td>
+<td><code>{TargetType}{Factory|Builder}</code></td>
+<td><code>UserFactory</code>, <code>OrderBuilder</code>, <code>PaymentProcessorBuilder</code></td>
+<td>Objects that create or construct other objects</td>
+<td>Distinguish between Factory (creation) and Builder (construction with steps)</td>
+</tr>
+<tr class="even">
+<td><strong>Configuration Objects</strong></td>
+<td><code>{TargetType}{Config|Settings}</code></td>
+<td><code>DatabaseConfig</code>, <code>PaymentSettings</code>, <code>EmailConfig</code></td>
+<td>Objects that hold configuration parameters</td>
+<td>Use <code>Config</code> for technical settings, <code>Settings</code> for user-facing configuration</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="action-naming-templates" class="level4" data-number="6.1.5.2">
+<h4 data-number="6.1.5.2" class="anchored" data-anchor-id="action-naming-templates"><span class="header-section-number">6.1.5.2</span> Action Naming Templates</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action Type</th>
+<th>Verb Category</th>
+<th>Naming Pattern</th>
+<th>Examples</th>
+<th>Use Cases</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Command Actions</strong></td>
+<td><strong>Create</strong></td>
+<td><code>create{Target}()</code>, <code>add{Element}()</code>, <code>register{Entity}()</code></td>
+<td><code>createUser()</code>, <code>addToCart()</code>, <code>registerAccount()</code></td>
+<td>Creating new entities or adding elements</td>
+<td>Ensure validation happens before creation</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><strong>Update</strong></td>
+<td><code>update{Target}()</code>, <code>modify{Target}()</code>, <code>change{Attribute}()</code></td>
+<td><code>updateProfile()</code>, <code>modifyOrder()</code>, <code>changePassword()</code></td>
+<td>Modifying existing entities</td>
+<td>Consider <code>patch</code> for partial updates</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><strong>Delete</strong></td>
+<td><code>delete{Target}()</code>, <code>remove{Element}()</code>, <code>archive{Target}()</code></td>
+<td><code>deleteAccount()</code>, <code>removeFromCart()</code>, <code>archiveRecord()</code></td>
+<td>Removing entities or elements</td>
+<td>Distinguish between permanent delete and soft delete (archive)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><strong>Process</strong></td>
+<td><code>process{Target}()</code>, <code>execute{Operation}()</code>, <code>perform{Action}()</code></td>
+<td><code>processPayment()</code>, <code>executeQuery()</code>, <code>performBackup()</code></td>
+<td>Executing complex operations or workflows</td>
+<td>Use when the action involves multiple steps</td>
+</tr>
+<tr class="odd">
+<td><strong>Query Actions</strong></td>
+<td><strong>Get</strong></td>
+<td><code>get{Target}()</code>, <code>get{Target}By{Criteria}()</code></td>
+<td><code>getUser()</code>, <code>getOrderById()</code>, <code>getOrdersByDate()</code></td>
+<td>Simple retrieval of single or multiple entities</td>
+<td>Use <code>find</code> when entity might not exist</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><strong>Find</strong></td>
+<td><code>find{Target}()</code>, <code>find{Target}By{Criteria}()</code></td>
+<td><code>findUser()</code>, <code>findActiveOrders()</code></td>
+<td>Searching for entities with possibility of null result</td>
+<td>Clearer than <code>get</code> when result is optional</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><strong>Search</strong></td>
+<td><code>search{Target}()</code>, <code>search{Target}By{Criteria}()</code></td>
+<td><code>searchProducts()</code>, <code>searchUsersByName()</code></td>
+<td>Complex searches across multiple criteria</td>
+<td>Implies broader search than <code>find</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><strong>List</strong></td>
+<td><code>list{Target}()</code>, <code>list{Target}By{Criteria}()</code></td>
+<td><code>listUsers()</code>, <code>listActiveOrders()</code></td>
+<td>Returning collections or paginated results</td>
+<td>Use when returning multiple entities</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><strong>Calculate</strong></td>
+<td><code>calculate{Metric}()</code>, <code>compute{Result}()</code></td>
+<td><code>calculateTotal()</code>, <code>computeTax()</code></td>
+<td>Performing computations or calculations</td>
+<td>Distinguish from retrieval operations</td>
+</tr>
+<tr class="even">
+<td><strong>Boolean Actions</strong></td>
+<td><strong>Is Prefix</strong></td>
+<td><code>is{Condition}()</code>, <code>is{Adjective}()</code></td>
+<td><code>isValid()</code>, <code>isActive()</code>, <code>isAuthenticated()</code></td>
+<td>Testing conditions or properties</td>
+<td>Should return boolean values</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><strong>Has Prefix</strong></td>
+<td><code>has{Property}()</code>, <code>has{Attribute}()</code></td>
+<td><code>hasPermission()</code>, <code>hasItems()</code>, <code>hasChanges()</code></td>
+<td>Checking for possession or existence</td>
+<td>Use for ownership or containment checks</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><strong>Can/Should</strong></td>
+<td><code>can{Action}()</code>, <code>should{Action}()</code></td>
+<td><code>canEdit()</code>, <code>canDelete()</code>, <code>shouldNotify()</code></td>
+<td>Checking permissions or recommendations</td>
+<td><code>can</code> for permissions, <code>should</code> for recommendations</td>
+</tr>
+<tr class="odd">
+<td><strong>Conversion Actions</strong></td>
+<td><strong>To Prefix</strong></td>
+<td><code>to{TargetType}()</code>, <code>to{TargetType}Format()</code></td>
+<td><code>toString()</code>, <code>toJson()</code>, <code>toDTO()</code></td>
+<td>Converting to different types or formats</td>
+<td>Common in data transformation layers</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><strong>Convert</strong></td>
+<td><code>convertTo{TargetType}()</code>, <code>convert{Source}To{Target}()</code></td>
+<td><code>convertToCurrency()</code>, <code>convertDateToString()</code></td>
+<td>Explicit conversion operations</td>
+<td>Use when conversion might involve validation</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><strong>Map</strong></td>
+<td><code>mapTo{TargetType}()</code>, <code>map{Source}To{Target}()</code></td>
+<td><code>mapToView()</code>, <code>mapEntityToDTO()</code></td>
+<td>Mapping between different models</td>
+<td>Common in DTO/Entity transformations</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="state-naming-templates" class="level4" data-number="6.1.5.3">
+<h4 data-number="6.1.5.3" class="anchored" data-anchor-id="state-naming-templates"><span class="header-section-number">6.1.5.3</span> State Naming Templates</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>State Type</th>
+<th>Naming Pattern</th>
+<th>Examples</th>
+<th>Use Cases</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Boolean States</strong></td>
+<td><code>is{StateAdjective}</code>, <code>is{StateNoun}</code></td>
+<td><code>isActive</code>, <code>isDeleted</code>, <code>isVisible</code>, <code>isVerified</code></td>
+<td>Binary true/false conditions</td>
+<td>Use <code>is</code> for adjectives, avoid negation (<code>isNotActive</code>)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>has{PropertyNoun}</code>, <code>has{AttributeNoun}</code></td>
+<td><code>hasPermission</code>, <code>hasItems</code>, <code>hasChanges</code>, <code>hasAccess</code></td>
+<td>Possession or existence checks</td>
+<td>Use when checking for containment or ownership</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>can{ActionVerb}</code>, <code>could{ActionVerb}</code></td>
+<td><code>canEdit</code>, <code>canDelete</code>, <code>canPublish</code></td>
+<td>Capability or permission checks</td>
+<td>Use for permission-based conditions</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>should{ActionVerb}</code>, <code>would{ActionVerb}</code></td>
+<td><code>shouldNotify</code>, <code>shouldArchive</code></td>
+<td>Recommendation conditions</td>
+<td>Use for advisory conditions</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>must{Condition}</code>, <code>requires{Condition}</code></td>
+<td><code>mustValidate</code>, <code>requiresApproval</code></td>
+<td>Mandatory conditions</td>
+<td>Use for requirements or constraints</td>
+</tr>
+<tr class="even">
+<td><strong>Current State</strong></td>
+<td><code>current{StateNoun}</code></td>
+<td><code>currentStatus</code>, <code>currentVersion</code>, <code>currentUser</code>, <code>currentSession</code></td>
+<td>Present condition or value</td>
+<td>Avoid <code>current</code> when the default is already current</td>
+</tr>
+<tr class="odd">
+<td><strong>Temporal States</strong></td>
+<td><code>{Previous|Next|Last}{StateNoun}</code></td>
+<td><code>previousStatus</code>, <code>nextVersion</code>, <code>lastLogin</code>, <code>nextScheduledTime</code></td>
+<td>Time-based state transitions</td>
+<td>Use clear temporal indicators</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>{Event}Timestamp</code>, <code>{Event}Time</code></td>
+<td><code>lastLoginTimestamp</code>, <code>createdTime</code>, <code>expiryDate</code></td>
+<td>Event timing information</td>
+<td>Distinguish between timestamp (exact) and time (relative)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>{Process}Duration</code>, <code>{Activity}Time</code></td>
+<td><code>processingDuration</code>, <code>executionTime</code>, <code>responseTime</code></td>
+<td>Time measurements</td>
+<td>Use appropriate time unit in the name if needed</td>
+</tr>
+<tr class="even">
+<td><strong>Numerical States</strong></td>
+<td><code>{Property}Count</code>, <code>{Property}Total</code></td>
+<td><code>retryCount</code>, <code>itemTotal</code>, <code>userCount</code></td>
+<td>Counters and totals</td>
+<td>Use <code>count</code> for individual items, <code>total</code> for sums</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>{Property}Index</code>, <code>{Property}Position</code></td>
+<td><code>pageIndex</code>, <code>cursorPosition</code>, <code>itemIndex</code></td>
+<td>Positional information</td>
+<td>Use zero-based or one-based naming consistently</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>{Property}Amount</code>, <code>{Property}Level</code></td>
+<td><code>balanceAmount</code>, <code>priorityLevel</code>, <code>severityLevel</code></td>
+<td>Measurements and levels</td>
+<td>Include units in name when important (<code>balanceInUSD</code>)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>{Property}Ratio</code>, <code>{Property}Percentage</code></td>
+<td><code>completionRatio</code>, <code>successPercentage</code>, <code>fillLevel</code></td>
+<td>Ratios and percentages</td>
+<td>Make clear whether value is decimal (0-1) or percentage (0-100)</td>
+</tr>
+<tr class="even">
+<td><strong>Enumeration States</strong></td>
+<td><code>{Status}.{StateValue}</code></td>
+<td><code>OrderStatus.PENDING</code>, <code>UserStatus.ACTIVE</code>, <code>PaymentStatus.FAILED</code></td>
+<td>Discrete state values</td>
+<td>Use domain-relevant terms, avoid numbers like <code>STATUS_1</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>{Source}To{Target}State</code></td>
+<td><code>PendingToActiveState</code>, <code>DraftToPublishedState</code></td>
+<td>State transition tracking</td>
+<td>Useful for workflow and state machine implementations</td>
+</tr>
+<tr class="even">
+<td><strong>Composite States</strong></td>
+<td><code>{Category}{Information|Details|Profile}</code></td>
+<td><code>shippingAddress</code>, <code>billingProfile</code>, <code>contactInformation</code></td>
+<td>Grouped related attributes</td>
+<td>Use descriptive category to indicate what information is grouped</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>{Category}{Details|Data|Config}</code></td>
+<td><code>paymentDetails</code>, <code>userPreferences</code>, <code>systemConfig</code></td>
+<td>Complex data structures</td>
+<td>Choose suffix that best describes the complexity level</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="special-naming-patterns" class="level4" data-number="6.1.5.4">
+<h4 data-number="6.1.5.4" class="anchored" data-anchor-id="special-naming-patterns"><span class="header-section-number">6.1.5.4</span> Special Naming Patterns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pattern Type</th>
+<th>Naming Pattern</th>
+<th>Examples</th>
+<th>Use Cases</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Event Objects</strong></td>
+<td><code>{Event}{Event|Occurred|Happened}</code></td>
+<td><code>UserCreatedEvent</code>, <code>PaymentFailedEvent</code>, <code>OrderShippedEvent</code></td>
+<td>Domain events in event-driven architectures</td>
+<td>Use past tense for completed events</td>
+</tr>
+<tr class="even">
+<td><strong>Exception Objects</strong></td>
+<td><code>{Condition}{Exception|Error}</code></td>
+<td><code>InvalidInputException</code>, <code>PaymentFailedException</code>, <code>AuthenticationError</code></td>
+<td>Error handling and exceptional conditions</td>
+<td>Distinguish between <code>Exception</code> (recoverable) and <code>Error</code> (fatal)</td>
+</tr>
+<tr class="odd">
+<td><strong>Test Objects</strong></td>
+<td><code>{Target}{Test|TestSuite|TestFixture}</code></td>
+<td><code>UserServiceTest</code>, <code>PaymentProcessorTestSuite</code>, <code>UserRepositoryTestFixture</code></td>
+<td>Testing infrastructure</td>
+<td>Use <code>Test</code> for single tests, <code>TestSuite</code> for groups, <code>TestFixture</code> for setup</td>
+</tr>
+<tr class="even">
+<td><strong>Helper/Utility Objects</strong></td>
+<td><code>{Domain}{Helper|Utility|Utils}</code></td>
+<td><code>StringHelper</code>, <code>DateUtility</code>, <code>MathUtils</code></td>
+<td>Static utility methods and helpers</td>
+<td>Prefer specific functionality over generic utilities</td>
+</tr>
+<tr class="odd">
+<td><strong>Constants</strong></td>
+<td><code>{CONCEPT}_CONSTANT</code> (UPPERCASE)</td>
+<td><code>MAX_RETRY_COUNT</code>, <code>DEFAULT_TIMEOUT</code>, <code>API_VERSION</code></td>
+<td>Configuration constants and magic numbers</td>
+<td>Use meaningful names, avoid single letters</td>
+</tr>
+<tr class="even">
+<td><strong>Delegate/Callback Objects</strong></td>
+<td><code>{Target}{Delegate|Handler|Callback}</code></td>
+<td><code>PaymentDelegate</code>, <code>EventHandler</code>, <code>ValidationCallback</code></td>
+<td>Callback and delegate objects</td>
+<td>Use <code>Handler</code> for event processing, <code>Delegate</code> for delegation</td>
+</tr>
+<tr class="odd">
+<td><strong>Middleware Objects</strong></td>
+<td><code>{Process}{Middleware|Interceptor}</code></td>
+<td><code>AuthenticationMiddleware</code>, <code>LoggingInterceptor</code></td>
+<td>Pipeline processing components</td>
+<td>Distinguish between middleware (global) and interceptor (specific)</td>
+</tr>
+<tr class="even">
+<td><strong>Adapter Objects</strong></td>
+<td><code>{Target}Adapter</code>, <code>{Source}To{Target}Adapter</code></td>
+<td><code>DatabaseAdapter</code>, <code>XmlToJsonAdapter</code></td>
+<td>Compatibility layer objects</td>
+<td>Use when bridging incompatible interfaces</td>
+</tr>
+<tr class="odd">
+<td><strong>Wrapper Objects</strong></td>
+<td><code>{Target}Wrapper</code>, <code>{Target}Proxy</code></td>
+<td><code>ResponseWrapper</code>, <code>ServiceProxy</code></td>
+<td>Wrapper and proxy objects</td>
+<td>Distinguish wrapper (adds functionality) from proxy (controls access)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="naming-decision-tree" class="level4" data-number="6.1.5.5">
+<h4 data-number="6.1.5.5" class="anchored" data-anchor-id="naming-decision-tree"><span class="header-section-number">6.1.5.5</span> Naming Decision Tree</h4>
+<p>When naming, follow this systematic decision process:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>Decision Question</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>Category Classification</strong></td>
+<td>Determine: Is this an object, action, or state?</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>Type Determination</strong></td>
+<td>Identify the specific type within the category (e.g., entity vs.&nbsp;service, command vs.&nbsp;query)</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>Pattern Selection</strong></td>
+<td>Apply the appropriate naming pattern from the templates above</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>Consistency Check</strong></td>
+<td>Verify it matches existing naming conventions in the codebase</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong>Clarity Verification</strong></td>
+<td>Ensure the meaning is immediately obvious without documentation</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="naming-best-practices-summary" class="level4" data-number="6.1.5.6">
+<h4 data-number="6.1.5.6" class="anchored" data-anchor-id="naming-best-practices-summary"><span class="header-section-number">6.1.5.6</span> Naming Best Practices Summary</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Principle</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Be Specific</strong></td>
+<td>Avoid generic terms, use domain-specific language</td>
+<td><code>Transaction</code> vs <code>Data</code></td>
+</tr>
+<tr class="even">
+<td><strong>Be Consistent</strong></td>
+<td>Use the same terminology for the same concept</td>
+<td>Always use <code>create</code> vs.&nbsp;mixing <code>create</code>, <code>make</code>, <code>build</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Be Verbose When Needed</strong></td>
+<td>Longer, clearer names beat short, ambiguous ones</td>
+<td><code>calculateOrderTotal</code> vs.&nbsp;<code>calc</code></td>
+</tr>
+<tr class="even">
+<td><strong>Avoid Abbreviations</strong></td>
+<td>Only use industry-standard abbreviations</td>
+<td><code>URL</code>, <code>ID</code> are acceptable; <code>usr</code>, <code>pwd</code> are not</td>
+</tr>
+<tr class="odd">
+<td><strong>Use Positive Phrasing</strong></td>
+<td>Avoid negation when possible</td>
+<td><code>isValid</code> vs.&nbsp;<code>isNotInvalid</code></td>
+</tr>
+<tr class="even">
+<td><strong>Follow Language Conventions</strong></td>
+<td>Respect the naming conventions of your programming language</td>
+<td>CamelCase for Java, snake_case for Python</td>
+</tr>
+</tbody>
+</table>
+<p>This comprehensive template library provides patterns for virtually every naming scenario in software development. By applying these patterns consistently, teams can create code that is self-documenting, maintainable, and professional.</p>
 <p>Answer these questions:</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Can you classify every identifier as object, action, or state?</label></li>
@@ -716,57 +1039,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><label><input type="checkbox">Is the same terminology used consistently across the entire codebase?</label></li>
 </ul>
 <p>If you answer “no” to any of these questions, your naming would benefit from applying the object-action-state framework systematically.</p>
-<hr>
-</section>
-<section id="naming-template-library" class="level3" data-number="6.1.5">
-<h3 data-number="6.1.5" class="anchored" data-anchor-id="naming-template-library"><span class="header-section-number">6.1.5</span> Naming Template Library</h3>
-<p>The following templates provide detailed patterns for naming different types of code elements based on the object-action-state philosophy.</p>
-<section id="object-naming-templates" class="level4" data-number="6.1.5.1">
-<h4 data-number="6.1.5.1" class="anchored" data-anchor-id="object-naming-templates"><span class="header-section-number">6.1.5.1</span> Object Naming Templates</h4>
-<p><strong>Descriptive Objects (Domain Concepts)</strong> - Pattern: <code>{DomainConcept}{OptionalModifier}</code> - Examples: <code>ActiveUser</code>, <code>PendingOrder</code>, <code>ArchivedDocument</code>, <code>PremiumCustomer</code>, <code>VerifiedEmail</code></p>
-<p><strong>Technical Objects (Infrastructure)</strong> - Pattern: <code>{DomainConcept}{TechnicalSuffix}</code> - Examples: <code>UserRepository</code>, <code>PaymentGateway</code>, <code>DataValidator</code>, <code>FileExporter</code>, <code>CacheManager</code></p>
-<p><strong>Collection Objects</strong> - Pattern: <code>{ElementName}{CollectionType}</code> - Examples: <code>UserList</code>, <code>OrderCollection</code>, <code>ProductSet</code>, <code>ItemMap</code>, <code>EventQueue</code> - Alternative: <code>{ElementName}s</code> (e.g., <code>Users</code>, <code>Orders</code>, <code>Products</code>)</p>
-<p><strong>Abstract Interfaces and Base Classes</strong> - Pattern: <code>I{InterfaceName}</code> or <code>{Concept}Base</code> or <code>{Concept}Abstract</code> - Examples: <code>IUserService</code>, <code>UserRepositoryBase</code>, <code>PaymentProcessorAbstract</code></p>
-<p><strong>Factory and Builder Objects</strong> - Pattern: <code>{TargetType}{Factory|Builder}</code> - Examples: <code>UserFactory</code>, <code>OrderBuilder</code>, <code>PaymentProcessorBuilder</code>, <code>SessionFactory</code></p>
-<p><strong>Configuration Objects</strong> - Pattern: <code>{TargetType}Config</code> or <code>{TargetType}Settings</code> - Examples: <code>DatabaseConfig</code>, <code>PaymentSettings</code>, <code>EmailConfig</code>, <code>ApplicationSettings</code></p>
-</section>
-<section id="action-naming-templates" class="level4" data-number="6.1.5.2">
-<h4 data-number="6.1.5.2" class="anchored" data-anchor-id="action-naming-templates"><span class="header-section-number">6.1.5.2</span> Action Naming Templates</h4>
-<p><strong>Command Actions (State Changes)</strong> - Create: <code>create{Target}()</code>, <code>add{Element}()</code>, <code>register{Entity}()</code> - Update: <code>update{Target}()</code>, <code>modify{Target}()</code>, <code>change{Attribute}()</code> - Delete: <code>delete{Target}()</code>, <code>remove{Element}()</code>, <code>archive{Target}()</code> - Process: <code>process{Target}()</code>, <code>execute{Operation}()</code>, <code>perform{Action}()</code> - Examples: <code>createUser()</code>, <code>updateProfile()</code>, <code>deleteAccount()</code>, <code>archiveRecord()</code>, <code>processPayment()</code></p>
-<p><strong>Query Actions (Information Retrieval)</strong> - Simple Get: <code>get{Target}()</code>, <code>get{Target}By{Criteria}()</code> - Find: <code>find{Target}()</code>, <code>find{Target}By{Criteria}()</code> - Search: <code>search{Target}()</code>, <code>search{Target}By{Criteria}()</code> - List: <code>list{Target}()</code>, <code>list{Target}By{Criteria}()</code> - Fetch: <code>fetch{Target}()</code>, <code>fetch{Target}From{Source}()</code> - Calculate: <code>calculate{Metric}()</code>, <code>compute{Result}()</code> - Validate: <code>validate{Input}()</code>, <code>verify{Condition}()</code> - Examples: <code>getUserById()</code>, <code>findOrdersByDate()</code>, <code>searchProductsByName()</code>, <code>listActiveUsers()</code>, <code>calculateTotal()</code></p>
-<p><strong>Boolean Actions (Condition Testing)</strong> - Is Prefix: <code>is{Condition}()</code>, <code>is{Adjective}()</code> - Has Prefix: <code>has{Property}()</code>, <code>has{Attribute}()</code> - Can Prefix: <code>can{Action}()</code>, <code>should{Action}()</code> - Must Prefix: <code>must{Condition}()</code>, <code>requires{Condition}()</code> - Exists: <code>exists{Target}()</code>, <code>contains{Element}()</code> - Examples: <code>isValid()</code>, <code>hasPermission()</code>, <code>canEdit()</code>, <code>isAuthenticated()</code>, <code>exists()</code></p>
-<p><strong>Conversion Actions (Type Transformation)</strong> - To Prefix: <code>to{TargetType}()</code>, <code>to{TargetType}Format()</code> - Convert: <code>convertTo{TargetType}()</code>, <code>convert{Source}To{Target}()</code> - Map: <code>mapTo{TargetType}()</code>, <code>map{Source}To{Target}()</code> - Serialize: <code>serialize()</code>, <code>deserialize()</code>, <code>to{Format}()</code> - Parse: <code>parse{Source}()</code>, <code>parse{Source}To{Target}()</code> - Examples: <code>toDTO()</code>, <code>toJson()</code>, <code>convertToCurrency()</code>, <code>mapToView()</code>, <code>serialize()</code></p>
-</section>
-<section id="state-naming-templates" class="level4" data-number="6.1.5.3">
-<h4 data-number="6.1.5.3" class="anchored" data-anchor-id="state-naming-templates"><span class="header-section-number">6.1.5.3</span> State Naming Templates</h4>
-<p><strong>Boolean States (True/False Conditions)</strong> - Is Prefix: <code>is{StateAdjective}</code>, <code>is{StateNoun}</code> - Has Prefix: <code>has{PropertyNoun}</code>, <code>has{AttributeNoun}</code> - Can Prefix: <code>can{ActionVerb}</code>, <code>could{ActionVerb}</code> - Should Prefix: <code>should{ActionVerb}</code>, <code>would{ActionVerb}</code> - Must Prefix: <code>must{Condition}</code>, <code>requires{Condition}</code> - Examples: <code>isActive</code>, <code>isDeleted</code>, <code>hasPermission</code>, <code>canEdit</code>, <code>isRequired</code></p>
-<p><strong>Current State (Present Condition)</strong> - Pattern: <code>current{StateNoun}</code> - Examples: <code>currentStatus</code>, <code>currentVersion</code>, <code>currentUser</code>, <code>currentLocation</code>, <code>currentSession</code></p>
-<p><strong>Previous/Next State</strong> - Pattern: <code>{Previous|Next|Last}{StateNoun}</code> - Examples: <code>previousStatus</code>, <code>nextVersion</code>, <code>lastLogin</code>, <code>nextScheduledTime</code></p>
-<p><strong>State Transitions</strong> - Pattern: <code>{Source}To{Target}State</code> or <code>{TransitionType}State</code> - Examples: <code>PendingToActiveState</code>, <code>ArchivedState</code>, <code>TransitioningState</code>, <code>FinalState</code></p>
-<p><strong>Numerical States (Counters and Measurements)</strong> - Count: <code>{Property}Count</code>, <code>{Property}Total</code> - Index: <code>{Property}Index</code>, <code>{Property}Position</code> - Amount: <code>{Property}Amount</code>, <code>{Property}Total</code> - Level: <code>{Property}Level</code>, <code>{Property}Degree</code> - Ratio: <code>{Property}Ratio</code>, <code>{Property}Percentage</code> - Examples: <code>retryCount</code>, <code>totalAmount</code>, <code>priorityLevel</code>, <code>completionRatio</code></p>
-<p><strong>Time-Based States</strong> - Timestamp: <code>{Event}Timestamp</code>, <code>{Event}Time</code>, <code>{Event}Date</code> - Duration: <code>{Process}Duration</code>, <code>{Activity}Time</code> - Period: <code>{Event}Period</code>, <code>{TimeSpan}Name</code> - Examples: <code>lastLoginTimestamp</code>, <code>processingDuration</code>, <code>sessionTimeout</code></p>
-<p><strong>Enumeration State Values</strong> - Pattern: <code>{Status}{StateValue}</code> or simply <code>{StateValue}</code> - Examples: <code>OrderStatus.PENDING</code>, <code>OrderStatus.PROCESSING</code>, <code>UserStatus.ACTIVE</code>, <code>PaymentStatus.AUTHORIZED</code></p>
-<p><strong>Composite States (Grouped Attributes)</strong> - Pattern: <code>{Category}{Information|Details|Profile|Config}</code> - Examples: <code>shippingAddress</code>, <code>billingProfile</code>, <code>contactInformation</code>, <code>paymentDetails</code>, <code>userPreferences</code></p>
-</section>
-<section id="special-naming-patterns" class="level4" data-number="6.1.5.4">
-<h4 data-number="6.1.5.4" class="anchored" data-anchor-id="special-naming-patterns"><span class="header-section-number">6.1.5.4</span> Special Naming Patterns</h4>
-<p><strong>Event Objects</strong> - Pattern: <code>{Event}{Event|Occurred|Happened}</code> - Examples: <code>UserCreatedEvent</code>, <code>PaymentFailedEvent</code>, <code>OrderShippedEvent</code></p>
-<p><strong>Exception Objects</strong> - Pattern: <code>{Condition}{Exception|Error}</code> - Examples: <code>InvalidInputException</code>, <code>PaymentFailedException</code>, <code>AuthenticationError</code></p>
-<p><strong>Test Objects</strong> - Pattern: <code>{Target}{Test|TestSuite|TestFixture}</code> - Examples: <code>UserServiceTest</code>, <code>PaymentProcessorTestSuite</code>, <code>UserRepositoryTestFixture</code></p>
-<p><strong>Helper/Utility Objects</strong> - Pattern: <code>{Domain}{Helper|Utility|Utils}</code> - Examples: <code>StringHelper</code>, <code>DateUtility</code>, <code>MathUtils</code></p>
-<p><strong>Constants</strong> - Pattern: <code>{CONCEPT}_CONSTANT</code> (uppercase with underscores) - Examples: <code>MAX_RETRY_COUNT</code>, <code>DEFAULT_TIMEOUT</code>, <code>API_VERSION</code></p>
-</section>
-<section id="naming-decision-tree" class="level4" data-number="6.1.5.5">
-<h4 data-number="6.1.5.5" class="anchored" data-anchor-id="naming-decision-tree"><span class="header-section-number">6.1.5.5</span> Naming Decision Tree</h4>
-<p>When naming, follow this decision process:</p>
-<ol type="1">
-<li><strong>Category Classification</strong>: Is it an object, action, or state?</li>
-<li><strong>Type Determination</strong>: What specific type within the category?</li>
-<li><strong>Pattern Selection</strong>: Apply the appropriate naming pattern</li>
-<li><strong>Consistency Check</strong>: Does it match existing naming in the codebase?</li>
-<li><strong>Clarity Verification</strong>: Is the meaning immediately obvious?</li>
-</ol>
-<p>This template library provides a comprehensive set of patterns that can be applied consistently across your entire codebase, creating a coherent and professional naming system.</p>
 <hr>
 </section>
 </section>
@@ -787,6 +1059,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Immediate Action:</strong></p>
 <p>Choose one module in your project and systematically review all identifiers. Classify each as object, action, or state, and verify that the naming follows the appropriate pattern. Rename any that don’t fit the framework.</p>
 
+
+<!-- -->
 
 </section>
 
@@ -875,6 +1149,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -891,6 +1216,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1203,19 +1535,366 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./chapter-04.html" class="pagination-link" aria-label="Boundaries: From a Pile of Code to a Modular Map">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./chapter-06.html" class="pagination-link" aria-label="Domain Models: From Dictionaries to Entities and Relationships">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Naming: From Temporary Variables to a Domain Language</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>At the deepest level, software is simple. It consists of three fundamental elements:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>**Objects + Actions + States**</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>This triad represents the essence of what software does: it manipulates objects through actions, changing their states over time. Every function, class, and variable in a codebase maps to one of these three concepts.</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>When developers understand this philosophy, naming becomes straightforward:</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Objects** are named with **nouns**: <span class="in">`Transaction`</span>, <span class="in">`Account`</span>, <span class="in">`User`</span>, <span class="in">`Order`</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Actions** are named with **verbs**: <span class="in">`create`</span>, <span class="in">`update`</span>, <span class="in">`validate`</span>, <span class="in">`process`</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**States** are named with **adjectives** or **state nouns**: <span class="in">`active`</span>, <span class="in">`pending`</span>, <span class="in">`complete`</span>, <span class="in">`isDeleted`</span>, <span class="in">`hasPermission`</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>This simple framework eliminates most naming uncertainty. Instead of asking "what should I call this?", developers ask "what does this represent: an object, an action, or a state?"</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>The difference between a practice project and a professional system often begins with this question. Practice projects name things arbitrarily. Professional systems name things intentionally, using the **object-action-state** philosophy as their foundation.</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>This chapter explores how to apply this philosophy systematically to build a complete, coherent naming vocabulary.</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Object-Action-State Philosophy</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>Every piece of software can be understood through this triad. A system processes objects by performing actions that transition their states.</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>Consider an e-commerce application:</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Objects**: <span class="in">`ShoppingCart`</span>, <span class="in">`Product`</span>, <span class="in">`PaymentMethod`</span>, <span class="in">`CustomerProfile`</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Actions**: <span class="in">`addToCart()`</span>, <span class="in">`processPayment()`</span>, <span class="in">`calculateTotal()`</span>, <span class="in">`validateInventory()`</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**States**: <span class="in">`cartEmpty`</span>, <span class="in">`paymentPending`</span>, <span class="in">`inventoryAvailable`</span>, <span class="in">`userAuthenticated`</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>These names are not arbitrary. They directly express what each component represents in the system's domain model.</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>When naming follows this framework, code becomes self-documenting. A developer reading <span class="in">`cart.processPayment()`</span> immediately understands that a cart object (noun) is undergoing a payment process (verb) which will transition the cart's state from something to something else.</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>This clarity comes not from extensive comments or documentation, but from the systematic application of a simple naming philosophy.</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### Object Naming System</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>Objects are the nouns of software. They represent the things that exist within the system's domain: data entities, concepts, and structures that have identity and behavior.</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>Professional systems distinguish between several types of objects, each with its own naming convention.</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>**Entities**</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>Entities are objects that have identity and lifecycle. They represent the core concepts in the domain:</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Customer`</span>, <span class="in">`Order`</span>, <span class="in">`Product`</span>, <span class="in">`Invoice`</span>, <span class="in">`Account`</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Session`</span>, <span class="in">`Transaction`</span>, <span class="in">`Subscription`</span>, <span class="in">`Membership`</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>Entity names should be **singular nouns** that clearly indicate what the object represents. They capture the essence of the domain concept.</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>**Value Objects**</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>Value objects represent values or measurements that don't have independent identity. They are defined by their attributes:</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`EmailAddress`</span>, <span class="in">`Money`</span>, <span class="in">`Address`</span>, <span class="in">`PhoneNumber`</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Color`</span>, <span class="in">`Coordinate`</span>, <span class="in">`Duration`</span>, <span class="in">`Percentage`</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>Value object names describe **what** they represent, emphasizing their value nature rather than their identity.</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>**Services**</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>Services represent operations or capabilities that don't naturally belong to a specific entity:</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`PaymentProcessor`</span>, <span class="in">`EmailService`</span>, <span class="in">`AuthenticationProvider`</span>, <span class="in">`NotificationService`</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`DataValidator`</span>, <span class="in">`FileExporter`</span>, <span class="in">`CacheManager`</span>, <span class="in">`RateLimiter`</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>Service names typically end with capability descriptors like <span class="in">`Processor`</span>, <span class="in">`Service`</span>, <span class="in">`Provider`</span>, or <span class="in">`Manager`</span>, clearly indicating that the object provides functionality rather than representing data.</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>The distinction between these object types is important because it prevents confusion in the codebase. When developers see <span class="in">`EmailAddress`</span>, they immediately understand it's a value object. When they see <span class="in">`EmailService`</span>, they know it provides email functionality.</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>This clarity allows the system's domain language to emerge naturally from the naming choices.</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### Action Naming System</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>Actions are the verbs of software. They represent what the system does: operations, transformations, and behaviors that manipulate objects or transition states.</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>Professional systems classify actions into four distinct categories, each with specific naming patterns.</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>**Command Actions**</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>Command actions perform state changes or side effects. They modify the system:</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`createUser()`</span>, <span class="in">`updateProfile()`</span>, <span class="in">`deleteAccount()`</span>, <span class="in">`archiveRecord()`</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`sendEmail()`</span>, <span class="in">`processPayment()`</span>, <span class="in">`publishArticle()`</span>, <span class="in">`expireSession()`</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>Command names use **strong verbs** that clearly indicate the action being performed. They typically follow the pattern <span class="in">`verbObject()`</span> where the verb describes what happens and the object describes what is affected.</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>**Query Actions**</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>Query actions retrieve information without changing state. They ask questions of the system:</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`getUserById()`</span>, <span class="in">`findOrdersByDate()`</span>, <span class="in">`getAvailableInventory()`</span>, <span class="in">`calculateTotal()`</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`searchProducts()`</span>, <span class="in">`fetchProfile()`</span>, <span class="in">`listSubscriptions()`</span>, <span class="in">`validateCredentials()`</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>Query names use verbs that emphasize retrieval or computation: <span class="in">`get`</span>, <span class="in">`find`</span>, <span class="in">`fetch`</span>, <span class="in">`list`</span>, <span class="in">`search`</span>, <span class="in">`calculate`</span>, <span class="in">`validate`</span>. These names make it clear that the function returns information rather than modifying state.</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>**Boolean Actions**</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>Boolean actions return true/false answers. They test conditions:</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`isValid()`</span>, <span class="in">`hasPermission()`</span>, <span class="in">`canEdit()`</span>, <span class="in">`isAuthenticated()`</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`exists()`</span>, <span class="in">`isEmpty()`</span>, <span class="in">`isComplete()`</span>, <span class="in">`hasAccess()`</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>Boolean action names typically start with <span class="in">`is`</span>, <span class="in">`has`</span>, <span class="in">`can`</span>, or similar interrogative verbs. This naming convention immediately signals that the return value is a boolean, making the code more readable and predictable.</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>**Conversion Actions**</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>Conversion actions transform one type of object into another:</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`toDTO()`</span>, <span class="in">`toEntity()`</span>, <span class="in">`toJson()`</span>, <span class="in">`toString()`</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`convertToCurrency()`</span>, <span class="in">`mapToView()`</span>, <span class="in">`serialize()`</span>, <span class="in">`deserialize()`</span></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>Conversion names use verbs that indicate transformation: <span class="in">`to`</span>, <span class="in">`convert`</span>, <span class="in">`map`</span>, <span class="in">`serialize`</span>, <span class="in">`transform`</span>. They explicitly show the source and destination types, making the conversion process transparent.</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>By categorizing actions this way, developers can immediately understand the nature of any function or method just from its name. This eliminates ambiguity and makes the codebase more predictable and maintainable.</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### State Naming System</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>States are the adjectives and state nouns of software. They represent conditions, phases, and attributes that describe objects or the system as a whole.</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>Professional systems use four main patterns for naming states, depending on the type of condition being represented.</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>**Boolean States**</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>Boolean states represent simple true/false conditions:</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`isActive`</span>, <span class="in">`isDeleted`</span>, <span class="in">`isVisible`</span>, <span class="in">`isPublished`</span></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`hasPermission`</span>, <span class="in">`hasSubscription`</span>, <span class="in">`hasAccess`</span>, <span class="in">`isVerified`</span></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>Boolean state names typically use the <span class="in">`is`</span> or <span class="in">`has`</span> prefix, making the boolean nature immediately obvious. These names are self-documenting: <span class="in">`if (user.isActive)`</span> reads like natural language.</span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>**Enumeration States**</span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>Enumeration states represent distinct phases or categories:</span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`OrderStatus`</span>: <span class="in">`pending`</span>, <span class="in">`processing`</span>, <span class="in">`shipped`</span>, <span class="in">`delivered`</span>, <span class="in">`cancelled`</span></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`UserStatus`</span>: <span class="in">`active`</span>, <span class="in">`inactive`</span>, <span class="in">`suspended`</span>, <span class="in">`deleted`</span></span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`PaymentStatus`</span>: <span class="in">`authorized`</span>, <span class="in">`captured`</span>, <span class="in">`refunded`</span>, <span class="in">`failed`</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>Enumeration names use clear, descriptive terms that represent the possible states. They avoid technical jargon in favor of domain-relevant language: <span class="in">`shipped`</span> rather than <span class="in">`state_3`</span>.</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>**Numerical States**</span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>Numerical states represent measurable quantities or counters:</span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`retryCount`</span>, <span class="in">`remainingAttempts`</span>, <span class="in">`totalAmount`</span>, <span class="in">`balance`</span></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`priorityLevel`</span>, <span class="in">`versionNumber`</span>, <span class="in">`timestamp`</span>, <span class="in">`duration`</span></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>Numerical state names describe what the number represents rather than just calling it <span class="in">`count`</span> or <span class="in">`value`</span>. The name provides context: <span class="in">`retryCount`</span> clearly indicates this counts retries, not something else.</span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>**Composite States**</span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>Composite states combine multiple pieces of information:</span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`shippingAddress`</span>, <span class="in">`billingProfile`</span>, <span class="in">`contactInformation`</span></span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`paymentDetails`</span>, <span class="in">`subscriptionPlan`</span>, <span class="in">`userPreferences`</span></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>Composite state names use noun phrases that group related attributes together. They create natural containers for related data, making the code more organized and the relationships clearer.</span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>When state naming follows these patterns, reading code becomes intuitive. <span class="in">`if (order.status === OrderStatus.shipped)`</span> immediately tells you what you're checking, without needing to look up documentation or decode cryptic state names.</span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practical Guide: Naming Standards and Review</span></span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>Good naming follows from a systematic philosophy. The object-action-state framework provides a foundation for making consistent naming decisions.</span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a><span class="fu">### Naming Framework Application</span></span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>**Step 1: Identify the Category**</span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>For every identifier you create, ask: *Is this an object, an action, or a state?*</span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a><span class="in">``` python</span></span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Analyzing code elements</span></span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>user                    <span class="co"># Object (Entity)</span></span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>processPayment()        <span class="co"># Action (Command)</span></span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>isActive               <span class="co"># State (Boolean)</span></span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>UserStatus            <span class="co"># Object (Enumeration)</span></span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>calculateTotal()       <span class="co"># Action (Query)</span></span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>retryCount            <span class="co"># State (Numerical)</span></span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>**Step 2: Apply the Appropriate Pattern**</span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>**For Objects:** - Use singular nouns - Distinguish between entities, value objects, and services - Choose domain-relevant terms</span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a>**For Actions:** - Use strong verbs - Classify as command, query, boolean, or conversion - Follow the naming convention for the type</span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>**For States:** - Use adjectives or descriptive nouns - Indicate the state type clearly (boolean, enumeration, numerical, composite) - Make the condition explicit</span>
+<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a><span class="fu">### Naming Consistency Checklist</span></span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a>**Object Naming:** - <span class="sc">\[</span> <span class="sc">\]</span> All entities use singular, domain-relevant nouns - <span class="sc">\[</span> <span class="sc">\]</span> Value objects describe their value nature - <span class="sc">\[</span> <span class="sc">\]</span> Services end with capability descriptors (Service, Processor, Manager) - <span class="sc">\[</span> <span class="sc">\]</span> No generic names (data, info, item, thing)</span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a>**Action Naming:** - <span class="sc">\[</span> <span class="sc">\]</span> Commands use strong, descriptive verbs (create, update, delete) - <span class="sc">\[</span> <span class="sc">\]</span> Queries use retrieval verbs (get, find, fetch, list, search) - <span class="sc">\[</span> <span class="sc">\]</span> Boolean actions start with is/has/can - <span class="sc">\[</span> <span class="sc">\]</span> Conversions indicate transformation (to, convert, map)</span>
+<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a>**State Naming:** - <span class="sc">\[</span> <span class="sc">\]</span> Boolean states use is/has prefix - <span class="sc">\[</span> <span class="sc">\]</span> Enumeration states use domain-relevant terms - <span class="sc">\[</span> <span class="sc">\]</span> Numerical states describe what the number represents - <span class="sc">\[</span> <span class="sc">\]</span> Composite states group related attributes</span>
+<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a><span class="fu">### Naming Review Process</span></span>
+<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a>**1. The Three-Second Test**</span>
+<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a>Can you understand what a name represents within three seconds? If not, the name needs improvement.</span>
+<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a>**2. The Object-Action-State Mapping**</span>
+<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a>For each identifier, verify it clearly fits into one of the three categories:</span>
+<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If it's an object: Is it a noun? Does it represent a domain concept?</span>
+<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If it's an action: Is it a verb? Does it indicate what it does?</span>
+<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If it's a state: Is it an adjective or state noun? Does it describe a condition?</span>
+<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>**3. The Consistency Check**</span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a>Are similar concepts named consistently across the codebase? Do you use the same terminology for the same idea everywhere?</span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quick Diagnosis: Is Your Naming Systematic?</span></span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a><span class="fu">### Naming Template Library</span></span>
+<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>The following templates provide detailed patterns for naming different types of code elements based on the object-action-state philosophy. Each template includes the naming pattern, examples, use cases, and important considerations.</span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Object Naming Templates</span></span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Template Type <span class="pp">|</span> Naming Pattern <span class="pp">|</span> Examples <span class="pp">|</span> Use Cases <span class="pp">|</span> Notes <span class="pp">|</span></span>
+<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|----|----|</span></span>
+<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Descriptive Objects** <span class="pp">|</span> <span class="in">`{DomainConcept}{OptionalModifier}`</span> <span class="pp">|</span> <span class="in">`ActiveUser`</span>, <span class="in">`PendingOrder`</span>, <span class="in">`ArchivedDocument`</span>, <span class="in">`PremiumCustomer`</span>, <span class="in">`VerifiedEmail`</span> <span class="pp">|</span> Domain entities with state or quality modifiers <span class="pp">|</span> Use single form, avoid plural unless truly represents multiple entities <span class="pp">|</span></span>
+<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Technical Objects** <span class="pp">|</span> <span class="in">`{DomainConcept}{TechnicalSuffix}`</span> <span class="pp">|</span> <span class="in">`UserRepository`</span>, <span class="in">`PaymentGateway`</span>, <span class="in">`DataValidator`</span>, <span class="in">`FileExporter`</span>, <span class="in">`CacheManager`</span> <span class="pp">|</span> Infrastructure components, services, utilities <span class="pp">|</span> Suffix should indicate the technical role (Repository, Gateway, Validator) <span class="pp">|</span></span>
+<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Collection Objects** <span class="pp">|</span> <span class="in">`{ElementName}{CollectionType}`</span> <span class="pp">|</span> <span class="in">`UserList`</span>, <span class="in">`OrderCollection`</span>, <span class="in">`ProductSet`</span>, <span class="in">`ItemMap`</span>, <span class="in">`EventQueue`</span> <span class="pp">|</span> Collections that organize multiple elements <span class="pp">|</span> Alternative: <span class="in">`{ElementName}s`</span> for simple lists <span class="pp">|</span></span>
+<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Abstract Interfaces** <span class="pp">|</span> <span class="in">`I{InterfaceName}`</span> or <span class="in">`{Concept}Base`</span> <span class="pp">|</span> <span class="in">`IUserService`</span>, <span class="in">`UserRepositoryBase`</span>, <span class="in">`PaymentProcessorAbstract`</span> <span class="pp">|</span> Interfaces and abstract base classes <span class="pp">|</span> Follow language conventions (C# uses I prefix, other languages use Base suffix) <span class="pp">|</span></span>
+<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Factory/Builder Objects** <span class="pp">|</span> <span class="in">`{TargetType}{Factory|Builder}`</span> <span class="pp">|</span> <span class="in">`UserFactory`</span>, <span class="in">`OrderBuilder`</span>, <span class="in">`PaymentProcessorBuilder`</span> <span class="pp">|</span> Objects that create or construct other objects <span class="pp">|</span> Distinguish between Factory (creation) and Builder (construction with steps) <span class="pp">|</span></span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Configuration Objects** <span class="pp">|</span> <span class="in">`{TargetType}{Config|Settings}`</span> <span class="pp">|</span> <span class="in">`DatabaseConfig`</span>, <span class="in">`PaymentSettings`</span>, <span class="in">`EmailConfig`</span> <span class="pp">|</span> Objects that hold configuration parameters <span class="pp">|</span> Use <span class="in">`Config`</span> for technical settings, <span class="in">`Settings`</span> for user-facing configuration <span class="pp">|</span></span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Action Naming Templates</span></span>
+<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Action Type <span class="pp">|</span> Verb Category <span class="pp">|</span> Naming Pattern <span class="pp">|</span> Examples <span class="pp">|</span> Use Cases <span class="pp">|</span> Notes <span class="pp">|</span></span>
+<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|----|----|----|</span></span>
+<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Command Actions** | **Create** <span class="pp">|</span> <span class="in">`create{Target}()`</span>, <span class="in">`add{Element}()`</span>, <span class="in">`register{Entity}()`</span> <span class="pp">|</span> <span class="in">`createUser()`</span>, <span class="in">`addToCart()`</span>, <span class="in">`registerAccount()`</span> <span class="pp">|</span> Creating new entities or adding elements <span class="pp">|</span> Ensure validation happens before creation <span class="pp">|</span></span>
+<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> **Update** <span class="pp">|</span> <span class="in">`update{Target}()`</span>, <span class="in">`modify{Target}()`</span>, <span class="in">`change{Attribute}()`</span> <span class="pp">|</span> <span class="in">`updateProfile()`</span>, <span class="in">`modifyOrder()`</span>, <span class="in">`changePassword()`</span> <span class="pp">|</span> Modifying existing entities <span class="pp">|</span> Consider <span class="in">`patch`</span> for partial updates <span class="pp">|</span></span>
+<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> **Delete** <span class="pp">|</span> <span class="in">`delete{Target}()`</span>, <span class="in">`remove{Element}()`</span>, <span class="in">`archive{Target}()`</span> <span class="pp">|</span> <span class="in">`deleteAccount()`</span>, <span class="in">`removeFromCart()`</span>, <span class="in">`archiveRecord()`</span> <span class="pp">|</span> Removing entities or elements <span class="pp">|</span> Distinguish between permanent delete and soft delete (archive) <span class="pp">|</span></span>
+<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> **Process** <span class="pp">|</span> <span class="in">`process{Target}()`</span>, <span class="in">`execute{Operation}()`</span>, <span class="in">`perform{Action}()`</span> <span class="pp">|</span> <span class="in">`processPayment()`</span>, <span class="in">`executeQuery()`</span>, <span class="in">`performBackup()`</span> <span class="pp">|</span> Executing complex operations or workflows <span class="pp">|</span> Use when the action involves multiple steps <span class="pp">|</span></span>
+<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Query Actions** | **Get** <span class="pp">|</span> <span class="in">`get{Target}()`</span>, <span class="in">`get{Target}By{Criteria}()`</span> <span class="pp">|</span> <span class="in">`getUser()`</span>, <span class="in">`getOrderById()`</span>, <span class="in">`getOrdersByDate()`</span> <span class="pp">|</span> Simple retrieval of single or multiple entities <span class="pp">|</span> Use <span class="in">`find`</span> when entity might not exist <span class="pp">|</span></span>
+<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> **Find** <span class="pp">|</span> <span class="in">`find{Target}()`</span>, <span class="in">`find{Target}By{Criteria}()`</span> <span class="pp">|</span> <span class="in">`findUser()`</span>, <span class="in">`findActiveOrders()`</span> <span class="pp">|</span> Searching for entities with possibility of null result <span class="pp">|</span> Clearer than <span class="in">`get`</span> when result is optional <span class="pp">|</span></span>
+<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> **Search** <span class="pp">|</span> <span class="in">`search{Target}()`</span>, <span class="in">`search{Target}By{Criteria}()`</span> <span class="pp">|</span> <span class="in">`searchProducts()`</span>, <span class="in">`searchUsersByName()`</span> <span class="pp">|</span> Complex searches across multiple criteria <span class="pp">|</span> Implies broader search than <span class="in">`find`</span> <span class="pp">|</span></span>
+<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> **List** <span class="pp">|</span> <span class="in">`list{Target}()`</span>, <span class="in">`list{Target}By{Criteria}()`</span> <span class="pp">|</span> <span class="in">`listUsers()`</span>, <span class="in">`listActiveOrders()`</span> <span class="pp">|</span> Returning collections or paginated results <span class="pp">|</span> Use when returning multiple entities <span class="pp">|</span></span>
+<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> **Calculate** <span class="pp">|</span> <span class="in">`calculate{Metric}()`</span>, <span class="in">`compute{Result}()`</span> <span class="pp">|</span> <span class="in">`calculateTotal()`</span>, <span class="in">`computeTax()`</span> <span class="pp">|</span> Performing computations or calculations <span class="pp">|</span> Distinguish from retrieval operations <span class="pp">|</span></span>
+<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Boolean Actions** | **Is Prefix** <span class="pp">|</span> <span class="in">`is{Condition}()`</span>, <span class="in">`is{Adjective}()`</span> <span class="pp">|</span> <span class="in">`isValid()`</span>, <span class="in">`isActive()`</span>, <span class="in">`isAuthenticated()`</span> <span class="pp">|</span> Testing conditions or properties <span class="pp">|</span> Should return boolean values <span class="pp">|</span></span>
+<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> **Has Prefix** <span class="pp">|</span> <span class="in">`has{Property}()`</span>, <span class="in">`has{Attribute}()`</span> <span class="pp">|</span> <span class="in">`hasPermission()`</span>, <span class="in">`hasItems()`</span>, <span class="in">`hasChanges()`</span> <span class="pp">|</span> Checking for possession or existence <span class="pp">|</span> Use for ownership or containment checks <span class="pp">|</span></span>
+<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> **Can/Should** <span class="pp">|</span> <span class="in">`can{Action}()`</span>, <span class="in">`should{Action}()`</span> <span class="pp">|</span> <span class="in">`canEdit()`</span>, <span class="in">`canDelete()`</span>, <span class="in">`shouldNotify()`</span> <span class="pp">|</span> Checking permissions or recommendations <span class="pp">|</span> <span class="in">`can`</span> for permissions, <span class="in">`should`</span> for recommendations <span class="pp">|</span></span>
+<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Conversion Actions** | **To Prefix** <span class="pp">|</span> <span class="in">`to{TargetType}()`</span>, <span class="in">`to{TargetType}Format()`</span> <span class="pp">|</span> <span class="in">`toString()`</span>, <span class="in">`toJson()`</span>, <span class="in">`toDTO()`</span> <span class="pp">|</span> Converting to different types or formats <span class="pp">|</span> Common in data transformation layers <span class="pp">|</span></span>
+<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> **Convert** <span class="pp">|</span> <span class="in">`convertTo{TargetType}()`</span>, <span class="in">`convert{Source}To{Target}()`</span> <span class="pp">|</span> <span class="in">`convertToCurrency()`</span>, <span class="in">`convertDateToString()`</span> <span class="pp">|</span> Explicit conversion operations <span class="pp">|</span> Use when conversion might involve validation <span class="pp">|</span></span>
+<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> **Map** <span class="pp">|</span> <span class="in">`mapTo{TargetType}()`</span>, <span class="in">`map{Source}To{Target}()`</span> <span class="pp">|</span> <span class="in">`mapToView()`</span>, <span class="in">`mapEntityToDTO()`</span> <span class="pp">|</span> Mapping between different models <span class="pp">|</span> Common in DTO/Entity transformations <span class="pp">|</span></span>
+<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a><span class="fu">#### State Naming Templates</span></span>
+<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> State Type <span class="pp">|</span> Naming Pattern <span class="pp">|</span> Examples <span class="pp">|</span> Use Cases <span class="pp">|</span> Notes <span class="pp">|</span></span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|----|----|</span></span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Boolean States** <span class="pp">|</span> <span class="in">`is{StateAdjective}`</span>, <span class="in">`is{StateNoun}`</span> <span class="pp">|</span> <span class="in">`isActive`</span>, <span class="in">`isDeleted`</span>, <span class="in">`isVisible`</span>, <span class="in">`isVerified`</span> <span class="pp">|</span> Binary true/false conditions <span class="pp">|</span> Use <span class="in">`is`</span> for adjectives, avoid negation (<span class="in">`isNotActive`</span>) <span class="pp">|</span></span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="in">`has{PropertyNoun}`</span>, <span class="in">`has{AttributeNoun}`</span> <span class="pp">|</span> <span class="in">`hasPermission`</span>, <span class="in">`hasItems`</span>, <span class="in">`hasChanges`</span>, <span class="in">`hasAccess`</span> <span class="pp">|</span> Possession or existence checks <span class="pp">|</span> Use when checking for containment or ownership <span class="pp">|</span></span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="in">`can{ActionVerb}`</span>, <span class="in">`could{ActionVerb}`</span> <span class="pp">|</span> <span class="in">`canEdit`</span>, <span class="in">`canDelete`</span>, <span class="in">`canPublish`</span> <span class="pp">|</span> Capability or permission checks <span class="pp">|</span> Use for permission-based conditions <span class="pp">|</span></span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="in">`should{ActionVerb}`</span>, <span class="in">`would{ActionVerb}`</span> <span class="pp">|</span> <span class="in">`shouldNotify`</span>, <span class="in">`shouldArchive`</span> <span class="pp">|</span> Recommendation conditions <span class="pp">|</span> Use for advisory conditions <span class="pp">|</span></span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="in">`must{Condition}`</span>, <span class="in">`requires{Condition}`</span> <span class="pp">|</span> <span class="in">`mustValidate`</span>, <span class="in">`requiresApproval`</span> <span class="pp">|</span> Mandatory conditions <span class="pp">|</span> Use for requirements or constraints <span class="pp">|</span></span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Current State** <span class="pp">|</span> <span class="in">`current{StateNoun}`</span> <span class="pp">|</span> <span class="in">`currentStatus`</span>, <span class="in">`currentVersion`</span>, <span class="in">`currentUser`</span>, <span class="in">`currentSession`</span> <span class="pp">|</span> Present condition or value <span class="pp">|</span> Avoid <span class="in">`current`</span> when the default is already current <span class="pp">|</span></span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Temporal States** <span class="pp">|</span> <span class="in">`{Previous|Next|Last}{StateNoun}`</span> <span class="pp">|</span> <span class="in">`previousStatus`</span>, <span class="in">`nextVersion`</span>, <span class="in">`lastLogin`</span>, <span class="in">`nextScheduledTime`</span> <span class="pp">|</span> Time-based state transitions <span class="pp">|</span> Use clear temporal indicators <span class="pp">|</span></span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="in">`{Event}Timestamp`</span>, <span class="in">`{Event}Time`</span> <span class="pp">|</span> <span class="in">`lastLoginTimestamp`</span>, <span class="in">`createdTime`</span>, <span class="in">`expiryDate`</span> <span class="pp">|</span> Event timing information <span class="pp">|</span> Distinguish between timestamp (exact) and time (relative) <span class="pp">|</span></span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="in">`{Process}Duration`</span>, <span class="in">`{Activity}Time`</span> <span class="pp">|</span> <span class="in">`processingDuration`</span>, <span class="in">`executionTime`</span>, <span class="in">`responseTime`</span> <span class="pp">|</span> Time measurements <span class="pp">|</span> Use appropriate time unit in the name if needed <span class="pp">|</span></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Numerical States** <span class="pp">|</span> <span class="in">`{Property}Count`</span>, <span class="in">`{Property}Total`</span> <span class="pp">|</span> <span class="in">`retryCount`</span>, <span class="in">`itemTotal`</span>, <span class="in">`userCount`</span> <span class="pp">|</span> Counters and totals <span class="pp">|</span> Use <span class="in">`count`</span> for individual items, <span class="in">`total`</span> for sums <span class="pp">|</span></span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="in">`{Property}Index`</span>, <span class="in">`{Property}Position`</span> <span class="pp">|</span> <span class="in">`pageIndex`</span>, <span class="in">`cursorPosition`</span>, <span class="in">`itemIndex`</span> <span class="pp">|</span> Positional information <span class="pp">|</span> Use zero-based or one-based naming consistently <span class="pp">|</span></span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="in">`{Property}Amount`</span>, <span class="in">`{Property}Level`</span> <span class="pp">|</span> <span class="in">`balanceAmount`</span>, <span class="in">`priorityLevel`</span>, <span class="in">`severityLevel`</span> <span class="pp">|</span> Measurements and levels <span class="pp">|</span> Include units in name when important (<span class="in">`balanceInUSD`</span>) <span class="pp">|</span></span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="in">`{Property}Ratio`</span>, <span class="in">`{Property}Percentage`</span> <span class="pp">|</span> <span class="in">`completionRatio`</span>, <span class="in">`successPercentage`</span>, <span class="in">`fillLevel`</span> <span class="pp">|</span> Ratios and percentages <span class="pp">|</span> Make clear whether value is decimal (0-1) or percentage (0-100) <span class="pp">|</span></span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Enumeration States** <span class="pp">|</span> <span class="in">`{Status}.{StateValue}`</span> <span class="pp">|</span> <span class="in">`OrderStatus.PENDING`</span>, <span class="in">`UserStatus.ACTIVE`</span>, <span class="in">`PaymentStatus.FAILED`</span> <span class="pp">|</span> Discrete state values <span class="pp">|</span> Use domain-relevant terms, avoid numbers like <span class="in">`STATUS_1`</span> <span class="pp">|</span></span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="in">`{Source}To{Target}State`</span> <span class="pp">|</span> <span class="in">`PendingToActiveState`</span>, <span class="in">`DraftToPublishedState`</span> <span class="pp">|</span> State transition tracking <span class="pp">|</span> Useful for workflow and state machine implementations <span class="pp">|</span></span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Composite States** <span class="pp">|</span> <span class="in">`{Category}{Information|Details|Profile}`</span> <span class="pp">|</span> <span class="in">`shippingAddress`</span>, <span class="in">`billingProfile`</span>, <span class="in">`contactInformation`</span> <span class="pp">|</span> Grouped related attributes <span class="pp">|</span> Use descriptive category to indicate what information is grouped <span class="pp">|</span></span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> <span class="in">`{Category}{Details|Data|Config}`</span> <span class="pp">|</span> <span class="in">`paymentDetails`</span>, <span class="in">`userPreferences`</span>, <span class="in">`systemConfig`</span> <span class="pp">|</span> Complex data structures <span class="pp">|</span> Choose suffix that best describes the complexity level <span class="pp">|</span></span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Special Naming Patterns</span></span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Pattern Type <span class="pp">|</span> Naming Pattern <span class="pp">|</span> Examples <span class="pp">|</span> Use Cases <span class="pp">|</span> Notes <span class="pp">|</span></span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|----|----|</span></span>
+<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Event Objects** <span class="pp">|</span> <span class="in">`{Event}{Event|Occurred|Happened}`</span> <span class="pp">|</span> <span class="in">`UserCreatedEvent`</span>, <span class="in">`PaymentFailedEvent`</span>, <span class="in">`OrderShippedEvent`</span> <span class="pp">|</span> Domain events in event-driven architectures <span class="pp">|</span> Use past tense for completed events <span class="pp">|</span></span>
+<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Exception Objects** <span class="pp">|</span> <span class="in">`{Condition}{Exception|Error}`</span> <span class="pp">|</span> <span class="in">`InvalidInputException`</span>, <span class="in">`PaymentFailedException`</span>, <span class="in">`AuthenticationError`</span> <span class="pp">|</span> Error handling and exceptional conditions <span class="pp">|</span> Distinguish between <span class="in">`Exception`</span> (recoverable) and <span class="in">`Error`</span> (fatal) <span class="pp">|</span></span>
+<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Test Objects** <span class="pp">|</span> <span class="in">`{Target}{Test|TestSuite|TestFixture}`</span> <span class="pp">|</span> <span class="in">`UserServiceTest`</span>, <span class="in">`PaymentProcessorTestSuite`</span>, <span class="in">`UserRepositoryTestFixture`</span> <span class="pp">|</span> Testing infrastructure <span class="pp">|</span> Use <span class="in">`Test`</span> for single tests, <span class="in">`TestSuite`</span> for groups, <span class="in">`TestFixture`</span> for setup <span class="pp">|</span></span>
+<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Helper/Utility Objects** <span class="pp">|</span> <span class="in">`{Domain}{Helper|Utility|Utils}`</span> <span class="pp">|</span> <span class="in">`StringHelper`</span>, <span class="in">`DateUtility`</span>, <span class="in">`MathUtils`</span> <span class="pp">|</span> Static utility methods and helpers <span class="pp">|</span> Prefer specific functionality over generic utilities <span class="pp">|</span></span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Constants** <span class="pp">|</span> <span class="in">`{CONCEPT}_CONSTANT`</span> (UPPERCASE) <span class="pp">|</span> <span class="in">`MAX_RETRY_COUNT`</span>, <span class="in">`DEFAULT_TIMEOUT`</span>, <span class="in">`API_VERSION`</span> <span class="pp">|</span> Configuration constants and magic numbers <span class="pp">|</span> Use meaningful names, avoid single letters <span class="pp">|</span></span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Delegate/Callback Objects** <span class="pp">|</span> <span class="in">`{Target}{Delegate|Handler|Callback}`</span> <span class="pp">|</span> <span class="in">`PaymentDelegate`</span>, <span class="in">`EventHandler`</span>, <span class="in">`ValidationCallback`</span> <span class="pp">|</span> Callback and delegate objects <span class="pp">|</span> Use <span class="in">`Handler`</span> for event processing, <span class="in">`Delegate`</span> for delegation <span class="pp">|</span></span>
+<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Middleware Objects** <span class="pp">|</span> <span class="in">`{Process}{Middleware|Interceptor}`</span> <span class="pp">|</span> <span class="in">`AuthenticationMiddleware`</span>, <span class="in">`LoggingInterceptor`</span> <span class="pp">|</span> Pipeline processing components <span class="pp">|</span> Distinguish between middleware (global) and interceptor (specific) <span class="pp">|</span></span>
+<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Adapter Objects** <span class="pp">|</span> <span class="in">`{Target}Adapter`</span>, <span class="in">`{Source}To{Target}Adapter`</span> <span class="pp">|</span> <span class="in">`DatabaseAdapter`</span>, <span class="in">`XmlToJsonAdapter`</span> <span class="pp">|</span> Compatibility layer objects <span class="pp">|</span> Use when bridging incompatible interfaces <span class="pp">|</span></span>
+<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Wrapper Objects** <span class="pp">|</span> <span class="in">`{Target}Wrapper`</span>, <span class="in">`{Target}Proxy`</span> <span class="pp">|</span> <span class="in">`ResponseWrapper`</span>, <span class="in">`ServiceProxy`</span> <span class="pp">|</span> Wrapper and proxy objects <span class="pp">|</span> Distinguish wrapper (adds functionality) from proxy (controls access) <span class="pp">|</span></span>
+<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Naming Decision Tree</span></span>
+<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a>When naming, follow this systematic decision process:</span>
+<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Step <span class="pp">|</span> Decision Question <span class="pp">|</span> Action <span class="pp">|</span></span>
+<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
+<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> **Category Classification** <span class="pp">|</span> Determine: Is this an object, action, or state? <span class="pp">|</span></span>
+<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> **Type Determination** <span class="pp">|</span> Identify the specific type within the category (e.g., entity vs. service, command vs. query) <span class="pp">|</span></span>
+<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> **Pattern Selection** <span class="pp">|</span> Apply the appropriate naming pattern from the templates above <span class="pp">|</span></span>
+<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4 <span class="pp">|</span> **Consistency Check** <span class="pp">|</span> Verify it matches existing naming conventions in the codebase <span class="pp">|</span></span>
+<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5 <span class="pp">|</span> **Clarity Verification** <span class="pp">|</span> Ensure the meaning is immediately obvious without documentation <span class="pp">|</span></span>
+<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Naming Best Practices Summary</span></span>
+<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Principle <span class="pp">|</span> Description <span class="pp">|</span> Example <span class="pp">|</span></span>
+<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
+<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Be Specific** <span class="pp">|</span> Avoid generic terms, use domain-specific language <span class="pp">|</span> <span class="in">`Transaction`</span> vs <span class="in">`Data`</span> <span class="pp">|</span></span>
+<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Be Consistent** <span class="pp">|</span> Use the same terminology for the same concept <span class="pp">|</span> Always use <span class="in">`create`</span> vs. mixing <span class="in">`create`</span>, <span class="in">`make`</span>, <span class="in">`build`</span> <span class="pp">|</span></span>
+<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Be Verbose When Needed** <span class="pp">|</span> Longer, clearer names beat short, ambiguous ones <span class="pp">|</span> <span class="in">`calculateOrderTotal`</span> vs. <span class="in">`calc`</span> <span class="pp">|</span></span>
+<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Avoid Abbreviations** <span class="pp">|</span> Only use industry-standard abbreviations <span class="pp">|</span> <span class="in">`URL`</span>, <span class="in">`ID`</span> are acceptable; <span class="in">`usr`</span>, <span class="in">`pwd`</span> are not <span class="pp">|</span></span>
+<span id="cb2-321"><a href="#cb2-321" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Use Positive Phrasing** <span class="pp">|</span> Avoid negation when possible <span class="pp">|</span> <span class="in">`isValid`</span> vs. <span class="in">`isNotInvalid`</span> <span class="pp">|</span></span>
+<span id="cb2-322"><a href="#cb2-322" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Follow Language Conventions** <span class="pp">|</span> Respect the naming conventions of your programming language <span class="pp">|</span> CamelCase for Java, snake_case for Python <span class="pp">|</span></span>
+<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a>This comprehensive template library provides patterns for virtually every naming scenario in software development. By applying these patterns consistently, teams can create code that is self-documenting, maintainable, and professional.</span>
+<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a>Answer these questions:</span>
+<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="va">[ ]</span> Can you classify every identifier as object, action, or state?</span>
+<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="va">[ ]</span> Do your object names clearly indicate their type (entity, value object, service)?</span>
+<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="va">[ ]</span> Do your action names follow the appropriate pattern for their type?</span>
+<span id="cb2-331"><a href="#cb2-331" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="va">[ ]</span> Do your state names indicate what kind of state they represent?</span>
+<span id="cb2-332"><a href="#cb2-332" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="va">[ ]</span> Is the same terminology used consistently across the entire codebase?</span>
+<span id="cb2-333"><a href="#cb2-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-334"><a href="#cb2-334" aria-hidden="true" tabindex="-1"></a>If you answer "no" to any of these questions, your naming would benefit from applying the object-action-state framework systematically.</span>
+<span id="cb2-335"><a href="#cb2-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-336"><a href="#cb2-336" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb2-337"><a href="#cb2-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-338"><a href="#cb2-338" aria-hidden="true" tabindex="-1"></a><span class="fu">## Chapter Summary</span></span>
+<span id="cb2-339"><a href="#cb2-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-340"><a href="#cb2-340" aria-hidden="true" tabindex="-1"></a>The object-action-state philosophy provides a systematic foundation for naming in software. Every element in a codebase can be understood as representing an object (noun), an action (verb), or a state (adjective/noun).</span>
+<span id="cb2-341"><a href="#cb2-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-342"><a href="#cb2-342" aria-hidden="true" tabindex="-1"></a>By applying this framework consistently, developers create a coherent domain language that makes code self-documenting and intuitive. Objects are named according to their type (entity, value object, service). Actions are classified by their nature (command, query, boolean, conversion). States are distinguished by their category (boolean, enumeration, numerical, composite).</span>
+<span id="cb2-343"><a href="#cb2-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-344"><a href="#cb2-344" aria-hidden="true" tabindex="-1"></a>This systematic approach eliminates arbitrary naming decisions and creates a vocabulary that reveals the system's structure and intent. The result is code that reads like natural language, where developers can understand relationships and responsibilities directly from the names.</span>
+<span id="cb2-345"><a href="#cb2-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-346"><a href="#cb2-346" aria-hidden="true" tabindex="-1"></a>The transformation from ad-hoc naming to systematic naming is one of the quiet but powerful shifts that distinguish practice projects from professional systems.</span>
+<span id="cb2-347"><a href="#cb2-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-348"><a href="#cb2-348" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb2-349"><a href="#cb2-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-350"><a href="#cb2-350" aria-hidden="true" tabindex="-1"></a>**Practice Suggestions:**</span>
+<span id="cb2-351"><a href="#cb2-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-352"><a href="#cb2-352" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Start with the Classification**: Before naming anything, first determine if it's an object, action, or state.</span>
+<span id="cb2-353"><a href="#cb2-353" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Build a Domain Vocabulary**: Document the core nouns, verbs, and adjectives that define your system's domain.</span>
+<span id="cb2-354"><a href="#cb2-354" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Review for Consistency**: Regularly audit your codebase to ensure the same terminology is used consistently.</span>
+<span id="cb2-355"><a href="#cb2-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-356"><a href="#cb2-356" aria-hidden="true" tabindex="-1"></a>**Immediate Action:**</span>
+<span id="cb2-357"><a href="#cb2-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-358"><a href="#cb2-358" aria-hidden="true" tabindex="-1"></a>Choose one module in your project and systematically review all identifiers. Classify each as object, action, or state, and verify that the naming follows the appropriate pattern. Rename any that don't fit the framework.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
