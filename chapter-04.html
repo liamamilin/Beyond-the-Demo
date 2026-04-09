@@ -470,13 +470,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#dependency-direction" id="toc-dependency-direction" class="nav-link" data-scroll-target="#dependency-direction"><span class="header-section-number">5.0.4</span> Dependency Direction</a></li>
   <li><a href="#the-folder-structure-as-system-topology" id="toc-the-folder-structure-as-system-topology" class="nav-link" data-scroll-target="#the-folder-structure-as-system-topology"><span class="header-section-number">5.0.5</span> The Folder Structure as System Topology</a></li>
   <li><a href="#from-code-to-architecture" id="toc-from-code-to-architecture" class="nav-link" data-scroll-target="#from-code-to-architecture"><span class="header-section-number">5.0.6</span> From Code to Architecture</a></li>
-  <li><a href="#实践指南如何划分边界" id="toc-实践指南如何划分边界" class="nav-link" data-scroll-target="#实践指南如何划分边界"><span class="header-section-number">5.1</span> 实践指南：如何划分边界</a>
+  <li><a href="#practical-guide-how-to-define-boundaries" id="toc-practical-guide-how-to-define-boundaries" class="nav-link" data-scroll-target="#practical-guide-how-to-define-boundaries"><span class="header-section-number">5.1</span> Practical Guide: How to Define Boundaries</a>
   <ul class="collapse">
   <li><a href="#边界划分sop标准操作流程" id="toc-边界划分sop标准操作流程" class="nav-link" data-scroll-target="#边界划分sop标准操作流程"><span class="header-section-number">5.1.1</span> 边界划分SOP（标准操作流程）</a></li>
   <li><a href="#常见边界反模式" id="toc-常见边界反模式" class="nav-link" data-scroll-target="#常见边界反模式"><span class="header-section-number">5.1.2</span> 常见边界反模式</a></li>
   </ul></li>
-  <li><a href="#快速诊断你的项目边界是否清晰" id="toc-快速诊断你的项目边界是否清晰" class="nav-link" data-scroll-target="#快速诊断你的项目边界是否清晰"><span class="header-section-number">5.2</span> 快速诊断：你的项目边界是否清晰？</a></li>
-  <li><a href="#本章总结" id="toc-本章总结" class="nav-link" data-scroll-target="#本章总结"><span class="header-section-number">5.3</span> 本章总结</a></li>
+  <li><a href="#quick-diagnosis-are-your-project-boundaries-clear" id="toc-quick-diagnosis-are-your-project-boundaries-clear" class="nav-link" data-scroll-target="#quick-diagnosis-are-your-project-boundaries-clear"><span class="header-section-number">5.2</span> Quick Diagnosis: Are Your Project Boundaries Clear?</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">5.3</span> Chapter Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -503,13 +503,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/chapter-04.png" class="img-fluid figure-img"></p>
-<figcaption>Boundaries</figcaption>
-</figure>
-</div>
-<p>在前几章中，我们探讨了演示软件与真实软件的根本区别，以及专业软件给人的”成熟感”来自何处。这些成熟信号的背后，往往隐藏着一个更基础的结构性要素：<strong>边界</strong>。</p>
+<p>In the previous chapters, we explored the fundamental differences between demo software and real software, and where the “maturity feeling” of professional software comes from. Behind these maturity signals, there is often a more fundamental structural element: <strong>boundaries</strong>.</p>
 <p>边界是项目从练习走向专业的最早迹象之一。</p>
 <p>在小型实验中，边界几乎不存在。开发者为了快速验证想法，将代码写在哪里方便就放在哪里。一个文件可能同时包含数据定义、业务逻辑、输入处理和输出格式化。函数之间自由调用，职责混乱不清。</p>
 <p>最初，这种方式似乎完全可行。项目规模小，开发者理解整个系统，目标只是让想法运行起来。</p>
@@ -584,8 +578,8 @@ ul.task-list li input[type="checkbox"] {
 <p>一个曾经像脚本集合的项目，现在开始像一个<strong>有地图的系统</strong>。</p>
 <hr>
 </section>
-<section id="实践指南如何划分边界" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="实践指南如何划分边界"><span class="header-section-number">5.1</span> 实践指南：如何划分边界</h2>
+<section id="practical-guide-how-to-define-boundaries" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="practical-guide-how-to-define-boundaries"><span class="header-section-number">5.1</span> Practical Guide: How to Define Boundaries</h2>
 <p>将理论转化为实践需要具体的方法。以下是一个简化的边界划分SOP，可以帮助你将混乱的代码组织成清晰的模块结构。</p>
 <section id="边界划分sop标准操作流程" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="边界划分sop标准操作流程"><span class="header-section-number">5.1.1</span> 边界划分SOP（标准操作流程）</h3>
@@ -630,8 +624,8 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="快速诊断你的项目边界是否清晰" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="快速诊断你的项目边界是否清晰"><span class="header-section-number">5.2</span> 快速诊断：你的项目边界是否清晰？</h2>
+<section id="quick-diagnosis-are-your-project-boundaries-clear" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="quick-diagnosis-are-your-project-boundaries-clear"><span class="header-section-number">5.2</span> Quick Diagnosis: Are Your Project Boundaries Clear?</h2>
 <p>回答以下问题，快速评估你的项目边界状况：</p>
 <ul class="task-list">
 <li><label><input type="checkbox">你能否在30秒内向新开发者解释清楚每个模块的职责？</label></li>
@@ -643,8 +637,8 @@ ul.task-list li input[type="checkbox"] {
 <p>如果你的答案大多是”否”，那么你的项目可能需要重新审视其边界结构。</p>
 <hr>
 </section>
-<section id="本章总结" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="本章总结"><span class="header-section-number">5.3</span> 本章总结</h2>
+<section id="chapter-summary" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">5.3</span> Chapter Summary</h2>
 <p>边界是专业软件的基础。它们将混乱的代码组织成有序的结构，使系统在增长时保持可理解性和可维护性。</p>
 <p>通过定义模块边界、职责边界和依赖方向，我们将代码从一堆指令转变为一个可导航的系统。</p>
 <p>下一章，我们将探讨另一个关键的结构性要素：<strong>命名</strong>。好的命名不仅仅是标签，它是系统的领域语言，直接影响代码的可读性和专业感知。</p>

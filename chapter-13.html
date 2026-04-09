@@ -506,14 +506,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#knowing-when-to-log" id="toc-knowing-when-to-log" class="nav-link" data-scroll-target="#knowing-when-to-log"><span class="header-section-number">14.0.5</span> Knowing When to Log</a></li>
   <li><a href="#knowing-what-to-log" id="toc-knowing-what-to-log" class="nav-link" data-scroll-target="#knowing-what-to-log"><span class="header-section-number">14.0.6</span> Knowing What to Log</a></li>
   <li><a href="#from-opaque-systems-to-observable-systems" id="toc-from-opaque-systems-to-observable-systems" class="nav-link" data-scroll-target="#from-opaque-systems-to-observable-systems"><span class="header-section-number">14.0.7</span> From Opaque Systems to Observable Systems</a></li>
-  <li><a href="#实践指南日志系统实施策略" id="toc-实践指南日志系统实施策略" class="nav-link" data-scroll-target="#实践指南日志系统实施策略"><span class="header-section-number">14.1</span> 实践指南：日志系统实施策略</a>
+  <li><a href="#practical-guide-logging-system-implementation-strategy" id="toc-practical-guide-logging-system-implementation-strategy" class="nav-link" data-scroll-target="#practical-guide-logging-system-implementation-strategy"><span class="header-section-number">14.1</span> Practical Guide: Logging System Implementation Strategy</a>
   <ul class="collapse">
   <li><a href="#日志事件分类" id="toc-日志事件分类" class="nav-link" data-scroll-target="#日志事件分类"><span class="header-section-number">14.1.1</span> 日志事件分类</a></li>
   <li><a href="#日志实施sop" id="toc-日志实施sop" class="nav-link" data-scroll-target="#日志实施sop"><span class="header-section-number">14.1.2</span> 日志实施SOP</a></li>
   <li><a href="#日志最佳实践清单" id="toc-日志最佳实践清单" class="nav-link" data-scroll-target="#日志最佳实践清单"><span class="header-section-number">14.1.3</span> 日志最佳实践清单</a></li>
-  <li><a href="#快速诊断你的日志系统是否健康" id="toc-快速诊断你的日志系统是否健康" class="nav-link" data-scroll-target="#快速诊断你的日志系统是否健康"><span class="header-section-number">14.1.4</span> 快速诊断：你的日志系统是否健康？</a></li>
+  <li><a href="#quick-diagnosis-is-your-logging-system-healthy" id="toc-quick-diagnosis-is-your-logging-system-healthy" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-logging-system-healthy"><span class="header-section-number">14.1.4</span> Quick Diagnosis: Is Your Logging System Healthy?</a></li>
   </ul></li>
-  <li><a href="#本章总结" id="toc-本章总结" class="nav-link" data-scroll-target="#本章总结"><span class="header-section-number">14.2</span> 本章总结</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">14.2</span> Chapter Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -540,12 +540,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/chapter-13.png" class="img-fluid figure-img"></p>
-<figcaption>Logging</figcaption>
-</figure>
-</div>
 <p>When a small script runs on a developer’s machine, understanding what the system is doing is usually straightforward. If something goes wrong, the developer can print a few variables, inspect the code, or rerun the program step by step.</p>
 <p>But once software grows into a real system—running on servers, interacting with databases, handling multiple requests simultaneously—the situation changes dramatically.</p>
 <p>At that point, the developer can no longer observe the system directly. The code may still execute correctly, but its behavior becomes hidden behind layers of infrastructure and time.</p>
@@ -630,8 +624,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Logging and observability therefore represent more than engineering tools. They are foundational elements that allow software to remain understandable even as it grows in scale and complexity.</p>
 <hr>
 </section>
-<section id="实践指南日志系统实施策略" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="实践指南日志系统实施策略"><span class="header-section-number">14.1</span> 实践指南：日志系统实施策略</h2>
+<section id="practical-guide-logging-system-implementation-strategy" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="practical-guide-logging-system-implementation-strategy"><span class="header-section-number">14.1</span> Practical Guide: Logging System Implementation Strategy</h2>
 <p>日志系统是理解生产环境系统行为的关键。以下是一个实用的日志实施框架，帮助你构建可观测的系统。</p>
 <section id="日志事件分类" class="level3" data-number="14.1.1">
 <h3 data-number="14.1.1" class="anchored" data-anchor-id="日志事件分类"><span class="header-section-number">14.1.1</span> 日志事件分类</h3>
@@ -749,8 +743,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>安全性：</strong> - [ ] 避免记录敏感信息（密码、Token、PII） - [ ] 敏感字段使用掩码（如：信用卡号） - [ ] 日志访问有权限控制 - [ ] 日志保留策略符合隐私法规</p>
 <p><strong>性能：</strong> - [ ] 异步日志记录（不阻塞主流程） - [ ] 日志级别可配置（生产环境不记录DEBUG） - [ ] 避免过大的日志消息（&lt; 1KB） - [ ] 批量写入日志（减少IO操作）</p>
 </section>
-<section id="快速诊断你的日志系统是否健康" class="level3" data-number="14.1.4">
-<h3 data-number="14.1.4" class="anchored" data-anchor-id="快速诊断你的日志系统是否健康"><span class="header-section-number">14.1.4</span> 快速诊断：你的日志系统是否健康？</h3>
+<section id="quick-diagnosis-is-your-logging-system-healthy" class="level3" data-number="14.1.4">
+<h3 data-number="14.1.4" class="anchored" data-anchor-id="quick-diagnosis-is-your-logging-system-healthy"><span class="header-section-number">14.1.4</span> Quick Diagnosis: Is Your Logging System Healthy?</h3>
 <p>回答以下问题：</p>
 <ul class="task-list">
 <li><label><input type="checkbox">你能否在5分钟内找到特定请求的完整执行路径？</label></li>
@@ -762,8 +756,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="本章总结" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="本章总结"><span class="header-section-number">14.2</span> 本章总结</h2>
+<section id="chapter-summary" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">14.2</span> Chapter Summary</h2>
 <p>日志和可观测性是理解系统行为的关键工具。结构化日志、链路追踪和智能日志聚合使系统变得透明和可理解。</p>
 <p>良好的日志策略记录关键事件而非所有细节，提供足够的上下文而不泄露敏感信息。这使得开发者能够在系统出错时快速定位问题。</p>
 <p>一个可观测的系统是可信的系统。它不仅能够运行，还能够解释自己的行为。</p>

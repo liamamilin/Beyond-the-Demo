@@ -505,14 +505,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#configuration-profiles" id="toc-configuration-profiles" class="nav-link" data-scroll-target="#configuration-profiles"><span class="header-section-number">13.0.4</span> Configuration Profiles</a></li>
   <li><a href="#the-minimal-environment-model" id="toc-the-minimal-environment-model" class="nav-link" data-scroll-target="#the-minimal-environment-model"><span class="header-section-number">13.0.5</span> The Minimal Environment Model</a></li>
   <li><a href="#from-local-scripts-to-deployable-systems" id="toc-from-local-scripts-to-deployable-systems" class="nav-link" data-scroll-target="#from-local-scripts-to-deployable-systems"><span class="header-section-number">13.0.6</span> From Local Scripts to Deployable Systems</a></li>
-  <li><a href="#实践指南配置管理sop" id="toc-实践指南配置管理sop" class="nav-link" data-scroll-target="#实践指南配置管理sop"><span class="header-section-number">13.1</span> 实践指南：配置管理SOP</a>
+  <li><a href="#practical-guide-configuration-management-sop" id="toc-practical-guide-configuration-management-sop" class="nav-link" data-scroll-target="#practical-guide-configuration-management-sop"><span class="header-section-number">13.1</span> Practical Guide: Configuration Management SOP</a>
   <ul class="collapse">
   <li><a href="#配置项分类" id="toc-配置项分类" class="nav-link" data-scroll-target="#配置项分类"><span class="header-section-number">13.1.1</span> 配置项分类</a></li>
   <li><a href="#配置管理sop" id="toc-配置管理sop" class="nav-link" data-scroll-target="#配置管理sop"><span class="header-section-number">13.1.2</span> 配置管理SOP</a></li>
   <li><a href="#配置安全检查清单" id="toc-配置安全检查清单" class="nav-link" data-scroll-target="#配置安全检查清单"><span class="header-section-number">13.1.3</span> 配置安全检查清单</a></li>
-  <li><a href="#快速诊断你的配置管理是否健康" id="toc-快速诊断你的配置管理是否健康" class="nav-link" data-scroll-target="#快速诊断你的配置管理是否健康"><span class="header-section-number">13.1.4</span> 快速诊断：你的配置管理是否健康？</a></li>
+  <li><a href="#quick-diagnosis-is-your-configuration-management-healthy" id="toc-quick-diagnosis-is-your-configuration-management-healthy" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-configuration-management-healthy"><span class="header-section-number">13.1.4</span> Quick Diagnosis: Is Your Configuration Management Healthy?</a></li>
   </ul></li>
-  <li><a href="#本章总结" id="toc-本章总结" class="nav-link" data-scroll-target="#本章总结"><span class="header-section-number">13.2</span> 本章总结</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">13.2</span> Chapter Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -539,12 +539,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/chapter-12.png" class="img-fluid figure-img"></p>
-<figcaption>Configuration</figcaption>
-</figure>
-</div>
 <p>Many practice projects begin with a simple assumption: the code will run in a single environment controlled entirely by the developer.</p>
 <p>Because of this assumption, important values are often written directly into the code. Database addresses, API keys, file paths, and service endpoints may all appear as fixed constants inside the program.</p>
 <p>At first, this approach seems convenient. Everything needed to run the system exists in one place, and the developer does not need to worry about external configuration.</p>
@@ -620,8 +614,8 @@ The environment used by real users. Stability, performance, and security are pri
 <p>It becomes <strong>deployable</strong>.</p>
 <hr>
 </section>
-<section id="实践指南配置管理sop" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="实践指南配置管理sop"><span class="header-section-number">13.1</span> 实践指南：配置管理SOP</h2>
+<section id="practical-guide-configuration-management-sop" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="practical-guide-configuration-management-sop"><span class="header-section-number">13.1</span> Practical Guide: Configuration Management SOP</h2>
 <p>配置管理是将演示项目转化为可部署系统的关键步骤。以下是一个实用的配置管理框架，帮助你系统化地管理配置。</p>
 <section id="配置项分类" class="level3" data-number="13.1.1">
 <h3 data-number="13.1.1" class="anchored" data-anchor-id="配置项分类"><span class="header-section-number">13.1.1</span> 配置项分类</h3>
@@ -744,8 +738,8 @@ The environment used by real users. Stability, performance, and security are pri
 <p><strong>安全措施：</strong> - [ ] 敏感信息使用环境变量，不写入配置文件 - [ ] <code>.env</code> 文件已添加到 <code>.gitignore</code> - [ ] 提供完整的 <code>.env.example</code> 模板 - [ ] 配置有类型验证和默认值 - [ ] 不同环境有独立配置文件 - [ ] 生产环境配置不在代码库中</p>
 <p><strong>可维护性：</strong> - [ ] 配置文档清晰说明每个配置项的用途 - [ ] 配置变更需要代码审查 - [ ] 配置有版本控制（模板文件） - [ ] 配置错误有清晰的错误消息 - [ ] 支持配置热更新（可选）</p>
 </section>
-<section id="快速诊断你的配置管理是否健康" class="level3" data-number="13.1.4">
-<h3 data-number="13.1.4" class="anchored" data-anchor-id="快速诊断你的配置管理是否健康"><span class="header-section-number">13.1.4</span> 快速诊断：你的配置管理是否健康？</h3>
+<section id="quick-diagnosis-is-your-configuration-management-healthy" class="level3" data-number="13.1.4">
+<h3 data-number="13.1.4" class="anchored" data-anchor-id="quick-diagnosis-is-your-configuration-management-healthy"><span class="header-section-number">13.1.4</span> Quick Diagnosis: Is Your Configuration Management Healthy?</h3>
 <p>回答以下问题：</p>
 <ul class="task-list">
 <li><label><input type="checkbox">你能否在不修改代码的情况下，将系统部署到新环境？</label></li>
@@ -757,8 +751,8 @@ The environment used by real users. Stability, performance, and security are pri
 <hr>
 </section>
 </section>
-<section id="本章总结" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="本章总结"><span class="header-section-number">13.2</span> 本章总结</h2>
+<section id="chapter-summary" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">13.2</span> Chapter Summary</h2>
 <p>配置管理是将演示项目转化为可部署系统的关键步骤。通过将配置与代码分离，我们获得了灵活性、安全性和可维护性。</p>
 <p>环境变量适合敏感信息，配置文件适合复杂配置，配置验证确保系统健康。最小环境模型（开发、测试、生产）提供了清晰的部署路径。</p>
 <p>良好的配置管理使系统能够在不同环境中可靠运行，这是专业软件的基本要求。</p>

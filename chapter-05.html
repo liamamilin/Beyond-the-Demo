@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -464,19 +499,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#temporary-names-and-their-consequences" id="toc-temporary-names-and-their-consequences" class="nav-link active" data-scroll-target="#temporary-names-and-their-consequences"><span class="header-section-number">6.0.1</span> Temporary Names and Their Consequences</a></li>
-  <li><a href="#naming-as-system-design" id="toc-naming-as-system-design" class="nav-link" data-scroll-target="#naming-as-system-design"><span class="header-section-number">6.0.2</span> Naming as System Design</a></li>
-  <li><a href="#naming-as-a-low-cost-professional-signal" id="toc-naming-as-a-low-cost-professional-signal" class="nav-link" data-scroll-target="#naming-as-a-low-cost-professional-signal"><span class="header-section-number">6.0.3</span> Naming as a Low-Cost Professional Signal</a></li>
-  <li><a href="#from-tools-to-systems" id="toc-from-tools-to-systems" class="nav-link" data-scroll-target="#from-tools-to-systems"><span class="header-section-number">6.0.4</span> From Tools to Systems</a></li>
-  <li><a href="#consistency-across-the-system" id="toc-consistency-across-the-system" class="nav-link" data-scroll-target="#consistency-across-the-system"><span class="header-section-number">6.0.5</span> Consistency Across the System</a></li>
-  <li><a href="#building-a-language-for-the-system" id="toc-building-a-language-for-the-system" class="nav-link" data-scroll-target="#building-a-language-for-the-system"><span class="header-section-number">6.0.6</span> Building a Language for the System</a></li>
-  <li><a href="#实践指南命名规范与审查" id="toc-实践指南命名规范与审查" class="nav-link" data-scroll-target="#实践指南命名规范与审查"><span class="header-section-number">6.1</span> 实践指南：命名规范与审查</a>
+  <li><a href="#the-object-action-state-philosophy" id="toc-the-object-action-state-philosophy" class="nav-link active" data-scroll-target="#the-object-action-state-philosophy"><span class="header-section-number">6.0.1</span> The Object-Action-State Philosophy</a></li>
+  <li><a href="#object-naming-system" id="toc-object-naming-system" class="nav-link" data-scroll-target="#object-naming-system"><span class="header-section-number">6.0.2</span> Object Naming System</a></li>
+  <li><a href="#action-naming-system" id="toc-action-naming-system" class="nav-link" data-scroll-target="#action-naming-system"><span class="header-section-number">6.0.3</span> Action Naming System</a></li>
+  <li><a href="#state-naming-system" id="toc-state-naming-system" class="nav-link" data-scroll-target="#state-naming-system"><span class="header-section-number">6.0.4</span> State Naming System</a></li>
+  <li><a href="#practical-guide-naming-standards-and-review" id="toc-practical-guide-naming-standards-and-review" class="nav-link" data-scroll-target="#practical-guide-naming-standards-and-review"><span class="header-section-number">6.1</span> Practical Guide: Naming Standards and Review</a>
   <ul class="collapse">
-  <li><a href="#命名原则清单" id="toc-命名原则清单" class="nav-link" data-scroll-target="#命名原则清单"><span class="header-section-number">6.1.1</span> 命名原则清单</a></li>
-  <li><a href="#命名审查sop" id="toc-命名审查sop" class="nav-link" data-scroll-target="#命名审查sop"><span class="header-section-number">6.1.2</span> 命名审查SOP</a></li>
-  <li><a href="#快速诊断你的命名是否专业" id="toc-快速诊断你的命名是否专业" class="nav-link" data-scroll-target="#快速诊断你的命名是否专业"><span class="header-section-number">6.1.3</span> 快速诊断：你的命名是否专业？</a></li>
+  <li><a href="#naming-framework-application" id="toc-naming-framework-application" class="nav-link" data-scroll-target="#naming-framework-application"><span class="header-section-number">6.1.1</span> Naming Framework Application</a></li>
+  <li><a href="#naming-consistency-checklist" id="toc-naming-consistency-checklist" class="nav-link" data-scroll-target="#naming-consistency-checklist"><span class="header-section-number">6.1.2</span> Naming Consistency Checklist</a></li>
+  <li><a href="#naming-review-process" id="toc-naming-review-process" class="nav-link" data-scroll-target="#naming-review-process"><span class="header-section-number">6.1.3</span> Naming Review Process</a></li>
+  <li><a href="#quick-diagnosis-is-your-naming-systematic" id="toc-quick-diagnosis-is-your-naming-systematic" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-naming-systematic"><span class="header-section-number">6.1.4</span> Quick Diagnosis: Is Your Naming Systematic?</a></li>
+  <li><a href="#naming-template-library" id="toc-naming-template-library" class="nav-link" data-scroll-target="#naming-template-library"><span class="header-section-number">6.1.5</span> Naming Template Library</a></li>
   </ul></li>
-  <li><a href="#本章总结" id="toc-本章总结" class="nav-link" data-scroll-target="#本章总结"><span class="header-section-number">6.2</span> 本章总结</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">6.2</span> Chapter Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -503,170 +538,254 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/chapter-05.png" class="img-fluid figure-img"></p>
-<figcaption>Naming</figcaption>
-</figure>
-</div>
-<p>One of the most underestimated aspects of software development is naming.</p>
-<p>At first glance, naming appears trivial. Developers often treat it as a small decision made while writing code: a variable here, a function there, perhaps a class name that seems reasonable at the moment.</p>
-<p>But in reality, naming has enormous influence on how a system is perceived and understood.</p>
-<p>The difference between a practice project and a professional system is often visible in its vocabulary. Mature systems speak a <strong>consistent language</strong>. Practice projects speak a mixture of temporary labels.</p>
-<p>This chapter explores how naming evolves from quick placeholders into a deliberate <strong>domain language</strong>—and why this transformation is one of the lowest-cost ways to make a project feel professional.</p>
-<hr>
-<section id="temporary-names-and-their-consequences" class="level3" data-number="6.0.1">
-<h3 data-number="6.0.1" class="anchored" data-anchor-id="temporary-names-and-their-consequences"><span class="header-section-number">6.0.1</span> Temporary Names and Their Consequences</h3>
-<p>In early-stage projects, naming decisions are usually made quickly and locally. The developer focuses on solving the immediate problem rather than constructing a long-term vocabulary.</p>
-<p>As a result, names often reflect momentary thinking:</p>
-<p>Variables might be called <code>data</code>, <code>result</code>, or <code>temp</code>.<br>
-Functions might be named <code>doTask</code>, <code>processStuff</code>, or <code>handleInput</code>.</p>
-<p>These names are not necessarily incorrect. They simply lack context. They describe what happens in a particular moment rather than what role the component plays in the system.</p>
-<p>Over time, this accumulation of vague names makes the code harder to read. Each new reader must infer meaning from surrounding logic rather than understanding it directly from the vocabulary.</p>
-<p>The system begins to feel improvised.</p>
-<p>Professional systems avoid this ambiguity by treating naming as a structural decision rather than a casual one.</p>
-<hr>
-</section>
-<section id="naming-as-system-design" class="level3" data-number="6.0.2">
-<h3 data-number="6.0.2" class="anchored" data-anchor-id="naming-as-system-design"><span class="header-section-number">6.0.2</span> Naming as System Design</h3>
-<p>When naming is done carefully, it becomes a form of architecture.</p>
-<p>Well-chosen names reveal the conceptual model behind the software. They show what the system considers important and how different parts relate to one another.</p>
-<p>For example, instead of generic terms such as <code>data</code> or <code>manager</code>, a system might define entities that represent meaningful concepts within its domain:</p>
+<p>At the deepest level, software is simple. It consists of three fundamental elements:</p>
+<p><strong>Objects + Actions + States</strong></p>
+<p>This triad represents the essence of what software does: it manipulates objects through actions, changing their states over time. Every function, class, and variable in a codebase maps to one of these three concepts.</p>
+<p>When developers understand this philosophy, naming becomes straightforward:</p>
 <ul>
-<li><p>Transaction</p></li>
-<li><p>Account</p></li>
-<li><p>Budget</p></li>
-<li><p>Ledger</p></li>
+<li><strong>Objects</strong> are named with <strong>nouns</strong>: <code>Transaction</code>, <code>Account</code>, <code>User</code>, <code>Order</code></li>
+<li><strong>Actions</strong> are named with <strong>verbs</strong>: <code>create</code>, <code>update</code>, <code>validate</code>, <code>process</code></li>
+<li><strong>States</strong> are named with <strong>adjectives</strong> or <strong>state nouns</strong>: <code>active</code>, <code>pending</code>, <code>complete</code>, <code>isDeleted</code>, <code>hasPermission</code></li>
 </ul>
-<p>These names immediately communicate purpose. They allow developers and users to discuss the system using a shared vocabulary.</p>
-<p>This vocabulary becomes the <strong>domain language</strong> of the project. Once established, it shapes how new features are designed and integrated.</p>
-<p>Instead of inventing new terms each time, developers extend the existing language.</p>
+<p>This simple framework eliminates most naming uncertainty. Instead of asking “what should I call this?”, developers ask “what does this represent: an object, an action, or a state?”</p>
+<p>The difference between a practice project and a professional system often begins with this question. Practice projects name things arbitrarily. Professional systems name things intentionally, using the <strong>object-action-state</strong> philosophy as their foundation.</p>
+<p>This chapter explores how to apply this philosophy systematically to build a complete, coherent naming vocabulary.</p>
 <hr>
-</section>
-<section id="naming-as-a-low-cost-professional-signal" class="level3" data-number="6.0.3">
-<h3 data-number="6.0.3" class="anchored" data-anchor-id="naming-as-a-low-cost-professional-signal"><span class="header-section-number">6.0.3</span> Naming as a Low-Cost Professional Signal</h3>
-<p>Many aspects of professional software require substantial effort—testing frameworks, deployment pipelines, or robust error handling systems.</p>
-<p>Naming, however, is different.</p>
-<p>Improving naming usually requires little additional code and no new infrastructure. Yet it dramatically changes how the project appears to others.</p>
-<p>A repository with clear, descriptive names communicates organization and intention. It signals that the system has been thought through rather than assembled quickly.</p>
-<p>This makes naming one of the <strong>lowest-cost tools for increasing perceived professionalism</strong>.</p>
-<p>The effort required is small, but the impact on readability and perception is significant.</p>
-<hr>
-</section>
-<section id="from-tools-to-systems" class="level3" data-number="6.0.4">
-<h3 data-number="6.0.4" class="anchored" data-anchor-id="from-tools-to-systems"><span class="header-section-number">6.0.4</span> From Tools to Systems</h3>
-<p>Naming also affects how a project is framed conceptually.</p>
-<p>Practice projects often describe themselves as simple tools. The terminology reflects this simplicity. Components may be labeled as utilities or helpers, and the system appears limited in scope.</p>
-<p>Professional systems frequently adopt a broader vocabulary that reflects layered architecture.</p>
-<p>Instead of generic or informal names, components are described using structural roles such as engines, layers, interfaces, or services.</p>
-<p>These terms communicate that the software is not merely performing a task but organizing a set of responsibilities within a coherent system.</p>
-<p>For example, a component that processes transactions might be described as a processing module in a small project. In a more mature system, it might become a transaction engine.</p>
-<p>A piece of code that converts user input might evolve into a parsing interface or an input layer.</p>
-<p>These naming shifts do not change the functionality of the software. What they change is the clarity with which the system’s structure is communicated.</p>
-<p>The project begins to appear less like a collection of scripts and more like an organized platform.</p>
-<hr>
-</section>
-<section id="consistency-across-the-system" class="level3" data-number="6.0.5">
-<h3 data-number="6.0.5" class="anchored" data-anchor-id="consistency-across-the-system"><span class="header-section-number">6.0.5</span> Consistency Across the System</h3>
-<p>The power of naming becomes fully visible when it is applied consistently.</p>
-<p>A professional codebase rarely mixes unrelated naming styles. Instead, it establishes patterns that repeat throughout the system.</p>
-<p>For example, if the project uses the term “engine” to describe core processing components, similar components follow the same pattern. If the project organizes responsibilities into layers, those layers appear consistently across modules.</p>
-<p>Consistency transforms naming into a navigation tool. Developers can predict where certain responsibilities belong simply by recognizing familiar patterns in the vocabulary.</p>
-<p>Practice projects often lack this stability. Naming decisions change from file to file, and similar components may receive unrelated labels.</p>
-<p>Professional systems treat naming as a shared language that unifies the entire project.</p>
-<hr>
-</section>
-<section id="building-a-language-for-the-system" class="level3" data-number="6.0.6">
-<h3 data-number="6.0.6" class="anchored" data-anchor-id="building-a-language-for-the-system"><span class="header-section-number">6.0.6</span> Building a Language for the System</h3>
-<p>最终，命名的目标不仅仅是给代码贴标签，而是构建一种语言，通过这种语言可以理解整个系统。</p>
-<p>当这种语言清晰且一致时，阅读代码就像阅读一个结构良好的系统描述。组件自然地揭示它们的角色，部分之间的关系变得更容易理解。</p>
-<p>这种转变——从临时标签到连贯的领域语言——是项目演进的安静里程碑之一。</p>
-<p>代码可能仍然执行与以前相同的任务，但系统现在用清晰的语言说话。</p>
-<p>而清晰度是软件超越实验进入成熟期的最强信号之一。</p>
-<p>当命名得当，代码本身就成了最好的文档。新开发者不需要翻阅大量文档就能理解系统，因为代码的语言直接表达了系统的结构和意图。</p>
-<hr>
-</section>
-<section id="实践指南命名规范与审查" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="实践指南命名规范与审查"><span class="header-section-number">6.1</span> 实践指南：命名规范与审查</h2>
-<p>好的命名不是靠灵感，而是靠系统的方法。以下是一个实用的命名规范框架，帮助你建立系统的领域语言。</p>
-<section id="命名原则清单" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="命名原则清单"><span class="header-section-number">6.1.1</span> 命名原则清单</h3>
-<p><strong>1. 意图明确</strong></p>
+<section id="the-object-action-state-philosophy" class="level3" data-number="6.0.1">
+<h3 data-number="6.0.1" class="anchored" data-anchor-id="the-object-action-state-philosophy"><span class="header-section-number">6.0.1</span> The Object-Action-State Philosophy</h3>
+<p>Every piece of software can be understood through this triad. A system processes objects by performing actions that transition their states.</p>
+<p>Consider an e-commerce application:</p>
 <ul>
-<li>✅ 好的命名：<code>getUserById()</code>, <code>calculateTotalPrice()</code>, <code>validateEmail()</code></li>
-<li>❌ 坏的命名：<code>getData()</code>, <code>process()</code>, <code>handle()</code></li>
+<li><strong>Objects</strong>: <code>ShoppingCart</code>, <code>Product</code>, <code>PaymentMethod</code>, <code>CustomerProfile</code></li>
+<li><strong>Actions</strong>: <code>addToCart()</code>, <code>processPayment()</code>, <code>calculateTotal()</code>, <code>validateInventory()</code></li>
+<li><strong>States</strong>: <code>cartEmpty</code>, <code>paymentPending</code>, <code>inventoryAvailable</code>, <code>userAuthenticated</code></li>
 </ul>
-<p><strong>原则：</strong> 命名应该回答”它做什么？“这个问题。</p>
-<p><strong>2. 避免抽象术语</strong></p>
-<ul>
-<li>✅ 好的命名：<code>Transaction</code>, <code>Account</code>, <code>Budget</code>, <code>Ledger</code></li>
-<li>❌ 坏的命名：<code>Data</code>, <code>Info</code>, <code>Item</code>, <code>Thing</code></li>
-</ul>
-<p><strong>原则：</strong> 使用领域内的具体概念，而不是通用的抽象词汇。</p>
-<p><strong>3. 保持一致</strong></p>
-<ul>
-<li>✅ 一致的命名：<code>createUser()</code>, <code>updateUser()</code>, <code>deleteUser()</code></li>
-<li>❌ 不一致的命名：<code>createUser()</code>, <code>modifyUser()</code>, <code>removeUser()</code></li>
-</ul>
-<p><strong>原则：</strong> 相似操作使用相同的动词前缀。</p>
-<p><strong>4. 避免缩写（除非是行业标准）</strong></p>
-<ul>
-<li>✅ 好的命名：<code>configuration</code>, <code>identifier</code>, <code>authentication</code></li>
-<li>❌ 坏的命名：<code>config</code>, <code>id</code>, <code>auth</code></li>
-</ul>
-<p><strong>原则：</strong> 只有当缩写是广泛认可的行业标准时才使用（如 URL, ID）。</p>
+<p>These names are not arbitrary. They directly express what each component represents in the system’s domain model.</p>
+<p>When naming follows this framework, code becomes self-documenting. A developer reading <code>cart.processPayment()</code> immediately understands that a cart object (noun) is undergoing a payment process (verb) which will transition the cart’s state from something to something else.</p>
+<p>This clarity comes not from extensive comments or documentation, but from the systematic application of a simple naming philosophy.</p>
+<hr>
 </section>
-<section id="命名审查sop" class="level3" data-number="6.1.2">
-<h3 data-number="6.1.2" class="anchored" data-anchor-id="命名审查sop"><span class="header-section-number">6.1.2</span> 命名审查SOP</h3>
-<p><strong>第一步：快速扫描</strong></p>
-<ol type="1">
-<li>浏览你的代码库</li>
-<li>识别出所有模糊的命名（<code>data</code>, <code>temp</code>, <code>result</code>等）</li>
-<li>列出这些命名的上下文</li>
-</ol>
-<p><strong>第二步：重新命名</strong></p>
-<ol type="1">
-<li>为每个模糊命名寻找更具体的替代方案</li>
-<li>使用领域内的概念术语</li>
-<li>确保新命名在整个项目中一致使用</li>
-</ol>
-<p><strong>第三步：验证</strong></p>
-<ol type="1">
-<li>代码是否更易读了？</li>
-<li>新人是否能更快理解代码？</li>
-<li>重命名是否引入了错误？</li>
-</ol>
+<section id="object-naming-system" class="level3" data-number="6.0.2">
+<h3 data-number="6.0.2" class="anchored" data-anchor-id="object-naming-system"><span class="header-section-number">6.0.2</span> Object Naming System</h3>
+<p>Objects are the nouns of software. They represent the things that exist within the system’s domain: data entities, concepts, and structures that have identity and behavior.</p>
+<p>Professional systems distinguish between several types of objects, each with its own naming convention.</p>
+<p><strong>Entities</strong></p>
+<p>Entities are objects that have identity and lifecycle. They represent the core concepts in the domain:</p>
+<ul>
+<li><code>Customer</code>, <code>Order</code>, <code>Product</code>, <code>Invoice</code>, <code>Account</code></li>
+<li><code>Session</code>, <code>Transaction</code>, <code>Subscription</code>, <code>Membership</code></li>
+</ul>
+<p>Entity names should be <strong>singular nouns</strong> that clearly indicate what the object represents. They capture the essence of the domain concept.</p>
+<p><strong>Value Objects</strong></p>
+<p>Value objects represent values or measurements that don’t have independent identity. They are defined by their attributes:</p>
+<ul>
+<li><code>EmailAddress</code>, <code>Money</code>, <code>Address</code>, <code>PhoneNumber</code></li>
+<li><code>Color</code>, <code>Coordinate</code>, <code>Duration</code>, <code>Percentage</code></li>
+</ul>
+<p>Value object names describe <strong>what</strong> they represent, emphasizing their value nature rather than their identity.</p>
+<p><strong>Services</strong></p>
+<p>Services represent operations or capabilities that don’t naturally belong to a specific entity:</p>
+<ul>
+<li><code>PaymentProcessor</code>, <code>EmailService</code>, <code>AuthenticationProvider</code>, <code>NotificationService</code></li>
+<li><code>DataValidator</code>, <code>FileExporter</code>, <code>CacheManager</code>, <code>RateLimiter</code></li>
+</ul>
+<p>Service names typically end with capability descriptors like <code>Processor</code>, <code>Service</code>, <code>Provider</code>, or <code>Manager</code>, clearly indicating that the object provides functionality rather than representing data.</p>
+<p>The distinction between these object types is important because it prevents confusion in the codebase. When developers see <code>EmailAddress</code>, they immediately understand it’s a value object. When they see <code>EmailService</code>, they know it provides email functionality.</p>
+<p>This clarity allows the system’s domain language to emerge naturally from the naming choices.</p>
+<hr>
 </section>
-<section id="快速诊断你的命名是否专业" class="level3" data-number="6.1.3">
-<h3 data-number="6.1.3" class="anchored" data-anchor-id="快速诊断你的命名是否专业"><span class="header-section-number">6.1.3</span> 快速诊断：你的命名是否专业？</h3>
-<p>回答以下问题：</p>
+<section id="action-naming-system" class="level3" data-number="6.0.3">
+<h3 data-number="6.0.3" class="anchored" data-anchor-id="action-naming-system"><span class="header-section-number">6.0.3</span> Action Naming System</h3>
+<p>Actions are the verbs of software. They represent what the system does: operations, transformations, and behaviors that manipulate objects or transition states.</p>
+<p>Professional systems classify actions into four distinct categories, each with specific naming patterns.</p>
+<p><strong>Command Actions</strong></p>
+<p>Command actions perform state changes or side effects. They modify the system:</p>
+<ul>
+<li><code>createUser()</code>, <code>updateProfile()</code>, <code>deleteAccount()</code>, <code>archiveRecord()</code></li>
+<li><code>sendEmail()</code>, <code>processPayment()</code>, <code>publishArticle()</code>, <code>expireSession()</code></li>
+</ul>
+<p>Command names use <strong>strong verbs</strong> that clearly indicate the action being performed. They typically follow the pattern <code>verbObject()</code> where the verb describes what happens and the object describes what is affected.</p>
+<p><strong>Query Actions</strong></p>
+<p>Query actions retrieve information without changing state. They ask questions of the system:</p>
+<ul>
+<li><code>getUserById()</code>, <code>findOrdersByDate()</code>, <code>getAvailableInventory()</code>, <code>calculateTotal()</code></li>
+<li><code>searchProducts()</code>, <code>fetchProfile()</code>, <code>listSubscriptions()</code>, <code>validateCredentials()</code></li>
+</ul>
+<p>Query names use verbs that emphasize retrieval or computation: <code>get</code>, <code>find</code>, <code>fetch</code>, <code>list</code>, <code>search</code>, <code>calculate</code>, <code>validate</code>. These names make it clear that the function returns information rather than modifying state.</p>
+<p><strong>Boolean Actions</strong></p>
+<p>Boolean actions return true/false answers. They test conditions:</p>
+<ul>
+<li><code>isValid()</code>, <code>hasPermission()</code>, <code>canEdit()</code>, <code>isAuthenticated()</code></li>
+<li><code>exists()</code>, <code>isEmpty()</code>, <code>isComplete()</code>, <code>hasAccess()</code></li>
+</ul>
+<p>Boolean action names typically start with <code>is</code>, <code>has</code>, <code>can</code>, or similar interrogative verbs. This naming convention immediately signals that the return value is a boolean, making the code more readable and predictable.</p>
+<p><strong>Conversion Actions</strong></p>
+<p>Conversion actions transform one type of object into another:</p>
+<ul>
+<li><code>toDTO()</code>, <code>toEntity()</code>, <code>toJson()</code>, <code>toString()</code></li>
+<li><code>convertToCurrency()</code>, <code>mapToView()</code>, <code>serialize()</code>, <code>deserialize()</code></li>
+</ul>
+<p>Conversion names use verbs that indicate transformation: <code>to</code>, <code>convert</code>, <code>map</code>, <code>serialize</code>, <code>transform</code>. They explicitly show the source and destination types, making the conversion process transparent.</p>
+<p>By categorizing actions this way, developers can immediately understand the nature of any function or method just from its name. This eliminates ambiguity and makes the codebase more predictable and maintainable.</p>
+<hr>
+</section>
+<section id="state-naming-system" class="level3" data-number="6.0.4">
+<h3 data-number="6.0.4" class="anchored" data-anchor-id="state-naming-system"><span class="header-section-number">6.0.4</span> State Naming System</h3>
+<p>States are the adjectives and state nouns of software. They represent conditions, phases, and attributes that describe objects or the system as a whole.</p>
+<p>Professional systems use four main patterns for naming states, depending on the type of condition being represented.</p>
+<p><strong>Boolean States</strong></p>
+<p>Boolean states represent simple true/false conditions:</p>
+<ul>
+<li><code>isActive</code>, <code>isDeleted</code>, <code>isVisible</code>, <code>isPublished</code></li>
+<li><code>hasPermission</code>, <code>hasSubscription</code>, <code>hasAccess</code>, <code>isVerified</code></li>
+</ul>
+<p>Boolean state names typically use the <code>is</code> or <code>has</code> prefix, making the boolean nature immediately obvious. These names are self-documenting: <code>if (user.isActive)</code> reads like natural language.</p>
+<p><strong>Enumeration States</strong></p>
+<p>Enumeration states represent distinct phases or categories:</p>
+<ul>
+<li><code>OrderStatus</code>: <code>pending</code>, <code>processing</code>, <code>shipped</code>, <code>delivered</code>, <code>cancelled</code></li>
+<li><code>UserStatus</code>: <code>active</code>, <code>inactive</code>, <code>suspended</code>, <code>deleted</code></li>
+<li><code>PaymentStatus</code>: <code>authorized</code>, <code>captured</code>, <code>refunded</code>, <code>failed</code></li>
+</ul>
+<p>Enumeration names use clear, descriptive terms that represent the possible states. They avoid technical jargon in favor of domain-relevant language: <code>shipped</code> rather than <code>state_3</code>.</p>
+<p><strong>Numerical States</strong></p>
+<p>Numerical states represent measurable quantities or counters:</p>
+<ul>
+<li><code>retryCount</code>, <code>remainingAttempts</code>, <code>totalAmount</code>, <code>balance</code></li>
+<li><code>priorityLevel</code>, <code>versionNumber</code>, <code>timestamp</code>, <code>duration</code></li>
+</ul>
+<p>Numerical state names describe what the number represents rather than just calling it <code>count</code> or <code>value</code>. The name provides context: <code>retryCount</code> clearly indicates this counts retries, not something else.</p>
+<p><strong>Composite States</strong></p>
+<p>Composite states combine multiple pieces of information:</p>
+<ul>
+<li><code>shippingAddress</code>, <code>billingProfile</code>, <code>contactInformation</code></li>
+<li><code>paymentDetails</code>, <code>subscriptionPlan</code>, <code>userPreferences</code></li>
+</ul>
+<p>Composite state names use noun phrases that group related attributes together. They create natural containers for related data, making the code more organized and the relationships clearer.</p>
+<p>When state naming follows these patterns, reading code becomes intuitive. <code>if (order.status === OrderStatus.shipped)</code> immediately tells you what you’re checking, without needing to look up documentation or decode cryptic state names.</p>
+<hr>
+</section>
+<section id="practical-guide-naming-standards-and-review" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="practical-guide-naming-standards-and-review"><span class="header-section-number">6.1</span> Practical Guide: Naming Standards and Review</h2>
+<p>Good naming follows from a systematic philosophy. The object-action-state framework provides a foundation for making consistent naming decisions.</p>
+<section id="naming-framework-application" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="naming-framework-application"><span class="header-section-number">6.1.1</span> Naming Framework Application</h3>
+<p><strong>Step 1: Identify the Category</strong></p>
+<p>For every identifier you create, ask: <em>Is this an object, an action, or a state?</em></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Analyzing code elements</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>user                    <span class="co"># Object (Entity)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>processPayment()        <span class="co"># Action (Command)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>isActive               <span class="co"># State (Boolean)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>UserStatus            <span class="co"># Object (Enumeration)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>calculateTotal()       <span class="co"># Action (Query)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>retryCount            <span class="co"># State (Numerical)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Step 2: Apply the Appropriate Pattern</strong></p>
+<p><strong>For Objects:</strong> - Use singular nouns - Distinguish between entities, value objects, and services - Choose domain-relevant terms</p>
+<p><strong>For Actions:</strong> - Use strong verbs - Classify as command, query, boolean, or conversion - Follow the naming convention for the type</p>
+<p><strong>For States:</strong> - Use adjectives or descriptive nouns - Indicate the state type clearly (boolean, enumeration, numerical, composite) - Make the condition explicit</p>
+</section>
+<section id="naming-consistency-checklist" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="naming-consistency-checklist"><span class="header-section-number">6.1.2</span> Naming Consistency Checklist</h3>
+<p><strong>Object Naming:</strong> - [ ] All entities use singular, domain-relevant nouns - [ ] Value objects describe their value nature - [ ] Services end with capability descriptors (Service, Processor, Manager) - [ ] No generic names (data, info, item, thing)</p>
+<p><strong>Action Naming:</strong> - [ ] Commands use strong, descriptive verbs (create, update, delete) - [ ] Queries use retrieval verbs (get, find, fetch, list, search) - [ ] Boolean actions start with is/has/can - [ ] Conversions indicate transformation (to, convert, map)</p>
+<p><strong>State Naming:</strong> - [ ] Boolean states use is/has prefix - [ ] Enumeration states use domain-relevant terms - [ ] Numerical states describe what the number represents - [ ] Composite states group related attributes</p>
+</section>
+<section id="naming-review-process" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="naming-review-process"><span class="header-section-number">6.1.3</span> Naming Review Process</h3>
+<p><strong>1. The Three-Second Test</strong></p>
+<p>Can you understand what a name represents within three seconds? If not, the name needs improvement.</p>
+<p><strong>2. The Object-Action-State Mapping</strong></p>
+<p>For each identifier, verify it clearly fits into one of the three categories:</p>
+<ul>
+<li>If it’s an object: Is it a noun? Does it represent a domain concept?</li>
+<li>If it’s an action: Is it a verb? Does it indicate what it does?</li>
+<li>If it’s a state: Is it an adjective or state noun? Does it describe a condition?</li>
+</ul>
+<p><strong>3. The Consistency Check</strong></p>
+<p>Are similar concepts named consistently across the codebase? Do you use the same terminology for the same idea everywhere?</p>
+</section>
+<section id="quick-diagnosis-is-your-naming-systematic" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="quick-diagnosis-is-your-naming-systematic"><span class="header-section-number">6.1.4</span> Quick Diagnosis: Is Your Naming Systematic?</h3>
+<p>Answer these questions:</p>
 <ul class="task-list">
-<li><label><input type="checkbox">新开发者能否在不看文档的情况下理解主要变量的含义？</label></li>
-<li><label><input type="checkbox">相同概念在整个项目中是否使用相同的名称？</label></li>
-<li><label><input type="checkbox">命名是否避免了通用的缩写和缩写词？</label></li>
-<li><label><input type="checkbox">函数命名是否清晰地表达了它们的动作？</label></li>
-<li><label><input type="checkbox">类/模块命名是否反映了它们的核心职责？</label></li>
+<li><label><input type="checkbox">Can you classify every identifier as object, action, or state?</label></li>
+<li><label><input type="checkbox">Do your object names clearly indicate their type (entity, value object, service)?</label></li>
+<li><label><input type="checkbox">Do your action names follow the appropriate pattern for their type?</label></li>
+<li><label><input type="checkbox">Do your state names indicate what kind of state they represent?</label></li>
+<li><label><input type="checkbox">Is the same terminology used consistently across the entire codebase?</label></li>
 </ul>
-<p>如果你的答案大多是”否”，那么你的项目可能需要一个命名改进计划。</p>
+<p>If you answer “no” to any of these questions, your naming would benefit from applying the object-action-state framework systematically.</p>
 <hr>
 </section>
+<section id="naming-template-library" class="level3" data-number="6.1.5">
+<h3 data-number="6.1.5" class="anchored" data-anchor-id="naming-template-library"><span class="header-section-number">6.1.5</span> Naming Template Library</h3>
+<p>The following templates provide detailed patterns for naming different types of code elements based on the object-action-state philosophy.</p>
+<section id="object-naming-templates" class="level4" data-number="6.1.5.1">
+<h4 data-number="6.1.5.1" class="anchored" data-anchor-id="object-naming-templates"><span class="header-section-number">6.1.5.1</span> Object Naming Templates</h4>
+<p><strong>Descriptive Objects (Domain Concepts)</strong> - Pattern: <code>{DomainConcept}{OptionalModifier}</code> - Examples: <code>ActiveUser</code>, <code>PendingOrder</code>, <code>ArchivedDocument</code>, <code>PremiumCustomer</code>, <code>VerifiedEmail</code></p>
+<p><strong>Technical Objects (Infrastructure)</strong> - Pattern: <code>{DomainConcept}{TechnicalSuffix}</code> - Examples: <code>UserRepository</code>, <code>PaymentGateway</code>, <code>DataValidator</code>, <code>FileExporter</code>, <code>CacheManager</code></p>
+<p><strong>Collection Objects</strong> - Pattern: <code>{ElementName}{CollectionType}</code> - Examples: <code>UserList</code>, <code>OrderCollection</code>, <code>ProductSet</code>, <code>ItemMap</code>, <code>EventQueue</code> - Alternative: <code>{ElementName}s</code> (e.g., <code>Users</code>, <code>Orders</code>, <code>Products</code>)</p>
+<p><strong>Abstract Interfaces and Base Classes</strong> - Pattern: <code>I{InterfaceName}</code> or <code>{Concept}Base</code> or <code>{Concept}Abstract</code> - Examples: <code>IUserService</code>, <code>UserRepositoryBase</code>, <code>PaymentProcessorAbstract</code></p>
+<p><strong>Factory and Builder Objects</strong> - Pattern: <code>{TargetType}{Factory|Builder}</code> - Examples: <code>UserFactory</code>, <code>OrderBuilder</code>, <code>PaymentProcessorBuilder</code>, <code>SessionFactory</code></p>
+<p><strong>Configuration Objects</strong> - Pattern: <code>{TargetType}Config</code> or <code>{TargetType}Settings</code> - Examples: <code>DatabaseConfig</code>, <code>PaymentSettings</code>, <code>EmailConfig</code>, <code>ApplicationSettings</code></p>
 </section>
-<section id="本章总结" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="本章总结"><span class="header-section-number">6.2</span> 本章总结</h2>
-<p>命名是软件开发中最被低估的方面之一。它不仅影响代码的可读性，还影响系统的整体结构和可维护性。</p>
-<p>好的命名将代码从一堆指令转变为一种连贯的领域语言。当系统用清晰、一致的语言说话时，它就自然地传达了专业性和意图。</p>
-<p>命名是一种低成本、高回报的投资。它不需要复杂的工具或大量的代码，但它可以显著改变项目的感知和质量。</p>
-<p>下一章，我们将探讨另一个基础的结构要素：<strong>领域模型</strong>。当数据从松散的字典演变为明确定义的实体和关系时，系统的结构会发生怎样的变化？</p>
-<hr>
-<p><strong>实践建议：</strong></p>
+<section id="action-naming-templates" class="level4" data-number="6.1.5.2">
+<h4 data-number="6.1.5.2" class="anchored" data-anchor-id="action-naming-templates"><span class="header-section-number">6.1.5.2</span> Action Naming Templates</h4>
+<p><strong>Command Actions (State Changes)</strong> - Create: <code>create{Target}()</code>, <code>add{Element}()</code>, <code>register{Entity}()</code> - Update: <code>update{Target}()</code>, <code>modify{Target}()</code>, <code>change{Attribute}()</code> - Delete: <code>delete{Target}()</code>, <code>remove{Element}()</code>, <code>archive{Target}()</code> - Process: <code>process{Target}()</code>, <code>execute{Operation}()</code>, <code>perform{Action}()</code> - Examples: <code>createUser()</code>, <code>updateProfile()</code>, <code>deleteAccount()</code>, <code>archiveRecord()</code>, <code>processPayment()</code></p>
+<p><strong>Query Actions (Information Retrieval)</strong> - Simple Get: <code>get{Target}()</code>, <code>get{Target}By{Criteria}()</code> - Find: <code>find{Target}()</code>, <code>find{Target}By{Criteria}()</code> - Search: <code>search{Target}()</code>, <code>search{Target}By{Criteria}()</code> - List: <code>list{Target}()</code>, <code>list{Target}By{Criteria}()</code> - Fetch: <code>fetch{Target}()</code>, <code>fetch{Target}From{Source}()</code> - Calculate: <code>calculate{Metric}()</code>, <code>compute{Result}()</code> - Validate: <code>validate{Input}()</code>, <code>verify{Condition}()</code> - Examples: <code>getUserById()</code>, <code>findOrdersByDate()</code>, <code>searchProductsByName()</code>, <code>listActiveUsers()</code>, <code>calculateTotal()</code></p>
+<p><strong>Boolean Actions (Condition Testing)</strong> - Is Prefix: <code>is{Condition}()</code>, <code>is{Adjective}()</code> - Has Prefix: <code>has{Property}()</code>, <code>has{Attribute}()</code> - Can Prefix: <code>can{Action}()</code>, <code>should{Action}()</code> - Must Prefix: <code>must{Condition}()</code>, <code>requires{Condition}()</code> - Exists: <code>exists{Target}()</code>, <code>contains{Element}()</code> - Examples: <code>isValid()</code>, <code>hasPermission()</code>, <code>canEdit()</code>, <code>isAuthenticated()</code>, <code>exists()</code></p>
+<p><strong>Conversion Actions (Type Transformation)</strong> - To Prefix: <code>to{TargetType}()</code>, <code>to{TargetType}Format()</code> - Convert: <code>convertTo{TargetType}()</code>, <code>convert{Source}To{Target}()</code> - Map: <code>mapTo{TargetType}()</code>, <code>map{Source}To{Target}()</code> - Serialize: <code>serialize()</code>, <code>deserialize()</code>, <code>to{Format}()</code> - Parse: <code>parse{Source}()</code>, <code>parse{Source}To{Target}()</code> - Examples: <code>toDTO()</code>, <code>toJson()</code>, <code>convertToCurrency()</code>, <code>mapToView()</code>, <code>serialize()</code></p>
+</section>
+<section id="state-naming-templates" class="level4" data-number="6.1.5.3">
+<h4 data-number="6.1.5.3" class="anchored" data-anchor-id="state-naming-templates"><span class="header-section-number">6.1.5.3</span> State Naming Templates</h4>
+<p><strong>Boolean States (True/False Conditions)</strong> - Is Prefix: <code>is{StateAdjective}</code>, <code>is{StateNoun}</code> - Has Prefix: <code>has{PropertyNoun}</code>, <code>has{AttributeNoun}</code> - Can Prefix: <code>can{ActionVerb}</code>, <code>could{ActionVerb}</code> - Should Prefix: <code>should{ActionVerb}</code>, <code>would{ActionVerb}</code> - Must Prefix: <code>must{Condition}</code>, <code>requires{Condition}</code> - Examples: <code>isActive</code>, <code>isDeleted</code>, <code>hasPermission</code>, <code>canEdit</code>, <code>isRequired</code></p>
+<p><strong>Current State (Present Condition)</strong> - Pattern: <code>current{StateNoun}</code> - Examples: <code>currentStatus</code>, <code>currentVersion</code>, <code>currentUser</code>, <code>currentLocation</code>, <code>currentSession</code></p>
+<p><strong>Previous/Next State</strong> - Pattern: <code>{Previous|Next|Last}{StateNoun}</code> - Examples: <code>previousStatus</code>, <code>nextVersion</code>, <code>lastLogin</code>, <code>nextScheduledTime</code></p>
+<p><strong>State Transitions</strong> - Pattern: <code>{Source}To{Target}State</code> or <code>{TransitionType}State</code> - Examples: <code>PendingToActiveState</code>, <code>ArchivedState</code>, <code>TransitioningState</code>, <code>FinalState</code></p>
+<p><strong>Numerical States (Counters and Measurements)</strong> - Count: <code>{Property}Count</code>, <code>{Property}Total</code> - Index: <code>{Property}Index</code>, <code>{Property}Position</code> - Amount: <code>{Property}Amount</code>, <code>{Property}Total</code> - Level: <code>{Property}Level</code>, <code>{Property}Degree</code> - Ratio: <code>{Property}Ratio</code>, <code>{Property}Percentage</code> - Examples: <code>retryCount</code>, <code>totalAmount</code>, <code>priorityLevel</code>, <code>completionRatio</code></p>
+<p><strong>Time-Based States</strong> - Timestamp: <code>{Event}Timestamp</code>, <code>{Event}Time</code>, <code>{Event}Date</code> - Duration: <code>{Process}Duration</code>, <code>{Activity}Time</code> - Period: <code>{Event}Period</code>, <code>{TimeSpan}Name</code> - Examples: <code>lastLoginTimestamp</code>, <code>processingDuration</code>, <code>sessionTimeout</code></p>
+<p><strong>Enumeration State Values</strong> - Pattern: <code>{Status}{StateValue}</code> or simply <code>{StateValue}</code> - Examples: <code>OrderStatus.PENDING</code>, <code>OrderStatus.PROCESSING</code>, <code>UserStatus.ACTIVE</code>, <code>PaymentStatus.AUTHORIZED</code></p>
+<p><strong>Composite States (Grouped Attributes)</strong> - Pattern: <code>{Category}{Information|Details|Profile|Config}</code> - Examples: <code>shippingAddress</code>, <code>billingProfile</code>, <code>contactInformation</code>, <code>paymentDetails</code>, <code>userPreferences</code></p>
+</section>
+<section id="special-naming-patterns" class="level4" data-number="6.1.5.4">
+<h4 data-number="6.1.5.4" class="anchored" data-anchor-id="special-naming-patterns"><span class="header-section-number">6.1.5.4</span> Special Naming Patterns</h4>
+<p><strong>Event Objects</strong> - Pattern: <code>{Event}{Event|Occurred|Happened}</code> - Examples: <code>UserCreatedEvent</code>, <code>PaymentFailedEvent</code>, <code>OrderShippedEvent</code></p>
+<p><strong>Exception Objects</strong> - Pattern: <code>{Condition}{Exception|Error}</code> - Examples: <code>InvalidInputException</code>, <code>PaymentFailedException</code>, <code>AuthenticationError</code></p>
+<p><strong>Test Objects</strong> - Pattern: <code>{Target}{Test|TestSuite|TestFixture}</code> - Examples: <code>UserServiceTest</code>, <code>PaymentProcessorTestSuite</code>, <code>UserRepositoryTestFixture</code></p>
+<p><strong>Helper/Utility Objects</strong> - Pattern: <code>{Domain}{Helper|Utility|Utils}</code> - Examples: <code>StringHelper</code>, <code>DateUtility</code>, <code>MathUtils</code></p>
+<p><strong>Constants</strong> - Pattern: <code>{CONCEPT}_CONSTANT</code> (uppercase with underscores) - Examples: <code>MAX_RETRY_COUNT</code>, <code>DEFAULT_TIMEOUT</code>, <code>API_VERSION</code></p>
+</section>
+<section id="naming-decision-tree" class="level4" data-number="6.1.5.5">
+<h4 data-number="6.1.5.5" class="anchored" data-anchor-id="naming-decision-tree"><span class="header-section-number">6.1.5.5</span> Naming Decision Tree</h4>
+<p>When naming, follow this decision process:</p>
 <ol type="1">
-<li><strong>创建词汇表</strong>：为你的项目建立一个术语表，明确定义所有核心概念。</li>
-<li><strong>定期审查</strong>：每次代码审查时，检查新代码的命名是否符合项目的命名规范。</li>
-<li><strong>重构旧代码</strong>：不要一次性重构所有代码。逐步改进最关键的部分。</li>
-<li><strong>使用工具</strong>：利用IDE的重命名功能，确保重命名不会遗漏任何引用。</li>
+<li><strong>Category Classification</strong>: Is it an object, action, or state?</li>
+<li><strong>Type Determination</strong>: What specific type within the category?</li>
+<li><strong>Pattern Selection</strong>: Apply the appropriate naming pattern</li>
+<li><strong>Consistency Check</strong>: Does it match existing naming in the codebase?</li>
+<li><strong>Clarity Verification</strong>: Is the meaning immediately obvious?</li>
 </ol>
-<p><strong>立即行动：</strong></p>
-<p>打开你的项目，找到10个模糊的变量名或函数名。为它们寻找更具体、更有意义的替代方案，并进行重命名。</p>
+<p>This template library provides a comprehensive set of patterns that can be applied consistently across your entire codebase, creating a coherent and professional naming system.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="chapter-summary" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">6.2</span> Chapter Summary</h2>
+<p>The object-action-state philosophy provides a systematic foundation for naming in software. Every element in a codebase can be understood as representing an object (noun), an action (verb), or a state (adjective/noun).</p>
+<p>By applying this framework consistently, developers create a coherent domain language that makes code self-documenting and intuitive. Objects are named according to their type (entity, value object, service). Actions are classified by their nature (command, query, boolean, conversion). States are distinguished by their category (boolean, enumeration, numerical, composite).</p>
+<p>This systematic approach eliminates arbitrary naming decisions and creates a vocabulary that reveals the system’s structure and intent. The result is code that reads like natural language, where developers can understand relationships and responsibilities directly from the names.</p>
+<p>The transformation from ad-hoc naming to systematic naming is one of the quiet but powerful shifts that distinguish practice projects from professional systems.</p>
+<hr>
+<p><strong>Practice Suggestions:</strong></p>
+<ol type="1">
+<li><strong>Start with the Classification</strong>: Before naming anything, first determine if it’s an object, action, or state.</li>
+<li><strong>Build a Domain Vocabulary</strong>: Document the core nouns, verbs, and adjectives that define your system’s domain.</li>
+<li><strong>Review for Consistency</strong>: Regularly audit your codebase to ensure the same terminology is used consistently.</li>
+</ol>
+<p><strong>Immediate Action:</strong></p>
+<p>Choose one module in your project and systematically review all identifiers. Classify each as object, action, or state, and verify that the naming follows the appropriate pattern. Rename any that don’t fit the framework.</p>
 
 
 </section>

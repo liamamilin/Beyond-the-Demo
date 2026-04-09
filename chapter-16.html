@@ -505,14 +505,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#indexing" id="toc-indexing" class="nav-link" data-scroll-target="#indexing"><span class="header-section-number">17.0.4</span> Indexing</a></li>
   <li><a href="#designing-with-limits-in-mind" id="toc-designing-with-limits-in-mind" class="nav-link" data-scroll-target="#designing-with-limits-in-mind"><span class="header-section-number">17.0.5</span> Designing With Limits in Mind</a></li>
   <li><a href="#writing-failure-into-the-design" id="toc-writing-failure-into-the-design" class="nav-link" data-scroll-target="#writing-failure-into-the-design"><span class="header-section-number">17.0.6</span> Writing Failure Into the Design</a></li>
-  <li><a href="#实践指南性能优化策略sop" id="toc-实践指南性能优化策略sop" class="nav-link" data-scroll-target="#实践指南性能优化策略sop"><span class="header-section-number">17.1</span> 实践指南：性能优化策略SOP</a>
+  <li><a href="#practical-guide-performance-optimization-strategy-sop" id="toc-practical-guide-performance-optimization-strategy-sop" class="nav-link" data-scroll-target="#practical-guide-performance-optimization-strategy-sop"><span class="header-section-number">17.1</span> Practical Guide: Performance Optimization Strategy SOP</a>
   <ul class="collapse">
   <li><a href="#性能瓶颈分类" id="toc-性能瓶颈分类" class="nav-link" data-scroll-target="#性能瓶颈分类"><span class="header-section-number">17.1.1</span> 性能瓶颈分类</a></li>
   <li><a href="#性能优化sop" id="toc-性能优化sop" class="nav-link" data-scroll-target="#性能优化sop"><span class="header-section-number">17.1.2</span> 性能优化SOP</a></li>
   <li><a href="#性能优化检查清单" id="toc-性能优化检查清单" class="nav-link" data-scroll-target="#性能优化检查清单"><span class="header-section-number">17.1.3</span> 性能优化检查清单</a></li>
-  <li><a href="#快速诊断你的性能优化是否健康" id="toc-快速诊断你的性能优化是否健康" class="nav-link" data-scroll-target="#快速诊断你的性能优化是否健康"><span class="header-section-number">17.1.4</span> 快速诊断：你的性能优化是否健康？</a></li>
+  <li><a href="#quick-diagnosis-is-your-performance-optimization-healthy" id="toc-quick-diagnosis-is-your-performance-optimization-healthy" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-performance-optimization-healthy"><span class="header-section-number">17.1.4</span> Quick Diagnosis: Is Your Performance Optimization Healthy?</a></li>
   </ul></li>
-  <li><a href="#本章总结" id="toc-本章总结" class="nav-link" data-scroll-target="#本章总结"><span class="header-section-number">17.2</span> 本章总结</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">17.2</span> Chapter Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -539,12 +539,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/chapter-16.png" class="img-fluid figure-img"></p>
-<figcaption>Performance</figcaption>
-</figure>
-</div>
 <p>In the early stages of development, performance rarely appears to be a problem.</p>
 <p>The system runs on a developer’s machine, the dataset is small, and operations complete almost instantly. Queries return results in milliseconds. Computations finish before anyone notices the delay.</p>
 <p>Under these conditions, it is easy to assume that performance will continue to behave the same way as the system grows.</p>
@@ -617,8 +611,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Understanding what might break—and preparing for it—is one of the quiet but essential characteristics of professional software.</p>
 <hr>
 </section>
-<section id="实践指南性能优化策略sop" class="level2" data-number="17.1">
-<h2 data-number="17.1" class="anchored" data-anchor-id="实践指南性能优化策略sop"><span class="header-section-number">17.1</span> 实践指南：性能优化策略SOP</h2>
+<section id="practical-guide-performance-optimization-strategy-sop" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="practical-guide-performance-optimization-strategy-sop"><span class="header-section-number">17.1</span> Practical Guide: Performance Optimization Strategy SOP</h2>
 <p>性能优化不是追求极致速度，而是理解系统边界并合理处理增长。以下是一个实用的性能优化框架。</p>
 <section id="性能瓶颈分类" class="level3" data-number="17.1.1">
 <h3 data-number="17.1.1" class="anchored" data-anchor-id="性能瓶颈分类"><span class="header-section-number">17.1.1</span> 性能瓶颈分类</h3>
@@ -860,8 +854,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>代码优化：</strong> - [ ] 避免了不必要的嵌套循环 - [ ] 使用了合适的数据结构 - [ ] 减少了重复计算 - [ ] 使用了异步处理提高并发 - [ ] 避免了内存泄漏</p>
 <p><strong>监控与测试：</strong> - [ ] 有性能基准测试 - [ ] 监控关键指标（响应时间、吞吐量） - [ ] 设置了性能告警阈值 - [ ] 定期进行性能测试 - [ ] 有性能优化文档</p>
 </section>
-<section id="快速诊断你的性能优化是否健康" class="level3" data-number="17.1.4">
-<h3 data-number="17.1.4" class="anchored" data-anchor-id="快速诊断你的性能优化是否健康"><span class="header-section-number">17.1.4</span> 快速诊断：你的性能优化是否健康？</h3>
+<section id="quick-diagnosis-is-your-performance-optimization-healthy" class="level3" data-number="17.1.4">
+<h3 data-number="17.1.4" class="anchored" data-anchor-id="quick-diagnosis-is-your-performance-optimization-healthy"><span class="header-section-number">17.1.4</span> Quick Diagnosis: Is Your Performance Optimization Healthy?</h3>
 <p>回答以下问题：</p>
 <ul class="task-list">
 <li><label><input type="checkbox">你是否知道系统中最慢的5个操作是什么？</label></li>
@@ -873,8 +867,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="本章总结" class="level2" data-number="17.2">
-<h2 data-number="17.2" class="anchored" data-anchor-id="本章总结"><span class="header-section-number">17.2</span> 本章总结</h2>
+<section id="chapter-summary" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">17.2</span> Chapter Summary</h2>
 <p>性能优化不是追求极致速度，而是理解系统边界并合理处理增长。通过理解复杂度、使用分页、缓存和索引，我们可以让系统在数据增长时保持稳定。</p>
 <p>好的性能优化从基准测试开始，识别瓶颈，然后应用合适的优化策略。最重要的是，系统应该知道自己的限制在哪里。</p>
 <p>一个了解自己边界的系统，比一个盲目追求速度的系统更可靠。</p>

@@ -505,14 +505,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#end-to-end-tests" id="toc-end-to-end-tests" class="nav-link" data-scroll-target="#end-to-end-tests"><span class="header-section-number">16.0.4</span> End-to-End Tests</a></li>
   <li><a href="#testing-the-critical-paths" id="toc-testing-the-critical-paths" class="nav-link" data-scroll-target="#testing-the-critical-paths"><span class="header-section-number">16.0.5</span> Testing the Critical Paths</a></li>
   <li><a href="#from-working-code-to-reliable-systems" id="toc-from-working-code-to-reliable-systems" class="nav-link" data-scroll-target="#from-working-code-to-reliable-systems"><span class="header-section-number">16.0.6</span> From Working Code to Reliable Systems</a></li>
-  <li><a href="#实践指南测试金字塔实施策略" id="toc-实践指南测试金字塔实施策略" class="nav-link" data-scroll-target="#实践指南测试金字塔实施策略"><span class="header-section-number">16.1</span> 实践指南：测试金字塔实施策略</a>
+  <li><a href="#practical-guide-test-pyramid-implementation-strategy" id="toc-practical-guide-test-pyramid-implementation-strategy" class="nav-link" data-scroll-target="#practical-guide-test-pyramid-implementation-strategy"><span class="header-section-number">16.1</span> Practical Guide: Test Pyramid Implementation Strategy</a>
   <ul class="collapse">
   <li><a href="#测试金字塔模型" id="toc-测试金字塔模型" class="nav-link" data-scroll-target="#测试金字塔模型"><span class="header-section-number">16.1.1</span> 测试金字塔模型</a></li>
   <li><a href="#测试实施sop" id="toc-测试实施sop" class="nav-link" data-scroll-target="#测试实施sop"><span class="header-section-number">16.1.2</span> 测试实施SOP</a></li>
   <li><a href="#单元测试最佳实践" id="toc-单元测试最佳实践" class="nav-link" data-scroll-target="#单元测试最佳实践"><span class="header-section-number">16.1.3</span> 单元测试最佳实践</a></li>
-  <li><a href="#快速诊断你的测试策略是否健康" id="toc-快速诊断你的测试策略是否健康" class="nav-link" data-scroll-target="#快速诊断你的测试策略是否健康"><span class="header-section-number">16.1.4</span> 快速诊断：你的测试策略是否健康？</a></li>
+  <li><a href="#quick-diagnosis-is-your-testing-strategy-healthy" id="toc-quick-diagnosis-is-your-testing-strategy-healthy" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-testing-strategy-healthy"><span class="header-section-number">16.1.4</span> Quick Diagnosis: Is Your Testing Strategy Healthy?</a></li>
   </ul></li>
-  <li><a href="#本章总结" id="toc-本章总结" class="nav-link" data-scroll-target="#本章总结"><span class="header-section-number">16.2</span> 本章总结</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">16.2</span> Chapter Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -539,12 +539,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/chapter-15.png" class="img-fluid figure-img"></p>
-<figcaption>Testing</figcaption>
-</figure>
-</div>
 <p>In the early stages of a project, developers often rely on a simple form of verification: they run the program and observe whether it produces the expected result.</p>
 <p>If the output looks correct, the system is considered to be working.</p>
 <p>For practice projects, this approach is usually sufficient. The developer understands the code, the system is small, and the environment is controlled.</p>
@@ -611,8 +605,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>And trustworthiness is one of the defining characteristics of professional software.</p>
 <hr>
 </section>
-<section id="实践指南测试金字塔实施策略" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="实践指南测试金字塔实施策略"><span class="header-section-number">16.1</span> 实践指南：测试金字塔实施策略</h2>
+<section id="practical-guide-test-pyramid-implementation-strategy" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="practical-guide-test-pyramid-implementation-strategy"><span class="header-section-number">16.1</span> Practical Guide: Test Pyramid Implementation Strategy</h2>
 <p>有效的测试策略需要平衡覆盖率和维护成本。以下是一个实用的测试实施框架。</p>
 <section id="测试金字塔模型" class="level3" data-number="16.1.1">
 <h3 data-number="16.1.1" class="anchored" data-anchor-id="测试金字塔模型"><span class="header-section-number">16.1.1</span> 测试金字塔模型</h3>
@@ -678,8 +672,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>示例：<code>test_login_with_invalid_password_fails</code></li>
 </ul>
 </section>
-<section id="快速诊断你的测试策略是否健康" class="level3" data-number="16.1.4">
-<h3 data-number="16.1.4" class="anchored" data-anchor-id="快速诊断你的测试策略是否健康"><span class="header-section-number">16.1.4</span> 快速诊断：你的测试策略是否健康？</h3>
+<section id="quick-diagnosis-is-your-testing-strategy-healthy" class="level3" data-number="16.1.4">
+<h3 data-number="16.1.4" class="anchored" data-anchor-id="quick-diagnosis-is-your-testing-strategy-healthy"><span class="header-section-number">16.1.4</span> Quick Diagnosis: Is Your Testing Strategy Healthy?</h3>
 <p>回答以下问题：</p>
 <ul class="task-list">
 <li><label><input type="checkbox">你是否为关键路径编写了测试？</label></li>
@@ -691,8 +685,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="本章总结" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="本章总结"><span class="header-section-number">16.2</span> 本章总结</h2>
+<section id="chapter-summary" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">16.2</span> Chapter Summary</h2>
 <p>测试是构建可信系统的关键工具。它不仅保护系统免受回归影响，还澄清了系统的设计意图。</p>
 <p>通过遵循测试金字塔，我们可以在保持高覆盖率的同时控制维护成本。单元测试提供快速反馈，集成测试验证协作，E2E测试确保端到端流程正常工作。</p>
 <p>测试不是负担，而是投资的回报。每一行测试代码都在为系统的长期稳定性买单。</p>

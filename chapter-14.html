@@ -469,14 +469,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#fallback-maintaining-functionality" id="toc-fallback-maintaining-functionality" class="nav-link" data-scroll-target="#fallback-maintaining-functionality"><span class="header-section-number">15.0.3</span> Fallback: Maintaining Functionality</a></li>
   <li><a href="#communicating-failure-gracefully" id="toc-communicating-failure-gracefully" class="nav-link" data-scroll-target="#communicating-failure-gracefully"><span class="header-section-number">15.0.4</span> Communicating Failure Gracefully</a></li>
   <li><a href="#designing-systems-that-fail-well" id="toc-designing-systems-that-fail-well" class="nav-link" data-scroll-target="#designing-systems-that-fail-well"><span class="header-section-number">15.0.5</span> Designing Systems That Fail Well</a></li>
-  <li><a href="#实践指南错误处理策略框架" id="toc-实践指南错误处理策略框架" class="nav-link" data-scroll-target="#实践指南错误处理策略框架"><span class="header-section-number">15.1</span> 实践指南：错误处理策略框架</a>
+  <li><a href="#practical-guide-error-handling-strategy-framework" id="toc-practical-guide-error-handling-strategy-framework" class="nav-link" data-scroll-target="#practical-guide-error-handling-strategy-framework"><span class="header-section-number">15.1</span> Practical Guide: Error Handling Strategy Framework</a>
   <ul class="collapse">
   <li><a href="#错误分类体系" id="toc-错误分类体系" class="nav-link" data-scroll-target="#错误分类体系"><span class="header-section-number">15.1.1</span> 错误分类体系</a></li>
   <li><a href="#错误处理sop" id="toc-错误处理sop" class="nav-link" data-scroll-target="#错误处理sop"><span class="header-section-number">15.1.2</span> 错误处理SOP</a></li>
   <li><a href="#错误消息模板" id="toc-错误消息模板" class="nav-link" data-scroll-target="#错误消息模板"><span class="header-section-number">15.1.3</span> 错误消息模板</a></li>
-  <li><a href="#快速诊断你的错误处理是否专业" id="toc-快速诊断你的错误处理是否专业" class="nav-link" data-scroll-target="#快速诊断你的错误处理是否专业"><span class="header-section-number">15.1.4</span> 快速诊断：你的错误处理是否专业？</a></li>
+  <li><a href="#quick-diagnosis-is-your-error-handling-professional" id="toc-quick-diagnosis-is-your-error-handling-professional" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-error-handling-professional"><span class="header-section-number">15.1.4</span> Quick Diagnosis: Is Your Error Handling Professional?</a></li>
   </ul></li>
-  <li><a href="#本章总结" id="toc-本章总结" class="nav-link" data-scroll-target="#本章总结"><span class="header-section-number">15.2</span> 本章总结</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">15.2</span> Chapter Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -503,12 +503,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/chapter-14.png" class="img-fluid figure-img"></p>
-<figcaption>Error Handling</figcaption>
-</figure>
-</div>
 <p>When developers build small programs, they often assume that operations will succeed. Inputs will be correct, services will respond, and the system will complete its work without interruption.</p>
 <p>This assumption works well in controlled environments. During development, the developer often provides the input, runs the program locally, and observes the result directly.</p>
 <p>However, once software begins operating in real environments, a different reality emerges.</p>
@@ -570,8 +564,8 @@ ul.task-list li input[type="checkbox"] {
 <p>This ability to handle failure with composure is one of the clearest signs that a project has moved beyond experimentation and into professional maturity.</p>
 <hr>
 </section>
-<section id="实践指南错误处理策略框架" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="实践指南错误处理策略框架"><span class="header-section-number">15.1</span> 实践指南：错误处理策略框架</h2>
+<section id="practical-guide-error-handling-strategy-framework" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="practical-guide-error-handling-strategy-framework"><span class="header-section-number">15.1</span> Practical Guide: Error Handling Strategy Framework</h2>
 <p>有效的错误处理需要分类和方法论。以下是一个实用的错误处理框架。</p>
 <section id="错误分类体系" class="level3" data-number="15.1.1">
 <h3 data-number="15.1.1" class="anchored" data-anchor-id="错误分类体系"><span class="header-section-number">15.1.1</span> 错误分类体系</h3>
@@ -625,8 +619,8 @@ ul.task-list li input[type="checkbox"] {
 <li>❌ 堆栈跟踪（面向用户的界面）</li>
 </ul>
 </section>
-<section id="快速诊断你的错误处理是否专业" class="level3" data-number="15.1.4">
-<h3 data-number="15.1.4" class="anchored" data-anchor-id="快速诊断你的错误处理是否专业"><span class="header-section-number">15.1.4</span> 快速诊断：你的错误处理是否专业？</h3>
+<section id="quick-diagnosis-is-your-error-handling-professional" class="level3" data-number="15.1.4">
+<h3 data-number="15.1.4" class="anchored" data-anchor-id="quick-diagnosis-is-your-error-handling-professional"><span class="header-section-number">15.1.4</span> Quick Diagnosis: Is Your Error Handling Professional?</h3>
 <p>回答以下问题：</p>
 <ul class="task-list">
 <li><label><input type="checkbox">错误是否按照类型进行分类处理？</label></li>
@@ -638,8 +632,8 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="本章总结" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="本章总结"><span class="header-section-number">15.2</span> 本章总结</h2>
+<section id="chapter-summary" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">15.2</span> Chapter Summary</h2>
 <p>错误处理不是避免错误的尝试，而是设计系统以优雅地处理错误的实践。</p>
 <p>通过将错误分类，并为每类错误设计适当的处理策略，系统可以在不完美条件下保持稳定。</p>
 <p>验证、重试、降级和清晰通信是专业错误处理的四大支柱。它们共同使系统能够”优雅地失败”。</p>

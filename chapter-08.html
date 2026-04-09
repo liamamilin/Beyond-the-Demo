@@ -505,14 +505,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-graphical-user-interface" id="toc-the-graphical-user-interface" class="nav-link" data-scroll-target="#the-graphical-user-interface"><span class="header-section-number">9.0.4</span> The Graphical User Interface</a></li>
   <li><a href="#consistency-across-interfaces" id="toc-consistency-across-interfaces" class="nav-link" data-scroll-target="#consistency-across-interfaces"><span class="header-section-number">9.0.5</span> Consistency Across Interfaces</a></li>
   <li><a href="#interfaces-as-the-systems-public-surface" id="toc-interfaces-as-the-systems-public-surface" class="nav-link" data-scroll-target="#interfaces-as-the-systems-public-surface"><span class="header-section-number">9.0.6</span> Interfaces as the System’s Public Surface</a></li>
-  <li><a href="#实践指南多接口系统设计sop" id="toc-实践指南多接口系统设计sop" class="nav-link" data-scroll-target="#实践指南多接口系统设计sop"><span class="header-section-number">9.1</span> 实践指南：多接口系统设计SOP</a>
+  <li><a href="#practical-guide-multi-interface-system-design-sop" id="toc-practical-guide-multi-interface-system-design-sop" class="nav-link" data-scroll-target="#practical-guide-multi-interface-system-design-sop"><span class="header-section-number">9.1</span> Practical Guide: Multi-Interface System Design SOP</a>
   <ul class="collapse">
-  <li><a href="#接口类型分类" id="toc-接口类型分类" class="nav-link" data-scroll-target="#接口类型分类"><span class="header-section-number">9.1.1</span> 接口类型分类</a></li>
-  <li><a href="#接口设计sop" id="toc-接口设计sop" class="nav-link" data-scroll-target="#接口设计sop"><span class="header-section-number">9.1.2</span> 接口设计SOP</a></li>
-  <li><a href="#接口一致性检查清单" id="toc-接口一致性检查清单" class="nav-link" data-scroll-target="#接口一致性检查清单"><span class="header-section-number">9.1.3</span> 接口一致性检查清单</a></li>
-  <li><a href="#快速诊断你的接口设计是否专业" id="toc-快速诊断你的接口设计是否专业" class="nav-link" data-scroll-target="#快速诊断你的接口设计是否专业"><span class="header-section-number">9.1.4</span> 快速诊断：你的接口设计是否专业？</a></li>
+  <li><a href="#interface-type-classification" id="toc-interface-type-classification" class="nav-link" data-scroll-target="#interface-type-classification"><span class="header-section-number">9.1.1</span> Interface Type Classification</a></li>
+  <li><a href="#interface-design-sop" id="toc-interface-design-sop" class="nav-link" data-scroll-target="#interface-design-sop"><span class="header-section-number">9.1.2</span> Interface Design SOP</a></li>
+  <li><a href="#interface-consistency-checklist" id="toc-interface-consistency-checklist" class="nav-link" data-scroll-target="#interface-consistency-checklist"><span class="header-section-number">9.1.3</span> Interface consistency checklist</a></li>
+  <li><a href="#quick-diagnosis-is-your-interface-design-professional" id="toc-quick-diagnosis-is-your-interface-design-professional" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-interface-design-professional"><span class="header-section-number">9.1.4</span> Quick Diagnosis: Is Your Interface Design Professional?</a></li>
   </ul></li>
-  <li><a href="#本章总结" id="toc-本章总结" class="nav-link" data-scroll-target="#本章总结"><span class="header-section-number">9.2</span> 本章总结</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">9.2</span> Chapter Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -539,12 +539,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/chapter-08.png" class="img-fluid figure-img"></p>
-<figcaption>Interfaces</figcaption>
-</figure>
-</div>
 <p>As software matures, one of the most visible changes occurs at its boundaries—the points where users or other systems interact with it.</p>
 <p>Practice projects usually expose only a single entry point. A developer might run a script directly, call a function manually, or interact with a minimal interface created only for demonstration.</p>
 <p>This approach works during experimentation, because the primary user of the system is the developer who built it.</p>
@@ -616,49 +610,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This transformation—from a single script to a system with several coherent entry points—marks another step in the journey from practice project to professional software.</p>
 <hr>
 </section>
-<section id="实践指南多接口系统设计sop" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="实践指南多接口系统设计sop"><span class="header-section-number">9.1</span> 实践指南：多接口系统设计SOP</h2>
-<p>多接口系统设计是将单一入口转化为专业平台的关键。以下是一个实用的接口设计框架，帮助你构建一致且强大的接口体系。</p>
-<section id="接口类型分类" class="level3" data-number="9.1.1">
-<h3 data-number="9.1.1" class="anchored" data-anchor-id="接口类型分类"><span class="header-section-number">9.1.1</span> 接口类型分类</h3>
-<p><strong>CLI（命令行接口）：</strong> - 目标用户：开发者、运维人员、自动化脚本 - 特点：快速、可编程、易于集成 - 使用场景：批量操作、自动化任务、开发调试</p>
-<p><strong>API（应用程序接口）：</strong> - 目标用户：其他系统、第三方应用 - 特点：标准化、可编程、跨平台 - 使用场景：系统集成、微服务架构、第三方集成</p>
-<p><strong>UI（图形用户接口）：</strong> - 目标用户：终端用户、非技术人员 - 特点：直观、可视化、易于理解 - 使用场景：日常使用、数据展示、复杂操作</p>
+<section id="practical-guide-multi-interface-system-design-sop" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="practical-guide-multi-interface-system-design-sop"><span class="header-section-number">9.1</span> Practical Guide: Multi-Interface System Design SOP</h2>
+<p>Multi-interface system design is the key to transforming a single entry point into a professional platform. The following is a practical interface design framework to help you build a consistent and powerful interface system.</p>
+<section id="interface-type-classification" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="interface-type-classification"><span class="header-section-number">9.1.1</span> Interface Type Classification</h3>
+<p><strong>CLI (Command Line Interface):</strong> - Target users: Developers, operations personnel, automation scripts - Features: Fast, programmable, easy to integrate - Use cases: Batch operations, automation tasks, development debugging</p>
+<p><strong>API (Application Programming Interface):</strong> - Target users: Other systems, third-party applications - Features: Standardized, programmable, cross-platform - Use cases: System integration, microservices architecture, third-party integration</p>
+<p><strong>UI (Graphical User Interface):</strong> - Target users: End users, non-technical personnel - Features: Intuitive, visual, easy to understand - Use cases: Daily use, data display, complex operations</p>
 </section>
-<section id="接口设计sop" class="level3" data-number="9.1.2">
-<h3 data-number="9.1.2" class="anchored" data-anchor-id="接口设计sop"><span class="header-section-number">9.1.2</span> 接口设计SOP</h3>
-<p><strong>第一步：识别用户类型</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 用户类型分析</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>用户类型 <span class="op">=</span> {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"开发者"</span>: {</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"需求"</span>: [<span class="st">"快速操作"</span>, <span class="st">"脚本集成"</span>, <span class="st">"调试能力"</span>],</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"首选接口"</span>: <span class="st">"CLI"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"关键特性"</span>: [<span class="st">"命令补全"</span>, <span class="st">"详细输出"</span>, <span class="st">"错误信息"</span>]</span>
+<section id="interface-design-sop" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="interface-design-sop"><span class="header-section-number">9.1.2</span> Interface Design SOP</h3>
+<p><strong>Step 1: Identify User Types</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># User type analysis</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>user_types <span class="op">=</span> {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Developer"</span>: {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"needs"</span>: [<span class="st">"Fast operation"</span>, <span class="st">"Script integration"</span>, <span class="st">"Debugging capability"</span>],</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"preferred_interface"</span>: <span class="st">"CLI"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"key_features"</span>: [<span class="st">"Command completion"</span>, <span class="st">"Detailed output"</span>, <span class="st">"Error messages"</span>]</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"自动化系统"</span>: {</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"需求"</span>: [<span class="st">"标准化"</span>, <span class="st">"可靠性"</span>, <span class="st">"文档完整"</span>],</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"首选接口"</span>: <span class="st">"API"</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"关键特性"</span>: [<span class="st">"RESTful"</span>, <span class="st">"版本管理"</span>, <span class="st">"错误码"</span>]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Automated Systems"</span>: {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"needs"</span>: [<span class="st">"Standardization"</span>, <span class="st">"Reliability"</span>, <span class="st">"Complete documentation"</span>],</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"preferred_interface"</span>: <span class="st">"API"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"key_features"</span>: [<span class="st">"RESTful"</span>, <span class="st">"Version management"</span>, <span class="st">"Error codes"</span>]</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"终端用户"</span>: {</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"需求"</span>: [<span class="st">"易用性"</span>, <span class="st">"视觉反馈"</span>, <span class="st">"帮助提示"</span>],</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"首选接口"</span>: <span class="st">"UI"</span>,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"关键特性"</span>: [<span class="st">"响应式"</span>, <span class="st">"错误提示"</span>, <span class="st">"加载状态"</span>]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"End Users"</span>: {</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"needs"</span>: [<span class="st">"Ease of use"</span>, <span class="st">"Visual feedback"</span>, <span class="st">"Help prompts"</span>],</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"preferred_interface"</span>: <span class="st">"UI"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"key_features"</span>: [<span class="st">"Responsive"</span>, <span class="st">"Error prompts"</span>, <span class="st">"Loading states"</span>]</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>第二步：定义接口契约</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OpenAPI 规范示例</span></span>
+<p><strong>Step 2: Define Interface Contracts</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OpenAPI Specification Example</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">openapi</span><span class="kw">:</span><span class="at"> </span><span class="fl">3.0.0</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">info</span><span class="kw">:</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Task Management API</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.0.0</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 任务管理系统API</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> Task Management System API</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">paths</span><span class="kw">:</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">/tasks</span><span class="kw">:</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">post</span><span class="kw">:</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">summary</span><span class="kw">:</span><span class="at"> 创建任务</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 创建一个新的任务</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">summary</span><span class="kw">:</span><span class="at"> Create Task</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span><span class="at"> Create a new task</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">requestBody</span><span class="kw">:</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">required</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">content</span><span class="kw">:</span></span>
@@ -668,10 +662,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">properties</span><span class="kw">:</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="at">                </span><span class="fu">title</span><span class="kw">:</span></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="at">                  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> string</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="at">                  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> </span><span class="st">"完成项目文档"</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="at">                  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> </span><span class="st">"Complete project documentation"</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="at">                </span><span class="fu">description</span><span class="kw">:</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="at">                  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> string</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="at">                  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> </span><span class="st">"编写项目的技术文档"</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="at">                  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> </span><span class="st">"Write technical documentation for the project"</span></span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="at">                </span><span class="fu">priority</span><span class="kw">:</span></span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="at">                  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> string</span></span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="at">                  </span><span class="fu">enum</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">low</span><span class="kw">,</span><span class="at"> medium</span><span class="kw">,</span><span class="at"> high</span><span class="kw">]</span></span>
@@ -680,13 +674,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="at">                </span><span class="kw">-</span><span class="at"> title</span></span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">responses</span><span class="kw">:</span></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">'201'</span><span class="kw">:</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 任务创建成功</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">description</span><span class="kw">:</span><span class="at"> Task created successfully</span></span>
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">content</span><span class="kw">:</span></span>
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">application/json</span><span class="kw">:</span></span>
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">schema</span><span class="kw">:</span></span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="at">                </span><span class="fu">$ref</span><span class="kw">:</span><span class="at"> </span><span class="st">'#/components/schemas/Task'</span></span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">'400'</span><span class="kw">:</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 请求参数错误</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">description</span><span class="kw">:</span><span class="at"> Request parameter error</span></span>
 <span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">content</span><span class="kw">:</span></span>
 <span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">application/json</span><span class="kw">:</span></span>
 <span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">schema</span><span class="kw">:</span></span>
@@ -702,10 +696,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">example</span><span class="kw">:</span><span class="at"> </span><span class="st">"task-123"</span></span>
 <span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">title</span><span class="kw">:</span></span>
 <span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">type</span><span class="kw">:</span><span class="at"> string</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">example</span><span class="kw">:</span><span class="at"> </span><span class="st">"完成项目文档"</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">example</span><span class="kw">:</span><span class="at"> </span><span class="st">"Complete project documentation"</span></span>
 <span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">description</span><span class="kw">:</span></span>
 <span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">type</span><span class="kw">:</span><span class="at"> string</span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">example</span><span class="kw">:</span><span class="at"> </span><span class="st">"编写项目的技术文档"</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">example</span><span class="kw">:</span><span class="at"> </span><span class="st">"Write technical documentation for the project"</span></span>
 <span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">priority</span><span class="kw">:</span></span>
 <span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">type</span><span class="kw">:</span><span class="at"> string</span></span>
 <span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">enum</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">low</span><span class="kw">,</span><span class="at"> medium</span><span class="kw">,</span><span class="at"> high</span><span class="kw">]</span></span>
@@ -724,16 +718,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">example</span><span class="kw">:</span><span class="at"> </span><span class="st">"VALIDATION_ERROR"</span></span>
 <span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">message</span><span class="kw">:</span></span>
 <span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">type</span><span class="kw">:</span><span class="at"> string</span></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">example</span><span class="kw">:</span><span class="at"> </span><span class="st">"标题不能为空"</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">example</span><span class="kw">:</span><span class="at"> </span><span class="st">"Title cannot be empty"</span></span>
 <span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">details</span><span class="kw">:</span></span>
 <span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">type</span><span class="kw">:</span><span class="at"> object</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>第三步：实现接口层</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 核心逻辑独立于接口</span></span>
+<p><strong>Step 3: Implement Interface Layers</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Core logic independent of interfaces</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TaskService:</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""任务管理核心逻辑"""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Core logic for task management"""</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> create_task(<span class="va">self</span>, title: <span class="bu">str</span>, description: <span class="bu">str</span> <span class="op">=</span> <span class="st">""</span>, priority: <span class="bu">str</span> <span class="op">=</span> <span class="st">"medium"</span>) <span class="op">-&gt;</span> Task:</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""创建任务的核心逻辑"""</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Core logic for creating tasks"""</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        task <span class="op">=</span> Task(</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            <span class="bu">id</span><span class="op">=</span>generate_id(),</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            title<span class="op">=</span>title,</span>
@@ -746,18 +740,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> task</span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_task(<span class="va">self</span>, task_id: <span class="bu">str</span>) <span class="op">-&gt;</span> Task:</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""获取任务的核心逻辑"""</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Core logic for retrieving tasks"""</span></span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.repository.find(task_id)</span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># CLI接口层</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># CLI interface layer</span></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TaskCLI:</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""命令行接口"""</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Command line interface"""</span></span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, service: TaskService):</span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.service <span class="op">=</span> service</span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> create(<span class="va">self</span>, title: <span class="bu">str</span>, description: <span class="bu">str</span> <span class="op">=</span> <span class="st">""</span>, priority: <span class="bu">str</span> <span class="op">=</span> <span class="st">"medium"</span>):</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""CLI创建任务命令"""</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""CLI create task command"""</span></span>
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
 <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>            task <span class="op">=</span> <span class="va">self</span>.service.create_task(title, description, priority)</span>
 <span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"✓ 任务创建成功: </span><span class="sc">{</span>task<span class="sc">.</span><span class="bu">id</span><span class="sc">}</span><span class="ss">"</span>)</span>
@@ -767,7 +761,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"✗ 错误: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>            sys.exit(<span class="dv">1</span>)</span>
 <span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># API接口层</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># API interface layer</span></span>
 <span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TaskAPI:</span>
 <span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""RESTful API接口"""</span></span>
 <span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
@@ -801,7 +795,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>            <span class="st">"created_at"</span>: task.created_at.isoformat()</span>
 <span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>        }, <span class="dv">201</span></span>
 <span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="co"># UI接口层（伪代码）</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="co"># UI interface layer (pseudocode)</span></span>
 <span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TaskUI:</span>
 <span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""图形用户接口"""</span></span>
 <span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
@@ -815,7 +809,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 显示成功消息</span></span>
 <span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>第四步：保证一致性</strong></p>
-<p><strong>统一的响应格式：</strong></p>
+<p><strong>Unified response format：</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># API响应格式</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>{</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"success"</span>: true,</span>
@@ -823,7 +817,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"error"</span>: null</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 或错误响应</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># or error response</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>{</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"success"</span>: false,</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"data"</span>: null,</span>
@@ -835,14 +829,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        }</span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>统一的错误码：</strong></p>
+<p><strong>Unified error codes：</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 错误码定义</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ErrorCode:</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    VALIDATION_ERROR <span class="op">=</span> <span class="st">"VALIDATION_ERROR"</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    NOT_FOUND <span class="op">=</span> <span class="st">"NOT_FOUND"</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    UNAUTHORIZED <span class="op">=</span> <span class="st">"UNAUTHORIZED"</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    INTERNAL_ERROR <span class="op">=</span> <span class="st">"INTERNAL_ERROR"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>统一的认证机制：</strong></p>
+<p><strong>Unified authentication mechanism：</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 认证中间件</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> authenticate(func):</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> wrapper(<span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
@@ -853,15 +847,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> func(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> wrapper</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="接口一致性检查清单" class="level3" data-number="9.1.3">
-<h3 data-number="9.1.3" class="anchored" data-anchor-id="接口一致性检查清单"><span class="header-section-number">9.1.3</span> 接口一致性检查清单</h3>
-<p><strong>命名一致性：</strong> - [ ] CLI命令使用动词（create, list, delete） - [ ] API端点使用名词（/tasks, /users） - [ ] UI按钮使用动作描述（创建任务、删除任务） - [ ] 所有接口使用相同的术语</p>
-<p><strong>行为一致性：</strong> - [ ] 所有接口执行相同的操作逻辑 - [ ] 相同的输入产生相同的输出 - [ ] 错误处理机制统一 - [ ] 认证方式一致</p>
-<p><strong>响应格式一致性：</strong> - [ ] API使用统一的JSON格式 - [ ] 错误码标准化 - [ ] 成功响应结构一致 - [ ] 时间戳使用ISO 8601格式</p>
-<p><strong>认证与授权：</strong> - [ ] 所有接口使用相同的认证机制 - [ ] 权限检查在接口层统一处理 - [ ] 敏感操作需要额外授权 - [ ] API密钥管理安全</p>
+<section id="interface-consistency-checklist" class="level3" data-number="9.1.3">
+<h3 data-number="9.1.3" class="anchored" data-anchor-id="interface-consistency-checklist"><span class="header-section-number">9.1.3</span> Interface consistency checklist</h3>
+<p><strong>Naming consistency：</strong> - [ ] CLI命令使用动词（create, list, delete） - [ ] API端点使用名词（/tasks, /users） - [ ] UI按钮使用动作描述（创建任务、删除任务） - [ ] 所有接口使用相同的术语</p>
+<p><strong>Behavior consistency：</strong> - [ ] 所有接口执行相同的操作逻辑 - [ ] 相同的输入产生相同的输出 - [ ] 错误处理机制统一 - [ ] 认证方式一致</p>
+<p><strong>Response format consistency：</strong> - [ ] API使用统一的JSON格式 - [ ] 错误码标准化 - [ ] 成功响应结构一致 - [ ] 时间戳使用ISO 8601格式</p>
+<p><strong>Authentication and authorization：</strong> - [ ] 所有接口使用相同的认证机制 - [ ] 权限检查在接口层统一处理 - [ ] 敏感操作需要额外授权 - [ ] API密钥管理安全</p>
 </section>
-<section id="快速诊断你的接口设计是否专业" class="level3" data-number="9.1.4">
-<h3 data-number="9.1.4" class="anchored" data-anchor-id="快速诊断你的接口设计是否专业"><span class="header-section-number">9.1.4</span> 快速诊断：你的接口设计是否专业？</h3>
+<section id="quick-diagnosis-is-your-interface-design-professional" class="level3" data-number="9.1.4">
+<h3 data-number="9.1.4" class="anchored" data-anchor-id="quick-diagnosis-is-your-interface-design-professional"><span class="header-section-number">9.1.4</span> Quick Diagnosis: Is Your Interface Design Professional?</h3>
 <p>回答以下问题：</p>
 <ul class="task-list">
 <li><label><input type="checkbox">用户能否通过三种方式（CLI、API、UI）访问核心功能？</label></li>
@@ -873,10 +867,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="本章总结" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="本章总结"><span class="header-section-number">9.2</span> 本章总结</h2>
+<section id="chapter-summary" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">9.2</span> Chapter Summary</h2>
 <p>多接口系统设计是将单一入口转化为专业平台的关键。CLI、API和UI三种接口为不同类型的用户提供了访问系统的不同方式。</p>
-<p>良好的接口设计遵循核心逻辑与接口分离的原则，确保所有接口的一致性。统一的响应格式、错误码和认证机制提升了系统的专业性。</p>
+<p>良好的接口设计遵循核心逻辑与接口分离的原则，确保所有接口的一致性。Unified response format、错误码和认证机制提升了系统的专业性。</p>
 <p>一个拥有多个一致接口的系统，不再是孤立的程序，而是一个可扩展的平台。</p>
 <p>下一章，我们将探讨接口契约。如何明确定义输入输出，让接口行为可预测？</p>
 <hr>

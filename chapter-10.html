@@ -469,13 +469,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-error-state" id="toc-the-error-state" class="nav-link" data-scroll-target="#the-error-state"><span class="header-section-number">11.0.3</span> The Error State</a></li>
   <li><a href="#the-success-state" id="toc-the-success-state" class="nav-link" data-scroll-target="#the-success-state"><span class="header-section-number">11.0.4</span> The Success State</a></li>
   <li><a href="#completing-the-state-space" id="toc-completing-the-state-space" class="nav-link" data-scroll-target="#completing-the-state-space"><span class="header-section-number">11.0.5</span> Completing the State Space</a></li>
-  <li><a href="#实践指南状态设计框架" id="toc-实践指南状态设计框架" class="nav-link" data-scroll-target="#实践指南状态设计框架"><span class="header-section-number">11.1</span> 实践指南：状态设计框架</a>
+  <li><a href="#practical-guide-state-design-framework" id="toc-practical-guide-state-design-framework" class="nav-link" data-scroll-target="#practical-guide-state-design-framework"><span class="header-section-number">11.1</span> Practical Guide: State Design Framework</a>
   <ul class="collapse">
   <li><a href="#四状态设计sop" id="toc-四状态设计sop" class="nav-link" data-scroll-target="#四状态设计sop"><span class="header-section-number">11.1.1</span> 四状态设计SOP</a></li>
   <li><a href="#状态设计检查清单" id="toc-状态设计检查清单" class="nav-link" data-scroll-target="#状态设计检查清单"><span class="header-section-number">11.1.2</span> 状态设计检查清单</a></li>
-  <li><a href="#快速诊断你的状态设计是否完整" id="toc-快速诊断你的状态设计是否完整" class="nav-link" data-scroll-target="#快速诊断你的状态设计是否完整"><span class="header-section-number">11.1.3</span> 快速诊断：你的状态设计是否完整？</a></li>
+  <li><a href="#quick-diagnosis-is-your-state-design-complete" id="toc-quick-diagnosis-is-your-state-design-complete" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-state-design-complete"><span class="header-section-number">11.1.3</span> Quick Diagnosis: Is Your State Design Complete?</a></li>
   </ul></li>
-  <li><a href="#本章总结" id="toc-本章总结" class="nav-link" data-scroll-target="#本章总结"><span class="header-section-number">11.2</span> 本章总结</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">11.2</span> Chapter Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -502,12 +502,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/chapter-10.png" class="img-fluid figure-img"></p>
-<figcaption>State Design</figcaption>
-</figure>
-</div>
 <p>One of the most revealing differences between practice projects and professional systems appears not in the main functionality, but in the <strong>edges of the experience</strong>.</p>
 <p>When developers build small projects, most attention goes toward making the primary action work. A request succeeds. A record is created. A list of results appears on the screen.</p>
 <p>As long as the ideal flow works, the system is considered complete.</p>
@@ -568,8 +562,8 @@ ul.task-list li input[type="checkbox"] {
 <p>这种思维模式的差异，是练习项目和专业系统之间最根本的区别之一。</p>
 <hr>
 </section>
-<section id="实践指南状态设计框架" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="实践指南状态设计框架"><span class="header-section-number">11.1</span> 实践指南：状态设计框架</h2>
+<section id="practical-guide-state-design-framework" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="practical-guide-state-design-framework"><span class="header-section-number">11.1</span> Practical Guide: State Design Framework</h2>
 <p>设计完整的状态空间需要系统的方法。以下是一个实用的状态设计框架。</p>
 <section id="四状态设计sop" class="level3" data-number="11.1.1">
 <h3 data-number="11.1.1" class="anchored" data-anchor-id="四状态设计sop"><span class="header-section-number">11.1.1</span> 四状态设计SOP</h3>
@@ -589,8 +583,8 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>错误状态设计检查：</strong> - [ ] 错误消息是否清晰易懂？ - [ ] 是否说明了错误的原因？ - [ ] 是否提供了解决问题的建议？ - [ ] 是否有重试或替代操作的选项？</p>
 <p><strong>成功状态设计检查：</strong> - [ ] 是否明确确认了操作成功？ - [ ] 是否展示了操作的结果？ - [ ] 是否引导用户进行下一步操作？ - [ ] 反馈是否及时且清晰？</p>
 </section>
-<section id="快速诊断你的状态设计是否完整" class="level3" data-number="11.1.3">
-<h3 data-number="11.1.3" class="anchored" data-anchor-id="快速诊断你的状态设计是否完整"><span class="header-section-number">11.1.3</span> 快速诊断：你的状态设计是否完整？</h3>
+<section id="quick-diagnosis-is-your-state-design-complete" class="level3" data-number="11.1.3">
+<h3 data-number="11.1.3" class="anchored" data-anchor-id="quick-diagnosis-is-your-state-design-complete"><span class="header-section-number">11.1.3</span> Quick Diagnosis: Is Your State Design Complete?</h3>
 <p>对于你的项目中的每个主要功能，回答以下问题：</p>
 <ul class="task-list">
 <li><label><input type="checkbox">你是否为每种可能的状态设计了UI？</label></li>
@@ -602,8 +596,8 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="本章总结" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="本章总结"><span class="header-section-number">11.2</span> 本章总结</h2>
+<section id="chapter-summary" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">11.2</span> Chapter Summary</h2>
 <p>状态设计是用户体验的关键组成部分。一个完整的状态空间确保系统在任何情况下都能提供清晰、有用的反馈。</p>
 <p>空状态、加载状态、错误状态和成功状态构成了最常见的基础状态框架。虽然它们看起来简单，但它们的设计质量直接影响用户对系统的感知。</p>
 <p>专业系统不会忽视这些”边缘”状态。相反，它们精心设计每个状态，确保用户在任何情况下都能获得良好的体验。</p>

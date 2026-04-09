@@ -469,13 +469,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#aggregates-grouping-related-concepts" id="toc-aggregates-grouping-related-concepts" class="nav-link" data-scroll-target="#aggregates-grouping-related-concepts"><span class="header-section-number">7.0.3</span> Aggregates: Grouping Related Concepts</a></li>
   <li><a href="#how-data-models-shape-the-system" id="toc-how-data-models-shape-the-system" class="nav-link" data-scroll-target="#how-data-models-shape-the-system"><span class="header-section-number">7.0.4</span> How Data Models Shape the System</a></li>
   <li><a href="#the-skeleton-of-the-software" id="toc-the-skeleton-of-the-software" class="nav-link" data-scroll-target="#the-skeleton-of-the-software"><span class="header-section-number">7.0.5</span> The Skeleton of the Software</a></li>
-  <li><a href="#实践指南领域建模步骤" id="toc-实践指南领域建模步骤" class="nav-link" data-scroll-target="#实践指南领域建模步骤"><span class="header-section-number">7.1</span> 实践指南：领域建模步骤</a>
+  <li><a href="#practical-guide-domain-modeling-steps" id="toc-practical-guide-domain-modeling-steps" class="nav-link" data-scroll-target="#practical-guide-domain-modeling-steps"><span class="header-section-number">7.1</span> Practical Guide: Domain Modeling Steps</a>
   <ul class="collapse">
   <li><a href="#领域建模sop" id="toc-领域建模sop" class="nav-link" data-scroll-target="#领域建模sop"><span class="header-section-number">7.1.1</span> 领域建模SOP</a></li>
   <li><a href="#实体-vs-值对象决策树" id="toc-实体-vs-值对象决策树" class="nav-link" data-scroll-target="#实体-vs-值对象决策树"><span class="header-section-number">7.1.2</span> 实体 vs 值对象：决策树</a></li>
-  <li><a href="#快速诊断你的数据模型是否清晰" id="toc-快速诊断你的数据模型是否清晰" class="nav-link" data-scroll-target="#快速诊断你的数据模型是否清晰"><span class="header-section-number">7.1.3</span> 快速诊断：你的数据模型是否清晰？</a></li>
+  <li><a href="#quick-diagnosis-is-your-data-model-clear" id="toc-quick-diagnosis-is-your-data-model-clear" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-data-model-clear"><span class="header-section-number">7.1.3</span> Quick Diagnosis: Is Your Data Model Clear?</a></li>
   </ul></li>
-  <li><a href="#本章总结" id="toc-本章总结" class="nav-link" data-scroll-target="#本章总结"><span class="header-section-number">7.2</span> 本章总结</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">7.2</span> Chapter Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -502,12 +502,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/chapter-06.png" class="img-fluid figure-img"></p>
-<figcaption>Domain Models</figcaption>
-</figure>
-</div>
 <p>In many practice projects, data begins as something simple and flexible. A developer may store information in dictionaries, lists, or loosely structured JSON objects. These formats are convenient because they allow rapid experimentation without requiring strict definitions.</p>
 <p>At the early stages of development, this flexibility is valuable. It enables ideas to move quickly from concept to working code.</p>
 <p>However, as a project grows, this informal approach to data begins to reveal its limitations. When the system’s data is only loosely defined, the structure of the entire application becomes unstable. Logic spreads across multiple places, assumptions become hidden, and changes become increasingly difficult.</p>
@@ -576,8 +570,8 @@ A JSON object representing user data.</p>
 <p>而一个清晰的领域模型为系统提供了坚实的结构基础。就像建筑物的框架一样，它定义了系统的整体形状，并为其他组件提供了附着点。</p>
 <hr>
 </section>
-<section id="实践指南领域建模步骤" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="实践指南领域建模步骤"><span class="header-section-number">7.1</span> 实践指南：领域建模步骤</h2>
+<section id="practical-guide-domain-modeling-steps" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="practical-guide-domain-modeling-steps"><span class="header-section-number">7.1</span> Practical Guide: Domain Modeling Steps</h2>
 <p>领域建模不是艺术，而是一门可以学习和实践的技艺。以下是一个实用的建模框架。</p>
 <section id="领域建模sop" class="level3" data-number="7.1.1">
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="领域建模sop"><span class="header-section-number">7.1.1</span> 领域建模SOP</h3>
@@ -618,8 +612,8 @@ A JSON object representing user data.</p>
         ├─ 是 → 值对象
         └─ 否 → 可能是实体</code></pre>
 </section>
-<section id="快速诊断你的数据模型是否清晰" class="level3" data-number="7.1.3">
-<h3 data-number="7.1.3" class="anchored" data-anchor-id="快速诊断你的数据模型是否清晰"><span class="header-section-number">7.1.3</span> 快速诊断：你的数据模型是否清晰？</h3>
+<section id="quick-diagnosis-is-your-data-model-clear" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="quick-diagnosis-is-your-data-model-clear"><span class="header-section-number">7.1.3</span> Quick Diagnosis: Is Your Data Model Clear?</h3>
 <p>回答以下问题：</p>
 <ul class="task-list">
 <li><label><input type="checkbox">你能否在一张图上画出所有核心实体及其关系？</label></li>
@@ -631,8 +625,8 @@ A JSON object representing user data.</p>
 <hr>
 </section>
 </section>
-<section id="本章总结" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="本章总结"><span class="header-section-number">7.2</span> 本章总结</h2>
+<section id="chapter-summary" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">7.2</span> Chapter Summary</h2>
 <p>领域模型是软件的骨架。它将模糊的数据结构转化为明确定义的概念和关系，为整个系统提供结构基础。</p>
 <p>通过实体、值对象和聚合，系统开始反映真实的业务领域。这种反映不仅使代码更易理解，也使系统更稳定、更易维护。</p>
 <p>一个好的领域模型不是凭空出现的，它来自于对业务领域的深入理解和持续的重构。它是一个演化的过程，而不是一次性的设计。</p>
