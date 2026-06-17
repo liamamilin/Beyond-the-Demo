@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15&nbsp; Error Handling and Recovery: Failure Is the Default – Beyond the Demo</title>
+<title>15&nbsp; 错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,19 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./chapter-13.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-14.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-14.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,9 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -283,175 +318,175 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -461,22 +496,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#validation-preventing-invalid-states" id="toc-validation-preventing-invalid-states" class="nav-link active" data-scroll-target="#validation-preventing-invalid-states"><span class="header-section-number">15.0.1</span> Validation: Preventing Invalid States</a></li>
-  <li><a href="#retry-handling-temporary-failures" id="toc-retry-handling-temporary-failures" class="nav-link" data-scroll-target="#retry-handling-temporary-failures"><span class="header-section-number">15.0.2</span> Retry: Handling Temporary Failures</a></li>
-  <li><a href="#fallback-maintaining-functionality" id="toc-fallback-maintaining-functionality" class="nav-link" data-scroll-target="#fallback-maintaining-functionality"><span class="header-section-number">15.0.3</span> Fallback: Maintaining Functionality</a></li>
-  <li><a href="#communicating-failure-gracefully" id="toc-communicating-failure-gracefully" class="nav-link" data-scroll-target="#communicating-failure-gracefully"><span class="header-section-number">15.0.4</span> Communicating Failure Gracefully</a></li>
-  <li><a href="#designing-systems-that-fail-well" id="toc-designing-systems-that-fail-well" class="nav-link" data-scroll-target="#designing-systems-that-fail-well"><span class="header-section-number">15.0.5</span> Designing Systems That Fail Well</a></li>
-  <li><a href="#practical-guide-error-handling-strategy-framework" id="toc-practical-guide-error-handling-strategy-framework" class="nav-link" data-scroll-target="#practical-guide-error-handling-strategy-framework"><span class="header-section-number">15.1</span> Practical Guide: Error Handling Strategy Framework</a>
-  <ul class="collapse">
-  <li><a href="#错误分类体系" id="toc-错误分类体系" class="nav-link" data-scroll-target="#错误分类体系"><span class="header-section-number">15.1.1</span> 错误分类体系</a></li>
-  <li><a href="#错误处理sop" id="toc-错误处理sop" class="nav-link" data-scroll-target="#错误处理sop"><span class="header-section-number">15.1.2</span> 错误处理SOP</a></li>
-  <li><a href="#错误消息模板" id="toc-错误消息模板" class="nav-link" data-scroll-target="#错误消息模板"><span class="header-section-number">15.1.3</span> 错误消息模板</a></li>
-  <li><a href="#quick-diagnosis-is-your-error-handling-professional" id="toc-quick-diagnosis-is-your-error-handling-professional" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-error-handling-professional"><span class="header-section-number">15.1.4</span> Quick Diagnosis: Is Your Error Handling Professional?</a></li>
-  </ul></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">15.2</span> Chapter Summary</a></li>
+  <li><a href="#验证防止无效状态validation-preventing-invalid-states" id="toc-验证防止无效状态validation-preventing-invalid-states" class="nav-link active" data-scroll-target="#验证防止无效状态validation-preventing-invalid-states"><span class="header-section-number">15.1</span> 验证：防止无效状态（Validation: Preventing Invalid States）</a></li>
+  <li><a href="#重试处理临时性失败retry-handling-temporary-failures" id="toc-重试处理临时性失败retry-handling-temporary-failures" class="nav-link" data-scroll-target="#重试处理临时性失败retry-handling-temporary-failures"><span class="header-section-number">15.2</span> 重试：处理临时性失败（Retry: Handling Temporary Failures）</a></li>
+  <li><a href="#降级维持功能fallback-maintaining-functionality" id="toc-降级维持功能fallback-maintaining-functionality" class="nav-link" data-scroll-target="#降级维持功能fallback-maintaining-functionality"><span class="header-section-number">15.3</span> 降级：维持功能（Fallback: Maintaining Functionality）</a></li>
+  <li><a href="#优雅地沟通错误communicating-errors-gracefully" id="toc-优雅地沟通错误communicating-errors-gracefully" class="nav-link" data-scroll-target="#优雅地沟通错误communicating-errors-gracefully"><span class="header-section-number">15.4</span> 优雅地沟通错误（Communicating Errors Gracefully）</a></li>
+  <li><a href="#前瞻性错误与运行时错误expected-vs.-unexpected-errors" id="toc-前瞻性错误与运行时错误expected-vs.-unexpected-errors" class="nav-link" data-scroll-target="#前瞻性错误与运行时错误expected-vs.-unexpected-errors"><span class="header-section-number">15.5</span> 前瞻性错误与运行时错误（Expected vs.&nbsp;Unexpected Errors）</a></li>
+  <li><a href="#实践指南错误处理模式" id="toc-实践指南错误处理模式" class="nav-link" data-scroll-target="#实践指南错误处理模式"><span class="header-section-number">15.6</span> 实践指南：错误处理模式</a></li>
+  <li><a href="#小结" id="toc-小结" class="nav-link" data-scroll-target="#小结"><span class="header-section-number">15.7</span> 小结</a></li>
   </ul>
 </nav>
     </div>
@@ -486,7 +515,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -502,153 +531,111 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#验证防止无效状态validation-preventing-invalid-states" id="toc-验证防止无效状态validation-preventing-invalid-states"><span class="header-section-number">15.1</span> 验证：防止无效状态（Validation: Preventing Invalid States）</a></li>
+  <li><a href="#重试处理临时性失败retry-handling-temporary-failures" id="toc-重试处理临时性失败retry-handling-temporary-failures"><span class="header-section-number">15.2</span> 重试：处理临时性失败（Retry: Handling Temporary Failures）</a></li>
+  <li><a href="#降级维持功能fallback-maintaining-functionality" id="toc-降级维持功能fallback-maintaining-functionality"><span class="header-section-number">15.3</span> 降级：维持功能（Fallback: Maintaining Functionality）</a></li>
+  <li><a href="#优雅地沟通错误communicating-errors-gracefully" id="toc-优雅地沟通错误communicating-errors-gracefully"><span class="header-section-number">15.4</span> 优雅地沟通错误（Communicating Errors Gracefully）</a></li>
+  <li><a href="#前瞻性错误与运行时错误expected-vs.-unexpected-errors" id="toc-前瞻性错误与运行时错误expected-vs.-unexpected-errors"><span class="header-section-number">15.5</span> 前瞻性错误与运行时错误（Expected vs.&nbsp;Unexpected Errors）</a></li>
+  <li><a href="#实践指南错误处理模式" id="toc-实践指南错误处理模式"><span class="header-section-number">15.6</span> 实践指南：错误处理模式</a></li>
+  <li><a href="#小结" id="toc-小结"><span class="header-section-number">15.7</span> 小结</a></li>
+  </ul>
+</nav>
+<p>当开发者构建小型程序时，他们通常假设操作会成功。输入是正确的，服务会响应，系统会不间断地完成工作。</p>
+<p>这种假设在受控环境中很好用。在开发过程中，开发者经常自己提供输入，在本地运行程序，并直接观察结果。</p>
+<p>然而，一旦软件开始在真实环境中运行，一种不同的现实就浮现出来。</p>
+<p>网络变得不可靠。外部服务响应缓慢或完全失败。用户提供意外的输入。数据库经历临时中断。</p>
+<p>换句话说，<strong>失败不是异常——它是真实系统的正常条件</strong>。</p>
+<p>专业软件因此采纳了一种根本不同的思维方式。它不是为成功而设计、对失败做出反应，而是将失败作为默认场景来设计。</p>
+<p>这种转变将错误处理从事后补充转变为系统架构的基本组成部分。</p>
+<hr>
+<section id="验证防止无效状态validation-preventing-invalid-states" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="验证防止无效状态validation-preventing-invalid-states"><span class="header-section-number">15.1</span> 验证：防止无效状态（Validation: Preventing Invalid States）</h2>
+<p>防止失败的最早机会之一是<strong>输入验证（input validation）</strong>。</p>
+<p>每当系统从外部源接收信息时——无论是通过 API 请求、命令行参数还是用户界面——它必须验证输入是否满足预期的约束。</p>
+<p>验证确保必填字段存在、值遵循正确的格式、输入之间的关系保持一致。</p>
+<p>没有验证，无效数据可能进入系统，并在处理过程的后期造成不可预知的行为。错误可能出现在远离其原始原因的地方，使诊断变得困难。</p>
+<p>专业系统因此尽可能早地执行验证。</p>
+<p>通过立即拒绝无效输入，它们防止系统进入不稳定状态，并向用户提供关于需要纠正什么的清晰反馈。</p>
+<hr>
+</section>
+<section id="重试处理临时性失败retry-handling-temporary-failures" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="重试处理临时性失败retry-handling-temporary-failures"><span class="header-section-number">15.2</span> 重试：处理临时性失败（Retry: Handling Temporary Failures）</h2>
+<p>并非所有失败都代表永久性问题。</p>
+<p>许多错误是由于临时条件造成的。网络请求可能超时，服务可能短暂不可用，数据库可能经历瞬时负载。</p>
+<p>在这些情况下，重试操作通常就能成功。</p>
+<p>专业系统识别出这种模式，并为与外部依赖交互的操作实现<strong>重试机制（retry mechanisms）</strong>。</p>
+<p>重试策略通常包含限制和延迟。系统在短暂间隔后再次尝试操作，在报告失败前重复尝试定义的次数。</p>
+<p>这种方法允许系统从临时性问题中自动恢复，无需人工干预。</p>
+<p>目标不是消除所有失败，而是减少临时中断的影响。</p>
+<hr>
+</section>
+<section id="降级维持功能fallback-maintaining-functionality" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="降级维持功能fallback-maintaining-functionality"><span class="header-section-number">15.3</span> 降级：维持功能（Fallback: Maintaining Functionality）</h2>
+<p>有时即使在重试后，操作也不能成功。</p>
+<p>在这些情况下，系统可能通过切换到替代路径来提供部分功能。这种策略被称为<strong>降级（fallback）</strong>。</p>
+<p>降级机制允许系统在降级但可用的状态下继续运行。</p>
+<p>例如，一个无法连接到其主数据库的系统可能切换到本地缓存。一个无法获取实时数据的组件可能提供最后一次已知良好的结果。一个依赖于外部服务的功能可能返回一个合理的默认值。</p>
+<p>降级确保系统不会因为一个组件的失败而完全停止工作。</p>
+<p>用户可能体验稍微降低的功能，但核心系统保持可用。</p>
+<hr>
+</section>
+<section id="优雅地沟通错误communicating-errors-gracefully" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="优雅地沟通错误communicating-errors-gracefully"><span class="header-section-number">15.4</span> 优雅地沟通错误（Communicating Errors Gracefully）</h2>
+<p>当失败发生时，系统如何与用户沟通对信任有显著影响。</p>
+<p>练手项目经常以对用户不友好的方式呈现错误：技术性的堆栈跟踪、通用的”出了点问题”消息，或完全没有反馈。</p>
+<p>专业系统提供清晰、可操作的信息。一个好的错误消息回答三个问题：</p>
+<p><strong>出了什么问题？</strong> 一个对用户友好的描述，解释失败的性质。</p>
+<p><strong>为什么出问题？</strong> 上下文帮助用户理解导致失败的原因。</p>
+<p><strong>下一步该做什么？</strong> 关于如何解决或缓解问题的具体指导。</p>
+<p>通过将错误转化为有用的沟通，专业保护了用户的信心。</p>
+<hr>
+</section>
+<section id="前瞻性错误与运行时错误expected-vs.-unexpected-errors" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="前瞻性错误与运行时错误expected-vs.-unexpected-errors"><span class="header-section-number">15.5</span> 前瞻性错误与运行时错误（Expected vs.&nbsp;Unexpected Errors）</h2>
+<p>并非所有错误都是平等的。专业系统区分两种不同的错误类别：</p>
+<p><strong>前瞻性错误（expected errors）</strong>是系统已经预见并为其设计了处理方式的错误。无效输入、缺失资源和认证失败都属于这一类别。这些错误应该被优雅地处理，并转化为清晰的消息。</p>
+<p><strong>运行时错误（unexpected errors）</strong>是系统未预见的错误。空指针异常、连接意外断开和编程错误属于这一类别。这些错误应该被记录，然后以可控的方式失败，而不是让系统处于不一致的状态。</p>
+<p>经过良好测试的系统其运行时错误会较少，但它们仍然为失败做好了准备。</p>
+<hr>
+</section>
+<section id="实践指南错误处理模式" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="实践指南错误处理模式"><span class="header-section-number">15.6</span> 实践指南：错误处理模式</h2>
+<p>以下是在整个系统中应用的简单错误处理模式。</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 验证</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_user(data):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> data.get(<span class="st">"email"</span>):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">"error"</span>: <span class="st">"EMAIL_REQUIRED"</span>, <span class="st">"message"</span>: <span class="st">"邮箱是必填项"</span>}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 重试</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> call_with_retry(service_call, max_retries<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> attempt <span class="kw">in</span> <span class="bu">range</span>(max_retries):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> service_call()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> TemporaryError:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> attempt <span class="op">==</span> max_retries <span class="op">-</span> <span class="dv">1</span>:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">raise</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            time.sleep(<span class="dv">1</span> <span class="op">*</span> (attempt <span class="op">+</span> <span class="dv">1</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 降级</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_user_profile(user_id):</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> database.fetch(user_id)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> DatabaseError:</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cache.get(user_id)  <span class="co"># 降级到缓存</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="小结" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="小结"><span class="header-section-number">15.7</span> 小结</h2>
+<p>在真实系统中，失败是不可避免的。专业软件不是通过假装失败不会发生来构建的，而是通过设计对失败的鲁棒性来构建的。</p>
+<p>通过验证、重试、降级和清晰的沟通，开发者创建了不仅能优雅地处理问题、还能在问题出现时保持用户信心的系统。</p>
+<p>真正的专业标志不是系统是否失败，而是当失败发生时，系统做了什么。下一章，我们将探讨测试——如何让系统不仅运行，而且可以信任。</p>
 
-<p>When developers build small programs, they often assume that operations will succeed. Inputs will be correct, services will respond, and the system will complete its work without interruption.</p>
-<p>This assumption works well in controlled environments. During development, the developer often provides the input, runs the program locally, and observes the result directly.</p>
-<p>However, once software begins operating in real environments, a different reality emerges.</p>
-<p>Networks become unreliable. External services respond slowly or fail entirely. Users provide unexpected input. Databases experience temporary interruptions.</p>
-<p>In other words, <strong>failure is not an exception—it is a normal condition of real systems</strong>.</p>
-<p>Professional software therefore adopts a fundamentally different mindset. Instead of designing for success and reacting to failure, it designs for failure as the default scenario.</p>
-<p>This shift transforms error handling from an afterthought into an essential part of system architecture.</p>
-<hr>
-<section id="validation-preventing-invalid-states" class="level3" data-number="15.0.1">
-<h3 data-number="15.0.1" class="anchored" data-anchor-id="validation-preventing-invalid-states"><span class="header-section-number">15.0.1</span> Validation: Preventing Invalid States</h3>
-<p>One of the earliest opportunities to prevent failure is <strong>input validation</strong>.</p>
-<p>Whenever a system receives information from an external source—whether through an API request, a command-line argument, or a user interface—it must verify that the input meets expected constraints.</p>
-<p>Validation ensures that required fields exist, that values follow the correct format, and that relationships between inputs remain consistent.</p>
-<p>Without validation, invalid data can enter the system and create unpredictable behavior later in the process. Errors may appear far from their original cause, making them difficult to diagnose.</p>
-<p>Professional systems therefore perform validation as early as possible.</p>
-<p>By rejecting invalid inputs immediately, they prevent the system from entering unstable states and provide clear feedback to the user about what needs to be corrected.</p>
-<hr>
-</section>
-<section id="retry-handling-temporary-failures" class="level3" data-number="15.0.2">
-<h3 data-number="15.0.2" class="anchored" data-anchor-id="retry-handling-temporary-failures"><span class="header-section-number">15.0.2</span> Retry: Handling Temporary Failures</h3>
-<p>Not all failures represent permanent problems.</p>
-<p>Many errors occur because of temporary conditions. A network request may time out, a service may be briefly unavailable, or a database may experience momentary load.</p>
-<p>In these situations, retrying the operation often succeeds.</p>
-<p>Professional systems recognize this pattern and implement <strong>retry mechanisms</strong> for operations that interact with external dependencies.</p>
-<p>A retry strategy typically includes limits and delays. The system attempts the operation again after a short interval, repeating the attempt a defined number of times before reporting failure.</p>
-<p>This approach allows the system to recover automatically from transient issues without requiring manual intervention.</p>
-<p>The goal is not to eliminate all failures but to reduce the impact of temporary disruptions.</p>
-<hr>
-</section>
-<section id="fallback-maintaining-functionality" class="level3" data-number="15.0.3">
-<h3 data-number="15.0.3" class="anchored" data-anchor-id="fallback-maintaining-functionality"><span class="header-section-number">15.0.3</span> Fallback: Maintaining Functionality</h3>
-<p>Sometimes an operation cannot succeed even after retries.</p>
-<p>In these situations, the system may still provide partial functionality by switching to an alternative path. This strategy is known as a <strong>fallback</strong>.</p>
-<p>A fallback mechanism allows the system to continue operating in a degraded but usable state.</p>
-<p>For example, if a recommendation service becomes unavailable, the system might display a default set of suggestions. If a remote data source fails, the system might rely on cached information.</p>
-<p>Fallback strategies acknowledge that maintaining some level of service is often better than failing completely.</p>
-<p>By anticipating these situations in advance, professional systems ensure that disruptions remain manageable.</p>
-<hr>
-</section>
-<section id="communicating-failure-gracefully" class="level3" data-number="15.0.4">
-<h3 data-number="15.0.4" class="anchored" data-anchor-id="communicating-failure-gracefully"><span class="header-section-number">15.0.4</span> Communicating Failure Gracefully</h3>
-<p>Handling errors internally is only part of the challenge. Equally important is how the system communicates failure to its users.</p>
-<p>Practice projects often expose raw error messages or stack traces. While these messages may help developers diagnose problems, they can confuse or alarm users.</p>
-<p>Professional systems present errors in a controlled and informative manner.</p>
-<p>The system explains what went wrong, often using language appropriate for the user’s level of expertise. When possible, it also suggests actions that might resolve the problem.</p>
-<p>For example, a message might indicate that a request could not be completed due to invalid input or that a service is temporarily unavailable and the user should try again later.</p>
-<p>This approach maintains clarity and preserves trust even when operations fail.</p>
-<hr>
-</section>
-<section id="designing-systems-that-fail-well" class="level3" data-number="15.0.5">
-<h3 data-number="15.0.5" class="anchored" data-anchor-id="designing-systems-that-fail-well"><span class="header-section-number">15.0.5</span> Designing Systems That Fail Well</h3>
-<p>In practice projects, errors often represent unexpected interruptions. The system was designed primarily for success, and failure appears as an unfortunate side effect.</p>
-<p>Professional systems reverse this perspective.</p>
-<p>They assume that failures will occur regularly and design mechanisms to handle them gracefully.</p>
-<p>Validation prevents invalid states from entering the system. Retry mechanisms recover from temporary disruptions. Fallback strategies maintain partial functionality. Clear communication ensures that users understand what happened.</p>
-<p>Together, these techniques create systems that remain stable even under imperfect conditions.</p>
-<p>A mature system is not defined by the absence of errors. It is defined by its ability to <strong>fail well</strong>.</p>
-<p>When software fails in a controlled, transparent, and recoverable manner, users perceive the system as reliable—even in moments of difficulty.</p>
-<p>This ability to handle failure with composure is one of the clearest signs that a project has moved beyond experimentation and into professional maturity.</p>
-<hr>
-</section>
-<section id="practical-guide-error-handling-strategy-framework" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="practical-guide-error-handling-strategy-framework"><span class="header-section-number">15.1</span> Practical Guide: Error Handling Strategy Framework</h2>
-<p>有效的错误处理需要分类和方法论。以下是一个实用的错误处理框架。</p>
-<section id="错误分类体系" class="level3" data-number="15.1.1">
-<h3 data-number="15.1.1" class="anchored" data-anchor-id="错误分类体系"><span class="header-section-number">15.1.1</span> 错误分类体系</h3>
-<p><strong>类型1：用户错误（User Errors）</strong> - 定义：由于用户的输入或操作导致的错误 - 特点：可预测、可预防、需要清晰的指导 - 处理策略：即时反馈 + 明确的纠正建议 - 示例：表单验证失败、格式错误、权限不足</p>
-<p><strong>类型2：系统错误（System Errors）</strong> - 定义：由于系统内部问题导致的错误 - 特点：不可预测、需要技术干预 - 处理策略：优雅降级 + 技术通知 - 示例：数据库连接失败、服务不可用、内存不足</p>
-<p><strong>类型3：网络错误（Network Errors）</strong> - 定义：由于网络通信问题导致的错误 - 特点：通常是临时的、可重试 - 处理策略：自动重试 + 进度反馈 - 示例：请求超时、连接中断、DNS解析失败</p>
-<p><strong>类型4：业务错误（Business Errors）</strong> - 定义：由于业务规则约束导致的错误 - 特点：反映业务逻辑、需要业务解释 - 处理策略：清晰的业务消息 + 替代方案 - 示例：库存不足、账户余额不足、操作不允许</p>
-</section>
-<section id="错误处理sop" class="level3" data-number="15.1.2">
-<h3 data-number="15.1.2" class="anchored" data-anchor-id="错误处理sop"><span class="header-section-number">15.1.2</span> 错误处理SOP</h3>
-<p><strong>第一步：识别错误来源</strong></p>
-<ol type="1">
-<li>错误发生在系统的哪个部分？</li>
-<li>错误的根本原因是什么？</li>
-<li>错误是暂时的还是永久的？</li>
-</ol>
-<p><strong>第二步：选择处理策略</strong></p>
-<ol type="1">
-<li>是否可以自动重试？（网络错误）</li>
-<li>是否需要优雅降级？（系统错误）</li>
-<li>是否需要用户干预？（用户错误）</li>
-<li>是否需要技术通知？（系统错误）</li>
-</ol>
-<p><strong>第三步：设计用户体验</strong></p>
-<ol type="1">
-<li>错误消息是否清晰易懂？</li>
-<li>是否提供了解决问题的建议？</li>
-<li>是否有重试或替代操作的选项？</li>
-<li>用户是否知道系统仍在运行？</li>
-</ol>
-<p><strong>第四步：记录和监控</strong></p>
-<ol type="1">
-<li>错误是否被记录到日志？</li>
-<li>错误频率是否被监控？</li>
-<li>是否有告警机制？</li>
-<li>错误数据是否用于改进？</li>
-</ol>
-</section>
-<section id="错误消息模板" class="level3" data-number="15.1.3">
-<h3 data-number="15.1.3" class="anchored" data-anchor-id="错误消息模板"><span class="header-section-number">15.1.3</span> 错误消息模板</h3>
-<p><strong>好的错误消息结构：</strong></p>
-<pre><code>[发生了什么] + [为什么发生] + [如何解决]
 
-示例：
-"无法保存您的更改。网络连接已断开。请检查您的网络连接并重试。"</code></pre>
-<p><strong>避免的错误消息：</strong></p>
-<ul>
-<li>❌ “错误发生”</li>
-<li>❌ “操作失败”</li>
-<li>❌ “500 Internal Server Error”</li>
-<li>❌ 堆栈跟踪（面向用户的界面）</li>
-</ul>
-</section>
-<section id="quick-diagnosis-is-your-error-handling-professional" class="level3" data-number="15.1.4">
-<h3 data-number="15.1.4" class="anchored" data-anchor-id="quick-diagnosis-is-your-error-handling-professional"><span class="header-section-number">15.1.4</span> Quick Diagnosis: Is Your Error Handling Professional?</h3>
-<p>回答以下问题：</p>
-<ul class="task-list">
-<li><label><input type="checkbox">错误是否按照类型进行分类处理？</label></li>
-<li><label><input type="checkbox">错误消息是否提供了可操作的建议？</label></li>
-<li><label><input type="checkbox">用户是否知道错误发生时系统仍在运行？</label></li>
-<li><label><input type="checkbox">临时错误是否有自动重试机制？</label></li>
-<li><label><input type="checkbox">关键错误是否有技术监控和告警？</label></li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="chapter-summary" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">15.2</span> Chapter Summary</h2>
-<p>错误处理不是避免错误的尝试，而是设计系统以优雅地处理错误的实践。</p>
-<p>通过将错误分类，并为每类错误设计适当的处理策略，系统可以在不完美条件下保持稳定。</p>
-<p>验证、重试、降级和清晰通信是专业错误处理的四大支柱。它们共同使系统能够”优雅地失败”。</p>
-<p>下一章，我们将探讨如何通过测试确保系统的可靠性。当代码可以通过自动化测试验证时，我们对系统的信心如何提升？</p>
-<hr>
-<p><strong>实践建议：</strong></p>
-<ol type="1">
-<li><strong>错误分类</strong>：建立系统的错误分类体系，为每类错误定义处理策略。</li>
-<li><strong>消息模板</strong>：为常见错误类型创建消息模板，确保一致性。</li>
-<li><strong>重试策略</strong>：为网络操作实现指数退避重试机制。</li>
-<li><strong>监控告警</strong>：为关键错误设置监控和告警，及时发现和解决问题。</li>
-</ol>
-<p><strong>立即行动：</strong></p>
-<p>选择你的项目中的一个功能，列出所有可能发生的错误类型。为每种错误设计一个清晰的错误消息和相应的处理策略。</p>
-
+<!-- -->
 
 </section>
 
@@ -737,6 +724,57 @@ ul.task-list li input[type="checkbox"] {
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -753,6 +791,13 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1068,16 +1113,155 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-13.html" class="pagination-link" aria-label="Logging and Observability: Making Systems Understandable">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span>
+      <a href="./chapter-13.html" class="pagination-link" aria-label="日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-15.html" class="pagination-link" aria-label="Testing: From “It Runs” to “It Can Be Trusted”">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-15.html" class="pagination-link" aria-label="测试：从&quot;能运行&quot;到&quot;可信任&quot;（Testing: From &quot;It Runs&quot; to &quot;It Can Be Trusted&quot;）">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>当开发者构建小型程序时，他们通常假设操作会成功。输入是正确的，服务会响应，系统会不间断地完成工作。</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>这种假设在受控环境中很好用。在开发过程中，开发者经常自己提供输入，在本地运行程序，并直接观察结果。</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>然而，一旦软件开始在真实环境中运行，一种不同的现实就浮现出来。</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>网络变得不可靠。外部服务响应缓慢或完全失败。用户提供意外的输入。数据库经历临时中断。</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>换句话说，**失败不是异常——它是真实系统的正常条件**。</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>专业软件因此采纳了一种根本不同的思维方式。它不是为成功而设计、对失败做出反应，而是将失败作为默认场景来设计。</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>这种转变将错误处理从事后补充转变为系统架构的基本组成部分。</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## 验证：防止无效状态（Validation: Preventing Invalid States）</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>防止失败的最早机会之一是**输入验证（input validation）**。</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>每当系统从外部源接收信息时——无论是通过 API 请求、命令行参数还是用户界面——它必须验证输入是否满足预期的约束。</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>验证确保必填字段存在、值遵循正确的格式、输入之间的关系保持一致。</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>没有验证，无效数据可能进入系统，并在处理过程的后期造成不可预知的行为。错误可能出现在远离其原始原因的地方，使诊断变得困难。</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>专业系统因此尽可能早地执行验证。</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>通过立即拒绝无效输入，它们防止系统进入不稳定状态，并向用户提供关于需要纠正什么的清晰反馈。</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## 重试：处理临时性失败（Retry: Handling Temporary Failures）</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>并非所有失败都代表永久性问题。</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>许多错误是由于临时条件造成的。网络请求可能超时，服务可能短暂不可用，数据库可能经历瞬时负载。</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>在这些情况下，重试操作通常就能成功。</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>专业系统识别出这种模式，并为与外部依赖交互的操作实现**重试机制（retry mechanisms）**。</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>重试策略通常包含限制和延迟。系统在短暂间隔后再次尝试操作，在报告失败前重复尝试定义的次数。</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>这种方法允许系统从临时性问题中自动恢复，无需人工干预。</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>目标不是消除所有失败，而是减少临时中断的影响。</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## 降级：维持功能（Fallback: Maintaining Functionality）</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>有时即使在重试后，操作也不能成功。</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>在这些情况下，系统可能通过切换到替代路径来提供部分功能。这种策略被称为**降级（fallback）**。</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>降级机制允许系统在降级但可用的状态下继续运行。</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>例如，一个无法连接到其主数据库的系统可能切换到本地缓存。一个无法获取实时数据的组件可能提供最后一次已知良好的结果。一个依赖于外部服务的功能可能返回一个合理的默认值。</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>降级确保系统不会因为一个组件的失败而完全停止工作。</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>用户可能体验稍微降低的功能，但核心系统保持可用。</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## 优雅地沟通错误（Communicating Errors Gracefully）</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>当失败发生时，系统如何与用户沟通对信任有显著影响。</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>练手项目经常以对用户不友好的方式呈现错误：技术性的堆栈跟踪、通用的"出了点问题"消息，或完全没有反馈。</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>专业系统提供清晰、可操作的信息。一个好的错误消息回答三个问题：</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>**出了什么问题？**</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>一个对用户友好的描述，解释失败的性质。</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>**为什么出问题？**</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>上下文帮助用户理解导致失败的原因。</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>**下一步该做什么？**</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>关于如何解决或缓解问题的具体指导。</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>通过将错误转化为有用的沟通，专业保护了用户的信心。</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## 前瞻性错误与运行时错误（Expected vs. Unexpected Errors）</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>并非所有错误都是平等的。专业系统区分两种不同的错误类别：</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>**前瞻性错误（expected errors）**是系统已经预见并为其设计了处理方式的错误。无效输入、缺失资源和认证失败都属于这一类别。这些错误应该被优雅地处理，并转化为清晰的消息。</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>**运行时错误（unexpected errors）**是系统未预见的错误。空指针异常、连接意外断开和编程错误属于这一类别。这些错误应该被记录，然后以可控的方式失败，而不是让系统处于不一致的状态。</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>经过良好测试的系统其运行时错误会较少，但它们仍然为失败做好了准备。</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="fu">## 实践指南：错误处理模式</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>以下是在整个系统中应用的简单错误处理模式。</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="co"># 验证</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_user(data):</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> data.get(<span class="st">"email"</span>):</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">"error"</span>: <span class="st">"EMAIL_REQUIRED"</span>, <span class="st">"message"</span>: <span class="st">"邮箱是必填项"</span>}</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="co"># 重试</span></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> call_with_retry(service_call, max_retries<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> attempt <span class="kw">in</span> <span class="bu">range</span>(max_retries):</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> service_call()</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> TemporaryError:</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> attempt <span class="op">==</span> max_retries <span class="op">-</span> <span class="dv">1</span>:</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>                <span class="cf">raise</span></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>            time.sleep(<span class="dv">1</span> <span class="op">*</span> (attempt <span class="op">+</span> <span class="dv">1</span>))</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="co"># 降级</span></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_user_profile(user_id):</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> database.fetch(user_id)</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> DatabaseError:</span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cache.get(user_id)  <span class="co"># 降级到缓存</span></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a><span class="fu">## 小结</span></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>在真实系统中，失败是不可避免的。专业软件不是通过假装失败不会发生来构建的，而是通过设计对失败的鲁棒性来构建的。</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>通过验证、重试、降级和清晰的沟通，开发者创建了不仅能优雅地处理问题、还能在问题出现时保持用户信心的系统。</span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>真正的专业标志不是系统是否失败，而是当失败发生时，系统做了什么。下一章，我们将探讨测试——如何让系统不仅运行，而且可以信任。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>21&nbsp; Micro-Interactions: Making a System Feel Alive – Beyond the Demo</title>
+<title>21&nbsp; 微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,19 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./chapter-19.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-20.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-20.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,9 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -283,175 +318,175 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -461,15 +496,15 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#hover-anticipating-interaction" id="toc-hover-anticipating-interaction" class="nav-link active" data-scroll-target="#hover-anticipating-interaction"><span class="header-section-number">21.0.1</span> Hover: Anticipating Interaction</a></li>
-  <li><a href="#focus-clarifying-control" id="toc-focus-clarifying-control" class="nav-link" data-scroll-target="#focus-clarifying-control"><span class="header-section-number">21.0.2</span> Focus: Clarifying Control</a></li>
-  <li><a href="#loading-communicating-progress" id="toc-loading-communicating-progress" class="nav-link" data-scroll-target="#loading-communicating-progress"><span class="header-section-number">21.0.3</span> Loading: Communicating Progress</a></li>
-  <li><a href="#toast-messages-acknowledging-outcomes" id="toc-toast-messages-acknowledging-outcomes" class="nav-link" data-scroll-target="#toast-messages-acknowledging-outcomes"><span class="header-section-number">21.0.4</span> Toast Messages: Acknowledging Outcomes</a></li>
-  <li><a href="#feedback-as-a-signal-of-reliability" id="toc-feedback-as-a-signal-of-reliability" class="nav-link" data-scroll-target="#feedback-as-a-signal-of-reliability"><span class="header-section-number">21.0.5</span> Feedback as a Signal of Reliability</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">21.1</span> Chapter Summary</a></li>
+  <li><a href="#悬停预判交互hover-anticipating-interaction" id="toc-悬停预判交互hover-anticipating-interaction" class="nav-link active" data-scroll-target="#悬停预判交互hover-anticipating-interaction"><span class="header-section-number">21.1</span> 悬停：预判交互（Hover: Anticipating Interaction）</a></li>
+  <li><a href="#焦点明确控件focus-clarifying-control" id="toc-焦点明确控件focus-clarifying-control" class="nav-link" data-scroll-target="#焦点明确控件focus-clarifying-control"><span class="header-section-number">21.2</span> 焦点：明确控件（Focus: Clarifying Control）</a></li>
+  <li><a href="#加载传达进度loading-communicating-progress" id="toc-加载传达进度loading-communicating-progress" class="nav-link" data-scroll-target="#加载传达进度loading-communicating-progress"><span class="header-section-number">21.3</span> 加载：传达进度（Loading: Communicating Progress）</a></li>
+  <li><a href="#提示消息确认结果toast-messages-acknowledging-outcomes" id="toc-提示消息确认结果toast-messages-acknowledging-outcomes" class="nav-link" data-scroll-target="#提示消息确认结果toast-messages-acknowledging-outcomes"><span class="header-section-number">21.4</span> 提示消息：确认结果（Toast Messages: Acknowledging Outcomes）</a></li>
+  <li><a href="#反馈作为可靠性的信号feedback-as-a-signal-of-reliability" id="toc-反馈作为可靠性的信号feedback-as-a-signal-of-reliability" class="nav-link" data-scroll-target="#反馈作为可靠性的信号feedback-as-a-signal-of-reliability"><span class="header-section-number">21.5</span> 反馈作为可靠性的信号（Feedback as a Signal of Reliability）</a></li>
+  <li><a href="#小结" id="toc-小结" class="nav-link" data-scroll-target="#小结"><span class="header-section-number">21.6</span> 小结</a></li>
   </ul>
 </nav>
     </div>
@@ -479,7 +514,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -495,83 +530,87 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#悬停预判交互hover-anticipating-interaction" id="toc-悬停预判交互hover-anticipating-interaction"><span class="header-section-number">21.1</span> 悬停：预判交互（Hover: Anticipating Interaction）</a></li>
+  <li><a href="#焦点明确控件focus-clarifying-control" id="toc-焦点明确控件focus-clarifying-control"><span class="header-section-number">21.2</span> 焦点：明确控件（Focus: Clarifying Control）</a></li>
+  <li><a href="#加载传达进度loading-communicating-progress" id="toc-加载传达进度loading-communicating-progress"><span class="header-section-number">21.3</span> 加载：传达进度（Loading: Communicating Progress）</a></li>
+  <li><a href="#提示消息确认结果toast-messages-acknowledging-outcomes" id="toc-提示消息确认结果toast-messages-acknowledging-outcomes"><span class="header-section-number">21.4</span> 提示消息：确认结果（Toast Messages: Acknowledging Outcomes）</a></li>
+  <li><a href="#反馈作为可靠性的信号feedback-as-a-signal-of-reliability" id="toc-反馈作为可靠性的信号feedback-as-a-signal-of-reliability"><span class="header-section-number">21.5</span> 反馈作为可靠性的信号（Feedback as a Signal of Reliability）</a></li>
+  <li><a href="#小结" id="toc-小结"><span class="header-section-number">21.6</span> 小结</a></li>
+  </ul>
+</nav>
+<p>当用户与软件交互时，他们很少思考驱动系统的内部机制。他们感知到的是对其操作的微小响应——微妙的变化，确认系统已经注意到他们做了什么。</p>
+<p>按钮在光标移过时高亮。 表单字段在选中时变为活动状态。 操作完成后一条消息短暂出现。</p>
+<p>这些微小的时刻被称为<strong>微交互（micro-interactions）</strong>。</p>
+<p>练手项目常常忽略它们。界面可能在技术上能工作——按钮触发动作、表单提交数据——但系统保持视觉上的静态。当用户与它交互时，界面直到最终结果出现才做出响应。</p>
+<p>专业系统的行为则不同。</p>
+<p>它们在交互过程中提供即时和连续的反馈。系统对用户采取的每一步做出响应，创造了一种界面响应迅速且感知灵敏的感觉。</p>
+<p>这些微小的响应累积起来创造了一个重要的东西：<strong>系统感觉有生命</strong>。</p>
+<hr>
+<section id="悬停预判交互hover-anticipating-interaction" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="悬停预判交互hover-anticipating-interaction"><span class="header-section-number">21.1</span> 悬停：预判交互（Hover: Anticipating Interaction）</h2>
+<p>悬停状态发生在指针移动到可交互元素上时。</p>
+<p>没有悬停反馈，用户必须猜测屏幕上的某些东西是否可以点击或交互。一个按钮看起来可能像静态文本，一个链接可能与周围内容无法区分。</p>
+<p>专业界面使用悬停状态来发出交互性的信号。</p>
+<p>当光标接近按钮时，颜色可能轻微变化。阴影可能加深。链接可能加下划线或改变颜色。</p>
+<p>这些变化是微妙的，但它们传达了一个重要信息：<em>这个元素是可交互的</em>。</p>
+<p>悬停反馈因此减少了不确定性，并将用户的注意力引导到可用的操作上。</p>
+<hr>
+</section>
+<section id="焦点明确控件focus-clarifying-control" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="焦点明确控件focus-clarifying-control"><span class="header-section-number">21.2</span> 焦点：明确控件（Focus: Clarifying Control）</h2>
+<p>焦点状态指示界面中哪个元素当前是激活的。</p>
+<p>这在表单、导航和键盘交互中变得特别重要。没有可见的焦点状态，用户可能无法跟踪他们在编辑哪个字段或哪个控件当前被选中。</p>
+<p>专业系统清晰地高亮聚焦的元素。输入字段可能显示边框或发光。通过键盘导航时按钮可能显示轮廓。</p>
+<p>这些视觉线索帮助用户在界面中保持方向，特别是在执行一系列操作时。</p>
+<p>焦点状态对于无障碍性（accessibility）也至关重要，允许键盘导航和辅助技术可靠地操作。</p>
+<hr>
+</section>
+<section id="加载传达进度loading-communicating-progress" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="加载传达进度loading-communicating-progress"><span class="header-section-number">21.3</span> 加载：传达进度（Loading: Communicating Progress）</h2>
+<p>许多交互涉及需要时间来完成的操作。</p>
+<p>当用户触发一个动作时——提交表单、加载数据、处理请求——他们期望确认系统正在工作。</p>
+<p>没有反馈，界面可能看起来冻结或无响应。</p>
+<p>专业系统通过<strong>加载指示器（loading indicators）</strong>来解决这个问题。</p>
+<p>旋转图标、进度条或动画占位符表明系统已经收到请求并正在处理。</p>
+<p>这些信号将等待转化为一个可理解的状态。用户知道系统是活跃的，响应将会到达。</p>
+<hr>
+</section>
+<section id="提示消息确认结果toast-messages-acknowledging-outcomes" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="提示消息确认结果toast-messages-acknowledging-outcomes"><span class="header-section-number">21.4</span> 提示消息：确认结果（Toast Messages: Acknowledging Outcomes）</h2>
+<p>在一个操作完成后，用户受益于结果的清晰确认。</p>
+<p>一种常见的确认模式是<strong>提示消息（toast notification）</strong>——一个短暂出现在屏幕上的小消息，用于确认一个事件。</p>
+<p>提示消息通常确认诸如保存数据、完成操作或遇到小问题等动作。</p>
+<p>因为它们暂时出现并且不中断用户的工作流，它们在不破坏界面的情况下提供了反馈。</p>
+<p>这些消息强化了用户对系统已成功处理操作的理解。</p>
+<hr>
+</section>
+<section id="反馈作为可靠性的信号feedback-as-a-signal-of-reliability" class="level2" data-number="21.5">
+<h2 data-number="21.5" class="anchored" data-anchor-id="反馈作为可靠性的信号feedback-as-a-signal-of-reliability"><span class="header-section-number">21.5</span> 反馈作为可靠性的信号（Feedback as a Signal of Reliability）</h2>
+<p>微交互的存在改变了用户对系统的感知。</p>
+<p>没有它们，界面被动地行为。动作似乎与结果脱节，用户可能不确定系统是否已识别他们的输入。</p>
+<p>有了它们，界面变得具有沟通性。</p>
+<p>每个动作都产生响应。按钮在被触碰时反应。字段在被选中时响应。操作显示进度。结果被清晰地确认。</p>
+<p>这些信号创造了用户和系统之间的持续对话。</p>
+<p>而那个对话是<strong>信任</strong>的关键元素。</p>
+<p>用户信任那些可预测地响应的系统。他们信任那些确认他们的动作并传达正在发生什么的界面。</p>
+<p>微交互单独看来可能很小。</p>
+<p>然而它们一起创造了一种系统是专注的、响应迅速的且可靠的感觉。</p>
+<p>那种响应感是区分专业产品和简单练手项目的微妙品质之一。</p>
+<hr>
+</section>
+<section id="小结" class="level2" data-number="21.6">
+<h2 data-number="21.6" class="anchored" data-anchor-id="小结"><span class="header-section-number">21.6</span> 小结</h2>
+<p>微交互将界面从静态展示转化为响应式的沟通系统。通过悬停状态、焦点指示器、加载反馈和提示消息，用户获得持续的确认——系统已经接收并处理了他们的操作。</p>
+<p>这些微小细节共同创造了一种可靠和专注的感觉。虽然单个微交互很小，但当它们组合在一起时，显著影响用户对系统质量和专业性的感知。</p>
+<p><strong>立即行动：</strong></p>
+<p>选择你界面中一个常用的操作，添加微交互：悬停状态、焦点指示器、加载反馈和成功确认。</p>
 
-<p>When users interact with software, they rarely think about the internal mechanisms that power the system. What they perceive instead are small responses to their actions—subtle changes that confirm the system has noticed what they did.</p>
-<p>A button highlights when the cursor moves over it.<br>
-A form field becomes active when selected.<br>
-A message briefly appears after an action completes.</p>
-<p>These small moments are known as <strong>micro-interactions</strong>.</p>
-<p>Practice projects often ignore them. An interface may technically function—buttons trigger actions, forms submit data—but the system remains visually static. When users interact with it, the interface does not respond until the final result appears.</p>
-<p>Professional systems behave differently.</p>
-<p>They provide immediate and continuous feedback during interaction. The system responds to each step the user takes, creating a sense that the interface is responsive and aware.</p>
-<p>These small responses accumulate to create something important: <strong>the system feels alive</strong>.</p>
-<hr>
-<section id="hover-anticipating-interaction" class="level3" data-number="21.0.1">
-<h3 data-number="21.0.1" class="anchored" data-anchor-id="hover-anticipating-interaction"><span class="header-section-number">21.0.1</span> Hover: Anticipating Interaction</h3>
-<p>The hover state occurs when a pointer moves over an interactive element.</p>
-<p>Without hover feedback, users must guess whether something on the screen can be clicked or interacted with. A button may look like static text, and a link may appear indistinguishable from surrounding content.</p>
-<p>Professional interfaces use hover states to signal interactivity.</p>
-<p>When the cursor approaches a button, the color may shift slightly. A shadow may deepen. A link may underline or change color.</p>
-<p>These changes are subtle, but they communicate an important message: <em>this element is interactive</em>.</p>
-<p>Hover feedback therefore reduces uncertainty and guides the user’s attention toward available actions.</p>
-<hr>
-</section>
-<section id="focus-clarifying-control" class="level3" data-number="21.0.2">
-<h3 data-number="21.0.2" class="anchored" data-anchor-id="focus-clarifying-control"><span class="header-section-number">21.0.2</span> Focus: Clarifying Control</h3>
-<p>Focus states indicate which element is currently active within the interface.</p>
-<p>This becomes particularly important in forms, navigation, and keyboard interaction. Without a visible focus state, users may lose track of which field they are editing or which control is currently selected.</p>
-<p>Professional systems highlight the focused element clearly. Input fields may display a border or glow. Buttons may show an outline when navigated through the keyboard.</p>
-<p>These visual cues help users maintain orientation within the interface, especially when performing sequences of actions.</p>
-<p>Focus states are also essential for accessibility, allowing keyboard navigation and assistive technologies to operate reliably.</p>
-<hr>
-</section>
-<section id="loading-communicating-progress" class="level3" data-number="21.0.3">
-<h3 data-number="21.0.3" class="anchored" data-anchor-id="loading-communicating-progress"><span class="header-section-number">21.0.3</span> Loading: Communicating Progress</h3>
-<p>Many interactions involve operations that require time to complete.</p>
-<p>When users trigger an action—submitting a form, loading data, or processing a request—they expect confirmation that the system is working.</p>
-<p>Without feedback, the interface may appear frozen or unresponsive.</p>
-<p>Professional systems address this through <strong>loading indicators</strong>.</p>
-<p>Spinners, progress bars, or animated placeholders signal that the system has received the request and is currently processing it.</p>
-<p>These signals transform waiting into an understandable state. Users know that the system is active and that a response will arrive.</p>
-<hr>
-</section>
-<section id="toast-messages-acknowledging-outcomes" class="level3" data-number="21.0.4">
-<h3 data-number="21.0.4" class="anchored" data-anchor-id="toast-messages-acknowledging-outcomes"><span class="header-section-number">21.0.4</span> Toast Messages: Acknowledging Outcomes</h3>
-<p>After an action completes, users benefit from clear confirmation of the result.</p>
-<p>One common pattern for providing this confirmation is the <strong>toast notification</strong>—a small message that appears briefly on the screen to acknowledge an event.</p>
-<p>Toast messages often confirm actions such as saving data, completing an operation, or encountering a minor issue.</p>
-<p>Because they appear temporarily and do not interrupt the user’s workflow, they provide feedback without disrupting the interface.</p>
-<p>These messages reinforce the user’s understanding that the system has processed the action successfully.</p>
-<hr>
-</section>
-<section id="feedback-as-a-signal-of-reliability" class="level3" data-number="21.0.5">
-<h3 data-number="21.0.5" class="anchored" data-anchor-id="feedback-as-a-signal-of-reliability"><span class="header-section-number">21.0.5</span> Feedback as a Signal of Reliability</h3>
-<p>The presence of micro-interactions changes how users perceive a system.</p>
-<p>Without them, the interface behaves passively. Actions appear disconnected from outcomes, and users may feel uncertain about whether the system has recognized their input.</p>
-<p>With them, the interface becomes communicative.</p>
-<p>Every action produces a response. Buttons react when touched. Fields respond when selected. Operations display progress. Results are acknowledged clearly.</p>
-<p>These signals create a continuous conversation between the user and the system.</p>
-<p>And that conversation is a key element of <strong>trust</strong>.</p>
-<p>Users trust systems that respond predictably. They trust interfaces that acknowledge their actions and communicate what is happening.</p>
-<p>Micro-interactions may appear small in isolation.</p>
-<p>Yet together they create a sense that the system is attentive, responsive, and reliable.</p>
-<p>That sense of responsiveness is one of the subtle qualities that distinguishes professional products from simple practice projects.</p>
-<hr>
-</section>
-<section id="chapter-summary" class="level2" data-number="21.1">
-<h2 data-number="21.1" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">21.1</span> Chapter Summary</h2>
-<p>Micro-interactions transform interfaces from static displays into responsive, communicative systems. Through hover states, focus indicators, loading feedback, and toast messages, users gain continuous confirmation that the system has received and processed their actions.</p>
-<p>These small details collectively create a sense of reliability and attentiveness. While individually minor, their combined presence significantly affects how users perceive the quality and professionalism of a system.</p>
-<hr>
-<p><strong>Practice Suggestions:</strong></p>
-<ol type="1">
-<li><strong>Add Feedback Everywhere</strong>: Ensure every user action produces some form of visible response.</li>
-<li><strong>Use Loading States</strong>: Always provide visual feedback during operations that take more than a few hundred milliseconds.</li>
-<li><strong>Keep Messages Brief</strong>: Toast notifications and status messages should be concise and actionable.</li>
-</ol>
-<p><strong>Immediate Action:</strong></p>
-<p>Choose one frequently used operation in your interface and add micro-interactions: hover states, focus indicators, loading feedback, and success confirmation.</p>
 
+<!-- -->
 
 </section>
 
@@ -660,6 +699,57 @@ A message briefly appears after an action completes.</p>
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -676,6 +766,13 @@ A message briefly appears after an action completes.</p>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -991,16 +1088,130 @@ A message briefly appears after an action completes.</p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-19.html" class="pagination-link" aria-label="Information Architecture: Navigation, Hierarchy, and Density">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span>
+      <a href="./chapter-19.html" class="pagination-link" aria-label="信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-21.html" class="pagination-link" aria-label="Versioning, Changelogs, and Release Rhythm">
-        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-21.html" class="pagination-link" aria-label="版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）">
+        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>当用户与软件交互时，他们很少思考驱动系统的内部机制。他们感知到的是对其操作的微小响应——微妙的变化，确认系统已经注意到他们做了什么。</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>按钮在光标移过时高亮。</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>表单字段在选中时变为活动状态。</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>操作完成后一条消息短暂出现。</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>这些微小的时刻被称为**微交互（micro-interactions）**。</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>练手项目常常忽略它们。界面可能在技术上能工作——按钮触发动作、表单提交数据——但系统保持视觉上的静态。当用户与它交互时，界面直到最终结果出现才做出响应。</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>专业系统的行为则不同。</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>它们在交互过程中提供即时和连续的反馈。系统对用户采取的每一步做出响应，创造了一种界面响应迅速且感知灵敏的感觉。</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>这些微小的响应累积起来创造了一个重要的东西：**系统感觉有生命**。</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## 悬停：预判交互（Hover: Anticipating Interaction）</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>悬停状态发生在指针移动到可交互元素上时。</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>没有悬停反馈，用户必须猜测屏幕上的某些东西是否可以点击或交互。一个按钮看起来可能像静态文本，一个链接可能与周围内容无法区分。</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>专业界面使用悬停状态来发出交互性的信号。</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>当光标接近按钮时，颜色可能轻微变化。阴影可能加深。链接可能加下划线或改变颜色。</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>这些变化是微妙的，但它们传达了一个重要信息：*这个元素是可交互的*。</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>悬停反馈因此减少了不确定性，并将用户的注意力引导到可用的操作上。</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## 焦点：明确控件（Focus: Clarifying Control）</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>焦点状态指示界面中哪个元素当前是激活的。</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>这在表单、导航和键盘交互中变得特别重要。没有可见的焦点状态，用户可能无法跟踪他们在编辑哪个字段或哪个控件当前被选中。</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>专业系统清晰地高亮聚焦的元素。输入字段可能显示边框或发光。通过键盘导航时按钮可能显示轮廓。</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>这些视觉线索帮助用户在界面中保持方向，特别是在执行一系列操作时。</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>焦点状态对于无障碍性（accessibility）也至关重要，允许键盘导航和辅助技术可靠地操作。</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 加载：传达进度（Loading: Communicating Progress）</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>许多交互涉及需要时间来完成的操作。</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>当用户触发一个动作时——提交表单、加载数据、处理请求——他们期望确认系统正在工作。</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>没有反馈，界面可能看起来冻结或无响应。</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>专业系统通过**加载指示器（loading indicators）**来解决这个问题。</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>旋转图标、进度条或动画占位符表明系统已经收到请求并正在处理。</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>这些信号将等待转化为一个可理解的状态。用户知道系统是活跃的，响应将会到达。</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## 提示消息：确认结果（Toast Messages: Acknowledging Outcomes）</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>在一个操作完成后，用户受益于结果的清晰确认。</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>一种常见的确认模式是**提示消息（toast notification）**——一个短暂出现在屏幕上的小消息，用于确认一个事件。</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>提示消息通常确认诸如保存数据、完成操作或遇到小问题等动作。</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>因为它们暂时出现并且不中断用户的工作流，它们在不破坏界面的情况下提供了反馈。</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>这些消息强化了用户对系统已成功处理操作的理解。</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## 反馈作为可靠性的信号（Feedback as a Signal of Reliability）</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>微交互的存在改变了用户对系统的感知。</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>没有它们，界面被动地行为。动作似乎与结果脱节，用户可能不确定系统是否已识别他们的输入。</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>有了它们，界面变得具有沟通性。</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>每个动作都产生响应。按钮在被触碰时反应。字段在被选中时响应。操作显示进度。结果被清晰地确认。</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>这些信号创造了用户和系统之间的持续对话。</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>而那个对话是**信任**的关键元素。</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>用户信任那些可预测地响应的系统。他们信任那些确认他们的动作并传达正在发生什么的界面。</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>微交互单独看来可能很小。</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>然而它们一起创造了一种系统是专注的、响应迅速的且可靠的感觉。</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>那种响应感是区分专业产品和简单练手项目的微妙品质之一。</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## 小结</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>微交互将界面从静态展示转化为响应式的沟通系统。通过悬停状态、焦点指示器、加载反馈和提示消息，用户获得持续的确认——系统已经接收并处理了他们的操作。</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>这些微小细节共同创造了一种可靠和专注的感觉。虽然单个微交互很小，但当它们组合在一起时，显著影响用户对系统质量和专业性的感知。</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>**立即行动：**</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>选择你界面中一个常用的操作，添加微交互：悬停状态、焦点指示器、加载反馈和成功确认。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

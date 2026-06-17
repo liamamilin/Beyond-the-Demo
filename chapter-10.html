@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; State Design: Empty, Loading, Error, and Success – Beyond the Demo</title>
+<title>11&nbsp; 状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,19 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./chapter-09.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-10.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-10.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,9 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -283,175 +318,175 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -461,21 +496,21 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#the-empty-state" id="toc-the-empty-state" class="nav-link active" data-scroll-target="#the-empty-state"><span class="header-section-number">11.0.1</span> The Empty State</a></li>
-  <li><a href="#the-loading-state" id="toc-the-loading-state" class="nav-link" data-scroll-target="#the-loading-state"><span class="header-section-number">11.0.2</span> The Loading State</a></li>
-  <li><a href="#the-error-state" id="toc-the-error-state" class="nav-link" data-scroll-target="#the-error-state"><span class="header-section-number">11.0.3</span> The Error State</a></li>
-  <li><a href="#the-success-state" id="toc-the-success-state" class="nav-link" data-scroll-target="#the-success-state"><span class="header-section-number">11.0.4</span> The Success State</a></li>
-  <li><a href="#completing-the-state-space" id="toc-completing-the-state-space" class="nav-link" data-scroll-target="#completing-the-state-space"><span class="header-section-number">11.0.5</span> Completing the State Space</a></li>
-  <li><a href="#practical-guide-state-design-framework" id="toc-practical-guide-state-design-framework" class="nav-link" data-scroll-target="#practical-guide-state-design-framework"><span class="header-section-number">11.1</span> Practical Guide: State Design Framework</a>
+  <li><a href="#空状态the-empty-state" id="toc-空状态the-empty-state" class="nav-link active" data-scroll-target="#空状态the-empty-state"><span class="header-section-number">11.1</span> 空状态（The Empty State）</a></li>
+  <li><a href="#加载状态the-loading-state" id="toc-加载状态the-loading-state" class="nav-link" data-scroll-target="#加载状态the-loading-state"><span class="header-section-number">11.2</span> 加载状态（The Loading State）</a></li>
+  <li><a href="#错误状态the-error-state" id="toc-错误状态the-error-state" class="nav-link" data-scroll-target="#错误状态the-error-state"><span class="header-section-number">11.3</span> 错误状态（The Error State）</a></li>
+  <li><a href="#成功状态the-success-state" id="toc-成功状态the-success-state" class="nav-link" data-scroll-target="#成功状态the-success-state"><span class="header-section-number">11.4</span> 成功状态（The Success State）</a></li>
+  <li><a href="#完善状态空间completing-the-state-space" id="toc-完善状态空间completing-the-state-space" class="nav-link" data-scroll-target="#完善状态空间completing-the-state-space"><span class="header-section-number">11.5</span> 完善状态空间（Completing the State Space）</a></li>
+  <li><a href="#实践指南状态设计框架" id="toc-实践指南状态设计框架" class="nav-link" data-scroll-target="#实践指南状态设计框架"><span class="header-section-number">11.6</span> 实践指南：状态设计框架</a>
   <ul class="collapse">
-  <li><a href="#四状态设计sop" id="toc-四状态设计sop" class="nav-link" data-scroll-target="#四状态设计sop"><span class="header-section-number">11.1.1</span> 四状态设计SOP</a></li>
-  <li><a href="#状态设计检查清单" id="toc-状态设计检查清单" class="nav-link" data-scroll-target="#状态设计检查清单"><span class="header-section-number">11.1.2</span> 状态设计检查清单</a></li>
-  <li><a href="#quick-diagnosis-is-your-state-design-complete" id="toc-quick-diagnosis-is-your-state-design-complete" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-state-design-complete"><span class="header-section-number">11.1.3</span> Quick Diagnosis: Is Your State Design Complete?</a></li>
+  <li><a href="#四状态设计-sop" id="toc-四状态设计-sop" class="nav-link" data-scroll-target="#四状态设计-sop"><span class="header-section-number">11.6.1</span> 四状态设计 SOP</a></li>
+  <li><a href="#状态设计检查清单" id="toc-状态设计检查清单" class="nav-link" data-scroll-target="#状态设计检查清单"><span class="header-section-number">11.6.2</span> 状态设计检查清单</a></li>
+  <li><a href="#快速诊断你的状态设计完整吗" id="toc-快速诊断你的状态设计完整吗" class="nav-link" data-scroll-target="#快速诊断你的状态设计完整吗"><span class="header-section-number">11.6.3</span> 快速诊断：你的状态设计完整吗？</a></li>
   </ul></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">11.2</span> Chapter Summary</a></li>
+  <li><a href="#小结" id="toc-小结" class="nav-link" data-scroll-target="#小结"><span class="header-section-number">11.7</span> 小结</a></li>
   </ul>
 </nav>
     </div>
@@ -485,7 +520,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -501,93 +536,120 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
-<p>One of the most revealing differences between practice projects and professional systems appears not in the main functionality, but in the <strong>edges of the experience</strong>.</p>
-<p>When developers build small projects, most attention goes toward making the primary action work. A request succeeds. A record is created. A list of results appears on the screen.</p>
-<p>As long as the ideal flow works, the system is considered complete.</p>
-<p>However, real systems rarely operate exclusively within this ideal flow. Data may not exist yet. Network operations may take time. Requests may fail. Inputs may be invalid.</p>
-<p>Professional software acknowledges these realities and designs explicit responses for them. Instead of assuming that the happy path always occurs, it treats different outcomes as <strong>states of the system</strong>.</p>
-<p>These states—empty, loading, error, and success—form the foundation of reliable user experience.</p>
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#空状态the-empty-state" id="toc-空状态the-empty-state"><span class="header-section-number">11.1</span> 空状态（The Empty State）</a></li>
+  <li><a href="#加载状态the-loading-state" id="toc-加载状态the-loading-state"><span class="header-section-number">11.2</span> 加载状态（The Loading State）</a></li>
+  <li><a href="#错误状态the-error-state" id="toc-错误状态the-error-state"><span class="header-section-number">11.3</span> 错误状态（The Error State）</a></li>
+  <li><a href="#成功状态the-success-state" id="toc-成功状态the-success-state"><span class="header-section-number">11.4</span> 成功状态（The Success State）</a></li>
+  <li><a href="#完善状态空间completing-the-state-space" id="toc-完善状态空间completing-the-state-space"><span class="header-section-number">11.5</span> 完善状态空间（Completing the State Space）</a></li>
+  <li><a href="#实践指南状态设计框架" id="toc-实践指南状态设计框架"><span class="header-section-number">11.6</span> 实践指南：状态设计框架</a>
+  <ul>
+  <li><a href="#四状态设计-sop" id="toc-四状态设计-sop"><span class="header-section-number">11.6.1</span> 四状态设计 SOP</a></li>
+  <li><a href="#状态设计检查清单" id="toc-状态设计检查清单"><span class="header-section-number">11.6.2</span> 状态设计检查清单</a></li>
+  <li><a href="#快速诊断你的状态设计完整吗" id="toc-快速诊断你的状态设计完整吗"><span class="header-section-number">11.6.3</span> 快速诊断：你的状态设计完整吗？</a></li>
+  </ul></li>
+  <li><a href="#小结" id="toc-小结"><span class="header-section-number">11.7</span> 小结</a></li>
+  </ul>
+</nav>
+<p>练手项目与专业系统之间最具揭示性的差异之一，不是出现在主要功能中，而是出现在<strong>体验的边缘</strong>。</p>
+<p>当开发者构建小项目时，大部分注意力都放在使主要操作能够工作上：请求成功、记录被创建、结果列表出现在屏幕上。</p>
+<p>只要理想流程能跑，系统就被认为是完整的。</p>
+<p>然而，真实系统很少在这个理想流程内排他地运行。数据可能还不存在。网络操作可能需要时间。请求可能失败。输入可能无效。</p>
+<p>专业软件承认这些现实，并为它们设计显式的响应。它不是假设快乐路径总是发生，而是将不同的结果视为<strong>系统状态（states of the system）</strong>。</p>
+<p>这些状态——空状态（empty）、加载状态（loading）、错误状态（error）和成功状态（success）——构成了可靠用户体验的基础。</p>
 <hr>
-<section id="the-empty-state" class="level3" data-number="11.0.1">
-<h3 data-number="11.0.1" class="anchored" data-anchor-id="the-empty-state"><span class="header-section-number">11.0.1</span> The Empty State</h3>
-<p>The empty state appears when the system has no data to display.</p>
-<p>This situation is extremely common. A new user may not yet have created any records. A search query may return no results. A newly installed system may begin with an empty database.</p>
-<p>Practice projects often neglect this situation. When the system encounters empty data, it simply displays nothing or produces a confusing interface.</p>
-<p>Professional systems handle this state deliberately. They acknowledge the absence of data and provide context for the user.</p>
-<p>An empty state may explain why no information appears and suggest the next step—perhaps creating a new item or adjusting a search query.</p>
-<p>Instead of presenting a blank interface, the system communicates clearly that the current state is expected and manageable.</p>
-<hr>
-</section>
-<section id="the-loading-state" class="level3" data-number="11.0.2">
-<h3 data-number="11.0.2" class="anchored" data-anchor-id="the-loading-state"><span class="header-section-number">11.0.2</span> The Loading State</h3>
-<p>Many operations in modern systems require time to complete.</p>
-<p>A request may travel across a network, a database may perform a query, or a computation may process large amounts of information. During this time, the system is temporarily unable to present the final result.</p>
-<p>Practice projects often leave this period unaddressed. The interface may appear frozen or unresponsive while the operation completes.</p>
-<p>Professional systems make the loading state visible.</p>
-<p>Indicators such as progress bars, spinners, or subtle animations communicate that the system is actively working. These signals reassure the user that the request has been received and that the system remains responsive.</p>
-<p>The presence of a loading state transforms waiting from confusion into a predictable part of the experience.</p>
-<hr>
-</section>
-<section id="the-error-state" class="level3" data-number="11.0.3">
-<h3 data-number="11.0.3" class="anchored" data-anchor-id="the-error-state"><span class="header-section-number">11.0.3</span> The Error State</h3>
-<p>Errors occur whenever an operation fails to complete successfully.</p>
-<p>In practice projects, errors frequently appear as raw exceptions, cryptic messages, or sudden interruptions. These responses may be understandable to the developer who wrote the code but confusing to anyone else.</p>
-<p>Professional systems treat errors as structured states.</p>
-<p>When a failure occurs, the system explains what happened in clear language. It may indicate whether the issue was caused by invalid input, missing resources, or temporary system conditions.</p>
-<p>Just as important, the system often suggests possible next steps—retrying the operation, correcting the input, or contacting support.</p>
-<p>By framing errors as understandable states rather than catastrophic failures, the system maintains user confidence even when things go wrong.</p>
+<section id="空状态the-empty-state" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="空状态the-empty-state"><span class="header-section-number">11.1</span> 空状态（The Empty State）</h2>
+<p>空状态出现在系统没有数据可显示时。</p>
+<p>这种情况极为常见。一个新用户可能还没有创建任何记录。一个搜索查询可能没有返回结果。一个新安装的系统可能从一个空数据库开始。</p>
+<p>练手项目常常忽视这种情况。当系统遇到空数据时，它只是什么都不显示，或产生一个令人困惑的界面。</p>
+<p>专业系统有意识地处理这种状态。它们承认数据的缺失，并为用户提供上下文。</p>
+<p>一个空状态可以解释为什么没有信息出现，并建议下一步——也许是创建新条目或调整搜索查询。</p>
+<p>系统不是呈现一个空白界面，而是清晰地传达当前状态是预期的、可管理的。</p>
 <hr>
 </section>
-<section id="the-success-state" class="level3" data-number="11.0.4">
-<h3 data-number="11.0.4" class="anchored" data-anchor-id="the-success-state"><span class="header-section-number">11.0.4</span> The Success State</h3>
-<p>The success state represents the completion of an operation.</p>
-<p>While this state may seem obvious, its design still matters. Users benefit from clear confirmation that an action has been completed successfully.</p>
-<p>Professional systems often provide subtle signals to acknowledge success. A message may confirm that a record has been saved. A visual update may show that new data has appeared in the interface. A command-line tool may display a clear confirmation message.</p>
-<p>These signals prevent ambiguity. Users know that their actions produced the intended result.</p>
-<p>Without such confirmation, users may wonder whether the system processed their request correctly.</p>
+<section id="加载状态the-loading-state" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="加载状态the-loading-state"><span class="header-section-number">11.2</span> 加载状态（The Loading State）</h2>
+<p>现代系统中的许多操作需要时间才能完成。</p>
+<p>请求可能通过网络传输，数据库可能执行查询，或计算可能处理大量信息。在这段时间内，系统暂时无法呈现最终结果。</p>
+<p>练手项目常常让这个时间段不被处理。在操作完成期间，界面可能看起来冻结或无响应。</p>
+<p>专业系统让加载状态变得可见。</p>
+<p>进度条、旋转图标或微妙的动画等指示器传达系统正在积极工作。这些信号向用户保证请求已被接收，系统仍然响应迅速。</p>
+<p>加载状态的存在将等待从困惑转变为体验中的一个可预测部分。</p>
 <hr>
 </section>
-<section id="completing-the-state-space" class="level3" data-number="11.0.5">
-<h3 data-number="11.0.5" class="anchored" data-anchor-id="completing-the-state-space"><span class="header-section-number">11.0.5</span> Completing the State Space</h3>
-<p>当这四种状态——空状态、加载状态、错误状态和成功状态——被一起考虑时，它们定义了一个<strong>状态空间</strong>，涵盖了系统在交互中最常遇到的条件。</p>
-<p>练习项目通常只实现成功状态。其他一切都留给隐式或未处理。</p>
-<p>专业系统则刻意设计所有四种状态。</p>
+<section id="错误状态the-error-state" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="错误状态the-error-state"><span class="header-section-number">11.3</span> 错误状态（The Error State）</h2>
+<p>当一个操作未能成功完成时，错误就会出现。</p>
+<p>在练手项目中，错误通常表现为原始异常、晦涩的消息或突然的中断。这些响应可能对编写代码的开发者是可理解的，但对其他人来说是令人困惑的。</p>
+<p>专业系统将错误视为结构化状态（structured states）。</p>
+<p>当失败发生时，系统用清晰的语言解释发生了什么。它可以指示问题是由无效输入、资源缺失还是临时系统条件造成的。</p>
+<p>同样重要的是，系统通常会建议可能的下一步——重试操作、纠正输入或联系支持。</p>
+<p>通过将错误定位为可理解的状态而非灾难性失败，系统即使在出问题时也能维护用户的信心。</p>
+<hr>
+</section>
+<section id="成功状态the-success-state" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="成功状态the-success-state"><span class="header-section-number">11.4</span> 成功状态（The Success State）</h2>
+<p>成功状态代表操作的完成。</p>
+<p>虽然这个状态看似显而易见，但它的设计仍然重要。用户受益于操作已经成功完成的清晰确认。</p>
+<p>专业系统通常提供微妙的信号来确认成功。一条消息可能确认记录已被保存。一个视觉更新可能显示新数据已出现在界面中。一个命令行工具可能显示清晰的确认消息。</p>
+<p>这些信号防止了歧义。用户知道他们的操作产生了预期的结果。</p>
+<p>没有这样的确认，用户可能想知道系统是否正确处理了他们的请求。</p>
+<hr>
+</section>
+<section id="完善状态空间completing-the-state-space" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="完善状态空间completing-the-state-space"><span class="header-section-number">11.5</span> 完善状态空间（Completing the State Space）</h2>
+<p>当这四种状态一起被考虑时，它们定义了一个<strong>状态空间（state space）</strong>，涵盖了系统在交互中最常遇到的条件。</p>
+<p>练手项目通常只实现成功状态。其他一切都留给隐式或未处理。</p>
+<p>专业系统则有意识地设计所有四种状态。</p>
 <p>通过这样做，它们确保系统在任何情况下都表现出可预测的行为。每种可能的结果都有定义的响应。</p>
 <p>与核心功能的开发相比，对系统边缘的这种关注可能显得微不足道。然而，它在塑造专业感知方面起着至关重要的作用。</p>
-<p>当这些状态被正确实现时，用户几乎不会注意到。他们只是简单地体验系统为稳定、响应迅速且易于理解。</p>
+<p>当这些状态被正确实现时，用户几乎不会注意到它们。他们只是简单地体验到系统稳定、响应迅速且易于理解。</p>
 <p>然而，当这些状态缺失时，这种缺失立即变得明显。</p>
-<p>因此，设计完整的状态空间是将练习项目转变为成熟系统的安静但关键的步骤之一。</p>
+<p>因此，设计完整的状态空间是将练手项目转变为成熟系统的安静但关键的步骤之一。</p>
 <p>状态设计不仅影响用户体验，也反映了开发者的思维方式。一个只考虑成功状态的系统暗示开发者只关注理想情况。一个考虑所有状态的系统暗示开发者思考真实世界的复杂性。</p>
-<p>这种思维模式的差异，是练习项目和专业系统之间最根本的区别之一。</p>
+<p>这种思维模式的差异，是练手项目和专业系统之间最根本的区别之一。</p>
 <hr>
 </section>
-<section id="practical-guide-state-design-framework" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="practical-guide-state-design-framework"><span class="header-section-number">11.1</span> Practical Guide: State Design Framework</h2>
-<p>设计完整的状态空间需要系统的方法。以下是一个实用的状态设计框架。</p>
-<section id="四状态设计sop" class="level3" data-number="11.1.1">
-<h3 data-number="11.1.1" class="anchored" data-anchor-id="四状态设计sop"><span class="header-section-number">11.1.1</span> 四状态设计SOP</h3>
+<section id="实践指南状态设计框架" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="实践指南状态设计框架"><span class="header-section-number">11.6</span> 实践指南：状态设计框架</h2>
+<section id="四状态设计-sop" class="level3" data-number="11.6.1">
+<h3 data-number="11.6.1" class="anchored" data-anchor-id="四状态设计-sop"><span class="header-section-number">11.6.1</span> 四状态设计 SOP</h3>
 <p><strong>第一步：识别状态</strong></p>
-<p>对于每个用户操作或系统功能，列出所有可能的状态： - 空状态：没有数据或内容时 - 加载状态：操作进行中时 - 错误状态：操作失败时 - 成功状态：操作成功时</p>
-<p><strong>第二步：设计每个状态的UI</strong></p>
-<p>为每个状态设计视觉呈现： - 空状态：说明性文字 + 行动号召 - 加载状态：加载指示器 + 可选的进度信息 - 错误状态：错误消息 + 重试/修复选项 - 成功状态：确认反馈 + 结果展示</p>
+<p>对于每个用户操作或系统功能，列出所有可能的状态： - <strong>空状态</strong>：没有数据或内容时 - <strong>加载状态</strong>：操作进行中时 - <strong>错误状态</strong>：操作失败时 - <strong>成功状态</strong>：操作成功时</p>
+<p><strong>第二步：设计每个状态的 UI</strong></p>
+<ul>
+<li><strong>空状态</strong>：说明性文字 + 行动号召</li>
+<li><strong>加载状态</strong>：加载指示器 + 可选的进度信息</li>
+<li><strong>错误状态</strong>：错误消息 + 重试/修复选项</li>
+<li><strong>成功状态</strong>：确认反馈 + 结果展示</li>
+</ul>
 <p><strong>第三步：定义状态转换</strong></p>
-<p>定义状态之间如何转换： - 空状态 → 加载状态：用户发起操作 - 加载状态 → 成功状态：操作成功完成 - 加载状态 → 错误状态：操作失败 - 错误状态 → 加载状态：用户重试 - 成功状态 → 空状态：清除数据</p>
+<ul>
+<li><strong>空状态 → 加载状态</strong>：用户发起操作</li>
+<li><strong>加载状态 → 成功状态</strong>：操作成功完成</li>
+<li><strong>加载状态 → 错误状态</strong>：操作失败</li>
+<li><strong>错误状态 → 加载状态</strong>：用户重试</li>
+<li><strong>成功状态 → 空状态</strong>：清除数据</li>
+</ul>
 <p><strong>第四步：实现和测试</strong></p>
 <p>为每个状态编写代码，并测试所有可能的转换路径。</p>
 </section>
-<section id="状态设计检查清单" class="level3" data-number="11.1.2">
-<h3 data-number="11.1.2" class="anchored" data-anchor-id="状态设计检查清单"><span class="header-section-number">11.1.2</span> 状态设计检查清单</h3>
-<p><strong>空状态设计检查：</strong> - [ ] 是否解释了为什么没有内容？ - [ ] 是否提供了下一步操作的建议？ - [ ] 视觉上是否与成功状态有明显区别？ - [ ] 是否避免了令人困惑的空白页面？</p>
-<p><strong>加载状态设计检查：</strong> - [ ] 是否有可见的加载指示器？ - [ ] 用户是否知道系统正在工作？ - [ ] 是否有预计的等待时间信息？ - [ ] 是否可以取消操作？</p>
-<p><strong>错误状态设计检查：</strong> - [ ] 错误消息是否清晰易懂？ - [ ] 是否说明了错误的原因？ - [ ] 是否提供了解决问题的建议？ - [ ] 是否有重试或替代操作的选项？</p>
-<p><strong>成功状态设计检查：</strong> - [ ] 是否明确确认了操作成功？ - [ ] 是否展示了操作的结果？ - [ ] 是否引导用户进行下一步操作？ - [ ] 反馈是否及时且清晰？</p>
+<section id="状态设计检查清单" class="level3" data-number="11.6.2">
+<h3 data-number="11.6.2" class="anchored" data-anchor-id="状态设计检查清单"><span class="header-section-number">11.6.2</span> 状态设计检查清单</h3>
+<p><strong>空状态：</strong> - 是否解释了为什么没有内容？ - 是否提供了下一步操作的建议？ - 是否避免了令人困惑的空白页面？</p>
+<p><strong>加载状态：</strong> - 是否有可见的加载指示器？ - 用户是否知道系统正在工作？ - 是否可以取消操作？</p>
+<p><strong>错误状态：</strong> - 错误消息是否清晰易懂？ - 是否说明了错误的原因？ - 是否提供了解决问题的建议？</p>
+<p><strong>成功状态：</strong> - 是否明确确认了操作成功？ - 是否展示了操作的结果？ - 是否引导用户进行下一步操作？</p>
 </section>
-<section id="quick-diagnosis-is-your-state-design-complete" class="level3" data-number="11.1.3">
-<h3 data-number="11.1.3" class="anchored" data-anchor-id="quick-diagnosis-is-your-state-design-complete"><span class="header-section-number">11.1.3</span> Quick Diagnosis: Is Your State Design Complete?</h3>
-<p>对于你的项目中的每个主要功能，回答以下问题：</p>
+<section id="快速诊断你的状态设计完整吗" class="level3" data-number="11.6.3">
+<h3 data-number="11.6.3" class="anchored" data-anchor-id="快速诊断你的状态设计完整吗"><span class="header-section-number">11.6.3</span> 快速诊断：你的状态设计完整吗？</h3>
+<p>对于你的项目中的每个主要功能：</p>
 <ul class="task-list">
-<li><label><input type="checkbox">你是否为每种可能的状态设计了UI？</label></li>
+<li><label><input type="checkbox">你是否为每种可能的状态设计了 UI？</label></li>
 <li><label><input type="checkbox">状态转换是否清晰且可预测？</label></li>
 <li><label><input type="checkbox">用户是否总是知道系统的当前状态？</label></li>
 <li><label><input type="checkbox">错误状态是否提供了有用的信息？</label></li>
@@ -596,12 +658,12 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="chapter-summary" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">11.2</span> Chapter Summary</h2>
+<section id="小结" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="小结"><span class="header-section-number">11.7</span> 小结</h2>
 <p>状态设计是用户体验的关键组成部分。一个完整的状态空间确保系统在任何情况下都能提供清晰、有用的反馈。</p>
 <p>空状态、加载状态、错误状态和成功状态构成了最常见的基础状态框架。虽然它们看起来简单，但它们的设计质量直接影响用户对系统的感知。</p>
 <p>专业系统不会忽视这些”边缘”状态。相反，它们精心设计每个状态，确保用户在任何情况下都能获得良好的体验。</p>
-<p>下一章，我们将探讨另一个常被忽视但至关重要的接口：<strong>文档</strong>。好的文档不仅仅是说明，它是系统的第一个界面，直接影响用户的第一印象。</p>
+<p>下一章，我们将探讨另一个常被忽视但至关重要的接口：<strong>文档（documentation）</strong>。好的文档不仅仅是说明，它是系统的第一个界面，直接影响用户的第一印象。</p>
 <hr>
 <p><strong>实践建议：</strong></p>
 <ol type="1">
@@ -611,8 +673,10 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>收集反馈</strong>：观察用户在不同状态下的反应，优化设计。</li>
 </ol>
 <p><strong>立即行动：</strong></p>
-<p>选择你的项目中的一个功能，识别它所有的状态。为每个状态设计UI，并实现状态转换逻辑。</p>
+<p>选择你的项目中的一个功能，识别它所有的状态。为每个状态设计 UI，并实现状态转换逻辑。</p>
 
+
+<!-- -->
 
 </section>
 
@@ -701,6 +765,57 @@ ul.task-list li input[type="checkbox"] {
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -717,6 +832,13 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1032,16 +1154,206 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-09.html" class="pagination-link" aria-label="Interface Contracts: Making Inputs and Outputs Predictable">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span>
+      <a href="./chapter-09.html" class="pagination-link" aria-label="接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-11.html" class="pagination-link" aria-label="Documentation as Interface: README, Docs, and Examples">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-11.html" class="pagination-link" aria-label="文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>练手项目与专业系统之间最具揭示性的差异之一，不是出现在主要功能中，而是出现在**体验的边缘**。</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>当开发者构建小项目时，大部分注意力都放在使主要操作能够工作上：请求成功、记录被创建、结果列表出现在屏幕上。</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>只要理想流程能跑，系统就被认为是完整的。</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>然而，真实系统很少在这个理想流程内排他地运行。数据可能还不存在。网络操作可能需要时间。请求可能失败。输入可能无效。</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>专业软件承认这些现实，并为它们设计显式的响应。它不是假设快乐路径总是发生，而是将不同的结果视为**系统状态（states of the system）**。</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>这些状态——空状态（empty）、加载状态（loading）、错误状态（error）和成功状态（success）——构成了可靠用户体验的基础。</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## 空状态（The Empty State）</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>空状态出现在系统没有数据可显示时。</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>这种情况极为常见。一个新用户可能还没有创建任何记录。一个搜索查询可能没有返回结果。一个新安装的系统可能从一个空数据库开始。</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>练手项目常常忽视这种情况。当系统遇到空数据时，它只是什么都不显示，或产生一个令人困惑的界面。</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>专业系统有意识地处理这种状态。它们承认数据的缺失，并为用户提供上下文。</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>一个空状态可以解释为什么没有信息出现，并建议下一步——也许是创建新条目或调整搜索查询。</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>系统不是呈现一个空白界面，而是清晰地传达当前状态是预期的、可管理的。</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## 加载状态（The Loading State）</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>现代系统中的许多操作需要时间才能完成。</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>请求可能通过网络传输，数据库可能执行查询，或计算可能处理大量信息。在这段时间内，系统暂时无法呈现最终结果。</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>练手项目常常让这个时间段不被处理。在操作完成期间，界面可能看起来冻结或无响应。</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>专业系统让加载状态变得可见。</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>进度条、旋转图标或微妙的动画等指示器传达系统正在积极工作。这些信号向用户保证请求已被接收，系统仍然响应迅速。</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>加载状态的存在将等待从困惑转变为体验中的一个可预测部分。</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## 错误状态（The Error State）</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>当一个操作未能成功完成时，错误就会出现。</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>在练手项目中，错误通常表现为原始异常、晦涩的消息或突然的中断。这些响应可能对编写代码的开发者是可理解的，但对其他人来说是令人困惑的。</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>专业系统将错误视为结构化状态（structured states）。</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>当失败发生时，系统用清晰的语言解释发生了什么。它可以指示问题是由无效输入、资源缺失还是临时系统条件造成的。</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>同样重要的是，系统通常会建议可能的下一步——重试操作、纠正输入或联系支持。</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>通过将错误定位为可理解的状态而非灾难性失败，系统即使在出问题时也能维护用户的信心。</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## 成功状态（The Success State）</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>成功状态代表操作的完成。</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>虽然这个状态看似显而易见，但它的设计仍然重要。用户受益于操作已经成功完成的清晰确认。</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>专业系统通常提供微妙的信号来确认成功。一条消息可能确认记录已被保存。一个视觉更新可能显示新数据已出现在界面中。一个命令行工具可能显示清晰的确认消息。</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>这些信号防止了歧义。用户知道他们的操作产生了预期的结果。</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>没有这样的确认，用户可能想知道系统是否正确处理了他们的请求。</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## 完善状态空间（Completing the State Space）</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>当这四种状态一起被考虑时，它们定义了一个**状态空间（state space）**，涵盖了系统在交互中最常遇到的条件。</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>练手项目通常只实现成功状态。其他一切都留给隐式或未处理。</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>专业系统则有意识地设计所有四种状态。</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>通过这样做，它们确保系统在任何情况下都表现出可预测的行为。每种可能的结果都有定义的响应。</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>与核心功能的开发相比，对系统边缘的这种关注可能显得微不足道。然而，它在塑造专业感知方面起着至关重要的作用。</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>当这些状态被正确实现时，用户几乎不会注意到它们。他们只是简单地体验到系统稳定、响应迅速且易于理解。</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>然而，当这些状态缺失时，这种缺失立即变得明显。</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>因此，设计完整的状态空间是将练手项目转变为成熟系统的安静但关键的步骤之一。</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>状态设计不仅影响用户体验，也反映了开发者的思维方式。一个只考虑成功状态的系统暗示开发者只关注理想情况。一个考虑所有状态的系统暗示开发者思考真实世界的复杂性。</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>这种思维模式的差异，是练手项目和专业系统之间最根本的区别之一。</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## 实践指南：状态设计框架</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="fu">### 四状态设计 SOP</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>**第一步：识别状态**</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>对于每个用户操作或系统功能，列出所有可能的状态：</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**空状态**：没有数据或内容时</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**加载状态**：操作进行中时</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**错误状态**：操作失败时</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**成功状态**：操作成功时</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>**第二步：设计每个状态的 UI**</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**空状态**：说明性文字 + 行动号召</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**加载状态**：加载指示器 + 可选的进度信息</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**错误状态**：错误消息 + 重试/修复选项</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**成功状态**：确认反馈 + 结果展示</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>**第三步：定义状态转换**</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**空状态 → 加载状态**：用户发起操作</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**加载状态 → 成功状态**：操作成功完成</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**加载状态 → 错误状态**：操作失败</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**错误状态 → 加载状态**：用户重试</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**成功状态 → 空状态**：清除数据</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>**第四步：实现和测试**</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>为每个状态编写代码，并测试所有可能的转换路径。</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="fu">### 状态设计检查清单</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>**空状态：**</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>是否解释了为什么没有内容？</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>是否提供了下一步操作的建议？</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>是否避免了令人困惑的空白页面？</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>**加载状态：**</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>是否有可见的加载指示器？</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>用户是否知道系统正在工作？</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>是否可以取消操作？</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>**错误状态：**</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>错误消息是否清晰易懂？</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>是否说明了错误的原因？</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>是否提供了解决问题的建议？</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>**成功状态：**</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>是否明确确认了操作成功？</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>是否展示了操作的结果？</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>是否引导用户进行下一步操作？</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="fu">### 快速诊断：你的状态设计完整吗？</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>对于你的项目中的每个主要功能：</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 你是否为每种可能的状态设计了 UI？</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 状态转换是否清晰且可预测？</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 用户是否总是知道系统的当前状态？</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 错误状态是否提供了有用的信息？</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 空状态是否引导用户采取行动？</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="fu">## 小结</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>状态设计是用户体验的关键组成部分。一个完整的状态空间确保系统在任何情况下都能提供清晰、有用的反馈。</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>空状态、加载状态、错误状态和成功状态构成了最常见的基础状态框架。虽然它们看起来简单，但它们的设计质量直接影响用户对系统的感知。</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>专业系统不会忽视这些"边缘"状态。相反，它们精心设计每个状态，确保用户在任何情况下都能获得良好的体验。</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>下一章，我们将探讨另一个常被忽视但至关重要的接口：**文档（documentation）**。好的文档不仅仅是说明，它是系统的第一个界面，直接影响用户的第一印象。</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>**实践建议：**</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**状态优先设计**：在设计功能时，先设计所有状态，再实现逻辑。</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**使用状态机图**：为复杂功能绘制状态机图，帮助理解所有可能的状态和转换。</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**测试所有路径**：确保所有状态转换都被测试，包括错误路径。</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**收集反馈**：观察用户在不同状态下的反应，优化设计。</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>**立即行动：**</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>选择你的项目中的一个功能，识别它所有的状态。为每个状态设计 UI，并实现状态转换逻辑。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

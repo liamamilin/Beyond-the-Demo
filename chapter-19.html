@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>20&nbsp; Information Architecture: Navigation, Hierarchy, and Density – Beyond the Demo</title>
+<title>20&nbsp; 信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,19 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./chapter-18.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-19.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-19.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,9 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -283,175 +318,175 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -461,15 +496,15 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#navigation-as-orientation" id="toc-navigation-as-orientation" class="nav-link active" data-scroll-target="#navigation-as-orientation"><span class="header-section-number">20.0.1</span> Navigation as Orientation</a></li>
-  <li><a href="#hierarchy-and-structure" id="toc-hierarchy-and-structure" class="nav-link" data-scroll-target="#hierarchy-and-structure"><span class="header-section-number">20.0.2</span> Hierarchy and Structure</a></li>
-  <li><a href="#managing-information-density" id="toc-managing-information-density" class="nav-link" data-scroll-target="#managing-information-density"><span class="header-section-number">20.0.3</span> Managing Information Density</a></li>
-  <li><a href="#the-role-of-the-home-screen" id="toc-the-role-of-the-home-screen" class="nav-link" data-scroll-target="#the-role-of-the-home-screen"><span class="header-section-number">20.0.4</span> The Role of the Home Screen</a></li>
-  <li><a href="#why-some-interfaces-feel-comfortable" id="toc-why-some-interfaces-feel-comfortable" class="nav-link" data-scroll-target="#why-some-interfaces-feel-comfortable"><span class="header-section-number">20.0.5</span> Why Some Interfaces Feel Comfortable</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">20.1</span> Chapter Summary</a></li>
+  <li><a href="#导航即定向navigation-as-orientation" id="toc-导航即定向navigation-as-orientation" class="nav-link active" data-scroll-target="#导航即定向navigation-as-orientation"><span class="header-section-number">20.1</span> 导航即定向（Navigation as Orientation）</a></li>
+  <li><a href="#层级与结构hierarchy-and-structure" id="toc-层级与结构hierarchy-and-structure" class="nav-link" data-scroll-target="#层级与结构hierarchy-and-structure"><span class="header-section-number">20.2</span> 层级与结构（Hierarchy and Structure）</a></li>
+  <li><a href="#管理信息密度managing-information-density" id="toc-管理信息密度managing-information-density" class="nav-link" data-scroll-target="#管理信息密度managing-information-density"><span class="header-section-number">20.3</span> 管理信息密度（Managing Information Density）</a></li>
+  <li><a href="#首页的角色the-role-of-the-home-screen" id="toc-首页的角色the-role-of-the-home-screen" class="nav-link" data-scroll-target="#首页的角色the-role-of-the-home-screen"><span class="header-section-number">20.4</span> 首页的角色（The Role of the Home Screen）</a></li>
+  <li><a href="#为什么有些界面感觉舒适why-some-interfaces-feel-comfortable" id="toc-为什么有些界面感觉舒适why-some-interfaces-feel-comfortable" class="nav-link" data-scroll-target="#为什么有些界面感觉舒适why-some-interfaces-feel-comfortable"><span class="header-section-number">20.5</span> 为什么有些界面感觉舒适（Why Some Interfaces Feel Comfortable）</a></li>
+  <li><a href="#小结" id="toc-小结" class="nav-link" data-scroll-target="#小结"><span class="header-section-number">20.6</span> 小结</a></li>
   </ul>
 </nav>
     </div>
@@ -479,7 +514,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -495,92 +530,98 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#导航即定向navigation-as-orientation" id="toc-导航即定向navigation-as-orientation"><span class="header-section-number">20.1</span> 导航即定向（Navigation as Orientation）</a></li>
+  <li><a href="#层级与结构hierarchy-and-structure" id="toc-层级与结构hierarchy-and-structure"><span class="header-section-number">20.2</span> 层级与结构（Hierarchy and Structure）</a></li>
+  <li><a href="#管理信息密度managing-information-density" id="toc-管理信息密度managing-information-density"><span class="header-section-number">20.3</span> 管理信息密度（Managing Information Density）</a></li>
+  <li><a href="#首页的角色the-role-of-the-home-screen" id="toc-首页的角色the-role-of-the-home-screen"><span class="header-section-number">20.4</span> 首页的角色（The Role of the Home Screen）</a></li>
+  <li><a href="#为什么有些界面感觉舒适why-some-interfaces-feel-comfortable" id="toc-为什么有些界面感觉舒适why-some-interfaces-feel-comfortable"><span class="header-section-number">20.5</span> 为什么有些界面感觉舒适（Why Some Interfaces Feel Comfortable）</a></li>
+  <li><a href="#小结" id="toc-小结"><span class="header-section-number">20.6</span> 小结</a></li>
+  </ul>
+</nav>
+<p>当用户打开一个新的应用或网站时，在前几秒钟内会发生一些有趣的事情。</p>
+<p>在他们点击任何东西之前，在他们阅读详细文本之前，他们就形成了一个印象。</p>
+<p>他们看着屏幕，立即感觉到系统是有组织的还是令人困惑的。</p>
+<p>这种反应主要不是来自颜色或图形。它来自<strong>信息架构（information architecture）</strong>——决定了信息如何排列、分组和揭示的结构。</p>
+<p>练手项目经常随时间累积功能。新页面随着新功能的添加而出现。链接被放置在任何有空位的地方。导航是有机地而非有意地增长。</p>
+<p>结果是一个技术上可行但缺乏清晰心智结构的系统。</p>
+<p>专业系统以不同的方式处理这个问题。它们在扩展功能集之前设计<strong>信息架构</strong>。</p>
+<p>目标不仅仅是展示功能。目标是向用户提供系统的<strong>认知地图（cognitive map）</strong>。</p>
+<hr>
+<section id="导航即定向navigation-as-orientation" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="导航即定向navigation-as-orientation"><span class="header-section-number">20.1</span> 导航即定向（Navigation as Orientation）</h2>
+<p>导航是允许用户在系统中移动的机制。</p>
+<p>在练手项目中，导航通常被当作简单的链接列表来对待。页面随着开发中出现而被添加到菜单中。</p>
+<p>专业系统将导航视为定向工具。</p>
+<p>一个设计良好的导航结构回答一个基本问题：<em>我在系统中的哪个位置？</em></p>
+<p>用户应该始终能够理解他们当前的位置以及从该位置可用的路径。</p>
+<p>清晰的导航结构通常依赖稳定的分类。界面不是呈现几十个不相关的链接，而是呈现少量有意义的分类。</p>
+<p>这些分类充当系统中的锚点。一旦用户学会了它们，他们就可以预测新功能将出现在哪里。</p>
+<p>可预测性是专业设计的关键元素。</p>
+<hr>
+</section>
+<section id="层级与结构hierarchy-and-structure" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="层级与结构hierarchy-and-structure"><span class="header-section-number">20.2</span> 层级与结构（Hierarchy and Structure）</h2>
+<p>信息架构也依赖层级。</p>
+<p>层级将信息组织到不同层次，允许用户从一般视图移动到更具体的细节。</p>
+<p>例如，一个系统可能从总结应用主要功能的高层分类开始。在每个分类内，额外的页面提供更详细的能力。</p>
+<p>这种分层结构防止界面压垮用户。</p>
+<p>系统不是一次性展示所有内容，而是逐步揭示复杂性。</p>
+<p>练手项目经常使这个层级扁平化。重要和次要的功能并排出现，迫使用户自己解读结构。</p>
+<p>专业系统定义清晰的优先级层次。</p>
+<p>主要功能获得突出的位置。次要功能保持可访问，但在视觉上从属。</p>
+<p>这种层级帮助用户关注最重要的内容。</p>
+<hr>
+</section>
+<section id="管理信息密度managing-information-density" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="管理信息密度managing-information-density"><span class="header-section-number">20.3</span> 管理信息密度（Managing Information Density）</h2>
+<p>信息架构的另一个重要维度是<strong>密度（density）</strong>——在给定空间内显示的信息量。</p>
+<p>练手项目经常面临两种极端之一。</p>
+<p>有些界面同时显示太多信息。屏幕变得拥挤，控件、文本和面板相互争夺注意力。</p>
+<p>另一些界面隐藏了太多信息，迫使用户在经过许多步骤后才能到达有用的内容。</p>
+<p>专业系统寻求平衡的密度。</p>
+<p>界面显示足够的信息以提供上下文，但不会压垮用户。重要的操作保持可见，而不常用的控件保持可用但不引人注目。</p>
+<p>实现这种平衡需要对分组、间距和渐进式揭示（progressive disclosure）进行深思熟虑的决策。</p>
+<hr>
+</section>
+<section id="首页的角色the-role-of-the-home-screen" class="level2" data-number="20.4">
+<h2 data-number="20.4" class="anchored" data-anchor-id="首页的角色the-role-of-the-home-screen"><span class="header-section-number">20.4</span> 首页的角色（The Role of the Home Screen）</h2>
+<p>练手项目中最常见的错误之一出现在首页上。</p>
+<p>开发者经常将首页视为展示系统每个功能的地方。按钮、链接和面板不断累积，直到页面成为一个密集的选项集合。</p>
+<p>虽然这种方法看起来全面，但它经常使新用户感到困惑。</p>
+<p>专业系统以不同的方式使用首页。</p>
+<p>首页不是列出所有功能，而是提供方向。它介绍系统的主要区域，并帮助用户理解各部分如何组合在一起。</p>
+<p>实际上，首页成为了<strong>产品的地图</strong>。</p>
+<p>一旦用户理解了地图，他们就可以自信地导航到对他们重要的区域。</p>
+<hr>
+</section>
+<section id="为什么有些界面感觉舒适why-some-interfaces-feel-comfortable" class="level2" data-number="20.5">
+<h2 data-number="20.5" class="anchored" data-anchor-id="为什么有些界面感觉舒适why-some-interfaces-feel-comfortable"><span class="header-section-number">20.5</span> 为什么有些界面感觉舒适（Why Some Interfaces Feel Comfortable）</h2>
+<p>当用户将界面描述为”舒适”或”易于理解”时，他们通常是对其信息架构的清晰度做出反应。</p>
+<p>一个结构良好的界面减少了认知努力。</p>
+<p>用户可以快速识别信息属于哪里、不同部分之间如何关联、以及下一步去哪里。</p>
+<p>因为结构清晰，用户的注意力仍然集中在任务上，而不是导航上。</p>
+<p>练手项目通常缺乏这种清晰度。系统可能仍然运作，但用户必须自己不断解读结构。</p>
+<p>专业系统卸下了这个负担。</p>
+<p>通过谨慎地组织导航、层级和密度，它们创造了一个系统的结构感觉自然的环境。</p>
+<p>用户很少显式地注意到这个结构。</p>
+<p>但他们感受到它的存在。</p>
+<p>那种安静的秩序感是一个产品从第一眼就让人感觉舒适的最强原因之一。</p>
+<hr>
+</section>
+<section id="小结" class="level2" data-number="20.6">
+<h2 data-number="20.6" class="anchored" data-anchor-id="小结"><span class="header-section-number">20.6</span> 小结</h2>
+<p>信息架构提供了允许用户有效地理解和导航系统的认知结构。通过有意识地设计导航、层级和密度，开发者可以创建感觉有组织和舒适的界面。</p>
+<p>专业系统将信息架构视为基础而非事后补充。首页充当地图，导航提供方向，层级管理复杂性。</p>
+<p>当信息被有结构地组织时，用户可以专注于任务而非解读界面。</p>
+<p><strong>立即行动：</strong></p>
+<p>绘制一个你系统信息架构的简单地图。确定主要分类、它们的关系，以及用户当前在哪里遇到困惑。</p>
 
-<p>When users open a new application or website, something interesting happens in the first few seconds.</p>
-<p>Before they click anything, before they read detailed text, they form an impression.</p>
-<p>They look at the screen and immediately sense whether the system feels organized or confusing.</p>
-<p>This reaction does not come primarily from colors or graphics. It comes from <strong>information architecture</strong>—the structure that determines how information is arranged, grouped, and revealed.</p>
-<p>Practice projects often accumulate features over time. New pages appear as new functionality is added. Links are placed wherever space allows. Navigation grows organically rather than deliberately.</p>
-<p>The result is a system that technically works but lacks a clear mental structure.</p>
-<p>Professional systems approach the problem differently. They design the <strong>information architecture</strong> before expanding the feature set.</p>
-<p>The goal is not simply to show functionality. The goal is to provide users with a <strong>cognitive map</strong> of the system.</p>
-<hr>
-<section id="navigation-as-orientation" class="level3" data-number="20.0.1">
-<h3 data-number="20.0.1" class="anchored" data-anchor-id="navigation-as-orientation"><span class="header-section-number">20.0.1</span> Navigation as Orientation</h3>
-<p>Navigation is the mechanism that allows users to move through the system.</p>
-<p>In practice projects, navigation is often treated as a simple list of links. Pages are added to the menu as they appear in development.</p>
-<p>Professional systems treat navigation as an orientation tool.</p>
-<p>A well-designed navigation structure answers a fundamental question: <em>Where am I in the system?</em></p>
-<p>Users should always be able to understand their current position and the paths available from that position.</p>
-<p>Clear navigation structures usually rely on stable categories. Instead of dozens of unrelated links, the interface presents a small number of meaningful sections.</p>
-<p>These sections act as anchors within the system. Once users learn them, they can predict where new functionality will appear.</p>
-<p>Predictability is a key element of professional design.</p>
-<hr>
-</section>
-<section id="hierarchy-and-structure" class="level3" data-number="20.0.2">
-<h3 data-number="20.0.2" class="anchored" data-anchor-id="hierarchy-and-structure"><span class="header-section-number">20.0.2</span> Hierarchy and Structure</h3>
-<p>Information architecture also depends on hierarchy.</p>
-<p>Hierarchy organizes information into layers, allowing users to move from general views to more specific details.</p>
-<p>For example, a system may begin with high-level categories that summarize the main functions of the application. Within each category, additional pages provide more detailed capabilities.</p>
-<p>This layered structure prevents the interface from overwhelming the user.</p>
-<p>Instead of presenting everything at once, the system reveals complexity gradually.</p>
-<p>Practice projects often flatten this hierarchy. Important and minor features appear side by side, forcing users to interpret the structure themselves.</p>
-<p>Professional systems define clear levels of importance.</p>
-<p>Primary features receive prominent placement. Secondary functions remain accessible but visually subordinate.</p>
-<p>This hierarchy helps users focus on what matters most.</p>
-<hr>
-</section>
-<section id="managing-information-density" class="level3" data-number="20.0.3">
-<h3 data-number="20.0.3" class="anchored" data-anchor-id="managing-information-density"><span class="header-section-number">20.0.3</span> Managing Information Density</h3>
-<p>Another important dimension of information architecture is <strong>density</strong>—the amount of information displayed within a given space.</p>
-<p>Practice projects often suffer from one of two extremes.</p>
-<p>Some interfaces display too much information at once. The screen becomes crowded with controls, text, and panels competing for attention.</p>
-<p>Other interfaces hide too much information, forcing users to navigate through many steps before reaching useful content.</p>
-<p>Professional systems seek a balanced density.</p>
-<p>The interface displays enough information to provide context without overwhelming the user. Important actions remain visible, while less frequently used controls stay available but unobtrusive.</p>
-<p>Achieving this balance requires thoughtful decisions about grouping, spacing, and progressive disclosure.</p>
-<hr>
-</section>
-<section id="the-role-of-the-home-screen" class="level3" data-number="20.0.4">
-<h3 data-number="20.0.4" class="anchored" data-anchor-id="the-role-of-the-home-screen"><span class="header-section-number">20.0.4</span> The Role of the Home Screen</h3>
-<p>One of the most common mistakes in practice projects appears on the home page.</p>
-<p>Developers often treat the home page as a place to showcase every feature of the system. Buttons, links, and panels accumulate until the page becomes a dense collection of options.</p>
-<p>While this approach may appear thorough, it often confuses new users.</p>
-<p>Professional systems use the home page differently.</p>
-<p>Instead of listing every feature, the home page provides orientation. It introduces the main areas of the system and helps users understand how the pieces fit together.</p>
-<p>In effect, the home page becomes the <strong>map of the product</strong>.</p>
-<p>Once users understand the map, they can navigate confidently to the areas that matter to them.</p>
-<hr>
-</section>
-<section id="why-some-interfaces-feel-comfortable" class="level3" data-number="20.0.5">
-<h3 data-number="20.0.5" class="anchored" data-anchor-id="why-some-interfaces-feel-comfortable"><span class="header-section-number">20.0.5</span> Why Some Interfaces Feel Comfortable</h3>
-<p>When users describe an interface as “comfortable” or “easy to understand,” they are usually responding to the clarity of its information architecture.</p>
-<p>A well-structured interface reduces cognitive effort.</p>
-<p>Users can quickly identify where information belongs, how different sections relate to one another, and where to go next.</p>
-<p>Because the structure is clear, the user’s attention remains focused on tasks rather than navigation.</p>
-<p>Practice projects often lack this clarity. The system may still function, but users must constantly interpret the structure themselves.</p>
-<p>Professional systems remove this burden.</p>
-<p>By organizing navigation, hierarchy, and density carefully, they create an environment where the structure of the system feels natural.</p>
-<p>Users rarely notice this structure explicitly.</p>
-<p>But they feel its presence.</p>
-<p>And that quiet sense of order is one of the strongest reasons why a product can feel comfortable from the very first glance.</p>
-<hr>
-</section>
-<section id="chapter-summary" class="level2" data-number="20.1">
-<h2 data-number="20.1" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">20.1</span> Chapter Summary</h2>
-<p>Information architecture provides the cognitive structure that allows users to understand and navigate systems effectively. By designing navigation, hierarchy, and density intentionally, developers can create interfaces that feel organized and comfortable.</p>
-<p>Professional systems treat information architecture as a foundation rather than an afterthought. The home page serves as a map, navigation provides orientation, and hierarchy manages complexity.</p>
-<p>When information is structured thoughtfully, users can focus on tasks rather than deciphering the interface.</p>
-<hr>
-<p><strong>Practice Suggestions:</strong></p>
-<ol type="1">
-<li><strong>Design Navigation First</strong>: Before adding features, design a stable navigation structure that users can learn and rely on.</li>
-<li><strong>Use Hierarchy Intentionally</strong>: Group features by importance and relationship, not by development order.</li>
-<li><strong>Balance Density</strong>: Display enough information to provide context without overwhelming the user.</li>
-</ol>
-<p><strong>Immediate Action:</strong></p>
-<p>Create a simple map of your system’s information architecture. Identify the main sections, their relationships, and where users currently encounter confusion.</p>
 
+<!-- -->
 
 </section>
 
@@ -669,6 +710,57 @@ ul.task-list li input[type="checkbox"] {
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -685,6 +777,13 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1000,16 +1099,150 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-18.html" class="pagination-link" aria-label="Design Systems: Bridging the Aesthetic Gap with Component Libraries">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span>
+      <a href="./chapter-18.html" class="pagination-link" aria-label="设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-20.html" class="pagination-link" aria-label="Micro-Interactions: Making a System Feel Alive">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-20.html" class="pagination-link" aria-label="微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）">
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>当用户打开一个新的应用或网站时，在前几秒钟内会发生一些有趣的事情。</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>在他们点击任何东西之前，在他们阅读详细文本之前，他们就形成了一个印象。</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>他们看着屏幕，立即感觉到系统是有组织的还是令人困惑的。</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>这种反应主要不是来自颜色或图形。它来自**信息架构（information architecture）**——决定了信息如何排列、分组和揭示的结构。</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>练手项目经常随时间累积功能。新页面随着新功能的添加而出现。链接被放置在任何有空位的地方。导航是有机地而非有意地增长。</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>结果是一个技术上可行但缺乏清晰心智结构的系统。</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>专业系统以不同的方式处理这个问题。它们在扩展功能集之前设计**信息架构**。</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>目标不仅仅是展示功能。目标是向用户提供系统的**认知地图（cognitive map）**。</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## 导航即定向（Navigation as Orientation）</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>导航是允许用户在系统中移动的机制。</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>在练手项目中，导航通常被当作简单的链接列表来对待。页面随着开发中出现而被添加到菜单中。</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>专业系统将导航视为定向工具。</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>一个设计良好的导航结构回答一个基本问题：*我在系统中的哪个位置？*</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>用户应该始终能够理解他们当前的位置以及从该位置可用的路径。</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>清晰的导航结构通常依赖稳定的分类。界面不是呈现几十个不相关的链接，而是呈现少量有意义的分类。</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>这些分类充当系统中的锚点。一旦用户学会了它们，他们就可以预测新功能将出现在哪里。</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>可预测性是专业设计的关键元素。</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## 层级与结构（Hierarchy and Structure）</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>信息架构也依赖层级。</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>层级将信息组织到不同层次，允许用户从一般视图移动到更具体的细节。</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>例如，一个系统可能从总结应用主要功能的高层分类开始。在每个分类内，额外的页面提供更详细的能力。</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>这种分层结构防止界面压垮用户。</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>系统不是一次性展示所有内容，而是逐步揭示复杂性。</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>练手项目经常使这个层级扁平化。重要和次要的功能并排出现，迫使用户自己解读结构。</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>专业系统定义清晰的优先级层次。</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>主要功能获得突出的位置。次要功能保持可访问，但在视觉上从属。</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>这种层级帮助用户关注最重要的内容。</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## 管理信息密度（Managing Information Density）</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>信息架构的另一个重要维度是**密度（density）**——在给定空间内显示的信息量。</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>练手项目经常面临两种极端之一。</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>有些界面同时显示太多信息。屏幕变得拥挤，控件、文本和面板相互争夺注意力。</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>另一些界面隐藏了太多信息，迫使用户在经过许多步骤后才能到达有用的内容。</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>专业系统寻求平衡的密度。</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>界面显示足够的信息以提供上下文，但不会压垮用户。重要的操作保持可见，而不常用的控件保持可用但不引人注目。</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>实现这种平衡需要对分组、间距和渐进式揭示（progressive disclosure）进行深思熟虑的决策。</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## 首页的角色（The Role of the Home Screen）</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>练手项目中最常见的错误之一出现在首页上。</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>开发者经常将首页视为展示系统每个功能的地方。按钮、链接和面板不断累积，直到页面成为一个密集的选项集合。</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>虽然这种方法看起来全面，但它经常使新用户感到困惑。</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>专业系统以不同的方式使用首页。</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>首页不是列出所有功能，而是提供方向。它介绍系统的主要区域，并帮助用户理解各部分如何组合在一起。</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>实际上，首页成为了**产品的地图**。</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>一旦用户理解了地图，他们就可以自信地导航到对他们重要的区域。</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="fu">## 为什么有些界面感觉舒适（Why Some Interfaces Feel Comfortable）</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>当用户将界面描述为"舒适"或"易于理解"时，他们通常是对其信息架构的清晰度做出反应。</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>一个结构良好的界面减少了认知努力。</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>用户可以快速识别信息属于哪里、不同部分之间如何关联、以及下一步去哪里。</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>因为结构清晰，用户的注意力仍然集中在任务上，而不是导航上。</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>练手项目通常缺乏这种清晰度。系统可能仍然运作，但用户必须自己不断解读结构。</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>专业系统卸下了这个负担。</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>通过谨慎地组织导航、层级和密度，它们创造了一个系统的结构感觉自然的环境。</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>用户很少显式地注意到这个结构。</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>但他们感受到它的存在。</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>那种安静的秩序感是一个产品从第一眼就让人感觉舒适的最强原因之一。</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="fu">## 小结</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>信息架构提供了允许用户有效地理解和导航系统的认知结构。通过有意识地设计导航、层级和密度，开发者可以创建感觉有组织和舒适的界面。</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>专业系统将信息架构视为基础而非事后补充。首页充当地图，导航提供方向，层级管理复杂性。</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>当信息被有结构地组织时，用户可以专注于任务而非解读界面。</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>**立即行动：**</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>绘制一个你系统信息架构的简单地图。确定主要分类、它们的关系，以及用户当前在哪里遇到困惑。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

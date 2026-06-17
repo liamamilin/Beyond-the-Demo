@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Logging and Observability: Making Systems Understandable – Beyond the Demo</title>
+<title>14&nbsp; 日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,19 +72,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./chapter-12.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -285,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-13.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-13.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -298,9 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -318,175 +318,175 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -496,24 +496,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#the-purpose-of-logging" id="toc-the-purpose-of-logging" class="nav-link active" data-scroll-target="#the-purpose-of-logging"><span class="header-section-number">14.0.1</span> The Purpose of Logging</a></li>
-  <li><a href="#structured-logs" id="toc-structured-logs" class="nav-link" data-scroll-target="#structured-logs"><span class="header-section-number">14.0.2</span> Structured Logs</a></li>
-  <li><a href="#trace-identifiers" id="toc-trace-identifiers" class="nav-link" data-scroll-target="#trace-identifiers"><span class="header-section-number">14.0.3</span> Trace Identifiers</a></li>
-  <li><a href="#recording-key-events" id="toc-recording-key-events" class="nav-link" data-scroll-target="#recording-key-events"><span class="header-section-number">14.0.4</span> Recording Key Events</a></li>
-  <li><a href="#knowing-when-to-log" id="toc-knowing-when-to-log" class="nav-link" data-scroll-target="#knowing-when-to-log"><span class="header-section-number">14.0.5</span> Knowing When to Log</a></li>
-  <li><a href="#knowing-what-to-log" id="toc-knowing-what-to-log" class="nav-link" data-scroll-target="#knowing-what-to-log"><span class="header-section-number">14.0.6</span> Knowing What to Log</a></li>
-  <li><a href="#from-opaque-systems-to-observable-systems" id="toc-from-opaque-systems-to-observable-systems" class="nav-link" data-scroll-target="#from-opaque-systems-to-observable-systems"><span class="header-section-number">14.0.7</span> From Opaque Systems to Observable Systems</a></li>
-  <li><a href="#practical-guide-logging-system-implementation-strategy" id="toc-practical-guide-logging-system-implementation-strategy" class="nav-link" data-scroll-target="#practical-guide-logging-system-implementation-strategy"><span class="header-section-number">14.1</span> Practical Guide: Logging System Implementation Strategy</a>
+  <li><a href="#日志的目的the-purpose-of-logging" id="toc-日志的目的the-purpose-of-logging" class="nav-link active" data-scroll-target="#日志的目的the-purpose-of-logging"><span class="header-section-number">14.1</span> 日志的目的（The Purpose of Logging）</a></li>
+  <li><a href="#结构化日志structured-logs" id="toc-结构化日志structured-logs" class="nav-link" data-scroll-target="#结构化日志structured-logs"><span class="header-section-number">14.2</span> 结构化日志（Structured Logs）</a></li>
+  <li><a href="#追踪标识符trace-identifiers" id="toc-追踪标识符trace-identifiers" class="nav-link" data-scroll-target="#追踪标识符trace-identifiers"><span class="header-section-number">14.3</span> 追踪标识符（Trace Identifiers）</a></li>
+  <li><a href="#可观测性与监控observability-and-monitoring" id="toc-可观测性与监控observability-and-monitoring" class="nav-link" data-scroll-target="#可观测性与监控observability-and-monitoring"><span class="header-section-number">14.4</span> 可观测性与监控（Observability and Monitoring）</a></li>
+  <li><a href="#实践指南日志最佳实践" id="toc-实践指南日志最佳实践" class="nav-link" data-scroll-target="#实践指南日志最佳实践"><span class="header-section-number">14.5</span> 实践指南：日志最佳实践</a>
   <ul class="collapse">
-  <li><a href="#日志事件分类" id="toc-日志事件分类" class="nav-link" data-scroll-target="#日志事件分类"><span class="header-section-number">14.1.1</span> 日志事件分类</a></li>
-  <li><a href="#日志实施sop" id="toc-日志实施sop" class="nav-link" data-scroll-target="#日志实施sop"><span class="header-section-number">14.1.2</span> 日志实施SOP</a></li>
-  <li><a href="#日志最佳实践清单" id="toc-日志最佳实践清单" class="nav-link" data-scroll-target="#日志最佳实践清单"><span class="header-section-number">14.1.3</span> 日志最佳实践清单</a></li>
-  <li><a href="#quick-diagnosis-is-your-logging-system-healthy" id="toc-quick-diagnosis-is-your-logging-system-healthy" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-logging-system-healthy"><span class="header-section-number">14.1.4</span> Quick Diagnosis: Is Your Logging System Healthy?</a></li>
+  <li><a href="#日志分级" id="toc-日志分级" class="nav-link" data-scroll-target="#日志分级"><span class="header-section-number">14.5.1</span> 日志分级</a></li>
+  <li><a href="#日志记录指南" id="toc-日志记录指南" class="nav-link" data-scroll-target="#日志记录指南"><span class="header-section-number">14.5.2</span> 日志记录指南</a></li>
+  <li><a href="#结构化日志格式" id="toc-结构化日志格式" class="nav-link" data-scroll-target="#结构化日志格式"><span class="header-section-number">14.5.3</span> 结构化日志格式</a></li>
   </ul></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">14.2</span> Chapter Summary</a></li>
+  <li><a href="#小结" id="toc-小结" class="nav-link" data-scroll-target="#小结"><span class="header-section-number">14.6</span> 小结</a></li>
   </ul>
 </nav>
     </div>
@@ -523,7 +519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -539,240 +535,116 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-
-<p>When a small script runs on a developer’s machine, understanding what the system is doing is usually straightforward. If something goes wrong, the developer can print a few variables, inspect the code, or rerun the program step by step.</p>
-<p>But once software grows into a real system—running on servers, interacting with databases, handling multiple requests simultaneously—the situation changes dramatically.</p>
-<p>At that point, the developer can no longer observe the system directly. The code may still execute correctly, but its behavior becomes hidden behind layers of infrastructure and time.</p>
-<p>Professional systems solve this problem through <strong>logging and observability</strong>.</p>
-<p>These mechanisms allow developers and operators to understand what the system is doing, even when they cannot see it directly.</p>
-<p>Without them, a system becomes opaque. When something fails, no one knows why.</p>
-<p>With them, the system becomes explainable.</p>
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#日志的目的the-purpose-of-logging" id="toc-日志的目的the-purpose-of-logging"><span class="header-section-number">14.1</span> 日志的目的（The Purpose of Logging）</a></li>
+  <li><a href="#结构化日志structured-logs" id="toc-结构化日志structured-logs"><span class="header-section-number">14.2</span> 结构化日志（Structured Logs）</a></li>
+  <li><a href="#追踪标识符trace-identifiers" id="toc-追踪标识符trace-identifiers"><span class="header-section-number">14.3</span> 追踪标识符（Trace Identifiers）</a></li>
+  <li><a href="#可观测性与监控observability-and-monitoring" id="toc-可观测性与监控observability-and-monitoring"><span class="header-section-number">14.4</span> 可观测性与监控（Observability and Monitoring）</a></li>
+  <li><a href="#实践指南日志最佳实践" id="toc-实践指南日志最佳实践"><span class="header-section-number">14.5</span> 实践指南：日志最佳实践</a>
+  <ul>
+  <li><a href="#日志分级" id="toc-日志分级"><span class="header-section-number">14.5.1</span> 日志分级</a></li>
+  <li><a href="#日志记录指南" id="toc-日志记录指南"><span class="header-section-number">14.5.2</span> 日志记录指南</a></li>
+  <li><a href="#结构化日志格式" id="toc-结构化日志格式"><span class="header-section-number">14.5.3</span> 结构化日志格式</a></li>
+  </ul></li>
+  <li><a href="#小结" id="toc-小结"><span class="header-section-number">14.6</span> 小结</a></li>
+  </ul>
+</nav>
+<p>当一个小脚本在开发者的机器上运行时，理解系统在做什么通常很简单。如果出了问题，开发者可以打印几个变量、检查代码、或逐步重新运行程序。</p>
+<p>但一旦软件成长为真正的系统——在服务器上运行、与数据库交互、同时处理多个请求——情况就彻底改变了。</p>
+<p>此时，开发者无法再直接观察系统。代码可能仍然正确执行，但其行为被隐藏在基础设施和时间的层层屏障之后。</p>
+<p>专业系统通过<strong>日志与可观测性（logging and observability）</strong>来解决这个问题。</p>
+<p>这些机制允许开发者和运维人员理解系统正在做什么，即使他们无法直接看到它。</p>
+<p>没有它们，系统变得不透明。当某些东西失败时，没有人知道为什么。</p>
+<p>有了它们，系统变得可解释。</p>
 <hr>
-<section id="the-purpose-of-logging" class="level3" data-number="14.0.1">
-<h3 data-number="14.0.1" class="anchored" data-anchor-id="the-purpose-of-logging"><span class="header-section-number">14.0.1</span> The Purpose of Logging</h3>
-<p>Logging is the process of recording important events that occur while the system is running.</p>
-<p>Each log entry captures a moment in the life of the system. It may record an incoming request, the start of a database query, the completion of an operation, or an unexpected error.</p>
-<p>Over time, these records form a timeline that reveals how the system behaved.</p>
-<p>In practice projects, logging is often minimal or absent. Developers may print debugging messages while developing the code and remove them once the program appears to work.</p>
-<p>Professional systems treat logging differently. Instead of temporary debugging statements, they maintain a structured record of significant events throughout the lifetime of the application.</p>
-<p>These records allow developers to reconstruct what happened during execution—even long after the event has occurred.</p>
-<hr>
-</section>
-<section id="structured-logs" class="level3" data-number="14.0.2">
-<h3 data-number="14.0.2" class="anchored" data-anchor-id="structured-logs"><span class="header-section-number">14.0.2</span> Structured Logs</h3>
-<p>In mature systems, logs are not merely lines of text. They are <strong>structured records</strong>.</p>
-<p>A structured log contains clearly defined fields that describe the event being recorded. Instead of writing free-form messages, the system captures key attributes in a consistent format.</p>
-<p>Typical fields might include the time of the event, the type of operation, the component responsible, and relevant identifiers associated with the request.</p>
-<p>This structure allows logs to be searched, filtered, and analyzed automatically. Monitoring systems can aggregate thousands of events and identify patterns that would be impossible to detect through manual inspection.</p>
-<p>Structured logging transforms logs from simple messages into a dataset describing the system’s behavior.</p>
-<hr>
-</section>
-<section id="trace-identifiers" class="level3" data-number="14.0.3">
-<h3 data-number="14.0.3" class="anchored" data-anchor-id="trace-identifiers"><span class="header-section-number">14.0.3</span> Trace Identifiers</h3>
-<p>As systems grow more complex, individual operations often pass through multiple components.</p>
-<p>For example, a request may enter through an API gateway, travel through application services, interact with a database, and eventually produce a response. Each of these steps may generate log entries.</p>
-<p>Without additional context, it becomes difficult to determine which log entries belong to the same request.</p>
-<p>To solve this problem, professional systems introduce <strong>trace identifiers</strong>.</p>
-<p>A trace identifier is a unique value assigned to a request as it enters the system. This identifier travels with the request through every component involved in processing it.</p>
-<p>Each log entry related to that request includes the same identifier.</p>
-<p>This simple mechanism allows developers to reconstruct the entire path of a request across the system. By filtering logs using the trace identifier, they can observe every stage of the operation and quickly identify where problems occurred.</p>
+<section id="日志的目的the-purpose-of-logging" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="日志的目的the-purpose-of-logging"><span class="header-section-number">14.1</span> 日志的目的（The Purpose of Logging）</h2>
+<p>日志是记录系统运行期间发生的重要事件的过程。</p>
+<p>每个日志条目捕捉了系统生命中的一个时刻。它可能记录一个传入请求、一次数据库查询的开始、一个操作的完成或一个意外的错误。</p>
+<p>随着时间的推移，这些记录形成了一条时间线，揭示了系统的行为。</p>
+<p>在练手项目中，日志通常是极少的或缺失的。开发者在开发代码时打印调试信息，一旦程序看起来能运行了就删除它们。</p>
+<p>专业系统对日志的态度截然不同。它们不是放置临时调试语句，而是维护应用程序整个生命周期中重要事件的结构化记录。</p>
+<p>这些记录允许开发者重构执行过程中的事件——即使在事件发生后很久。</p>
 <hr>
 </section>
-<section id="recording-key-events" class="level3" data-number="14.0.4">
-<h3 data-number="14.0.4" class="anchored" data-anchor-id="recording-key-events"><span class="header-section-number">14.0.4</span> Recording Key Events</h3>
-<p>Not every line of code needs to produce a log entry. Excessive logging can create noise that makes important information harder to find.</p>
-<p>Instead, professional systems focus on recording <strong>key events</strong>—moments that reveal the state and progress of the system.</p>
-<p>Examples of such events include:</p>
+<section id="结构化日志structured-logs" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="结构化日志structured-logs"><span class="header-section-number">14.2</span> 结构化日志（Structured Logs）</h2>
+<p>在成熟系统中，日志不仅仅是文本行。它们是<strong>结构化记录（structured records）</strong>。</p>
+<p>结构化日志包含明确定义的字段，描述被记录的事件。系统不是写自由格式的消息，而是以一致的格式捕捉关键属性。</p>
+<p>典型字段可能包括事件时间、操作类型、负责的组件、以及与请求相关的标识符。</p>
+<p>这种结构允许日志被自动搜索、过滤和分析。监控系统可以聚合数千个事件并识别出通过人工检查不可能发现的模式。</p>
+<p>结构化日志将日志从简单的消息转变为描述系统行为的数据集。</p>
+<hr>
+</section>
+<section id="追踪标识符trace-identifiers" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="追踪标识符trace-identifiers"><span class="header-section-number">14.3</span> 追踪标识符（Trace Identifiers）</h2>
+<p>随着系统变得越来越复杂，单个操作通常需要通过多个组件。</p>
+<p>例如，一个请求可能通过 API 网关进入、穿过应用服务、与数据库交互，并最终产生响应。这些步骤中的每一个都可能产生日志条目。</p>
+<p>如果没有额外的上下文，就很难确定哪些日志条目属于同一个请求。</p>
+<p>为了解决这个问题，专业系统引入了<strong>追踪标识符（trace identifiers）</strong>。</p>
+<p>追踪标识符是一个唯一的数值，在请求进入系统时赋予它。这个标识符随请求一起穿越参与处理它的每一个组件。</p>
+<p>通过将追踪标识符包含在沿途生成的每个日志条目中，系统创建了请求路径的完整记录。</p>
+<p>当问题发生时，运维人员可以通过搜索追踪标识符来收集与该请求相关的所有日志条目，而不是手动关联不同组件中的碎片化消息。</p>
+<hr>
+</section>
+<section id="可观测性与监控observability-and-monitoring" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="可观测性与监控observability-and-monitoring"><span class="header-section-number">14.4</span> 可观测性与监控（Observability and Monitoring）</h2>
+<p>日志记录创建了数据，但数据本身只有在能够被访问和理解时才有价值。</p>
+<p><strong>可观测性（observability）</strong>是指从系统外部推断内部状态的能力。除了简单的日志之外，可观测性还包括指标（metrics）和追踪（tracing），它们共同提供了系统行为的全景视图。</p>
+<p><strong>监控（monitoring）</strong>将观察提升了一步，它根据收集到的数据自动检测异常。</p>
+<p>专业系统通常组合使用这些技术：</p>
 <ul>
-<li><p>the arrival of a request</p></li>
-<li><p>the beginning or completion of a significant operation</p></li>
-<li><p>interactions with external services</p></li>
-<li><p>changes to persistent data</p></li>
-<li><p>unexpected errors or warnings</p></li>
+<li><strong>日志</strong>：记录的离散事件，提供详细的上下文</li>
+<li><strong>指标</strong>：聚合的测量值，如请求率、错误率、延迟</li>
+<li><strong>追踪</strong>：跨多个组件的端到端请求流</li>
 </ul>
-<p>These events create a meaningful narrative of the system’s activity.</p>
-<p>By observing them, developers can understand how the system behaves under different conditions.</p>
+<p>这三大支柱共同构成了可观测性的基础，确保系统在运行时保持可理解。</p>
 <hr>
 </section>
-<section id="knowing-when-to-log" class="level3" data-number="14.0.5">
-<h3 data-number="14.0.5" class="anchored" data-anchor-id="knowing-when-to-log"><span class="header-section-number">14.0.5</span> Knowing When to Log</h3>
-<p>An effective logging strategy requires thoughtful decisions about when logging is useful.</p>
-<p>Events that represent important transitions in the system’s workflow should usually be recorded. These transitions help developers understand how the system moves from one stage to another.</p>
-<p>In contrast, extremely low-level details—such as the execution of every small function—rarely provide useful information in production environments.</p>
-<p>A balanced approach focuses on visibility without overwhelming the logging system with unnecessary detail.</p>
-<p>The goal is not to record everything but to capture the events that explain the system’s behavior.</p>
-<hr>
-</section>
-<section id="knowing-what-to-log" class="level3" data-number="14.0.6">
-<h3 data-number="14.0.6" class="anchored" data-anchor-id="knowing-what-to-log"><span class="header-section-number">14.0.6</span> Knowing What to Log</h3>
-<p>Equally important is deciding what information should accompany each log entry.</p>
-<p>A useful log entry provides enough context to understand the event without requiring additional investigation.</p>
-<p>This context may include identifiers associated with the request, parameters that influenced the operation, or the result produced by a particular component.</p>
-<p>At the same time, professional systems must remain cautious about recording sensitive information. Data such as passwords, authentication tokens, or personal details should never appear in logs.</p>
-<p>Logging therefore requires a balance between visibility and responsibility.</p>
-<hr>
-</section>
-<section id="from-opaque-systems-to-observable-systems" class="level3" data-number="14.0.7">
-<h3 data-number="14.0.7" class="anchored" data-anchor-id="from-opaque-systems-to-observable-systems"><span class="header-section-number">14.0.7</span> From Opaque Systems to Observable Systems</h3>
-<p>The introduction of logging and observability changes the nature of a system.</p>
-<p>Without these mechanisms, the system behaves like a sealed box. Inputs enter, outputs emerge, but the internal process remains hidden.</p>
-<p>With proper observability, the system becomes transparent. Developers can observe how requests move through the architecture, how components interact, and where failures occur.</p>
-<p>This transparency dramatically improves the ability to maintain and evolve the system over time.</p>
-<p>In practice projects, such capabilities often appear unnecessary. The developer controls the environment and can inspect the code directly.</p>
-<p>In professional systems, however, visibility becomes essential.</p>
-<p>A system that cannot explain its own behavior cannot be trusted to operate reliably in the long term.</p>
-<p>Logging and observability therefore represent more than engineering tools. They are foundational elements that allow software to remain understandable even as it grows in scale and complexity.</p>
-<hr>
-</section>
-<section id="practical-guide-logging-system-implementation-strategy" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="practical-guide-logging-system-implementation-strategy"><span class="header-section-number">14.1</span> Practical Guide: Logging System Implementation Strategy</h2>
-<p>日志系统是理解生产环境系统行为的关键。以下是一个实用的日志实施框架，帮助你构建可观测的系统。</p>
-<section id="日志事件分类" class="level3" data-number="14.1.1">
-<h3 data-number="14.1.1" class="anchored" data-anchor-id="日志事件分类"><span class="header-section-number">14.1.1</span> 日志事件分类</h3>
-<p><strong>请求生命周期事件：</strong> - 请求到达（request_received） - 请求处理完成（request_completed） - 请求失败（request_failed）</p>
-<p><strong>业务事件：</strong> - 用户创建（user_created） - 订单支付（order_paid） - 数据更新（data_updated）</p>
-<p><strong>系统事件：</strong> - 服务启动（service_started） - 数据库连接（db_connected） - 缓存命中/未命中（cache_hit/cache_miss）</p>
-<p><strong>错误事件：</strong> - 验证错误（validation_error） - 外部服务错误（external_service_error） - 系统异常（system_exception）</p>
-</section>
-<section id="日志实施sop" class="level3" data-number="14.1.2">
-<h3 data-number="14.1.2" class="anchored" data-anchor-id="日志实施sop"><span class="header-section-number">14.1.2</span> 日志实施SOP</h3>
-<p><strong>第一步：定义日志级别</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 日志级别定义</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>DEBUG <span class="op">=</span> <span class="dv">10</span>   <span class="co"># 详细调试信息（开发环境）</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>INFO <span class="op">=</span> <span class="dv">20</span>    <span class="co"># 一般信息（正常运行）</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>WARN <span class="op">=</span> <span class="dv">30</span>    <span class="co"># 警告信息（潜在问题）</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ERROR <span class="op">=</span> <span class="dv">40</span>   <span class="co"># 错误信息（需要关注）</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>FATAL <span class="op">=</span> <span class="dv">50</span>   <span class="co"># 致命错误（系统无法继续）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>使用原则：</strong> - DEBUG：详细的调试信息，仅在开发环境使用 - INFO：关键业务流程的正常执行 - WARN：可能的问题，但系统仍可继续运行 - ERROR：错误发生，但不会导致系统崩溃 - FATAL：严重错误，系统无法继续运行</p>
-<p><strong>第二步：设计日志结构</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 结构化日志格式</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> uuid</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> StructuredLogger:</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, service_name: <span class="bu">str</span>):</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.service_name <span class="op">=</span> service_name</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.logger <span class="op">=</span> logging.getLogger(service_name)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> log(<span class="va">self</span>, level: <span class="bu">str</span>, event: <span class="bu">str</span>, <span class="op">**</span>kwargs):</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""生成结构化日志"""</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        log_entry <span class="op">=</span> {</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"timestamp"</span>: datetime.utcnow().isoformat(),</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"level"</span>: level,</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"service"</span>: <span class="va">self</span>.service_name,</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"event"</span>: event,</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"trace_id"</span>: <span class="va">self</span>._get_trace_id(),</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            <span class="op">**</span>kwargs</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.logger.log(<span class="bu">getattr</span>(logging, level), json.dumps(log_entry))</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _get_trace_id(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""获取或生成追踪ID"""</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 从上下文中获取，或生成新的ID</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">str</span>(uuid.uuid4())</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>logger <span class="op">=</span> StructuredLogger(<span class="st">"user-service"</span>)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 记录用户创建事件</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>logger.log(</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"INFO"</span>,</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"user_created"</span>,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    user_id<span class="op">=</span><span class="st">"12345"</span>,</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    email<span class="op">=</span><span class="st">"user@example.com"</span>,</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    duration_ms<span class="op">=</span><span class="dv">45</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>第三步：实现链路追踪</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 链路追踪中间件（示例）</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> contextvars <span class="im">import</span> ContextVar</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>trace_id_var: ContextVar[<span class="bu">str</span>] <span class="op">=</span> ContextVar(<span class="st">"trace_id"</span>, default<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TraceMiddleware:</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, app):</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.app <span class="op">=</span> app</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__call__</span>(<span class="va">self</span>, environ, start_response):</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 从请求头获取或生成trace_id</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        trace_id <span class="op">=</span> environ.get(<span class="st">"HTTP_X_TRACE_ID"</span>) <span class="kw">or</span> <span class="bu">str</span>(uuid.uuid4())</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        trace_id_var.<span class="bu">set</span>(trace_id)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 处理请求</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="kw">def</span> custom_start_response(status, headers):</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            headers.append((<span class="st">"X-Trace-ID"</span>, trace_id))</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> start_response(status, headers)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.app(environ, custom_start_response)</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 在日志中使用trace_id</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_trace_id() <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> trace_id_var.get() <span class="kw">or</span> <span class="st">"unknown"</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>logger.log(</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"INFO"</span>,</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"request_received"</span>,</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    trace_id<span class="op">=</span>get_trace_id(),</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    path<span class="op">=</span><span class="st">"/api/users"</span>,</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    method<span class="op">=</span><span class="st">"POST"</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>第四步：设置日志聚合</strong></p>
-<p><strong>推荐的日志平台：</strong> - ELK Stack（Elasticsearch + Logstash + Kibana） - Loki + Grafana - CloudWatch Logs（AWS） - Stackdriver Logging（GCP） - DataDog Logs</p>
-<p><strong>日志聚合配置示例（Loki）：</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># promtail-config.yaml</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">http_listen_port</span><span class="kw">:</span><span class="at"> </span><span class="dv">9080</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">clients</span><span class="kw">:</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">url</span><span class="kw">:</span><span class="at"> http://localhost:3100/loki/api/v1/push</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">scrape_configs</span><span class="kw">:</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">job_name</span><span class="kw">:</span><span class="at"> myapp</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">static_configs</span><span class="kw">:</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">targets</span><span class="kw">:</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> localhost</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">labels</span><span class="kw">:</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">job</span><span class="kw">:</span><span class="at"> myapp</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">env</span><span class="kw">:</span><span class="at"> production</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="日志最佳实践清单" class="level3" data-number="14.1.3">
-<h3 data-number="14.1.3" class="anchored" data-anchor-id="日志最佳实践清单"><span class="header-section-number">14.1.3</span> 日志最佳实践清单</h3>
-<p><strong>结构化日志：</strong> - [ ] 使用JSON格式（机器可读） - [ ] 包含时间戳（ISO 8601格式） - [ ] 包含日志级别（DEBUG/INFO/WARN/ERROR/FATAL） - [ ] 包含服务名称（标识来源） - [ ] 包含事件类型（事件分类）</p>
-<p><strong>链路追踪：</strong> - [ ] 所有请求都有唯一的trace_id - [ ] trace_id在所有相关日志中传播 - [ ] 支持跨服务追踪 - [ ] trace_id返回给客户端（调试用）</p>
-<p><strong>安全性：</strong> - [ ] 避免记录敏感信息（密码、Token、PII） - [ ] 敏感字段使用掩码（如：信用卡号） - [ ] 日志访问有权限控制 - [ ] 日志保留策略符合隐私法规</p>
-<p><strong>性能：</strong> - [ ] 异步日志记录（不阻塞主流程） - [ ] 日志级别可配置（生产环境不记录DEBUG） - [ ] 避免过大的日志消息（&lt; 1KB） - [ ] 批量写入日志（减少IO操作）</p>
-</section>
-<section id="quick-diagnosis-is-your-logging-system-healthy" class="level3" data-number="14.1.4">
-<h3 data-number="14.1.4" class="anchored" data-anchor-id="quick-diagnosis-is-your-logging-system-healthy"><span class="header-section-number">14.1.4</span> Quick Diagnosis: Is Your Logging System Healthy?</h3>
-<p>回答以下问题：</p>
-<ul class="task-list">
-<li><label><input type="checkbox">你能否在5分钟内找到特定请求的完整执行路径？</label></li>
-<li><label><input type="checkbox">日志是否使用结构化格式（JSON）？</label></li>
-<li><label><input type="checkbox">所有请求是否都有唯一的trace_id？</label></li>
-<li><label><input type="checkbox">日志中是否包含敏感信息？</label></li>
-<li><label><input type="checkbox">你能否快速定位生产环境的问题根因？</label></li>
+<section id="实践指南日志最佳实践" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="实践指南日志最佳实践"><span class="header-section-number">14.5</span> 实践指南：日志最佳实践</h2>
+<section id="日志分级" class="level3" data-number="14.5.1">
+<h3 data-number="14.5.1" class="anchored" data-anchor-id="日志分级"><span class="header-section-number">14.5.1</span> 日志分级</h3>
+<p>使用标准日志级别一致地传达事件的重要性：</p>
+<ul>
+<li><strong>DEBUG</strong>：详细的诊断信息，仅在调试时有用</li>
+<li><strong>INFO</strong>：正常操作中的确认事件</li>
+<li><strong>WARNING</strong>：指示潜在问题但系统仍在运行</li>
+<li><strong>ERROR</strong>：功能失效，需要关注</li>
+<li><strong>CRITICAL</strong>：系统可能无法继续运行</li>
 </ul>
+</section>
+<section id="日志记录指南" class="level3" data-number="14.5.2">
+<h3 data-number="14.5.2" class="anchored" data-anchor-id="日志记录指南"><span class="header-section-number">14.5.2</span> 日志记录指南</h3>
+<p><strong>记录：</strong> - 应用启动和关闭 - 请求的进入和完成 - 对外部服务的调用（包括响应时间） - 验证失败 - 未被捕获的异常 - 重要的状态变化</p>
+<p><strong>不要记录：</strong> - 密码、令牌或密钥 - 个人可识别信息（PII） - 大型数据负载 - 调试级别的循环内日志</p>
+</section>
+<section id="结构化日志格式" class="level3" data-number="14.5.3">
+<h3 data-number="14.5.3" class="anchored" data-anchor-id="结构化日志格式"><span class="header-section-number">14.5.3</span> 结构化日志格式</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"timestamp"</span><span class="fu">:</span> <span class="st">"2024-01-15T10:30:00Z"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"level"</span><span class="fu">:</span> <span class="st">"ERROR"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"service"</span><span class="fu">:</span> <span class="st">"user-service"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"trace_id"</span><span class="fu">:</span> <span class="st">"abc-123-def"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"message"</span><span class="fu">:</span> <span class="st">"Failed to authenticate user"</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"user_id"</span><span class="fu">:</span> <span class="st">"user-456"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"error"</span><span class="fu">:</span> <span class="st">"invalid_credentials"</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"duration_ms"</span><span class="fu">:</span> <span class="dv">45</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
-<section id="chapter-summary" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">14.2</span> Chapter Summary</h2>
-<p>日志和可观测性是理解系统行为的关键工具。结构化日志、链路追踪和智能日志聚合使系统变得透明和可理解。</p>
-<p>良好的日志策略记录关键事件而非所有细节，提供足够的上下文而不泄露敏感信息。这使得开发者能够在系统出错时快速定位问题。</p>
-<p>一个可观测的系统是可信的系统。它不仅能够运行，还能够解释自己的行为。</p>
-<p>下一章，我们将探讨错误处理与恢复。失败是默认状态，我们如何优雅地处理错误，让系统从失败中恢复？</p>
-<hr>
-<p><strong>实践建议：</strong></p>
-<ol type="1">
-<li><strong>结构化优先</strong>：从一开始就使用结构化日志格式，避免后期重构。</li>
-<li><strong>追踪一切</strong>：为所有请求生成trace_id，并确保它在整个调用链中传播。</li>
-<li><strong>日志即文档</strong>：日志应该足够清晰，即使不看代码也能理解发生了什么。</li>
-<li><strong>定期审查</strong>：定期检查日志质量，删除无用的日志，添加缺失的关键事件。</li>
-</ol>
-<p><strong>立即行动：</strong></p>
-<p>在你的项目中选择一个关键功能，为其添加结构化日志。确保日志包含trace_id、事件类型和足够的上下文信息。</p>
+<section id="小结" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="小结"><span class="header-section-number">14.6</span> 小结</h2>
+<p>日志和可观测性对于理解真实系统中的行为至关重要。它们将不透明的软件转化为可以检查、调试和改进的系统。</p>
+<p>通过采用结构化日志、追踪标识符和适当的监控，开发者确保他们不仅构建了功能正确的系统，还构建了在困难出现时可以被理解和支持的系统。</p>
+<p>当系统失败时，可观测性将猜测转化为知识。下一章，我们将探讨如果事情确实出了问题——错误处理与恢复。</p>
 
+
+<!-- -->
 
 </section>
 
@@ -861,6 +733,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -877,6 +800,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1192,16 +1122,153 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-12.html" class="pagination-link" aria-label="Configuration and Environments: From Hard-Coded Values to Deployable Systems">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span>
+      <a href="./chapter-12.html" class="pagination-link" aria-label="配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-14.html" class="pagination-link" aria-label="Error Handling and Recovery: Failure Is the Default">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-14.html" class="pagination-link" aria-label="错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>当一个小脚本在开发者的机器上运行时，理解系统在做什么通常很简单。如果出了问题，开发者可以打印几个变量、检查代码、或逐步重新运行程序。</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>但一旦软件成长为真正的系统——在服务器上运行、与数据库交互、同时处理多个请求——情况就彻底改变了。</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>此时，开发者无法再直接观察系统。代码可能仍然正确执行，但其行为被隐藏在基础设施和时间的层层屏障之后。</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>专业系统通过**日志与可观测性（logging and observability）**来解决这个问题。</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>这些机制允许开发者和运维人员理解系统正在做什么，即使他们无法直接看到它。</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>没有它们，系统变得不透明。当某些东西失败时，没有人知道为什么。</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>有了它们，系统变得可解释。</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## 日志的目的（The Purpose of Logging）</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>日志是记录系统运行期间发生的重要事件的过程。</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>每个日志条目捕捉了系统生命中的一个时刻。它可能记录一个传入请求、一次数据库查询的开始、一个操作的完成或一个意外的错误。</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>随着时间的推移，这些记录形成了一条时间线，揭示了系统的行为。</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>在练手项目中，日志通常是极少的或缺失的。开发者在开发代码时打印调试信息，一旦程序看起来能运行了就删除它们。</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>专业系统对日志的态度截然不同。它们不是放置临时调试语句，而是维护应用程序整个生命周期中重要事件的结构化记录。</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>这些记录允许开发者重构执行过程中的事件——即使在事件发生后很久。</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## 结构化日志（Structured Logs）</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>在成熟系统中，日志不仅仅是文本行。它们是**结构化记录（structured records）**。</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>结构化日志包含明确定义的字段，描述被记录的事件。系统不是写自由格式的消息，而是以一致的格式捕捉关键属性。</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>典型字段可能包括事件时间、操作类型、负责的组件、以及与请求相关的标识符。</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>这种结构允许日志被自动搜索、过滤和分析。监控系统可以聚合数千个事件并识别出通过人工检查不可能发现的模式。</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>结构化日志将日志从简单的消息转变为描述系统行为的数据集。</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## 追踪标识符（Trace Identifiers）</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>随着系统变得越来越复杂，单个操作通常需要通过多个组件。</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>例如，一个请求可能通过 API 网关进入、穿过应用服务、与数据库交互，并最终产生响应。这些步骤中的每一个都可能产生日志条目。</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>如果没有额外的上下文，就很难确定哪些日志条目属于同一个请求。</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>为了解决这个问题，专业系统引入了**追踪标识符（trace identifiers）**。</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>追踪标识符是一个唯一的数值，在请求进入系统时赋予它。这个标识符随请求一起穿越参与处理它的每一个组件。</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>通过将追踪标识符包含在沿途生成的每个日志条目中，系统创建了请求路径的完整记录。</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>当问题发生时，运维人员可以通过搜索追踪标识符来收集与该请求相关的所有日志条目，而不是手动关联不同组件中的碎片化消息。</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## 可观测性与监控（Observability and Monitoring）</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>日志记录创建了数据，但数据本身只有在能够被访问和理解时才有价值。</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>**可观测性（observability）**是指从系统外部推断内部状态的能力。除了简单的日志之外，可观测性还包括指标（metrics）和追踪（tracing），它们共同提供了系统行为的全景视图。</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>**监控（monitoring）**将观察提升了一步，它根据收集到的数据自动检测异常。</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>专业系统通常组合使用这些技术：</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**日志**：记录的离散事件，提供详细的上下文</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**指标**：聚合的测量值，如请求率、错误率、延迟</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**追踪**：跨多个组件的端到端请求流</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>这三大支柱共同构成了可观测性的基础，确保系统在运行时保持可理解。</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="fu">## 实践指南：日志最佳实践</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### 日志分级</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>使用标准日志级别一致地传达事件的重要性：</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**DEBUG**：详细的诊断信息，仅在调试时有用</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**INFO**：正常操作中的确认事件</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**WARNING**：指示潜在问题但系统仍在运行</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**ERROR**：功能失效，需要关注</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**CRITICAL**：系统可能无法继续运行</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### 日志记录指南</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>**记录：**</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>应用启动和关闭</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>请求的进入和完成</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>对外部服务的调用（包括响应时间）</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>验证失败</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>未被捕获的异常</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>重要的状态变化</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>**不要记录：**</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>密码、令牌或密钥</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>个人可识别信息（PII）</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>大型数据负载</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>调试级别的循环内日志</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="fu">### 结构化日志格式</span></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a><span class="in">```json</span></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>  <span class="st">"timestamp"</span><span class="op">:</span> <span class="st">"2024-01-15T10:30:00Z"</span><span class="op">,</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>  <span class="st">"level"</span><span class="op">:</span> <span class="st">"ERROR"</span><span class="op">,</span></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>  <span class="st">"service"</span><span class="op">:</span> <span class="st">"user-service"</span><span class="op">,</span></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>  <span class="st">"trace_id"</span><span class="op">:</span> <span class="st">"abc-123-def"</span><span class="op">,</span></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>  <span class="st">"message"</span><span class="op">:</span> <span class="st">"Failed to authenticate user"</span><span class="op">,</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>  <span class="st">"user_id"</span><span class="op">:</span> <span class="st">"user-456"</span><span class="op">,</span></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>  <span class="st">"error"</span><span class="op">:</span> <span class="st">"invalid_credentials"</span><span class="op">,</span></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>  <span class="st">"duration_ms"</span><span class="op">:</span> <span class="dv">45</span></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## 小结</span></span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>日志和可观测性对于理解真实系统中的行为至关重要。它们将不透明的软件转化为可以检查、调试和改进的系统。</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>通过采用结构化日志、追踪标识符和适当的监控，开发者确保他们不仅构建了功能正确的系统，还构建了在困难出现时可以被理解和支持的系统。</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>当系统失败时，可观测性将猜测转化为知识。下一章，我们将探讨如果事情确实出了问题——错误处理与恢复。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

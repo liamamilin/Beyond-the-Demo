@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>29&nbsp; Appendix – Beyond the Demo</title>
+<title>29&nbsp; 附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -33,19 +71,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./chapter-27.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -249,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-28.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-28.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -262,11 +299,11 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Beyond the Demo</a> 
+      <a href="./">
+      Beyond the Demo
+      </a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -282,175 +319,175 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从"能运行"到"可信任"（Testing: From "It Runs" to "It Can Be Trusted"）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的"可信叙事"（Designing Your "Credible Narrative"）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -460,18 +497,28 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#a.-professional-readme-template-copy-ready" id="toc-a.-professional-readme-template-copy-ready" class="nav-link active" data-scroll-target="#a.-professional-readme-template-copy-ready"><span class="header-section-number">30</span> A. Professional README Template (Copy-Ready)</a>
+  <li><a href="#a.-专业-readme-模板可直接复制" id="toc-a.-专业-readme-模板可直接复制" class="nav-link active" data-scroll-target="#a.-专业-readme-模板可直接复制"><span class="header-section-number">29.1</span> A. 专业 README 模板（可直接复制）</a></li>
+  <li><a href="#快速开始" id="toc-快速开始" class="nav-link" data-scroll-target="#快速开始"><span class="header-section-number">29.2</span> 快速开始</a></li>
+  <li><a href="#示例" id="toc-示例" class="nav-link" data-scroll-target="#示例"><span class="header-section-number">29.3</span> 示例</a></li>
+  <li><a href="#配置" id="toc-配置" class="nav-link" data-scroll-target="#配置"><span class="header-section-number">29.4</span> 配置</a></li>
+  <li><a href="#架构可选" id="toc-架构可选" class="nav-link" data-scroll-target="#架构可选"><span class="header-section-number">29.5</span> 架构（可选）</a></li>
+  <li><a href="#路线图" id="toc-路线图" class="nav-link" data-scroll-target="#路线图"><span class="header-section-number">29.6</span> 路线图</a></li>
+  <li><a href="#贡献" id="toc-贡献" class="nav-link" data-scroll-target="#贡献"><span class="header-section-number">29.7</span> 贡献</a></li>
+  <li><a href="#许可证" id="toc-许可证" class="nav-link" data-scroll-target="#许可证"><span class="header-section-number">29.8</span> 许可证</a></li>
+  <li><a href="#项目名称" id="toc-项目名称" class="nav-link" data-scroll-target="#项目名称"><span class="header-section-number">30</span> 项目名称</a>
   <ul class="collapse">
-  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start"><span class="header-section-number">30.1</span> Quick Start</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">30.2</span> Example</a></li>
-  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration"><span class="header-section-number">30.3</span> Configuration</a></li>
-  <li><a href="#architecture-optional" id="toc-architecture-optional" class="nav-link" data-scroll-target="#architecture-optional"><span class="header-section-number">30.4</span> Architecture (Optional)</a></li>
-  <li><a href="#roadmap" id="toc-roadmap" class="nav-link" data-scroll-target="#roadmap"><span class="header-section-number">30.5</span> Roadmap</a></li>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing"><span class="header-section-number">30.6</span> Contributing</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license"><span class="header-section-number">30.7</span> License</a></li>
+  <li><a href="#功能特性" id="toc-功能特性" class="nav-link" data-scroll-target="#功能特性"><span class="header-section-number">30.1</span> 功能特性</a></li>
+  <li><a href="#安装" id="toc-安装" class="nav-link" data-scroll-target="#安装"><span class="header-section-number">30.2</span> 安装</a></li>
+  <li><a href="#快速开始-1" id="toc-快速开始-1" class="nav-link" data-scroll-target="#快速开始-1"><span class="header-section-number">30.3</span> 快速开始</a></li>
+  <li><a href="#示例-1" id="toc-示例-1" class="nav-link" data-scroll-target="#示例-1"><span class="header-section-number">30.4</span> 示例</a></li>
+  <li><a href="#配置-1" id="toc-配置-1" class="nav-link" data-scroll-target="#配置-1"><span class="header-section-number">30.5</span> 配置</a></li>
+  <li><a href="#架构可选-1" id="toc-架构可选-1" class="nav-link" data-scroll-target="#架构可选-1"><span class="header-section-number">30.6</span> 架构（可选）</a></li>
+  <li><a href="#路线图-1" id="toc-路线图-1" class="nav-link" data-scroll-target="#路线图-1"><span class="header-section-number">30.7</span> 路线图</a></li>
+  <li><a href="#贡献-1" id="toc-贡献-1" class="nav-link" data-scroll-target="#贡献-1"><span class="header-section-number">30.8</span> 贡献</a></li>
+  <li><a href="#许可证-1" id="toc-许可证-1" class="nav-link" data-scroll-target="#许可证-1"><span class="header-section-number">30.9</span> 许可证</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -482,7 +529,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -498,395 +545,553 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
-<p>Practical systems are not built only from ideas.<br>
-They are built from <strong>repeatable structures</strong>.</p>
-<p>The following appendices provide ready-to-use templates and quick references that help transform a small project into something that immediately feels more professional.</p>
-<p>These templates are intentionally minimal.<br>
-Their goal is not complexity, but <strong>clarity and consistency</strong>.</p>
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#a.-专业-readme-模板可直接复制" id="toc-a.-专业-readme-模板可直接复制"><span class="header-section-number">29.1</span> A. 专业 README 模板（可直接复制）</a></li>
+  <li><a href="#快速开始" id="toc-快速开始"><span class="header-section-number">29.2</span> 快速开始</a></li>
+  <li><a href="#示例" id="toc-示例"><span class="header-section-number">29.3</span> 示例</a></li>
+  <li><a href="#配置" id="toc-配置"><span class="header-section-number">29.4</span> 配置</a></li>
+  <li><a href="#架构可选" id="toc-架构可选"><span class="header-section-number">29.5</span> 架构（可选）</a></li>
+  <li><a href="#路线图" id="toc-路线图"><span class="header-section-number">29.6</span> 路线图</a></li>
+  <li><a href="#贡献" id="toc-贡献"><span class="header-section-number">29.7</span> 贡献</a></li>
+  <li><a href="#许可证" id="toc-许可证"><span class="header-section-number">29.8</span> 许可证</a></li>
+  <li><a href="#项目名称" id="toc-项目名称"><span class="header-section-number">30</span> 项目名称</a>
+  <ul>
+  <li><a href="#功能特性" id="toc-功能特性"><span class="header-section-number">30.1</span> 功能特性</a></li>
+  <li><a href="#安装" id="toc-安装"><span class="header-section-number">30.2</span> 安装</a></li>
+  <li><a href="#快速开始-1" id="toc-快速开始-1"><span class="header-section-number">30.3</span> 快速开始</a></li>
+  <li><a href="#示例-1" id="toc-示例-1"><span class="header-section-number">30.4</span> 示例</a></li>
+  <li><a href="#配置-1" id="toc-配置-1"><span class="header-section-number">30.5</span> 配置</a></li>
+  <li><a href="#架构可选-1" id="toc-架构可选-1"><span class="header-section-number">30.6</span> 架构（可选）</a></li>
+  <li><a href="#路线图-1" id="toc-路线图-1"><span class="header-section-number">30.7</span> 路线图</a></li>
+  <li><a href="#贡献-1" id="toc-贡献-1"><span class="header-section-number">30.8</span> 贡献</a></li>
+  <li><a href="#许可证-1" id="toc-许可证-1"><span class="header-section-number">30.9</span> 许可证</a></li>
+  </ul></li>
+  </ul>
+</nav>
+<p>实用的系统不仅仅由思想构建。它们由<strong>可重复的结构（repeatable structures）</strong>构建。</p>
+<p>以下附录提供了直接可用的模板和速查表，帮助你将一个小项目转化为立即感觉更专业的东西。</p>
+<p>这些模板有意保持简洁。它们的目标不是复杂度，而是<strong>清晰和一致</strong>。</p>
 <hr>
-<section id="a.-professional-readme-template-copy-ready" class="level1" data-number="30">
-<h1 data-number="30"><span class="header-section-number">30</span> A. Professional README Template (Copy-Ready)</h1>
-<p>A professional README answers three questions quickly:</p>
+<section id="a.-专业-readme-模板可直接复制" class="level2" data-number="29.1">
+<h2 data-number="29.1" class="anchored" data-anchor-id="a.-专业-readme-模板可直接复制"><span class="header-section-number">29.1</span> A. 专业 README 模板（可直接复制）</h2>
+<p>一个专业的 README 快速回答三个问题：</p>
 <ol type="1">
-<li><p>What is this?</p></li>
-<li><p>Why does it exist?</p></li>
-<li><p>How do I use it?</p></li>
+<li>这是什么？</li>
+<li>它为什么存在？</li>
+<li>我怎么使用它？</li>
 </ol>
-<p>Below is a minimal structure used by many mature projects.</p>
-<pre><code># Project Name
+<p>以下是许多成熟项目使用的最小结构：</p>
+<pre><code># 项目名称
 
-Short one-sentence description.
+一行简短描述。
 
-Example:
-A lightweight CLI tool for managing personal expense logs with natural language.
-
----
-
-## Features
-
-- Feature 1
-- Feature 2
-- Feature 3
+示例：
+一个用自然语言管理个人支出日志的轻量级 CLI 工具。
 
 ---
 
-## Installation
+## 功能特性
+
+- 功能 1
+- 功能 2
+- 功能 3
+
+---
+
+## 安装
 
 ```bash
 pip install project-name
 # or
 npm install project-name</code></pre>
 <hr>
-<section id="quick-start" class="level2" data-number="30.1">
-<h2 data-number="30.1" class="anchored" data-anchor-id="quick-start"><span class="header-section-number">30.1</span> Quick Start</h2>
+</section>
+<section id="快速开始" class="level2" data-number="29.2">
+<h2 data-number="29.2" class="anchored" data-anchor-id="快速开始"><span class="header-section-number">29.2</span> 快速开始</h2>
 <pre><code>project-name init
 project-name add "coffee 5"
 project-name report</code></pre>
 <hr>
 </section>
-<section id="example" class="level2" data-number="30.2">
-<h2 data-number="30.2" class="anchored" data-anchor-id="example"><span class="header-section-number">30.2</span> Example</h2>
-<p>Input:</p>
+<section id="示例" class="level2" data-number="29.3">
+<h2 data-number="29.3" class="anchored" data-anchor-id="示例"><span class="header-section-number">29.3</span> 示例</h2>
+<p>输入：</p>
 <pre><code>add lunch 12</code></pre>
-<p>Output:</p>
+<p>输出：</p>
 <pre><code>Expense recorded.
 Total today: $12</code></pre>
 <hr>
 </section>
-<section id="configuration" class="level2" data-number="30.3">
-<h2 data-number="30.3" class="anchored" data-anchor-id="configuration"><span class="header-section-number">30.3</span> Configuration</h2>
-<p>Environment variables:</p>
+<section id="配置" class="level2" data-number="29.4">
+<h2 data-number="29.4" class="anchored" data-anchor-id="配置"><span class="header-section-number">29.4</span> 配置</h2>
+<p>环境变量：</p>
 <pre><code>PROJECT_DB_PATH
 PROJECT_ENV</code></pre>
 <hr>
 </section>
-<section id="architecture-optional" class="level2" data-number="30.4">
-<h2 data-number="30.4" class="anchored" data-anchor-id="architecture-optional"><span class="header-section-number">30.4</span> Architecture (Optional)</h2>
-<p>High-level system components:</p>
+<section id="架构可选" class="level2" data-number="29.5">
+<h2 data-number="29.5" class="anchored" data-anchor-id="架构可选"><span class="header-section-number">29.5</span> 架构（可选）</h2>
 <pre><code>CLI → Service Layer → Storage</code></pre>
 <hr>
 </section>
-<section id="roadmap" class="level2" data-number="30.5">
-<h2 data-number="30.5" class="anchored" data-anchor-id="roadmap"><span class="header-section-number">30.5</span> Roadmap</h2>
+<section id="路线图" class="level2" data-number="29.6">
+<h2 data-number="29.6" class="anchored" data-anchor-id="路线图"><span class="header-section-number">29.6</span> 路线图</h2>
 <ul>
-<li><p>Web dashboard</p></li>
-<li><p>Mobile input</p></li>
-<li><p>Export reports</p></li>
+<li>Web 仪表盘</li>
+<li>移动端输入</li>
+<li>导出报告</li>
 </ul>
 <hr>
 </section>
-<section id="contributing" class="level2" data-number="30.6">
-<h2 data-number="30.6" class="anchored" data-anchor-id="contributing"><span class="header-section-number">30.6</span> Contributing</h2>
-<p>Pull requests are welcome.</p>
+<section id="贡献" class="level2" data-number="29.7">
+<h2 data-number="29.7" class="anchored" data-anchor-id="贡献"><span class="header-section-number">29.7</span> 贡献</h2>
+<p>欢迎 Pull Request。</p>
 <hr>
 </section>
-<section id="license" class="level2" data-number="30.7">
-<h2 data-number="30.7" class="anchored" data-anchor-id="license"><span class="header-section-number">30.7</span> License</h2>
+<section id="许可证" class="level2" data-number="29.8">
+<h2 data-number="29.8" class="anchored" data-anchor-id="许可证"><span class="header-section-number">29.8</span> 许可证</h2>
 <p>MIT</p>
 <pre><code>
-A structured README alone can dramatically improve how a project is perceived.
+一个结构化的 README 本身就能极大地改善项目被感知的方式。
 
----
+-----------------------------------------------------------------------
 
-# B. Directory Structure Templates
+## B. 目录结构模板
 
-A clear directory structure communicates system architecture immediately.
+一个清晰的目录结构能立即传达系统架构。
 
-Below are three common patterns.
+以下是三种常见的模式。
 
----
-
-## Python Project
+### Python 项目
 </code></pre>
-<p>project/<br>
-│<br>
-├─ src/<br>
-│ └─ project/<br>
-│ ├─ <strong>init</strong>.py<br>
-│ ├─ cli.py<br>
-│ ├─ service/<br>
-│ ├─ models/<br>
-│ └─ storage/<br>
-│<br>
-├─ tests/<br>
-│<br>
-├─ docs/<br>
-│<br>
-├─ examples/<br>
-│<br>
-├─ pyproject.toml<br>
-├─ README.md<br>
-└─ LICENSE</p>
+<p>project/ ├── src/ │ └── project/ │ ├── <strong>init</strong>.py │ ├── cli.py │ ├── service/ │ ├── models/ │ └── storage/ ├── tests/ ├── docs/ ├── examples/ ├── pyproject.toml ├── README.md └── LICENSE</p>
 <pre><code>
-Core ideas:
+核心思想：`src/` 防止导入混淆，`models/` 持有领域实体，`service/` 包含业务逻辑。
 
-- `src/` prevents import confusion
-- `models/` holds domain entities
-- `service/` contains business logic
-
----
-
-## Node.js Project
+### Node.js 项目
 </code></pre>
-<p>project/<br>
-│<br>
-├─ src/<br>
-│ ├─ api/<br>
-│ ├─ services/<br>
-│ ├─ models/<br>
-│ ├─ middleware/<br>
-│ └─ utils/<br>
-│<br>
-├─ tests/<br>
-│<br>
-├─ scripts/<br>
-│<br>
-├─ package.json<br>
-├─ README.md<br>
-└─ .env.example</p>
+<p>project/ ├── src/ │ ├── api/ │ ├── services/ │ ├── models/ │ ├── middleware/ │ └── utils/ ├── tests/ ├── scripts/ ├── package.json ├── README.md └── .env.example</p>
 <pre><code>
-Principle:
+原则：分离 **API**、**逻辑**和**数据模型**。
 
-Separate **API**, **logic**, and **data model**.
-
----
-
-## Web Application
+### Web 应用
 </code></pre>
-<p>project/<br>
-│<br>
-├─ frontend/<br>
-│ ├─ components/<br>
-│ ├─ pages/<br>
-│ ├─ hooks/<br>
-│ └─ styles/<br>
-│<br>
-├─ backend/<br>
-│ ├─ api/<br>
-│ ├─ services/<br>
-│ └─ models/<br>
-│<br>
-├─ infra/<br>
-│<br>
-├─ docs/<br>
-│<br>
-└─ README.md</p>
+<p>project/ ├── frontend/ │ ├── components/ │ ├── pages/ │ ├── hooks/ │ └── styles/ ├── backend/ │ ├── api/ │ ├── services/ │ └── models/ ├── infra/ ├── docs/ └── README.md</p>
 <pre><code>
-Principle:
+原则：分离 **UI**、**逻辑**和**基础设施**。
 
-Separate **UI**, **logic**, and **infrastructure**.
+-----------------------------------------------------------------------
 
----
+## C. UI 规则速查表
 
-# C. UI Rules Cheat Sheet
+专业界面遵循一致的视觉规则。
 
-Professional interfaces follow a few consistent visual rules.
+### 字体层级
 
-### Typography
-
-Common hierarchy:
-</code></pre>
-<p>Title 32px<br>
-Heading 24px<br>
-Subheading 18px<br>
-Body 16px<br>
-Caption 14px</p>
+常见层级：</code></pre>
+<p>Title 32px Heading 24px Subheading 18px Body 16px Caption 14px</p>
 <pre><code>
-Rule:
+规则：永远不要随机发明新的字号。
 
-Never invent new sizes randomly.
+### 间距比例
 
----
-
-### Spacing Scale
-
-Use consistent increments.
-
-Example:
-</code></pre>
-<p>4<br>
-8<br>
-16<br>
-24<br>
-32<br>
-48<br>
-64</p>
+使用一致的增量。例如：</code></pre>
+<p>4 8 16 24 32 48 64</p>
 <pre><code>
-Rule:
+规则：所有边距和内边距都应该来自这个比例。
 
-All margins and paddings should come from the scale.
+### 色彩系统
 
----
-
-### Color System
-
-Minimal palette example:
-</code></pre>
-<p>Primary<br>
-Gray 900 (text)<br>
-Gray 700<br>
-Gray 500<br>
-Gray 300<br>
-Gray 100 (background)</p>
-<p>Accent color<br>
-Error color<br>
-Success color</p>
+最小调色板示例：</code></pre>
+<p>Primary Gray 900 (文字) Gray 700 Gray 500 Gray 300 Gray 100 (背景)</p>
+<p>Accent color (强调色) Error color (错误色) Success color (成功色)</p>
 <pre><code>
-Rule:
+规则：大多数 UI 应该使用灰度色。强调色要克制地使用。
 
-Most UI should use grayscale.  
-Accent colors are used sparingly.
+### 对齐
 
----
+始终将元素对齐到网格。避免随机偏移。
 
-### Alignment
+### 留白
 
-Always align elements to a grid.
+如果页面感觉杂乱，在添加设计之前先增加间距。
 
-Avoid random offsets.
+-----------------------------------------------------------------------
 
----
+## D. 发布检查清单
 
-### White Space
+在发布之前，专业团队会验证一小套条件。
 
-If a page feels messy:
+### 代码
+- [ ] 测试通过
+- [ ] Lint 通过
+- [ ] 没有调试日志
 
-Add spacing before adding design.
+### 文档
+- [ ] README 已更新
+- [ ] 变更日志已更新
+- [ ] 版本号已更新
 
----
+### 打包
+- [ ] 安装命令工作正常
+- [ ] 依赖正确
 
-# D. Release Checklist
+### 安全
+- [ ] 机密已移除
+- [ ] `.env` 未提交
 
-Before publishing a release, professional teams verify a small set of conditions.
+### 用户体验
+- [ ] 空状态工作正常
+- [ ] 错误状态工作正常
+- [ ] 加载状态工作正常
 
-Minimal release checklist:
+### 发布
+- [ ] Git 标签已创建
+- [ ] 发布说明已编写
+- [ ] 包已发布
 
-### Code
+-----------------------------------------------------------------------
 
-- Tests pass
-- Linting passes
-- No debug logs
+## E. "练习品"诊断（10 秒测试）
 
----
+如果一个项目感觉像练手项目，它通常在以下检查中的几项上失败。
 
-### Documentation
+### 结构
+- [ ] 项目有清晰的目录结构吗？
 
-- README updated
-- Changelog updated
-- Version number updated
+### 安装
+- [ ] 可以用**一个命令**安装吗？
 
----
+### 文档
+- [ ] README 清晰解释了用法吗？
 
-### Packaging
+### 接口
+- [ ] 输入和输出可预测吗？
 
-- Install command works
-- Dependencies correct
+### 可观测性
+- [ ] 有日志吗？
 
----
-
-### Security
-
-- Secrets removed
-- `.env` not committed
-
----
-
-### UX
-
-- Empty state works
-- Error state works
-- Loading state works
-
----
-
-### Release
-
-- Git tag created
-- Release notes written
-- Package published
-
----
-
-# E. “Practice Smell” Diagnostic (10-Second Test)
-
-If a project feels like a practice exercise, it usually fails several of the following checks.
-
-Ask these questions quickly:
-
-### Structure
-
-- Does the project have a clear directory structure?
-
----
-
-### Installation
-
-- Can it be installed in **one command**?
-
----
-
-### Documentation
-
-- Does the README explain usage clearly?
-
----
-
-### Interface
-
-- Are inputs and outputs predictable?
-
----
-
-### Observability
-
-- Are logs present?
-
----
-
-### Error Handling
-
-- Are error states handled cleanly?
-
----
+### 错误处理
+- [ ] 错误状态被干净地处理了吗？
 
 ### UI
+- [ ] 间距一致吗？
 
-- Is spacing consistent?
+### 发布
+- [ ] 有版本号吗？
 
----
+### 未来
+- [ ] 有路线图吗？
 
-### Release
+### 信任
+- [ ] 有提到安全或隐私吗？
 
-- Is there a version number?
+### 规则
 
----
+如果项目在大多数检查上失败，它会**看起来像学习项目**。
 
-### Future
+如果它通过了大多数检查，它会**看起来像真正的产品**——即使代码库很小。
 
-- Is there a roadmap?
+这就是成熟度信号的力量。
 
----
+它们改变感知。
 
-### Trust
-
-- Is there any mention of security or privacy?
-
----
-
-### The Rule
-
-If a project fails most of these checks, it will **look like a learning project**.
-
-If it passes most of them, it will **look like a real product**, even if the codebase is small.
-
-This is the power of maturity signals.
-
-They transform perception.
-
-And perception is often the difference between a simple demo and a professional system.</code></pre>
+而感知往往是简单演示和专业系统之间的区别。
 
 
+
+
+:::{#quarto-navigation-envelope .hidden}
+[Beyond the Demo]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl"}
+[Beyond the Demo]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU="}
+[&lt;span class='chapter-number'&gt;28&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1wcmV2"}
+[&lt;span class='chapter-number'&gt;1&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9pbmRleC5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz4xPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuS4uuS7gOS5iOiDveeUqOeahOS4nOilv++8jOS7jeeEtuWDj+e7g+aJi+mhueebru+8iFdoeS1Tb21ldGhpbmctVGhhdC1Xb3Jrcy1TdGlsbC1GZWVscy1MaWtlLVByYWN0aWNl77yJPC9zcGFuPg=="}
+[&lt;span class='chapter-number'&gt;2&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;演示软件与真实软件（Demo Software and Real Software）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTAxLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjI8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+5ryU56S66L2v5Lu25LiO55yf5a6e6L2v5Lu277yIRGVtby1Tb2Z0d2FyZS1hbmQtUmVhbC1Tb2Z0d2FyZe+8iTwvc3Bhbj4="}
+[&lt;span class='chapter-number'&gt;3&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;专业软件的感觉（What Professional Software Feels Like）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTAyLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjM8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+5LiT5Lia6L2v5Lu255qE5oSf6KeJ77yIV2hhdC1Qcm9mZXNzaW9uYWwtU29mdHdhcmUtRmVlbHMtTGlrZe+8iTwvc3Bhbj4="}
+[&lt;span class='chapter-number'&gt;4&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;项目成熟度栈（The Project Maturity Stack）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTAzLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjQ8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+6aG555uu5oiQ54af5bqm5qCI77yIVGhlLVByb2plY3QtTWF0dXJpdHktU3RhY2vvvIk8L3NwYW4+"}
+[&lt;span class='chapter-number'&gt;5&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTA0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjU8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+6L6555WM77ya5LuO5LiA5aCG5Luj56CB5Yiw5qih5Z2X5YyW5Zyw5Zu+77yIQm91bmRhcmllczotRnJvbS1hLVBpbGUtb2YtQ29kZS10by1hLU1vZHVsYXItTWFw77yJPC9zcGFuPg=="}
+[&lt;span class='chapter-number'&gt;6&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTA1Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjY8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+5ZG95ZCN77ya5LuO5Li05pe25Y+Y6YeP5Yiw6aKG5Z+f6K+t6KiA77yITmFtaW5nOi1Gcm9tLVRlbXBvcmFyeS1WYXJpYWJsZXMtdG8tYS1Eb21haW4tTGFuZ3VhZ2XvvIk8L3NwYW4+"}
+[&lt;span class='chapter-number'&gt;7&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTA2Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjc8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+6aKG5Z+f5qih5Z6L77ya5LuO5a2X5YW45Yiw5a6e5L2T5LiO5YWz57O777yIRG9tYWluLU1vZGVsczotRnJvbS1EaWN0aW9uYXJpZXMtdG8tRW50aXRpZXMtYW5kLVJlbGF0aW9uc2hpcHPvvIk8L3NwYW4+"}
+[&lt;span class='chapter-number'&gt;8&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTA3Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjg8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+5rWB56iL5qih5Z6L77ya5LuOLWlmLWVsc2Ut5Yiw566h6YGT77yIUHJvY2Vzcy1Nb2RlbHM6LUZyb20taWYtZWxzZS10by1QaXBlbGluZXPvvIk8L3NwYW4+"}
+[&lt;span class='chapter-number'&gt;9&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTA4Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjk8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+5o6l5Y+j77ya5LiT5Lia57O757uf55qE5LiJ5byg6Z2i5a2U77yISW50ZXJmYWNlczotVGhlLVRocmVlLUZhY2VzLW9mLWEtUHJvZmVzc2lvbmFsLVN5c3Rlbe+8iTwvc3Bhbj4="}
+[&lt;span class='chapter-number'&gt;10&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTA5Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjEwPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuaOpeWPo+Wlkee6pu+8muiuqei+k+WFpei+k+WHuuWPr+mihOa1i++8iEludGVyZmFjZS1Db250cmFjdHM6LU1ha2luZy1JbnB1dHMtYW5kLU91dHB1dHMtUHJlZGljdGFibGXvvIk8L3NwYW4+"}
+[&lt;span class='chapter-number'&gt;11&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTEwLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjExPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPueKtuaAgeiuvuiuoe+8muepuueKtuaAgeOAgeWKoOi9veeKtuaAgeOAgemUmeivr+eKtuaAgeS4juaIkOWKn+eKtuaAge+8iFN0YXRlLURlc2lnbjotRW1wdHksLUxvYWRpbmcsLUVycm9yLC1hbmQtU3VjY2Vzc++8iTwvc3Bhbj4="}
+[&lt;span class='chapter-number'&gt;12&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTExLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjEyPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuaWh+aho+WNs+aOpeWPo++8mlJFQURNReOAgeaWh+aho+S4juekuuS+i++8iERvY3VtZW50YXRpb24tYXMtSW50ZXJmYWNlOi1SRUFETUUsLURvY3MsLWFuZC1FeGFtcGxlc++8iTwvc3Bhbj4="}
+[&lt;span class='chapter-number'&gt;13&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTEyLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjEzPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPumFjee9ruS4jueOr+Wig++8muS7juehrOe8lueggeWAvOWIsOWPr+mDqOe9suezu+e7n++8iENvbmZpZ3VyYXRpb24tYW5kLUVudmlyb25tZW50czotRnJvbS1IYXJkLUNvZGVkLVZhbHVlcy10by1EZXBsb3lhYmxlLVN5c3RlbXPvvIk8L3NwYW4+"}
+[&lt;span class='chapter-number'&gt;14&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTEzLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjE0PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuaXpeW/l+S4juWPr+ingua1i+aAp++8muiuqeezu+e7n+WPr+eQhuino++8iExvZ2dpbmctYW5kLU9ic2VydmFiaWxpdHk6LU1ha2luZy1TeXN0ZW1zLVVuZGVyc3RhbmRhYmxl77yJPC9zcGFuPg=="}
+[&lt;span class='chapter-number'&gt;15&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTE0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjE1PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPumUmeivr+WkhOeQhuS4juaBouWkje+8muWksei0peaYr+m7mOiupOeKtuaAge+8iEVycm9yLUhhbmRsaW5nLWFuZC1SZWNvdmVyeTotRmFpbHVyZS1Jcy10aGUtRGVmYXVsdO+8iTwvc3Bhbj4="}
+[&lt;span class='chapter-number'&gt;16&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;测试：从"能运行"到"可信任"（Testing: From "It Runs" to "It Can Be Trusted"）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTE1Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjE2PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPua1i+ivle+8muS7jifog73ov5DooYwn5YiwJ+WPr+S/oeS7uyfvvIhUZXN0aW5nOi1Gcm9tLSdJdC1SdW5zJy10by0nSXQtQ2FuLUJlLVRydXN0ZWQn77yJPC9zcGFuPg=="}
+[&lt;span class='chapter-number'&gt;17&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTE2Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjE3PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuaAp+iDveS4jumZkOWItu+8muefpemBk+S7gOS5iOS8muWFiOWdj++8iFBlcmZvcm1hbmNlLWFuZC1MaW1pdHM6LUtub3dpbmctV2hhdC1XaWxsLUJyZWFr77yJPC9zcGFuPg=="}
+[&lt;span class='chapter-number'&gt;18&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTE3Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjE4PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuinhuinieenqeW6j++8muS4k+S4mui0qOmHj+adpeiHquS4gOiHtOinhOWIme+8iFZpc3VhbC1PcmRlcjotUHJvZmVzc2lvbmFsLVF1YWxpdHktQ29tZXMtZnJvbS1Db25zaXN0ZW50LVJ1bGVz77yJPC9zcGFuPg=="}
+[&lt;span class='chapter-number'&gt;19&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTE4Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjE5PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuiuvuiuoeezu+e7n++8mueUqOe7hOS7tuW6k+W8peWQiOe+juWtpuW3rui3ne+8iERlc2lnbi1TeXN0ZW1zOi1CcmlkZ2luZy10aGUtQWVzdGhldGljLUdhcC13aXRoLUNvbXBvbmVudC1MaWJyYXJpZXPvvIk8L3NwYW4+"}
+[&lt;span class='chapter-number'&gt;20&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTE5Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjIwPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuS/oeaBr+aetuaehO+8muWvvOiIquOAgeWxgue6p+S4juWvhuW6pu+8iEluZm9ybWF0aW9uLUFyY2hpdGVjdHVyZTotTmF2aWdhdGlvbiwtSGllcmFyY2h5LC1hbmQtRGVuc2l0ee+8iTwvc3Bhbj4="}
+[&lt;span class='chapter-number'&gt;21&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTIwLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjIxPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuW+ruS6pOS6ku+8muiuqeezu+e7n+aEn+inieacieeUn+WRve+8iE1pY3JvLUludGVyYWN0aW9uczotTWFraW5nLWEtU3lzdGVtLUZlZWwtQWxpdmXvvIk8L3NwYW4+"}
+[&lt;span class='chapter-number'&gt;22&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTIxLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjIyPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPueJiOacrOeuoeeQhu+8muivreS5ieWMlueJiOacrOOAgeWPmOabtOaXpeW/l+S4juWPkeW4g+iKguWlj++8iFZlcnNpb25pbmcsLUNoYW5nZWxvZ3MsLWFuZC1SZWxlYXNlLVJoeXRobe+8iTwvc3Bhbj4="}
+[&lt;span class='chapter-number'&gt;23&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;路线图：创造未来感（Roadmaps: Creating a Sense of the Future）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTIyLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjIzPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPui3r+e6v+Wbvu+8muWIm+mAoOacquadpeaEn++8iFJvYWRtYXBzOi1DcmVhdGluZy1hLVNlbnNlLW9mLXRoZS1GdXR1cmXvvIk8L3NwYW4+"}
+[&lt;span class='chapter-number'&gt;24&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTIzLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjI0PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuaJk+WMhe+8muWuieijheS9k+mqjOWhkemAoOesrOS4gOWNsOixoe+8iFBhY2thZ2luZzotSW5zdGFsbGF0aW9uLUV4cGVyaWVuY2UtU2hhcGVzLXRoZS1GaXJzdC1JbXByZXNzaW9u77yJPC9zcGFuPg=="}
+[&lt;span class='chapter-number'&gt;25&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTI0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjI1PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPua8lOekuuWIsOS6p+WTgeajgOafpea4heWNle+8muaIkOeGn+W6pumqjOivgeahhuaetu+8iERlbW8tdG8tUHJvZHVjdC1DaGVja2xpc3Q6LUEtTWF0dXJpdHktVmVyaWZpY2F0aW9uLUZyYW1ld29ya++8iTwvc3Bhbj4="}
+[&lt;span class='chapter-number'&gt;26&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTI1Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjI2PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuWuieWFqOS4juS/oeS7u+WfuuehgO+8muacgOS9jumZkOW6pueahOWPr+S/oeWuieWFqO+8iFNlY3VyaXR5LSYtVHJ1c3QtQmFzaWNzOi1UaGUtTWluaW11bS1MZXZlbC1vZi1DcmVkaWJsZS1TZWN1cml0ee+8iTwvc3Bhbj4="}
+[&lt;span class='chapter-number'&gt;27&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;设计你的"可信叙事"（Designing Your "Credible Narrative"）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTI2Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjI3PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuiuvuiuoeS9oOeahCflj6/kv6Hlj5nkuosn77yIRGVzaWduaW5nLVlvdXItJ0NyZWRpYmxlLU5hcnJhdGl2ZSfvvIk8L3NwYW4+"}
+[&lt;span class='chapter-number'&gt;28&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTI3Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjI4PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPuacgOe7iOeroO+8muS9oOS4jeaYr+WcqOWGmemhueebru+8jOS9oOaYr+WcqOaehOW7uuezu+e7n++8iFlvdS1BcmUtTm90LVdyaXRpbmctUHJvamVjdHMsLVlvdS1BcmUtQnVpbGRpbmctU3lzdGVtc++8iTwvc3Bhbj4="}
+[&lt;span class='chapter-number'&gt;29&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jaGFwdGVyLTI4Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjI5PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPumZhOW9le+8muaooeadv+OAgemAn+afpeihqOS4juiviuaWreW3peWFt++8iEFwcGVuZGl4Oi1UZW1wbGF0ZXMsLUNoZWF0LVNoZWV0cy0mLURpYWdub3N0aWMtVG9vbHPvvIk8L3NwYW4+"}
+[&lt;span class='chapter-number'&gt;29&lt;/span&gt;&nbsp; &lt;span class='chapter-title'&gt;附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLWJyZWFkY3J1bWJzLTxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Mjk8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+6ZmE5b2V77ya5qih5p2/44CB6YCf5p+l6KGo5LiO6K+K5pat5bel5YW377yIQXBwZW5kaXg6LVRlbXBsYXRlcywtQ2hlYXQtU2hlZXRzLSYtRGlhZ25vc3RpYy1Ub29sc++8iTwvc3Bhbj4="}
+:::
+
+
+
+:::{#quarto-meta-markdown .hidden}
+[[29]{.chapter-number}&nbsp; [附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）]{.chapter-title} – Beyond the Demo]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLW1ldGF0aXRsZQ=="}
+[[29]{.chapter-number}&nbsp; [附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）]{.chapter-title} – Beyond the Demo]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU="}
+[[29]{.chapter-number}&nbsp; [附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）]{.chapter-title} – Beyond the Demo]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLW9nY2FyZHRpdGxl"}
+[Beyond the Demo]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ=="}
+[]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw=="}
+[]{.hidden .quarto-markdown-envelope-contents render-id="cXVhcnRvLW9nY2FyZGRkZXNj"}
+:::
+
+
+
+
+&lt;!-- --&gt;
+
+::: {.quarto-embedded-source-code}
+```````````````````{.markdown shortcodes="false"}
+# 附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）
+
+实用的系统不仅仅由思想构建。它们由**可重复的结构（repeatable structures）**构建。
+
+以下附录提供了直接可用的模板和速查表，帮助你将一个小项目转化为立即感觉更专业的东西。
+
+这些模板有意保持简洁。它们的目标不是复杂度，而是**清晰和一致**。
+
+-----------------------------------------------------------------------
+
+## A. 专业 README 模板（可直接复制）
+
+一个专业的 README 快速回答三个问题：
+
+1. 这是什么？
+2. 它为什么存在？
+3. 我怎么使用它？
+
+以下是许多成熟项目使用的最小结构：
+</code></pre>
+</section>
+<section id="项目名称" class="level1" data-number="30">
+<h1 data-number="30"><span class="header-section-number">30</span> 项目名称</h1>
+<p>一行简短描述。</p>
+<p>示例： 一个用自然语言管理个人支出日志的轻量级 CLI 工具。</p>
+<hr>
+<section id="功能特性" class="level2" data-number="30.1">
+<h2 data-number="30.1" class="anchored" data-anchor-id="功能特性"><span class="header-section-number">30.1</span> 功能特性</h2>
+<ul>
+<li>功能 1</li>
+<li>功能 2</li>
+<li>功能 3</li>
+</ul>
+<hr>
+</section>
+<section id="安装" class="level2" data-number="30.2">
+<h2 data-number="30.2" class="anchored" data-anchor-id="安装"><span class="header-section-number">30.2</span> 安装</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install project-name</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install project-name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="快速开始-1" class="level2" data-number="30.3">
+<h2 data-number="30.3" class="anchored" data-anchor-id="快速开始-1"><span class="header-section-number">30.3</span> 快速开始</h2>
+<pre><code>project-name init
+project-name add "coffee 5"
+project-name report</code></pre>
+<hr>
+</section>
+<section id="示例-1" class="level2" data-number="30.4">
+<h2 data-number="30.4" class="anchored" data-anchor-id="示例-1"><span class="header-section-number">30.4</span> 示例</h2>
+<p>输入：</p>
+<pre><code>add lunch 12</code></pre>
+<p>输出：</p>
+<pre><code>Expense recorded.
+Total today: $12</code></pre>
+<hr>
+</section>
+<section id="配置-1" class="level2" data-number="30.5">
+<h2 data-number="30.5" class="anchored" data-anchor-id="配置-1"><span class="header-section-number">30.5</span> 配置</h2>
+<p>环境变量：</p>
+<pre><code>PROJECT_DB_PATH
+PROJECT_ENV</code></pre>
+<hr>
+</section>
+<section id="架构可选-1" class="level2" data-number="30.6">
+<h2 data-number="30.6" class="anchored" data-anchor-id="架构可选-1"><span class="header-section-number">30.6</span> 架构（可选）</h2>
+<pre><code>CLI → Service Layer → Storage</code></pre>
+<hr>
+</section>
+<section id="路线图-1" class="level2" data-number="30.7">
+<h2 data-number="30.7" class="anchored" data-anchor-id="路线图-1"><span class="header-section-number">30.7</span> 路线图</h2>
+<ul>
+<li>Web 仪表盘</li>
+<li>移动端输入</li>
+<li>导出报告</li>
+</ul>
+<hr>
+</section>
+<section id="贡献-1" class="level2" data-number="30.8">
+<h2 data-number="30.8" class="anchored" data-anchor-id="贡献-1"><span class="header-section-number">30.8</span> 贡献</h2>
+<p>欢迎 Pull Request。</p>
+<hr>
+</section>
+<section id="许可证-1" class="level2" data-number="30.9">
+<h2 data-number="30.9" class="anchored" data-anchor-id="许可证-1"><span class="header-section-number">30.9</span> 许可证</h2>
+<p>MIT</p>
+<pre><code>
+一个结构化的 README 本身就能极大地改善项目被感知的方式。
+
+-----------------------------------------------------------------------
+
+## B. 目录结构模板
+
+一个清晰的目录结构能立即传达系统架构。
+
+以下是三种常见的模式。
+
+### Python 项目
+</code></pre>
+<p>project/ ├── src/ │ └── project/ │ ├── <strong>init</strong>.py │ ├── cli.py │ ├── service/ │ ├── models/ │ └── storage/ ├── tests/ ├── docs/ ├── examples/ ├── pyproject.toml ├── README.md └── LICENSE</p>
+<pre><code>
+核心思想：`src/` 防止导入混淆，`models/` 持有领域实体，`service/` 包含业务逻辑。
+
+### Node.js 项目
+</code></pre>
+<p>project/ ├── src/ │ ├── api/ │ ├── services/ │ ├── models/ │ ├── middleware/ │ └── utils/ ├── tests/ ├── scripts/ ├── package.json ├── README.md └── .env.example</p>
+<pre><code>
+原则：分离 **API**、**逻辑**和**数据模型**。
+
+### Web 应用
+</code></pre>
+<p>project/ ├── frontend/ │ ├── components/ │ ├── pages/ │ ├── hooks/ │ └── styles/ ├── backend/ │ ├── api/ │ ├── services/ │ └── models/ ├── infra/ ├── docs/ └── README.md</p>
+<pre><code>
+原则：分离 **UI**、**逻辑**和**基础设施**。
+
+-----------------------------------------------------------------------
+
+## C. UI 规则速查表
+
+专业界面遵循一致的视觉规则。
+
+### 字体层级
+
+常见层级：</code></pre>
+<p>Title 32px Heading 24px Subheading 18px Body 16px Caption 14px</p>
+<pre><code>
+规则：永远不要随机发明新的字号。
+
+### 间距比例
+
+使用一致的增量。例如：</code></pre>
+<p>4 8 16 24 32 48 64</p>
+<pre><code>
+规则：所有边距和内边距都应该来自这个比例。
+
+### 色彩系统
+
+最小调色板示例：</code></pre>
+<p>Primary Gray 900 (文字) Gray 700 Gray 500 Gray 300 Gray 100 (背景)</p>
+<p>Accent color (强调色) Error color (错误色) Success color (成功色)</p>
+<pre><code>
+规则：大多数 UI 应该使用灰度色。强调色要克制地使用。
+
+### 对齐
+
+始终将元素对齐到网格。避免随机偏移。
+
+### 留白
+
+如果页面感觉杂乱，在添加设计之前先增加间距。
+
+-----------------------------------------------------------------------
+
+## D. 发布检查清单
+
+在发布之前，专业团队会验证一小套条件。
+
+### 代码
+- [ ] 测试通过
+- [ ] Lint 通过
+- [ ] 没有调试日志
+
+### 文档
+- [ ] README 已更新
+- [ ] 变更日志已更新
+- [ ] 版本号已更新
+
+### 打包
+- [ ] 安装命令工作正常
+- [ ] 依赖正确
+
+### 安全
+- [ ] 机密已移除
+- [ ] `.env` 未提交
+
+### 用户体验
+- [ ] 空状态工作正常
+- [ ] 错误状态工作正常
+- [ ] 加载状态工作正常
+
+### 发布
+- [ ] Git 标签已创建
+- [ ] 发布说明已编写
+- [ ] 包已发布
+
+-----------------------------------------------------------------------
+
+## E. "练习品"诊断（10 秒测试）
+
+如果一个项目感觉像练手项目，它通常在以下检查中的几项上失败。
+
+### 结构
+- [ ] 项目有清晰的目录结构吗？
+
+### 安装
+- [ ] 可以用**一个命令**安装吗？
+
+### 文档
+- [ ] README 清晰解释了用法吗？
+
+### 接口
+- [ ] 输入和输出可预测吗？
+
+### 可观测性
+- [ ] 有日志吗？
+
+### 错误处理
+- [ ] 错误状态被干净地处理了吗？
+
+### UI
+- [ ] 间距一致吗？
+
+### 发布
+- [ ] 有版本号吗？
+
+### 未来
+- [ ] 有路线图吗？
+
+### 信任
+- [ ] 有提到安全或隐私吗？
+
+### 规则
+
+如果项目在大多数检查上失败，它会**看起来像学习项目**。
+
+如果它通过了大多数检查，它会**看起来像真正的产品**——即使代码库很小。
+
+这就是成熟度信号的力量。
+
+它们改变感知。
+
+而感知往往是简单演示和专业系统之间的区别。</code></pre>
+<p>:::</p>
 </section>
 </section>
 
@@ -975,6 +1180,57 @@ And perception is often the difference between a simple demo and a professional 
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -991,6 +1247,13 @@ And perception is often the difference between a simple demo and a professional 
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1306,8 +1569,8 @@ And perception is often the difference between a simple demo and a professional 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-27.html" class="pagination-link" aria-label="Final Chapter: You Are Not Writing Projects, You Are Building Systems">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span>
+      <a href="./chapter-27.html" class="pagination-link" aria-label="最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

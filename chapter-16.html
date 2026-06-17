@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>17&nbsp; Performance and Limits: Knowing What Will Break – Beyond the Demo</title>
+<title>17&nbsp; 性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,19 +72,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./chapter-15.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -285,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-16.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-16.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -298,9 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -318,175 +318,175 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -496,23 +496,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#understanding-complexity" id="toc-understanding-complexity" class="nav-link active" data-scroll-target="#understanding-complexity"><span class="header-section-number">17.0.1</span> Understanding Complexity</a></li>
-  <li><a href="#pagination" id="toc-pagination" class="nav-link" data-scroll-target="#pagination"><span class="header-section-number">17.0.2</span> Pagination</a></li>
-  <li><a href="#caching" id="toc-caching" class="nav-link" data-scroll-target="#caching"><span class="header-section-number">17.0.3</span> Caching</a></li>
-  <li><a href="#indexing" id="toc-indexing" class="nav-link" data-scroll-target="#indexing"><span class="header-section-number">17.0.4</span> Indexing</a></li>
-  <li><a href="#designing-with-limits-in-mind" id="toc-designing-with-limits-in-mind" class="nav-link" data-scroll-target="#designing-with-limits-in-mind"><span class="header-section-number">17.0.5</span> Designing With Limits in Mind</a></li>
-  <li><a href="#writing-failure-into-the-design" id="toc-writing-failure-into-the-design" class="nav-link" data-scroll-target="#writing-failure-into-the-design"><span class="header-section-number">17.0.6</span> Writing Failure Into the Design</a></li>
-  <li><a href="#practical-guide-performance-optimization-strategy-sop" id="toc-practical-guide-performance-optimization-strategy-sop" class="nav-link" data-scroll-target="#practical-guide-performance-optimization-strategy-sop"><span class="header-section-number">17.1</span> Practical Guide: Performance Optimization Strategy SOP</a>
-  <ul class="collapse">
-  <li><a href="#性能瓶颈分类" id="toc-性能瓶颈分类" class="nav-link" data-scroll-target="#性能瓶颈分类"><span class="header-section-number">17.1.1</span> 性能瓶颈分类</a></li>
-  <li><a href="#性能优化sop" id="toc-性能优化sop" class="nav-link" data-scroll-target="#性能优化sop"><span class="header-section-number">17.1.2</span> 性能优化SOP</a></li>
-  <li><a href="#性能优化检查清单" id="toc-性能优化检查清单" class="nav-link" data-scroll-target="#性能优化检查清单"><span class="header-section-number">17.1.3</span> 性能优化检查清单</a></li>
-  <li><a href="#quick-diagnosis-is-your-performance-optimization-healthy" id="toc-quick-diagnosis-is-your-performance-optimization-healthy" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-performance-optimization-healthy"><span class="header-section-number">17.1.4</span> Quick Diagnosis: Is Your Performance Optimization Healthy?</a></li>
-  </ul></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">17.2</span> Chapter Summary</a></li>
+  <li><a href="#理解复杂度understanding-complexity" id="toc-理解复杂度understanding-complexity" class="nav-link active" data-scroll-target="#理解复杂度understanding-complexity"><span class="header-section-number">17.1</span> 理解复杂度（Understanding Complexity）</a></li>
+  <li><a href="#分页pagination" id="toc-分页pagination" class="nav-link" data-scroll-target="#分页pagination"><span class="header-section-number">17.2</span> 分页（Pagination）</a></li>
+  <li><a href="#缓存caching" id="toc-缓存caching" class="nav-link" data-scroll-target="#缓存caching"><span class="header-section-number">17.3</span> 缓存（Caching）</a></li>
+  <li><a href="#限流和负载管理rate-limiting-and-load-management" id="toc-限流和负载管理rate-limiting-and-load-management" class="nav-link" data-scroll-target="#限流和负载管理rate-limiting-and-load-management"><span class="header-section-number">17.4</span> 限流和负载管理（Rate Limiting and Load Management）</a></li>
+  <li><a href="#当限制被跨越时when-limits-are-crossed" id="toc-当限制被跨越时when-limits-are-crossed" class="nav-link" data-scroll-target="#当限制被跨越时when-limits-are-crossed"><span class="header-section-number">17.5</span> 当限制被跨越时（When Limits Are Crossed）</a></li>
   </ul>
 </nav>
     </div>
@@ -522,7 +513,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -538,352 +529,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#理解复杂度understanding-complexity" id="toc-理解复杂度understanding-complexity"><span class="header-section-number">17.1</span> 理解复杂度（Understanding Complexity）</a></li>
+  <li><a href="#分页pagination" id="toc-分页pagination"><span class="header-section-number">17.2</span> 分页（Pagination）</a></li>
+  <li><a href="#缓存caching" id="toc-缓存caching"><span class="header-section-number">17.3</span> 缓存（Caching）</a></li>
+  <li><a href="#限流和负载管理rate-limiting-and-load-management" id="toc-限流和负载管理rate-limiting-and-load-management"><span class="header-section-number">17.4</span> 限流和负载管理（Rate Limiting and Load Management）</a></li>
+  <li><a href="#当限制被跨越时when-limits-are-crossed" id="toc-当限制被跨越时when-limits-are-crossed"><span class="header-section-number">17.5</span> 当限制被跨越时（When Limits Are Crossed）</a></li>
+  </ul>
+</nav>
+<p>在开发的早期阶段，性能很少看起来是问题。</p>
+<p>系统在开发者的机器上运行，数据集很小，操作几乎瞬间完成。查询以毫秒为单位返回结果。计算在任何人注意到延迟之前就完成了。</p>
+<p>在这些条件下，很容易假设随着系统增长，性能将继续以同样的方式表现。</p>
+<p>但真实系统最终会遇到不同的现实。数据积累，请求增加。曾经感觉瞬间完成的操作开始变慢。在开发中顺畅运行的东西，在更大的工作负载下可能突然变得低效。</p>
+<p>专业软件不会试图预先消除所有性能问题。相反，它采用了一种更实际的方法：</p>
+<p>它确保系统的<strong>限制被理解</strong>。</p>
+<p>一个成熟的项目不需要完美的可扩展性，但它必须至少知道<strong>什么会先坏</strong>以及为什么。</p>
+<hr>
+<section id="理解复杂度understanding-complexity" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="理解复杂度understanding-complexity"><span class="header-section-number">17.1</span> 理解复杂度（Understanding Complexity）</h2>
+<p>理解系统限制的第一步是认识到计算复杂度（computational complexity）的作用。</p>
+<p>每个算法都有输入大小和处理它所需工作量之间的关系。一些操作随着数据增长优雅地扩展，而另一些则变得极为昂贵。</p>
+<p>在小型的练手项目中，低效的算法经常未被注意到，因为数据集仍然很小。一个为每个操作扫描整个列表的函数在列表包含十个项目时可能表现完美。</p>
+<p>然而，当同一个列表增长到数千或数百万条记录时，重复扫描它的成本变得显著。</p>
+<p>专业系统因此关注操作如何随着数据的增加而扩展。</p>
+<p>开发者不需要为每个功能进行深入的理论分析，但他们应该了解他们最重要操作的近似成本。</p>
+<p>识别这些增长模式有助于防止系统演化过程中的意外。</p>
+<hr>
+</section>
+<section id="分页pagination" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="分页pagination"><span class="header-section-number">17.2</span> 分页（Pagination）</h2>
+<p>管理增长数据的最简单策略之一是<strong>分页（pagination）</strong>。</p>
+<p>系统不是一次检索整个数据集，而是以较小的部分返回结果。用户可以根据需要请求额外的部分。</p>
+<p>分页防止大型查询压垮内存或网络带宽。它也通过允许系统快速交付部分结果来提高响应能力。</p>
+<p>许多专业系统将分页作为返回数据集合的操作的默认行为。</p>
+<p>这种方法确保即使数据集显著增长，性能也保持稳定。</p>
+<hr>
+</section>
+<section id="缓存caching" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="缓存caching"><span class="header-section-number">17.3</span> 缓存（Caching）</h2>
+<p>另一种改进性能的常用技术是<strong>缓存（caching）</strong>。</p>
+<p>一些操作产生的结果很少变化。如果系统每次被请求时都重新计算这些结果，就会产生不必要的工作。</p>
+<p>缓存存储一次昂贵计算的结果，以便未来的请求可以快速检索它。</p>
+<p>例如，系统可能缓存频繁请求的数据、计算好的报告或来自外部服务的响应。</p>
+<p>缓存背后的原则很简单：系统执行一次操作，存储结果，并在后续请求中重用存储的结果。</p>
+<p>然而，缓存引入了自己的挑战——缓存的值可能变得过时。有效的缓存策略包括使缓存失效的机制，以便在底层数据变化时提供新鲜的数据。</p>
+<hr>
+</section>
+<section id="限流和负载管理rate-limiting-and-load-management" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="限流和负载管理rate-limiting-and-load-management"><span class="header-section-number">17.4</span> 限流和负载管理（Rate Limiting and Load Management）</h2>
+<p>限制不仅适用于数据量——也适用于请求量。</p>
+<p>在真实系统中，流量通常是不均衡的。有些时段系统可能接收到远高于正常水平的请求。</p>
+<p>没有保护机制，这些流量高峰可能压垮系统，导致所有用户的性能下降。</p>
+<p>专业系统使用<strong>限流（rate limiting）</strong>和<strong>负载管理（load management）</strong>来防止这种情况。</p>
+<p>限流对系统在给定时间窗口内可以处理的请求数量施加限制。当超过限制时，系统返回一个错误或通知，提示用户稍后重试。</p>
+<p>这确保了系统在峰值负载下保持稳定，即使某些请求被暂时延迟。</p>
+<hr>
+</section>
+<section id="当限制被跨越时when-limits-are-crossed" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="当限制被跨越时when-limits-are-crossed"><span class="header-section-number">17.5</span> 当限制被跨越时（When Limits Are Crossed）</h2>
+<p>没有系统是无限的。每个系统都有它最终会达到的限制。</p>
+<p>专业软件在这一时刻到来之前就为此做好了准备。它监控资源使用，在接近限制时发出警报，并优雅地处理超过限制的情况。</p>
+<p>理解限制的行为是设计可以信任的系统的核心部分。</p>
+<p>下一章，我们将探讨视觉秩序——专业质量如何来自一致的规则，而不是艺术天赋。</p>
 
-<p>In the early stages of development, performance rarely appears to be a problem.</p>
-<p>The system runs on a developer’s machine, the dataset is small, and operations complete almost instantly. Queries return results in milliseconds. Computations finish before anyone notices the delay.</p>
-<p>Under these conditions, it is easy to assume that performance will continue to behave the same way as the system grows.</p>
-<p>But real systems eventually encounter a different reality. Data accumulates. Requests increase. Operations that once felt instantaneous begin to slow down. What worked smoothly during development may suddenly become inefficient under larger workloads.</p>
-<p>Professional software does not attempt to eliminate all performance problems in advance. Instead, it adopts a more practical approach:</p>
-<p>It ensures that the system’s <strong>limits are understood</strong>.</p>
-<p>A mature project does not need perfect scalability, but it must at least know <strong>what will break first</strong> and why.</p>
-<hr>
-<section id="understanding-complexity" class="level3" data-number="17.0.1">
-<h3 data-number="17.0.1" class="anchored" data-anchor-id="understanding-complexity"><span class="header-section-number">17.0.1</span> Understanding Complexity</h3>
-<p>The first step toward understanding system limits is recognizing the role of computational complexity.</p>
-<p>Every algorithm has a relationship between the size of its input and the amount of work required to process it. Some operations scale gracefully as data grows, while others grow dramatically more expensive.</p>
-<p>In small practice projects, inefficient algorithms often go unnoticed because the dataset remains tiny. A function that scans an entire list for each operation may perform perfectly well when the list contains ten items.</p>
-<p>However, when the same list grows to thousands or millions of entries, the cost of repeatedly scanning it becomes significant.</p>
-<p>Professional systems therefore pay attention to how operations scale with increasing data.</p>
-<p>Developers do not need to perform deep theoretical analysis for every feature, but they should understand the approximate cost of their most important operations.</p>
-<p>Recognizing these growth patterns helps prevent surprises as the system evolves.</p>
-<hr>
-</section>
-<section id="pagination" class="level3" data-number="17.0.2">
-<h3 data-number="17.0.2" class="anchored" data-anchor-id="pagination"><span class="header-section-number">17.0.2</span> Pagination</h3>
-<p>One of the simplest strategies for managing growing data is <strong>pagination</strong>.</p>
-<p>Instead of retrieving an entire dataset at once, the system returns results in smaller segments. Users can request additional segments as needed.</p>
-<p>Pagination prevents large queries from overwhelming memory or network bandwidth. It also improves responsiveness by allowing the system to deliver partial results quickly.</p>
-<p>Many professional systems adopt pagination as a default behavior for operations that return collections of data.</p>
-<p>This approach ensures that performance remains stable even as the dataset grows significantly.</p>
-<hr>
-</section>
-<section id="caching" class="level3" data-number="17.0.3">
-<h3 data-number="17.0.3" class="anchored" data-anchor-id="caching"><span class="header-section-number">17.0.3</span> Caching</h3>
-<p>Another common technique for improving performance is <strong>caching</strong>.</p>
-<p>Some operations produce results that change infrequently. If the system recomputes these results every time they are requested, unnecessary work occurs.</p>
-<p>Caching stores the result of an expensive computation so that future requests can retrieve it quickly.</p>
-<p>For example, a system might cache frequently requested data, computed reports, or responses from external services.</p>
-<p>By reducing repeated computation, caching improves response time and reduces system load.</p>
-<p>However, caching must be used carefully. Cached data eventually becomes outdated, so the system must define when and how the cache should be refreshed.</p>
-<p>Even simple caching strategies can significantly improve performance when applied to appropriate operations.</p>
-<hr>
-</section>
-<section id="indexing" class="level3" data-number="17.0.4">
-<h3 data-number="17.0.4" class="anchored" data-anchor-id="indexing"><span class="header-section-number">17.0.4</span> Indexing</h3>
-<p>When systems rely on persistent storage such as databases, <strong>indexing</strong> becomes an important performance tool.</p>
-<p>An index allows the system to locate specific records quickly without scanning the entire dataset.</p>
-<p>For example, if users frequently search for records by a particular field, creating an index for that field can dramatically reduce query time.</p>
-<p>Without indexing, the database must examine every record to locate the requested data.</p>
-<p>Indexes therefore act as shortcuts that guide queries directly to the relevant information.</p>
-<p>Professional systems identify their most common query patterns and ensure that appropriate indexes exist to support them.</p>
-<hr>
-</section>
-<section id="designing-with-limits-in-mind" class="level3" data-number="17.0.5">
-<h3 data-number="17.0.5" class="anchored" data-anchor-id="designing-with-limits-in-mind"><span class="header-section-number">17.0.5</span> Designing With Limits in Mind</h3>
-<p>Performance considerations are often misunderstood.</p>
-<p>Developers sometimes assume that professional systems must optimize every operation for maximum efficiency. In reality, this level of optimization is rarely necessary during early stages of development.</p>
-<p>What matters more is awareness.</p>
-<p>A mature system understands which operations are expensive, which data structures may grow large, and which components depend on external resources.</p>
-<p>By recognizing these boundaries, developers can design the system in ways that accommodate growth.</p>
-<p>Pagination prevents datasets from overwhelming memory. Caching reduces repeated work. Indexing accelerates common queries. Awareness of algorithmic complexity prevents hidden bottlenecks.</p>
-<p>Together, these techniques ensure that the system behaves predictably even as its workload increases.</p>
-<hr>
-</section>
-<section id="writing-failure-into-the-design" class="level3" data-number="17.0.6">
-<h3 data-number="17.0.6" class="anchored" data-anchor-id="writing-failure-into-the-design"><span class="header-section-number">17.0.6</span> Writing Failure Into the Design</h3>
-<p>Perhaps the most important shift in thinking occurs when developers begin to anticipate limits rather than ignore them.</p>
-<p>Practice projects often assume that resources are effectively infinite. Data remains small, requests remain manageable, and performance remains constant.</p>
-<p>Professional systems acknowledge that every system has boundaries.</p>
-<p>Queries may become too large. Memory may be exhausted. External services may slow down under heavy load.</p>
-<p>Instead of waiting for these failures to appear unexpectedly, mature systems incorporate them into the design process.</p>
-<p>Developers identify the points where the system might eventually struggle and ensure that mechanisms exist to manage those situations.</p>
-<p>In this way, the system becomes resilient not because it never encounters limits, but because it <strong>knows where its limits are</strong>.</p>
-<p>Understanding what might break—and preparing for it—is one of the quiet but essential characteristics of professional software.</p>
-<hr>
-</section>
-<section id="practical-guide-performance-optimization-strategy-sop" class="level2" data-number="17.1">
-<h2 data-number="17.1" class="anchored" data-anchor-id="practical-guide-performance-optimization-strategy-sop"><span class="header-section-number">17.1</span> Practical Guide: Performance Optimization Strategy SOP</h2>
-<p>性能优化不是追求极致速度，而是理解系统边界并合理处理增长。以下是一个实用的性能优化框架。</p>
-<section id="性能瓶颈分类" class="level3" data-number="17.1.1">
-<h3 data-number="17.1.1" class="anchored" data-anchor-id="性能瓶颈分类"><span class="header-section-number">17.1.1</span> 性能瓶颈分类</h3>
-<p><strong>算法复杂度瓶颈：</strong> - 嵌套循环（O(n²)） - 重复计算 - 低效数据结构 - 全局搜索</p>
-<p><strong>数据库瓶颈：</strong> - 全表扫描 - 缺少索引 - N+1查询问题 - 大结果集</p>
-<p><strong>网络瓶颈：</strong> - 频繁的HTTP请求 - 大数据传输 - 同步调用链 - 缺少压缩</p>
-<p><strong>内存瓶颈：</strong> - 内存泄漏 - 大对象缓存 - 不必要的数据复制 - 内存碎片化</p>
-</section>
-<section id="性能优化sop" class="level3" data-number="17.1.2">
-<h3 data-number="17.1.2" class="anchored" data-anchor-id="性能优化sop"><span class="header-section-number">17.1.2</span> 性能优化SOP</h3>
-<p><strong>第一步：性能基准测试</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 性能基准测试示例</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statistics</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Callable</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> benchmark(func: Callable, iterations: <span class="bu">int</span> <span class="op">=</span> <span class="dv">100</span>):</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""执行函数多次并统计性能"""</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    times <span class="op">=</span> []</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(iterations):</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        start <span class="op">=</span> time.perf_counter()</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        func()</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        end <span class="op">=</span> time.perf_counter()</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        times.append(end <span class="op">-</span> start)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"min"</span>: <span class="bu">min</span>(times),</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"max"</span>: <span class="bu">max</span>(times),</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"avg"</span>: statistics.mean(times),</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"median"</span>: statistics.median(times),</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"p95"</span>: statistics.quantiles(times, n<span class="op">=</span><span class="dv">20</span>)[<span class="dv">18</span>],  <span class="co"># 95th percentile</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"total"</span>: <span class="bu">sum</span>(times)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_function():</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 测试代码</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> [i <span class="op">*</span> <span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>)]</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> benchmark(test_function, iterations<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"平均执行时间: </span><span class="sc">{</span>results[<span class="st">'avg'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P95执行时间: </span><span class="sc">{</span>results[<span class="st">'p95'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>第二步：识别瓶颈</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用cProfile识别性能瓶颈</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cProfile</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pstats</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> io <span class="im">import</span> StringIO</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> profile_function(func: Callable, <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""分析函数性能瓶颈"""</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    pr <span class="op">=</span> cProfile.Profile()</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    pr.enable()</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    func(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    pr.disable()</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 输出分析结果</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> StringIO()</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    ps <span class="op">=</span> pstats.Stats(pr, stream<span class="op">=</span>s).sort_stats(<span class="st">'cumulative'</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    ps.print_stats(<span class="dv">20</span>)  <span class="co"># 显示前20个最耗时的函数</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(s.getvalue())</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> complex_operation():</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            total <span class="op">+=</span> i <span class="op">*</span> j</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>profile_function(complex_operation)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>第三步：优化策略</strong></p>
-<p><strong>策略1：分页（处理大数据集）</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 不好的做法：一次性加载所有数据</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_all_users():</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    users <span class="op">=</span> db.query(<span class="st">"SELECT * FROM users"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> users  <span class="co"># 可能有数百万条记录</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 好的做法：分页加载</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_users(page: <span class="bu">int</span> <span class="op">=</span> <span class="dv">1</span>, page_size: <span class="bu">int</span> <span class="op">=</span> <span class="dv">100</span>):</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    offset <span class="op">=</span> (page <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> page_size</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    users <span class="op">=</span> db.query(</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"SELECT * FROM users LIMIT ? OFFSET ?"</span>,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        (page_size, offset)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> users</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 返回分页元数据</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_users_with_pagination(page: <span class="bu">int</span> <span class="op">=</span> <span class="dv">1</span>, page_size: <span class="bu">int</span> <span class="op">=</span> <span class="dv">100</span>):</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> db.query(<span class="st">"SELECT COUNT(*) FROM users"</span>)[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    users <span class="op">=</span> get_users(page, page_size)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"data"</span>: users,</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"pagination"</span>: {</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"page"</span>: page,</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">"page_size"</span>: page_size,</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">"total"</span>: total,</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">"total_pages"</span>: (total <span class="op">+</span> page_size <span class="op">-</span> <span class="dv">1</span>) <span class="op">//</span> page_size</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>策略2：缓存（减少重复计算）</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 简单的内存缓存</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> lru_cache</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hashlib</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用LRU缓存</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">@lru_cache</span>(maxsize<span class="op">=</span><span class="dv">128</span>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> expensive_computation(x: <span class="bu">int</span>):</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""缓存计算结果"""</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">1</span>)  <span class="co"># 模拟耗时操作</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> x</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 手动实现缓存（支持过期时间）</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cache:</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, ttl: <span class="bu">int</span> <span class="op">=</span> <span class="dv">300</span>):</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.cache <span class="op">=</span> {}</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.ttl <span class="op">=</span> ttl</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get(<span class="va">self</span>, key: <span class="bu">str</span>):</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> key <span class="kw">in</span> <span class="va">self</span>.cache:</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            value, timestamp <span class="op">=</span> <span class="va">self</span>.cache[key]</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> time.time() <span class="op">-</span> timestamp <span class="op">&lt;</span> <span class="va">self</span>.ttl:</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> value</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                <span class="kw">del</span> <span class="va">self</span>.cache[key]</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="bu">set</span>(<span class="va">self</span>, key: <span class="bu">str</span>, value):</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.cache[key] <span class="op">=</span> (value, time.time())</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> clear(<span class="va">self</span>):</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.cache.clear()</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>cache <span class="op">=</span> Cache(ttl<span class="op">=</span><span class="dv">60</span>)</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_user_data(user_id: <span class="bu">str</span>):</span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 先尝试从缓存获取</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    cached <span class="op">=</span> cache.get(<span class="ss">f"user:</span><span class="sc">{</span>user_id<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> cached:</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cached</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 缓存未命中，从数据库获取</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> db.query(<span class="st">"SELECT * FROM users WHERE id = ?"</span>, (user_id,))</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    cache.<span class="bu">set</span>(<span class="ss">f"user:</span><span class="sc">{</span>user_id<span class="sc">}</span><span class="ss">"</span>, user)</span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> user</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>策略3：索引（加速数据库查询）</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- 创建索引</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_users_email <span class="kw">ON</span> users(email);</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_users_created_at <span class="kw">ON</span> users(created_at);</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_orders_user_id <span class="kw">ON</span> orders(user_id);</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">-- 复合索引</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">INDEX</span> idx_users_status_created <span class="kw">ON</span> users(status, created_at);</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">-- 查询优化</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">-- 不好的做法：全表扫描</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> users <span class="kw">WHERE</span> email <span class="op">=</span> <span class="st">'user@example.com'</span>;</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">-- 好的做法：使用索引</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="kw">EXPLAIN</span> <span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> users <span class="kw">WHERE</span> email <span class="op">=</span> <span class="st">'user@example.com'</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>策略4：异步处理（提高并发）</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> aiohttp</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 同步方式（慢）</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_urls_sync(urls):</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> []</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> url <span class="kw">in</span> urls:</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> requests.get(url)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        results.append(response.json())</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 异步方式（快）</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> fetch_url(session, url):</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> session.get(url) <span class="im">as</span> response:</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="cf">await</span> response.json()</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> fetch_urls_async(urls):</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> aiohttp.ClientSession() <span class="im">as</span> session:</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        tasks <span class="op">=</span> [fetch_url(session, url) <span class="cf">for</span> url <span class="kw">in</span> urls]</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        results <span class="op">=</span> <span class="cf">await</span> asyncio.gather(<span class="op">*</span>tasks)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> results</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>urls <span class="op">=</span> [</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://api.example.com/users/1"</span>,</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://api.example.com/users/2"</span>,</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://api.example.com/users/3"</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 异步执行</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> asyncio.run(fetch_urls_async(urls))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>第四步：验证优化效果</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 性能对比测试</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compare_performance(original_func, optimized_func, <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""对比优化前后的性能"""</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"=== 性能对比 ==="</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 测试原始函数</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    original_results <span class="op">=</span> benchmark(original_func, iterations<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"原始函数:"</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  平均: </span><span class="sc">{</span>original_results[<span class="st">'avg'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  P95: </span><span class="sc">{</span>original_results[<span class="st">'p95'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 测试优化函数</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    optimized_results <span class="op">=</span> benchmark(optimized_func, <span class="op">*</span>args, <span class="op">**</span>kwargs, iterations<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"优化函数:"</span>)</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  平均: </span><span class="sc">{</span>optimized_results[<span class="st">'avg'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  P95: </span><span class="sc">{</span>optimized_results[<span class="st">'p95'</span>]<span class="sc">:.6f}</span><span class="ss">s"</span>)</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 计算改进</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    improvement <span class="op">=</span> (original_results[<span class="st">'avg'</span>] <span class="op">-</span> optimized_results[<span class="st">'avg'</span>]) <span class="op">/</span> original_results[<span class="st">'avg'</span>] <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"性能提升: </span><span class="sc">{</span>improvement<span class="sc">:.2f}</span><span class="ss">%"</span>)</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> improvement</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> original_function():</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 原始实现</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>([i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>)])</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> optimized_function():</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 优化实现</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(<span class="bu">range</span>(<span class="dv">10000</span>))</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>compare_performance(original_function, optimized_function)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="性能优化检查清单" class="level3" data-number="17.1.3">
-<h3 data-number="17.1.3" class="anchored" data-anchor-id="性能优化检查清单"><span class="header-section-number">17.1.3</span> 性能优化检查清单</h3>
-<p><strong>数据库优化：</strong> - [ ] 查询使用了适当的索引 - [ ] 避免了SELECT *（只查询需要的字段） - [ ] 使用分页处理大数据集 - [ ] 避免了N+1查询问题 - [ ] 定期分析慢查询日志</p>
-<p><strong>缓存策略：</strong> - [ ] 识别了可缓存的数据 - [ ] 实现了缓存失效机制 - [ ] 设置了合理的缓存过期时间 - [ ] 监控缓存命中率 - [ ] 避免缓存雪崩</p>
-<p><strong>代码优化：</strong> - [ ] 避免了不必要的嵌套循环 - [ ] 使用了合适的数据结构 - [ ] 减少了重复计算 - [ ] 使用了异步处理提高并发 - [ ] 避免了内存泄漏</p>
-<p><strong>监控与测试：</strong> - [ ] 有性能基准测试 - [ ] 监控关键指标（响应时间、吞吐量） - [ ] 设置了性能告警阈值 - [ ] 定期进行性能测试 - [ ] 有性能优化文档</p>
-</section>
-<section id="quick-diagnosis-is-your-performance-optimization-healthy" class="level3" data-number="17.1.4">
-<h3 data-number="17.1.4" class="anchored" data-anchor-id="quick-diagnosis-is-your-performance-optimization-healthy"><span class="header-section-number">17.1.4</span> Quick Diagnosis: Is Your Performance Optimization Healthy?</h3>
-<p>回答以下问题：</p>
-<ul class="task-list">
-<li><label><input type="checkbox">你是否知道系统中最慢的5个操作是什么？</label></li>
-<li><label><input type="checkbox">数据库查询是否都使用了索引？</label></li>
-<li><label><input type="checkbox">是否有性能基准测试来跟踪优化效果？</label></li>
-<li><label><input type="checkbox">是否使用了缓存来减少重复计算？</label></li>
-<li><label><input type="checkbox">是否有监控来及时发现性能问题？</label></li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="chapter-summary" class="level2" data-number="17.2">
-<h2 data-number="17.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">17.2</span> Chapter Summary</h2>
-<p>性能优化不是追求极致速度，而是理解系统边界并合理处理增长。通过理解复杂度、使用分页、缓存和索引，我们可以让系统在数据增长时保持稳定。</p>
-<p>好的性能优化从基准测试开始，识别瓶颈，然后应用合适的优化策略。最重要的是，系统应该知道自己的限制在哪里。</p>
-<p>一个了解自己边界的系统，比一个盲目追求速度的系统更可靠。</p>
-<p>下一章，我们将探讨视觉秩序。专业质量来自一致的设计规则。</p>
-<hr>
-<p><strong>实践建议：</strong></p>
-<ol type="1">
-<li><strong>测量优先</strong>：不要盲目优化。先测量，找出真正的瓶颈，再优化。</li>
-<li><strong>渐进式优化</strong>：不要一次性优化所有代码。优先优化最慢的路径。</li>
-<li><strong>权衡取舍</strong>：性能优化可能增加复杂度。在可读性和性能之间找到平衡。</li>
-<li><strong>持续监控</strong>：性能会随数据增长而变化。建立监控，及时发现问题。</li>
-</ol>
-<p><strong>立即行动：</strong></p>
-<p>选择你的项目中的一个关键功能，使用cProfile或类似工具分析其性能。找出最耗时的函数，并考虑如何优化它。</p>
 
+<!-- -->
 
 </section>
 
@@ -972,6 +685,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -988,6 +752,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1303,16 +1074,108 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-15.html" class="pagination-link" aria-label="Testing: From “It Runs” to “It Can Be Trusted”">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span>
+      <a href="./chapter-15.html" class="pagination-link" aria-label="测试：从&quot;能运行&quot;到&quot;可信任&quot;（Testing: From &quot;It Runs&quot; to &quot;It Can Be Trusted&quot;）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-17.html" class="pagination-link" aria-label="Visual Order: Professional Quality Comes from Consistent Rules">
-        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-17.html" class="pagination-link" aria-label="视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>在开发的早期阶段，性能很少看起来是问题。</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>系统在开发者的机器上运行，数据集很小，操作几乎瞬间完成。查询以毫秒为单位返回结果。计算在任何人注意到延迟之前就完成了。</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>在这些条件下，很容易假设随着系统增长，性能将继续以同样的方式表现。</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>但真实系统最终会遇到不同的现实。数据积累，请求增加。曾经感觉瞬间完成的操作开始变慢。在开发中顺畅运行的东西，在更大的工作负载下可能突然变得低效。</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>专业软件不会试图预先消除所有性能问题。相反，它采用了一种更实际的方法：</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>它确保系统的**限制被理解**。</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>一个成熟的项目不需要完美的可扩展性，但它必须至少知道**什么会先坏**以及为什么。</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## 理解复杂度（Understanding Complexity）</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>理解系统限制的第一步是认识到计算复杂度（computational complexity）的作用。</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>每个算法都有输入大小和处理它所需工作量之间的关系。一些操作随着数据增长优雅地扩展，而另一些则变得极为昂贵。</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>在小型的练手项目中，低效的算法经常未被注意到，因为数据集仍然很小。一个为每个操作扫描整个列表的函数在列表包含十个项目时可能表现完美。</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>然而，当同一个列表增长到数千或数百万条记录时，重复扫描它的成本变得显著。</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>专业系统因此关注操作如何随着数据的增加而扩展。</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>开发者不需要为每个功能进行深入的理论分析，但他们应该了解他们最重要操作的近似成本。</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>识别这些增长模式有助于防止系统演化过程中的意外。</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## 分页（Pagination）</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>管理增长数据的最简单策略之一是**分页（pagination）**。</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>系统不是一次检索整个数据集，而是以较小的部分返回结果。用户可以根据需要请求额外的部分。</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>分页防止大型查询压垮内存或网络带宽。它也通过允许系统快速交付部分结果来提高响应能力。</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>许多专业系统将分页作为返回数据集合的操作的默认行为。</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>这种方法确保即使数据集显著增长，性能也保持稳定。</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 缓存（Caching）</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>另一种改进性能的常用技术是**缓存（caching）**。</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>一些操作产生的结果很少变化。如果系统每次被请求时都重新计算这些结果，就会产生不必要的工作。</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>缓存存储一次昂贵计算的结果，以便未来的请求可以快速检索它。</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>例如，系统可能缓存频繁请求的数据、计算好的报告或来自外部服务的响应。</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>缓存背后的原则很简单：系统执行一次操作，存储结果，并在后续请求中重用存储的结果。</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>然而，缓存引入了自己的挑战——缓存的值可能变得过时。有效的缓存策略包括使缓存失效的机制，以便在底层数据变化时提供新鲜的数据。</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## 限流和负载管理（Rate Limiting and Load Management）</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>限制不仅适用于数据量——也适用于请求量。</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>在真实系统中，流量通常是不均衡的。有些时段系统可能接收到远高于正常水平的请求。</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>没有保护机制，这些流量高峰可能压垮系统，导致所有用户的性能下降。</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>专业系统使用**限流（rate limiting）**和**负载管理（load management）**来防止这种情况。</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>限流对系统在给定时间窗口内可以处理的请求数量施加限制。当超过限制时，系统返回一个错误或通知，提示用户稍后重试。</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>这确保了系统在峰值负载下保持稳定，即使某些请求被暂时延迟。</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## 当限制被跨越时（When Limits Are Crossed）</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>没有系统是无限的。每个系统都有它最终会达到的限制。</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>专业软件在这一时刻到来之前就为此做好了准备。它监控资源使用，在接近限制时发出警报，并优雅地处理超过限制的情况。</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>理解限制的行为是设计可以信任的系统的核心部分。</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>下一章，我们将探讨视觉秩序——专业质量如何来自一致的规则，而不是艺术天赋。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

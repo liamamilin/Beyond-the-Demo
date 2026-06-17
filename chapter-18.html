@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>19&nbsp; Design Systems: Bridging the Aesthetic Gap with Component Libraries – Beyond the Demo</title>
+<title>19&nbsp; 设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,19 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./chapter-17.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-18.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-18.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,9 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -283,175 +318,175 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -461,16 +496,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#components-as-building-blocks" id="toc-components-as-building-blocks" class="nav-link active" data-scroll-target="#components-as-building-blocks"><span class="header-section-number">19.0.1</span> Components as Building Blocks</a></li>
-  <li><a href="#consistency-across-the-interface" id="toc-consistency-across-the-interface" class="nav-link" data-scroll-target="#consistency-across-the-interface"><span class="header-section-number">19.0.2</span> Consistency Across the Interface</a></li>
-  <li><a href="#the-efficiency-of-reuse" id="toc-the-efficiency-of-reuse" class="nav-link" data-scroll-target="#the-efficiency-of-reuse"><span class="header-section-number">19.0.3</span> The Efficiency of Reuse</a></li>
-  <li><a href="#the-principle-of-restraint" id="toc-the-principle-of-restraint" class="nav-link" data-scroll-target="#the-principle-of-restraint"><span class="header-section-number">19.0.4</span> The Principle of Restraint</a></li>
-  <li><a href="#why-less-often-looks-more-professional" id="toc-why-less-often-looks-more-professional" class="nav-link" data-scroll-target="#why-less-often-looks-more-professional"><span class="header-section-number">19.0.5</span> Why Less Often Looks More Professional</a></li>
-  <li><a href="#crossing-the-aesthetic-gap" id="toc-crossing-the-aesthetic-gap" class="nav-link" data-scroll-target="#crossing-the-aesthetic-gap"><span class="header-section-number">19.0.6</span> Crossing the Aesthetic Gap</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">19.1</span> Chapter Summary</a></li>
+  <li><a href="#组件即构建块components-as-building-blocks" id="toc-组件即构建块components-as-building-blocks" class="nav-link active" data-scroll-target="#组件即构建块components-as-building-blocks"><span class="header-section-number">19.1</span> 组件即构建块（Components as Building Blocks）</a></li>
+  <li><a href="#跨界面的一致性consistency-across-the-interface" id="toc-跨界面的一致性consistency-across-the-interface" class="nav-link" data-scroll-target="#跨界面的一致性consistency-across-the-interface"><span class="header-section-number">19.2</span> 跨界面的一致性（Consistency Across the Interface）</a></li>
+  <li><a href="#复用的效率the-efficiency-of-reuse" id="toc-复用的效率the-efficiency-of-reuse" class="nav-link" data-scroll-target="#复用的效率the-efficiency-of-reuse"><span class="header-section-number">19.3</span> 复用的效率（The Efficiency of Reuse）</a></li>
+  <li><a href="#克制的原则the-principle-of-restraint" id="toc-克制的原则the-principle-of-restraint" class="nav-link" data-scroll-target="#克制的原则the-principle-of-restraint"><span class="header-section-number">19.4</span> 克制的原则（The Principle of Restraint）</a></li>
+  <li><a href="#少即是多why-less-often-looks-more-professional" id="toc-少即是多why-less-often-looks-more-professional" class="nav-link" data-scroll-target="#少即是多why-less-often-looks-more-professional"><span class="header-section-number">19.5</span> 少即是多（Why Less Often Looks More Professional）</a></li>
+  <li><a href="#跨越美学差距crossing-the-aesthetic-gap" id="toc-跨越美学差距crossing-the-aesthetic-gap" class="nav-link" data-scroll-target="#跨越美学差距crossing-the-aesthetic-gap"><span class="header-section-number">19.6</span> 跨越美学差距（Crossing the Aesthetic Gap）</a></li>
+  <li><a href="#小结" id="toc-小结" class="nav-link" data-scroll-target="#小结"><span class="header-section-number">19.7</span> 小结</a></li>
   </ul>
 </nav>
     </div>
@@ -480,7 +515,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -496,88 +531,95 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#组件即构建块components-as-building-blocks" id="toc-组件即构建块components-as-building-blocks"><span class="header-section-number">19.1</span> 组件即构建块（Components as Building Blocks）</a></li>
+  <li><a href="#跨界面的一致性consistency-across-the-interface" id="toc-跨界面的一致性consistency-across-the-interface"><span class="header-section-number">19.2</span> 跨界面的一致性（Consistency Across the Interface）</a></li>
+  <li><a href="#复用的效率the-efficiency-of-reuse" id="toc-复用的效率the-efficiency-of-reuse"><span class="header-section-number">19.3</span> 复用的效率（The Efficiency of Reuse）</a></li>
+  <li><a href="#克制的原则the-principle-of-restraint" id="toc-克制的原则the-principle-of-restraint"><span class="header-section-number">19.4</span> 克制的原则（The Principle of Restraint）</a></li>
+  <li><a href="#少即是多why-less-often-looks-more-professional" id="toc-少即是多why-less-often-looks-more-professional"><span class="header-section-number">19.5</span> 少即是多（Why Less Often Looks More Professional）</a></li>
+  <li><a href="#跨越美学差距crossing-the-aesthetic-gap" id="toc-跨越美学差距crossing-the-aesthetic-gap"><span class="header-section-number">19.6</span> 跨越美学差距（Crossing the Aesthetic Gap）</a></li>
+  <li><a href="#小结" id="toc-小结"><span class="header-section-number">19.7</span> 小结</a></li>
+  </ul>
+</nav>
+<p>开发者在构建界面时遇到的最常见挫折之一是觉得他们的应用看起来”未完成”或”不专业”，即使功能正确工作。</p>
+<p>问题通常不在于技术实现。而在于<strong>视觉不一致性（visual inconsistency）</strong>。</p>
+<p>练手项目经常一次一个地设计界面元素。一个按钮是为一个屏幕创建的，然后稍后另一个按钮被创建出来，使用了略有不同的内边距、颜色或字体。输入框的高度可能不同。卡片可能使用不同的阴影或间距。</p>
+<p>每个元素单独工作，但放在一起就创造了一个碎片化的界面。</p>
+<p>专业产品通过<strong>设计系统（design systems）</strong>来解决这个问题。</p>
+<p>设计系统定义了一小套可复用的组件和适用于整个界面的视觉规则。开发者不是从头设计每个元素，而是从一致的构建块组装界面。</p>
+<p>这种方法显著提高了视觉质量和开发效率。</p>
+<hr>
+<section id="组件即构建块components-as-building-blocks" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="组件即构建块components-as-building-blocks"><span class="header-section-number">19.1</span> 组件即构建块（Components as Building Blocks）</h2>
+<p>设计系统的核心是<strong>组件（components）</strong>的概念。</p>
+<p>组件是一个封装了外观和行为的可复用界面元素。一旦定义，它可以在整个应用中重复使用。</p>
+<p>常见组件包括按钮、输入字段、卡片、对话框和导航元素。</p>
+<p>每个组件遵循一致的结构。它的间距、字体、颜色和交互状态在整个应用中保持稳定。</p>
+<p>因为这些元素持续重复，用户很快对界面产生熟悉感。一个按钮到处都以相同的方式行为。一个输入框遵循相同的布局和验证模式。</p>
+<p>这种一致性创造了系统是作为统一整体设计的印象，而不是逐块拼凑的。</p>
+<hr>
+</section>
+<section id="跨界面的一致性consistency-across-the-interface" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="跨界面的一致性consistency-across-the-interface"><span class="header-section-number">19.2</span> 跨界面的一致性（Consistency Across the Interface）</h2>
+<p>当组件被一致地复用时，视觉秩序自然出现。</p>
+<p>例如，所有按钮可能共享相同的高度、内边距和边框半径。输入框可能遵循相同的对齐和标签模式。卡片可能使用相同的间距和字体结构来展示内容。</p>
+<p>这种统一简化了界面。用户不是在每个页面上遇到新的视觉规则，而是与在整个系统中重复的熟悉模式交互。</p>
+<p>练手项目通常缺乏这种一致性，因为每个界面元素都是独立创建的。即使微小的差异——稍微不同的间距或颜色变化——也能累积起来，使界面感觉不规则。</p>
+<p>设计系统通过为所有视觉元素建立共享基础来防止这种漂移。</p>
+<hr>
+</section>
+<section id="复用的效率the-efficiency-of-reuse" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="复用的效率the-efficiency-of-reuse"><span class="header-section-number">19.3</span> 复用的效率（The Efficiency of Reuse）</h2>
+<p>除了视觉一致性，组件库还提高了开发效率。</p>
+<p>一旦组件被定义，开发者不再需要重复设计或实现它。相反，他们专注于组装组件以形成更大的结构。</p>
+<p>这种模块化方法减少了重复并简化了维护。如果需要进行设计改进——比如调整按钮的间距——可以在单个地方实现，并自动应用到整个应用中。</p>
+<p>通过这种方式，设计系统与引导专业软件开发其余部分的架构原则保持一致：复用、模块化和清晰。</p>
+<hr>
+</section>
+<section id="克制的原则the-principle-of-restraint" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="克制的原则the-principle-of-restraint"><span class="header-section-number">19.4</span> 克制的原则（The Principle of Restraint）</h2>
+<p>成熟设计系统的另一个特征是对<strong>克制</strong>的理解。</p>
+<p>练手项目通常试图展示多样性。不同的颜色、按钮样式和布局模式可能出现在界面各处。虽然这种实验可能很有趣，但它经常导致视觉噪音。</p>
+<p>专业系统倾向于做相反的事情。</p>
+<p>它们依赖一小套组件和视觉模式，在整个界面中一致地重复。不是多种变体，它们专注于有限的设计元素词汇。</p>
+<p>这种克制产生了清晰。</p>
+<p>用户可以专注于系统的内容和功能，而不是在每个屏幕上解读新的视觉模式。</p>
+<hr>
+</section>
+<section id="少即是多why-less-often-looks-more-professional" class="level2" data-number="19.5">
+<h2 data-number="19.5" class="anchored" data-anchor-id="少即是多why-less-often-looks-more-professional"><span class="header-section-number">19.5</span> 少即是多（Why Less Often Looks More Professional）</h2>
+<p>“少即是多”这句话经常出现在设计讨论中。虽然它听起来像哲学声明，但它有实际解释。</p>
+<p>当界面使用更少的视觉模式时，每种模式变得更容易识别和解读。</p>
+<p>按钮到处看起来都像按钮。输入框在整个表单中行为相同。卡片在各个页面中一致地呈现信息。</p>
+<p>因为系统避免了不必要的变体，界面感觉平静而受控。</p>
+<p>相反，具有太多视觉风格的界面经常感觉混乱，即使每个元素单独看很好看。</p>
+<p>专业产品达到其视觉质量的方式不是增加复杂性，而是<strong>减少不必要的变体</strong>。</p>
+<hr>
+</section>
+<section id="跨越美学差距crossing-the-aesthetic-gap" class="level2" data-number="19.6">
+<h2 data-number="19.6" class="anchored" data-anchor-id="跨越美学差距crossing-the-aesthetic-gap"><span class="header-section-number">19.6</span> 跨越美学差距（Crossing the Aesthetic Gap）</h2>
+<p>许多开发者假设创建一个精致的界面需要高级的艺术能力。</p>
+<p>实际上，业余和专业界面之间的大部分差异来自于设计系统的存在。</p>
+<p>通过采用一致的可复用组件集并限制不必要的变体，开发者可以在不成为设计专家的情况下显著提高其界面质量。</p>
+<p>现代开发框架通常提供体现这些原则的组件库。通过在这些基础上构建，开发者可以专注于功能，同时受益于连贯的视觉设计。</p>
+<p>这种方法弥合了可能感觉很大的美学差距。</p>
+<p>开发者不是为每个问题发明视觉解决方案，而是从经过验证的构建块组装界面。</p>
+<p>随着这些块在系统中重复，界面获得了用户本能地与专业软件相关联的连贯性和纪律。</p>
+<hr>
+</section>
+<section id="小结" class="level2" data-number="19.7">
+<h2 data-number="19.7" class="anchored" data-anchor-id="小结"><span class="header-section-number">19.7</span> 小结</h2>
+<p>设计系统将界面从独立元素的集合转化为统一、专业的产品。通过定义可复用的组件和维护一致的视觉规则，开发者可以在不依赖高级设计技能的情况下实现高质量的界面。</p>
+<p>组件复用、视觉一致性和克制是设计系统的核心原则。这些元素共同创造了连贯、可维护且值得信赖的界面。</p>
+<p>练手项目和专业产品之间的美学差距往往不是由艺术天赋弥合的，而是由系统性的连贯性弥合的。</p>
+<p><strong>立即行动：</strong></p>
+<p>识别你的项目中三个重复出现的界面元素。为每个元素定义一个一致的样式，并在整个应用中应用它。</p>
 
-<p>One of the most common frustrations developers encounter when building interfaces is the feeling that their applications look “unfinished” or “unprofessional,” even when the functionality works correctly.</p>
-<p>The problem often does not lie in technical implementation. It lies in <strong>visual inconsistency</strong>.</p>
-<p>Practice projects frequently design interface elements one at a time. A button is created for one screen, then another button is created later with slightly different padding, colors, or typography. Inputs may vary in height. Cards may use different shadows or spacing.</p>
-<p>Each element works individually, but together they create a fragmented interface.</p>
-<p>Professional products solve this problem through <strong>design systems</strong>.</p>
-<p>A design system defines a small set of reusable components and visual rules that apply across the entire interface. Instead of designing every element from scratch, developers assemble interfaces from consistent building blocks.</p>
-<p>This approach dramatically improves both visual quality and development efficiency.</p>
-<hr>
-<section id="components-as-building-blocks" class="level3" data-number="19.0.1">
-<h3 data-number="19.0.1" class="anchored" data-anchor-id="components-as-building-blocks"><span class="header-section-number">19.0.1</span> Components as Building Blocks</h3>
-<p>At the center of a design system is the concept of <strong>components</strong>.</p>
-<p>A component is a reusable interface element that encapsulates both appearance and behavior. Once defined, it can be used repeatedly throughout the application.</p>
-<p>Common components include elements such as buttons, input fields, cards, dialogs, and navigation elements.</p>
-<p>Each component follows a consistent structure. Its spacing, typography, colors, and interaction states remain stable across the entire application.</p>
-<p>Because these elements repeat consistently, users quickly develop familiarity with the interface. A button behaves the same way everywhere. An input field follows the same layout and validation patterns.</p>
-<p>This consistency creates the impression that the system was designed as a unified whole rather than assembled piece by piece.</p>
-<hr>
-</section>
-<section id="consistency-across-the-interface" class="level3" data-number="19.0.2">
-<h3 data-number="19.0.2" class="anchored" data-anchor-id="consistency-across-the-interface"><span class="header-section-number">19.0.2</span> Consistency Across the Interface</h3>
-<p>When components are reused consistently, visual order emerges naturally.</p>
-<p>For example, all buttons may share the same height, padding, and border radius. Inputs may follow identical alignment and labeling patterns. Cards may display content using the same spacing and typographic structure.</p>
-<p>This uniformity simplifies the interface. Instead of encountering new visual rules on every page, users interact with familiar patterns that repeat throughout the system.</p>
-<p>Practice projects often lack this consistency because each interface element is created independently. Even small differences—slightly different spacing or color variations—can accumulate and make the interface feel irregular.</p>
-<p>Design systems prevent this drift by establishing a shared foundation for all visual elements.</p>
-<hr>
-</section>
-<section id="the-efficiency-of-reuse" class="level3" data-number="19.0.3">
-<h3 data-number="19.0.3" class="anchored" data-anchor-id="the-efficiency-of-reuse"><span class="header-section-number">19.0.3</span> The Efficiency of Reuse</h3>
-<p>Beyond visual consistency, component libraries also improve development efficiency.</p>
-<p>Once a component is defined, developers no longer need to design or implement it repeatedly. Instead, they focus on assembling components to form larger structures.</p>
-<p>This modular approach reduces duplication and simplifies maintenance. If a design improvement is needed—for example, adjusting the spacing of a button—it can be implemented in a single place and automatically applied throughout the application.</p>
-<p>In this way, design systems align with the same architectural principles that guide the rest of professional software development: reuse, modularity, and clarity.</p>
-<hr>
-</section>
-<section id="the-principle-of-restraint" class="level3" data-number="19.0.4">
-<h3 data-number="19.0.4" class="anchored" data-anchor-id="the-principle-of-restraint"><span class="header-section-number">19.0.4</span> The Principle of Restraint</h3>
-<p>Another characteristic of mature design systems is restraint.</p>
-<p>Practice projects often attempt to showcase variety. Different colors, button styles, and layout patterns may appear across the interface. While this experimentation can be enjoyable, it often results in visual noise.</p>
-<p>Professional systems tend to do the opposite.</p>
-<p>They rely on a small set of components and visual patterns, repeated consistently across the interface. Instead of many variations, they focus on a limited vocabulary of design elements.</p>
-<p>This restraint produces clarity.</p>
-<p>Users can focus on the content and functionality of the system rather than deciphering new visual patterns on every screen.</p>
-<hr>
-</section>
-<section id="why-less-often-looks-more-professional" class="level3" data-number="19.0.5">
-<h3 data-number="19.0.5" class="anchored" data-anchor-id="why-less-often-looks-more-professional"><span class="header-section-number">19.0.5</span> Why Less Often Looks More Professional</h3>
-<p>The phrase “less is more” frequently appears in discussions of design. While it may sound like a philosophical statement, it has a practical explanation.</p>
-<p>When an interface uses fewer visual patterns, each pattern becomes easier to recognize and interpret.</p>
-<p>Buttons look like buttons everywhere. Input fields behave the same way across forms. Cards present information consistently across pages.</p>
-<p>Because the system avoids unnecessary variation, the interface feels calm and controlled.</p>
-<p>In contrast, interfaces with too many visual styles often feel chaotic, even when each element is individually attractive.</p>
-<p>Professional products achieve their visual quality not by adding complexity but by <strong>reducing unnecessary variation</strong>.</p>
-<hr>
-</section>
-<section id="crossing-the-aesthetic-gap" class="level3" data-number="19.0.6">
-<h3 data-number="19.0.6" class="anchored" data-anchor-id="crossing-the-aesthetic-gap"><span class="header-section-number">19.0.6</span> Crossing the Aesthetic Gap</h3>
-<p>Many developers assume that creating a polished interface requires advanced artistic ability.</p>
-<p>In reality, much of the difference between amateur and professional interfaces comes from the presence of a design system.</p>
-<p>By adopting a consistent set of reusable components and limiting unnecessary variation, developers can dramatically improve the quality of their interfaces without becoming design experts.</p>
-<p>Modern development frameworks often provide component libraries that embody these principles. By building upon these foundations, developers can focus on functionality while still benefiting from coherent visual design.</p>
-<p>This approach bridges what might otherwise feel like a large aesthetic gap.</p>
-<p>Instead of inventing visual solutions for every problem, developers assemble interfaces from proven building blocks.</p>
-<p>And as those blocks repeat across the system, the interface gains the coherence and discipline that users instinctively associate with professional software.</p>
-<hr>
-</section>
-<section id="chapter-summary" class="level2" data-number="19.1">
-<h2 data-number="19.1" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">19.1</span> Chapter Summary</h2>
-<p>Design systems transform interfaces from collections of individual elements into unified, professional products. By defining reusable components and maintaining consistent visual rules, developers can achieve high-quality interfaces without requiring advanced design skills.</p>
-<p>The key principles of design systems include component reuse, visual consistency, and restraint. These elements create interfaces that feel coherent, maintainable, and trustworthy.</p>
-<p>The aesthetic gap between practice projects and professional products is often bridged not by artistic talent, but by systematic consistency.</p>
-<hr>
-<p><strong>Practice Suggestions:</strong></p>
-<ol type="1">
-<li><strong>Start Small</strong>: Begin with a small set of core components—buttons, inputs, cards—and define their visual properties clearly.</li>
-<li><strong>Limit Variation</strong>: Restrict the number of visual patterns. A small vocabulary of components often produces better results than many variations.</li>
-<li><strong>Document Your System</strong>: Create clear guidelines for component usage to help maintain consistency as the system grows.</li>
-</ol>
-<p><strong>Immediate Action:</strong></p>
-<p>Identify three interface elements that appear repeatedly in your project. Define a consistent style for each element and apply it throughout the application.</p>
 
+<!-- -->
 
 </section>
 
@@ -666,6 +708,57 @@ ul.task-list li input[type="checkbox"] {
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -682,6 +775,13 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -997,16 +1097,138 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-17.html" class="pagination-link" aria-label="Visual Order: Professional Quality Comes from Consistent Rules">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span>
+      <a href="./chapter-17.html" class="pagination-link" aria-label="视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-19.html" class="pagination-link" aria-label="Information Architecture: Navigation, Hierarchy, and Density">
-        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-19.html" class="pagination-link" aria-label="信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）">
+        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>开发者在构建界面时遇到的最常见挫折之一是觉得他们的应用看起来"未完成"或"不专业"，即使功能正确工作。</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>问题通常不在于技术实现。而在于**视觉不一致性（visual inconsistency）**。</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>练手项目经常一次一个地设计界面元素。一个按钮是为一个屏幕创建的，然后稍后另一个按钮被创建出来，使用了略有不同的内边距、颜色或字体。输入框的高度可能不同。卡片可能使用不同的阴影或间距。</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>每个元素单独工作，但放在一起就创造了一个碎片化的界面。</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>专业产品通过**设计系统（design systems）**来解决这个问题。</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>设计系统定义了一小套可复用的组件和适用于整个界面的视觉规则。开发者不是从头设计每个元素，而是从一致的构建块组装界面。</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>这种方法显著提高了视觉质量和开发效率。</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## 组件即构建块（Components as Building Blocks）</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>设计系统的核心是**组件（components）**的概念。</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>组件是一个封装了外观和行为的可复用界面元素。一旦定义，它可以在整个应用中重复使用。</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>常见组件包括按钮、输入字段、卡片、对话框和导航元素。</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>每个组件遵循一致的结构。它的间距、字体、颜色和交互状态在整个应用中保持稳定。</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>因为这些元素持续重复，用户很快对界面产生熟悉感。一个按钮到处都以相同的方式行为。一个输入框遵循相同的布局和验证模式。</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>这种一致性创造了系统是作为统一整体设计的印象，而不是逐块拼凑的。</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## 跨界面的一致性（Consistency Across the Interface）</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>当组件被一致地复用时，视觉秩序自然出现。</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>例如，所有按钮可能共享相同的高度、内边距和边框半径。输入框可能遵循相同的对齐和标签模式。卡片可能使用相同的间距和字体结构来展示内容。</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>这种统一简化了界面。用户不是在每个页面上遇到新的视觉规则，而是与在整个系统中重复的熟悉模式交互。</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>练手项目通常缺乏这种一致性，因为每个界面元素都是独立创建的。即使微小的差异——稍微不同的间距或颜色变化——也能累积起来，使界面感觉不规则。</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>设计系统通过为所有视觉元素建立共享基础来防止这种漂移。</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## 复用的效率（The Efficiency of Reuse）</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>除了视觉一致性，组件库还提高了开发效率。</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>一旦组件被定义，开发者不再需要重复设计或实现它。相反，他们专注于组装组件以形成更大的结构。</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>这种模块化方法减少了重复并简化了维护。如果需要进行设计改进——比如调整按钮的间距——可以在单个地方实现，并自动应用到整个应用中。</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>通过这种方式，设计系统与引导专业软件开发其余部分的架构原则保持一致：复用、模块化和清晰。</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## 克制的原则（The Principle of Restraint）</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>成熟设计系统的另一个特征是对**克制**的理解。</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>练手项目通常试图展示多样性。不同的颜色、按钮样式和布局模式可能出现在界面各处。虽然这种实验可能很有趣，但它经常导致视觉噪音。</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>专业系统倾向于做相反的事情。</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>它们依赖一小套组件和视觉模式，在整个界面中一致地重复。不是多种变体，它们专注于有限的设计元素词汇。</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>这种克制产生了清晰。</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>用户可以专注于系统的内容和功能，而不是在每个屏幕上解读新的视觉模式。</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## 少即是多（Why Less Often Looks More Professional）</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>"少即是多"这句话经常出现在设计讨论中。虽然它听起来像哲学声明，但它有实际解释。</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>当界面使用更少的视觉模式时，每种模式变得更容易识别和解读。</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>按钮到处看起来都像按钮。输入框在整个表单中行为相同。卡片在各个页面中一致地呈现信息。</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>因为系统避免了不必要的变体，界面感觉平静而受控。</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>相反，具有太多视觉风格的界面经常感觉混乱，即使每个元素单独看很好看。</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>专业产品达到其视觉质量的方式不是增加复杂性，而是**减少不必要的变体**。</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## 跨越美学差距（Crossing the Aesthetic Gap）</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>许多开发者假设创建一个精致的界面需要高级的艺术能力。</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>实际上，业余和专业界面之间的大部分差异来自于设计系统的存在。</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>通过采用一致的可复用组件集并限制不必要的变体，开发者可以在不成为设计专家的情况下显著提高其界面质量。</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>现代开发框架通常提供体现这些原则的组件库。通过在这些基础上构建，开发者可以专注于功能，同时受益于连贯的视觉设计。</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>这种方法弥合了可能感觉很大的美学差距。</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>开发者不是为每个问题发明视觉解决方案，而是从经过验证的构建块组装界面。</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>随着这些块在系统中重复，界面获得了用户本能地与专业软件相关联的连贯性和纪律。</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## 小结</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>设计系统将界面从独立元素的集合转化为统一、专业的产品。通过定义可复用的组件和维护一致的视觉规则，开发者可以在不依赖高级设计技能的情况下实现高质量的界面。</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>组件复用、视觉一致性和克制是设计系统的核心原则。这些元素共同创造了连贯、可维护且值得信赖的界面。</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>练手项目和专业产品之间的美学差距往往不是由艺术天赋弥合的，而是由系统性的连贯性弥合的。</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>**立即行动：**</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>识别你的项目中三个重复出现的界面元素。为每个元素定义一个一致的样式，并在整个应用中应用它。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

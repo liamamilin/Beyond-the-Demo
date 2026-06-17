@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>13&nbsp; Configuration and Environments: From Hard-Coded Values to Deployable Systems – Beyond the Demo</title>
+<title>13&nbsp; 配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,19 +72,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./chapter-11.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -285,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-12.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-12.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -298,9 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -318,175 +318,175 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -496,23 +496,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#the-problem-with-hard-coded-values" id="toc-the-problem-with-hard-coded-values" class="nav-link active" data-scroll-target="#the-problem-with-hard-coded-values"><span class="header-section-number">13.0.1</span> The Problem with Hard-Coded Values</a></li>
-  <li><a href="#configuration-as-a-separate-layer" id="toc-configuration-as-a-separate-layer" class="nav-link" data-scroll-target="#configuration-as-a-separate-layer"><span class="header-section-number">13.0.2</span> Configuration as a Separate Layer</a></li>
-  <li><a href="#environment-variables" id="toc-environment-variables" class="nav-link" data-scroll-target="#environment-variables"><span class="header-section-number">13.0.3</span> Environment Variables</a></li>
-  <li><a href="#configuration-profiles" id="toc-configuration-profiles" class="nav-link" data-scroll-target="#configuration-profiles"><span class="header-section-number">13.0.4</span> Configuration Profiles</a></li>
-  <li><a href="#the-minimal-environment-model" id="toc-the-minimal-environment-model" class="nav-link" data-scroll-target="#the-minimal-environment-model"><span class="header-section-number">13.0.5</span> The Minimal Environment Model</a></li>
-  <li><a href="#from-local-scripts-to-deployable-systems" id="toc-from-local-scripts-to-deployable-systems" class="nav-link" data-scroll-target="#from-local-scripts-to-deployable-systems"><span class="header-section-number">13.0.6</span> From Local Scripts to Deployable Systems</a></li>
-  <li><a href="#practical-guide-configuration-management-sop" id="toc-practical-guide-configuration-management-sop" class="nav-link" data-scroll-target="#practical-guide-configuration-management-sop"><span class="header-section-number">13.1</span> Practical Guide: Configuration Management SOP</a>
-  <ul class="collapse">
-  <li><a href="#配置项分类" id="toc-配置项分类" class="nav-link" data-scroll-target="#配置项分类"><span class="header-section-number">13.1.1</span> 配置项分类</a></li>
-  <li><a href="#配置管理sop" id="toc-配置管理sop" class="nav-link" data-scroll-target="#配置管理sop"><span class="header-section-number">13.1.2</span> 配置管理SOP</a></li>
-  <li><a href="#配置安全检查清单" id="toc-配置安全检查清单" class="nav-link" data-scroll-target="#配置安全检查清单"><span class="header-section-number">13.1.3</span> 配置安全检查清单</a></li>
-  <li><a href="#quick-diagnosis-is-your-configuration-management-healthy" id="toc-quick-diagnosis-is-your-configuration-management-healthy" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-configuration-management-healthy"><span class="header-section-number">13.1.4</span> Quick Diagnosis: Is Your Configuration Management Healthy?</a></li>
-  </ul></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">13.2</span> Chapter Summary</a></li>
+  <li><a href="#硬编码值的问题the-problem-with-hard-coded-values" id="toc-硬编码值的问题the-problem-with-hard-coded-values" class="nav-link active" data-scroll-target="#硬编码值的问题the-problem-with-hard-coded-values"><span class="header-section-number">13.1</span> 硬编码值的问题（The Problem with Hard-Coded Values）</a></li>
+  <li><a href="#配置作为独立层次configuration-as-a-separate-layer" id="toc-配置作为独立层次configuration-as-a-separate-layer" class="nav-link" data-scroll-target="#配置作为独立层次configuration-as-a-separate-layer"><span class="header-section-number">13.2</span> 配置作为独立层次（Configuration as a Separate Layer）</a></li>
+  <li><a href="#环境变量environment-variables" id="toc-环境变量environment-variables" class="nav-link" data-scroll-target="#环境变量environment-variables"><span class="header-section-number">13.3</span> 环境变量（Environment Variables）</a></li>
+  <li><a href="#配置文件configuration-files" id="toc-配置文件configuration-files" class="nav-link" data-scroll-target="#配置文件configuration-files"><span class="header-section-number">13.4</span> 配置文件（Configuration Files）</a></li>
+  <li><a href="#环境特定的配置environment-specific-configuration" id="toc-环境特定的配置environment-specific-configuration" class="nav-link" data-scroll-target="#环境特定的配置environment-specific-configuration"><span class="header-section-number">13.5</span> 环境特定的配置（Environment-Specific Configuration）</a></li>
+  <li><a href="#安全地管理机密managing-secrets-securely" id="toc-安全地管理机密managing-secrets-securely" class="nav-link" data-scroll-target="#安全地管理机密managing-secrets-securely"><span class="header-section-number">13.6</span> 安全地管理机密（Managing Secrets Securely）</a></li>
+  <li><a href="#实践指南从硬编码到配置的转换" id="toc-实践指南从硬编码到配置的转换" class="nav-link" data-scroll-target="#实践指南从硬编码到配置的转换"><span class="header-section-number">13.7</span> 实践指南：从硬编码到配置的转换</a></li>
+  <li><a href="#小结" id="toc-小结" class="nav-link" data-scroll-target="#小结"><span class="header-section-number">13.8</span> 小结</a></li>
   </ul>
 </nav>
     </div>
@@ -522,7 +516,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -538,236 +532,149 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-
-<p>Many practice projects begin with a simple assumption: the code will run in a single environment controlled entirely by the developer.</p>
-<p>Because of this assumption, important values are often written directly into the code. Database addresses, API keys, file paths, and service endpoints may all appear as fixed constants inside the program.</p>
-<p>At first, this approach seems convenient. Everything needed to run the system exists in one place, and the developer does not need to worry about external configuration.</p>
-<p>However, as soon as the system moves beyond a single machine or a single developer, this approach quickly becomes a limitation.</p>
-<p>Professional systems solve this problem by separating <strong>configuration</strong> from <strong>code</strong>. Instead of embedding environment-specific values inside the program, they allow those values to be defined externally.</p>
-<p>This separation is one of the essential steps that transforms a practice project into software that can be deployed reliably.</p>
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#硬编码值的问题the-problem-with-hard-coded-values" id="toc-硬编码值的问题the-problem-with-hard-coded-values"><span class="header-section-number">13.1</span> 硬编码值的问题（The Problem with Hard-Coded Values）</a></li>
+  <li><a href="#配置作为独立层次configuration-as-a-separate-layer" id="toc-配置作为独立层次configuration-as-a-separate-layer"><span class="header-section-number">13.2</span> 配置作为独立层次（Configuration as a Separate Layer）</a></li>
+  <li><a href="#环境变量environment-variables" id="toc-环境变量environment-variables"><span class="header-section-number">13.3</span> 环境变量（Environment Variables）</a></li>
+  <li><a href="#配置文件configuration-files" id="toc-配置文件configuration-files"><span class="header-section-number">13.4</span> 配置文件（Configuration Files）</a></li>
+  <li><a href="#环境特定的配置environment-specific-configuration" id="toc-环境特定的配置environment-specific-configuration"><span class="header-section-number">13.5</span> 环境特定的配置（Environment-Specific Configuration）</a></li>
+  <li><a href="#安全地管理机密managing-secrets-securely" id="toc-安全地管理机密managing-secrets-securely"><span class="header-section-number">13.6</span> 安全地管理机密（Managing Secrets Securely）</a></li>
+  <li><a href="#实践指南从硬编码到配置的转换" id="toc-实践指南从硬编码到配置的转换"><span class="header-section-number">13.7</span> 实践指南：从硬编码到配置的转换</a></li>
+  <li><a href="#小结" id="toc-小结"><span class="header-section-number">13.8</span> 小结</a></li>
+  </ul>
+</nav>
+<p>许多练手项目开始于一个简单的假设：代码将在完全由开发者控制的单一环境中运行。</p>
+<p>由于这个假设，重要的值通常直接写在代码中。数据库地址、API 密钥、文件路径、服务端点都可能作为固定常量出现在程序中。</p>
+<p>最初，这种方法看起来很便捷。运行系统所需的一切都在一个地方，开发者不需要担心外部配置。</p>
+<p>然而，一旦系统超越单台机器或单个开发者，这种方法很快就变成了限制。</p>
+<p>专业系统通过将<strong>配置（configuration）</strong>与<strong>代码（code）</strong>分离来解决这个问题。它们不是将环境特定的值嵌入到程序中，而是允许这些值被外部定义。</p>
+<p>这种分离是将练手项目转化为可可靠部署软件的关键步骤之一。</p>
 <hr>
-<section id="the-problem-with-hard-coded-values" class="level3" data-number="13.0.1">
-<h3 data-number="13.0.1" class="anchored" data-anchor-id="the-problem-with-hard-coded-values"><span class="header-section-number">13.0.1</span> The Problem with Hard-Coded Values</h3>
-<p>Hard-coded values are easy to introduce during early development. A developer may temporarily specify a database connection string or an API endpoint directly inside the code.</p>
-<p>While this may seem harmless, these embedded values create hidden dependencies.</p>
-<p>If the system needs to run in a different environment—perhaps on another machine, a testing server, or a production platform—the code itself must be modified. Each modification introduces risk and increases the likelihood of configuration errors.</p>
-<p>Hard-coded values also make it difficult to share the project safely. Sensitive information such as credentials may accidentally be committed to version control, exposing security risks.</p>
-<p>Professional systems avoid these problems by treating configuration as an external concern rather than an internal detail.</p>
+<section id="硬编码值的问题the-problem-with-hard-coded-values" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="硬编码值的问题the-problem-with-hard-coded-values"><span class="header-section-number">13.1</span> 硬编码值的问题（The Problem with Hard-Coded Values）</h2>
+<p>硬编码值在早期开发中很容易引入。开发者可能会临时在代码中直接指定数据库连接字符串或 API 端点。</p>
+<p>虽然这看起来无害，但这些嵌入的值创建了隐藏的依赖关系。</p>
+<p>如果系统需要在不同的环境中运行——比如在另一台机器上、测试服务器或生产平台上——代码本身必须被修改。每次修改都引入风险，增加了配置错误的可能性。</p>
+<p>硬编码值也使安全共享项目变得困难。密码等敏感信息可能被意外提交到版本控制中，暴露安全风险。</p>
+<p>专业系统通过将配置视为外部关注点而非内部细节来避免这些问题。</p>
 <hr>
 </section>
-<section id="configuration-as-a-separate-layer" class="level3" data-number="13.0.2">
-<h3 data-number="13.0.2" class="anchored" data-anchor-id="configuration-as-a-separate-layer"><span class="header-section-number">13.0.2</span> Configuration as a Separate Layer</h3>
-<p>A mature system distinguishes between <strong>logic</strong> and <strong>configuration</strong>.</p>
-<p>The logic describes how the system behaves. Configuration describes how the system connects to its environment.</p>
-<p>Common configuration elements include:</p>
+<section id="配置作为独立层次configuration-as-a-separate-layer" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="配置作为独立层次configuration-as-a-separate-layer"><span class="header-section-number">13.2</span> 配置作为独立层次（Configuration as a Separate Layer）</h2>
+<p>一个成熟的系统区分<strong>逻辑（logic）</strong>和<strong>配置（configuration）</strong>。</p>
+<p>逻辑描述系统如何行为。配置描述系统如何连接到它的环境。</p>
+<p>常见的配置元素包括：</p>
 <ul>
-<li><p>database connection details</p></li>
-<li><p>service endpoints</p></li>
-<li><p>authentication credentials</p></li>
-<li><p>feature flags</p></li>
-<li><p>runtime parameters</p></li>
+<li>数据库连接细节</li>
+<li>服务端点</li>
+<li>认证凭据</li>
+<li>功能开关（feature flags）</li>
+<li>运行时参数</li>
 </ul>
-<p>Instead of embedding these values directly in the code, professional systems load them from configuration sources such as environment variables or configuration files.</p>
-<p>This separation allows the same codebase to operate under different conditions without modification.</p>
-<p>The software becomes portable. It can move from one environment to another simply by adjusting its configuration.</p>
+<p>专业系统不是将这些值直接嵌入代码，而是从环境变量或配置文件等配置源加载它们。</p>
+<p>这种分离使同一代码库可以在不同条件下运行而无需修改。</p>
+<p>软件变得可移植。它可以通过调整配置从一个环境移动到另一个环境。</p>
 <hr>
 </section>
-<section id="environment-variables" class="level3" data-number="13.0.3">
-<h3 data-number="13.0.3" class="anchored" data-anchor-id="environment-variables"><span class="header-section-number">13.0.3</span> Environment Variables</h3>
-<p>One of the most common mechanisms for managing configuration is the use of <strong>environment variables</strong>.</p>
-<p>Environment variables allow external values to be injected into the application at runtime. These values can vary depending on the machine or environment in which the software is running.</p>
-<p>For example, a system might read the address of its database or the location of an external service from environment variables.</p>
-<p>Because these values are not stored inside the codebase, they can be managed securely and adjusted independently of the application logic.</p>
-<p>Environment variables also integrate naturally with deployment platforms and automation tools, making them a widely adopted standard in professional systems.</p>
+<section id="环境变量environment-variables" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="环境变量environment-variables"><span class="header-section-number">13.3</span> 环境变量（Environment Variables）</h2>
+<p>管理配置最常见的机制之一是使用<strong>环境变量（environment variables）</strong>。</p>
+<p>环境变量是在操作系统级别设置的值，可以被运行的程序访问。它们提供了一种将配置信息与代码库分离的简单方式。</p>
+<p>例如，一个系统可能通过环境变量读取其数据库连接字符串：</p>
+<pre><code>DATABASE_URL=postgresql://user:password@localhost:5432/myapp</code></pre>
+<p>应用代码读取这个变量，而不是在源代码中包含连接细节。</p>
+<p>当系统在其他地方部署时，只需要为那个环境设置适当的环境变量。代码本身保持不变。</p>
 <hr>
 </section>
-<section id="configuration-profiles" class="level3" data-number="13.0.4">
-<h3 data-number="13.0.4" class="anchored" data-anchor-id="configuration-profiles"><span class="header-section-number">13.0.4</span> Configuration Profiles</h3>
-<p>As systems grow more complex, they often operate in multiple environments. Each environment may require slightly different configuration settings.</p>
-<p>For example, a development environment might use a local database and detailed debugging output. A testing environment might simulate production conditions while isolating test data. A production environment might prioritize performance and security.</p>
-<p>To manage these differences, many systems introduce <strong>configuration profiles</strong>.</p>
-<p>A profile groups together configuration values appropriate for a particular environment. When the application starts, it selects the profile that corresponds to its current environment.</p>
-<p>This approach allows developers to maintain a single codebase while adapting behavior to different operational contexts.</p>
-<hr>
-</section>
-<section id="the-minimal-environment-model" class="level3" data-number="13.0.5">
-<h3 data-number="13.0.5" class="anchored" data-anchor-id="the-minimal-environment-model"><span class="header-section-number">13.0.5</span> The Minimal Environment Model</h3>
-<p>Although large systems may define many environments, most projects require only a small number of layers to function effectively.</p>
-<p>A minimal and widely used structure includes three environments:</p>
-<p><strong>Development</strong><br>
-The environment used by developers during active coding. Debugging tools and detailed logging are often enabled here.</p>
-<p><strong>Staging</strong><br>
-A testing environment that closely resembles production. New features are validated here before they are released publicly.</p>
-<p><strong>Production</strong><br>
-The environment used by real users. Stability, performance, and security are prioritized.</p>
-<p>This simple separation provides a clear progression from experimentation to real-world use. Changes can be tested safely before reaching the production environment.</p>
-<p>Even small projects benefit from this structure once they begin interacting with real users or external systems.</p>
-<hr>
-</section>
-<section id="from-local-scripts-to-deployable-systems" class="level3" data-number="13.0.6">
-<h3 data-number="13.0.6" class="anchored" data-anchor-id="from-local-scripts-to-deployable-systems"><span class="header-section-number">13.0.6</span> From Local Scripts to Deployable Systems</h3>
-<p>The introduction of configuration and environment management represents a subtle but important shift in perspective.</p>
-<p>Practice projects assume a single environment and a single user. Professional systems assume multiple environments and many users.</p>
-<p>By separating configuration from code and organizing environments into clear layers, developers create software that can move reliably from development machines to staging servers and eventually to production systems.</p>
-<p>This transformation may not change the visible functionality of the software, but it dramatically increases the system’s flexibility and reliability.</p>
-<p>The project is no longer tied to one specific machine or context.</p>
-<p>It becomes <strong>deployable</strong>.</p>
-<hr>
-</section>
-<section id="practical-guide-configuration-management-sop" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="practical-guide-configuration-management-sop"><span class="header-section-number">13.1</span> Practical Guide: Configuration Management SOP</h2>
-<p>配置管理是将演示项目转化为可部署系统的关键步骤。以下是一个实用的配置管理框架，帮助你系统化地管理配置。</p>
-<section id="配置项分类" class="level3" data-number="13.1.1">
-<h3 data-number="13.1.1" class="anchored" data-anchor-id="配置项分类"><span class="header-section-number">13.1.1</span> 配置项分类</h3>
-<p><strong>敏感配置（必须使用环境变量）：</strong> - 数据库密码 - API密钥和Token - 加密密钥 - 第三方服务凭证</p>
-<p><strong>环境特定配置（使用配置文件）：</strong> - 数据库连接地址 - 服务端点URL - 日志级别 - 功能开关</p>
-<p><strong>运行时参数（使用配置文件）：</strong> - 端口号 - 超时时间 - 批处理大小 - 并发限制</p>
-</section>
-<section id="配置管理sop" class="level3" data-number="13.1.2">
-<h3 data-number="13.1.2" class="anchored" data-anchor-id="配置管理sop"><span class="header-section-number">13.1.2</span> 配置管理SOP</h3>
-<p><strong>第一步：识别配置项</strong></p>
-<ol type="1">
-<li>搜索代码中的硬编码值</li>
-<li>列出所有可能变化的参数</li>
-<li>分类为敏感配置、环境配置、运行时参数</li>
-</ol>
-<p><strong>第二步：选择配置方式</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 决策树：如何选择配置方式？</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>这个配置是否包含敏感信息？</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>├─ 是 → 使用环境变量（推荐）</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>│   └─ 示例：DATABASE_PASSWORD, API_KEY</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>└─ 否 → 这个配置是否在不同环境间变化？</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    ├─ 是 → 使用配置文件（推荐）</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    │   └─ 示例：config.dev.yaml, config.prod.yaml</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    └─ 否 → 考虑使用默认值</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        └─ 示例：端口号、超时时间</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>第三步：创建配置模板</strong></p>
-<p><strong>.env.example 文件模板：</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 数据库配置</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="va">DATABASE_URL</span><span class="op">=</span>postgresql://user:password@localhost:5432/mydb</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="va">DATABASE_PASSWORD</span><span class="op">=</span>your_password_here</span>
+<section id="配置文件configuration-files" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="配置文件configuration-files"><span class="header-section-number">13.4</span> 配置文件（Configuration Files）</h2>
+<p>环境变量适合管理少量机密值。但对于更复杂的配置，许多系统使用<strong>配置文件（configuration files）</strong>。</p>
+<p>一个配置文件包含系统运行所需的设置。它可能以 YAML、JSON 或 TOML 等格式组织。</p>
+<p>例如，一个应用可能有这样的配置文件：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">host</span><span class="kw">:</span><span class="at"> </span><span class="st">"0.0.0.0"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8080</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># API配置</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="va">API_KEY</span><span class="op">=</span>your_api_key_here</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="va">API_ENDPOINT</span><span class="op">=</span>https://api.example.com</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 功能开关</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="va">FEATURE_NEW_UI</span><span class="op">=</span>false</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="va">FEATURE_ANALYTICS</span><span class="op">=</span>true</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>config.yaml 配置文件模板：</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">host</span><span class="kw">:</span><span class="at"> localhost</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">debug</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">database</span><span class="kw">:</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">host</span><span class="kw">:</span><span class="at"> localhost</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">5432</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> myapp_dev</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span><span class="at"> DEBUG</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">format</span><span class="kw">:</span><span class="at"> json</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">features</span><span class="kw">:</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">new_ui</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">analytics</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>第四步：实现配置加载</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python示例：配置加载器</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Any</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yaml</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Config:</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, env: <span class="bu">str</span> <span class="op">=</span> <span class="st">"development"</span>):</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.env <span class="op">=</span> env</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.load_from_file()</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.load_from_env()</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.validate()</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> load_from_file(<span class="va">self</span>):</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""从配置文件加载配置"""</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        config_path <span class="op">=</span> Path(<span class="ss">f"config.</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>env<span class="sc">}</span><span class="ss">.yaml"</span>)</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> config_path.exists():</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> <span class="bu">open</span>(config_path) <span class="im">as</span> f:</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.config <span class="op">=</span> yaml.safe_load(f)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> load_from_env(<span class="va">self</span>):</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""从环境变量加载配置（优先级更高）"""</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.config[<span class="st">"database"</span>][<span class="st">"password"</span>] <span class="op">=</span> os.getenv(</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">"DATABASE_PASSWORD"</span>,</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.config.get(<span class="st">"database"</span>, {}).get(<span class="st">"password"</span>, <span class="st">""</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.config[<span class="st">"api"</span>][<span class="st">"key"</span>] <span class="op">=</span> os.getenv(</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>            <span class="st">"API_KEY"</span>,</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.config.get(<span class="st">"api"</span>, {}).get(<span class="st">"key"</span>, <span class="st">""</span>)</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> validate(<span class="va">self</span>):</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""验证配置的完整性"""</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        required_keys <span class="op">=</span> [</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">"database.url"</span>,</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>            <span class="st">"api.key"</span>,</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>        ]</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> key <span class="kw">in</span> required_keys:</span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.get(key):</span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>                <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"Missing required configuration: </span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get(<span class="va">self</span>, key: <span class="bu">str</span>, default: Any <span class="op">=</span> <span class="va">None</span>) <span class="op">-&gt;</span> Any:</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""获取配置值"""</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>        keys <span class="op">=</span> key.split(<span class="st">"."</span>)</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>        value <span class="op">=</span> <span class="va">self</span>.config</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> k <span class="kw">in</span> keys:</span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>            value <span class="op">=</span> value.get(k, {})</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> value <span class="cf">if</span> value <span class="op">!=</span> {} <span class="cf">else</span> default</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用示例</span></span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>config <span class="op">=</span> Config(env<span class="op">=</span>os.getenv(<span class="st">"ENV"</span>, <span class="st">"development"</span>))</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>db_url <span class="op">=</span> config.get(<span class="st">"database.url"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>第五步：配置安全措施</strong></p>
-<ol type="1">
-<li>将 <code>.env</code> 文件添加到 <code>.gitignore</code></li>
-<li>提供清晰的 <code>.env.example</code> 模板</li>
-<li>实施配置验证机制</li>
-<li>使用密钥管理服务（生产环境）</li>
-</ol>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">database</span><span class="kw">:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">host</span><span class="kw">:</span><span class="at"> </span><span class="st">"localhost"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">5432</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"myapp"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span><span class="at"> </span><span class="st">"info"</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">format</span><span class="kw">:</span><span class="at"> </span><span class="st">"json"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>配置文件允许团队维护不同环境的单独配置，而无需修改代码。</p>
+<hr>
 </section>
-<section id="配置安全检查清单" class="level3" data-number="13.1.3">
-<h3 data-number="13.1.3" class="anchored" data-anchor-id="配置安全检查清单"><span class="header-section-number">13.1.3</span> 配置安全检查清单</h3>
-<p><strong>安全措施：</strong> - [ ] 敏感信息使用环境变量，不写入配置文件 - [ ] <code>.env</code> 文件已添加到 <code>.gitignore</code> - [ ] 提供完整的 <code>.env.example</code> 模板 - [ ] 配置有类型验证和默认值 - [ ] 不同环境有独立配置文件 - [ ] 生产环境配置不在代码库中</p>
-<p><strong>可维护性：</strong> - [ ] 配置文档清晰说明每个配置项的用途 - [ ] 配置变更需要代码审查 - [ ] 配置有版本控制（模板文件） - [ ] 配置错误有清晰的错误消息 - [ ] 支持配置热更新（可选）</p>
-</section>
-<section id="quick-diagnosis-is-your-configuration-management-healthy" class="level3" data-number="13.1.4">
-<h3 data-number="13.1.4" class="anchored" data-anchor-id="quick-diagnosis-is-your-configuration-management-healthy"><span class="header-section-number">13.1.4</span> Quick Diagnosis: Is Your Configuration Management Healthy?</h3>
-<p>回答以下问题：</p>
-<ul class="task-list">
-<li><label><input type="checkbox">你能否在不修改代码的情况下，将系统部署到新环境？</label></li>
-<li><label><input type="checkbox">敏感信息是否从未提交到版本控制？</label></li>
-<li><label><input type="checkbox">新开发者能否通过 <code>.env.example</code> 快速配置环境？</label></li>
-<li><label><input type="checkbox">配置错误是否能在启动时被检测到？</label></li>
-<li><label><input type="checkbox">不同环境的配置是否清晰分离？</label></li>
+<section id="环境特定的配置environment-specific-configuration" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="环境特定的配置environment-specific-configuration"><span class="header-section-number">13.5</span> 环境特定的配置（Environment-Specific Configuration）</h2>
+<p>真实系统通常运行在多个环境中：</p>
+<ul>
+<li><strong>开发（development）</strong>：开发者的本地机器</li>
+<li><strong>测试（testing）</strong>：自动化测试运行的地方</li>
+<li><strong>预发布（staging）</strong>：模拟生产的测试环境</li>
+<li><strong>生产（production）</strong>：真实用户使用的环境</li>
 </ul>
+<p>每个环境可能需要不同的配置。数据库不同，服务端点不同，日志级别可能不同。</p>
+<p>专业系统通常为每个环境维护单独的配置，或者允许配置源被覆盖。</p>
+<p>例如，系统可能默认加载一个基础配置文件，然后加载一个环境特定的覆盖文件。</p>
+<p>这种分层方法使配置既可管理又灵活。</p>
 <hr>
 </section>
-</section>
-<section id="chapter-summary" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">13.2</span> Chapter Summary</h2>
-<p>配置管理是将演示项目转化为可部署系统的关键步骤。通过将配置与代码分离，我们获得了灵活性、安全性和可维护性。</p>
-<p>环境变量适合敏感信息，配置文件适合复杂配置，配置验证确保系统健康。最小环境模型（开发、测试、生产）提供了清晰的部署路径。</p>
-<p>良好的配置管理使系统能够在不同环境中可靠运行，这是专业软件的基本要求。</p>
-<p>下一章，我们将探讨日志与可观测性。如何让系统变得可理解？当系统在生产环境中运行时，我们如何知道发生了什么？</p>
+<section id="安全地管理机密managing-secrets-securely" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="安全地管理机密managing-secrets-securely"><span class="header-section-number">13.6</span> 安全地管理机密（Managing Secrets Securely）</h2>
+<p>某些配置值本质上是敏感的。数据库密码、API 令牌和加密密钥必须受到保护。</p>
+<p>练手项目常常处理不当——将机密存储在代码中或提交到版本控制。</p>
+<p>专业系统使用专门的机制来管理机密。环境变量提供了一种基本的防护级别。更敏感的环境可能需要使用机密管理服务（如 Vault、AWS Secrets Manager）。</p>
+<p>原则很简单：机密永远不应该出现在代码库中。它们应该被安全地存储，并仅通过受控的机制访问。</p>
 <hr>
-<p><strong>实践建议：</strong></p>
-<ol type="1">
-<li><strong>尽早实施</strong>：不要等到部署时才考虑配置。从一开始就设计好配置管理策略。</li>
-<li><strong>文档先行</strong>：在添加配置项之前，先记录其用途和默认值。</li>
-<li><strong>安全优先</strong>：始终假设配置可能泄露，不要在配置中存储敏感信息的明文。</li>
-<li><strong>验证配置</strong>：在应用启动时验证配置的完整性，避免运行时错误。</li>
-</ol>
-<p><strong>立即行动：</strong></p>
-<p>检查你的项目，找出所有硬编码的值。创建一个 <code>.env.example</code> 文件，列出所有需要的配置项，并为每个配置项添加说明。</p>
+</section>
+<section id="实践指南从硬编码到配置的转换" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="实践指南从硬编码到配置的转换"><span class="header-section-number">13.7</span> 实践指南：从硬编码到配置的转换</h2>
+<p><strong>第一步：识别硬编码值</strong></p>
+<p>扫描代码库，找出所有硬编码的配置值——数据库 URL、API 密钥、文件路径、魔术数字。</p>
+<p><strong>第二步：分类配置值</strong></p>
+<ul>
+<li><strong>环境特定值</strong>：在不同环境间变化（数据库、端点）</li>
+<li><strong>机密</strong>：敏感的凭据（密码、令牌、密钥）</li>
+<li><strong>应用设置</strong>：运行时行为调节（日志级别、功能开关）</li>
+</ul>
+<p><strong>第三步：实现配置加载</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yaml</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Config:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.env <span class="op">=</span> os.getenv(<span class="st">"APP_ENV"</span>, <span class="st">"development"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._load_config()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _load_config(<span class="va">self</span>):</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 加载基础配置</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(<span class="ss">f"config/</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>env<span class="sc">}</span><span class="ss">.yaml"</span>) <span class="im">as</span> f:</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            config <span class="op">=</span> yaml.safe_load(f)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 环境变量覆盖</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.database_url <span class="op">=</span> os.getenv(<span class="st">"DATABASE_URL"</span>, config[<span class="st">"database"</span>][<span class="st">"url"</span>])</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.log_level <span class="op">=</span> os.getenv(<span class="st">"LOG_LEVEL"</span>, config[<span class="st">"logging"</span>][<span class="st">"level"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>第四步：替换硬编码引用</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 之前</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> <span class="ex">connect</span>(<span class="st">"postgresql://user:pass@localhost:5432/myapp"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 之后</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> <span class="ex">connect</span>(config.database_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="小结" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="小结"><span class="header-section-number">13.8</span> 小结</h2>
+<p>从硬编码值到外部配置的转变，是将练手软件转化为可部署系统的最关键步骤之一。</p>
+<p>通过将配置与代码分离，团队可以管理多个环境、保护敏感信息，并创建可移植、可靠的软件。</p>
+<p>配置管理可能看起来不是软件中最令人兴奋的方面，但它是所有专业系统中的基础工程实践之一。下一章，我们将探讨系统的可观测性——当系统运行时，我们如何理解它在做什么？</p>
 
+
+<!-- -->
 
 </section>
 
@@ -856,6 +763,57 @@ The environment used by real users. Stability, performance, and security are pri
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -872,6 +830,13 @@ The environment used by real users. Stability, performance, and security are pri
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1187,16 +1152,197 @@ The environment used by real users. Stability, performance, and security are pri
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-11.html" class="pagination-link" aria-label="Documentation as Interface: README, Docs, and Examples">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span>
+      <a href="./chapter-11.html" class="pagination-link" aria-label="文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-13.html" class="pagination-link" aria-label="Logging and Observability: Making Systems Understandable">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-13.html" class="pagination-link" aria-label="日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>许多练手项目开始于一个简单的假设：代码将在完全由开发者控制的单一环境中运行。</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>由于这个假设，重要的值通常直接写在代码中。数据库地址、API 密钥、文件路径、服务端点都可能作为固定常量出现在程序中。</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>最初，这种方法看起来很便捷。运行系统所需的一切都在一个地方，开发者不需要担心外部配置。</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>然而，一旦系统超越单台机器或单个开发者，这种方法很快就变成了限制。</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>专业系统通过将**配置（configuration）**与**代码（code）**分离来解决这个问题。它们不是将环境特定的值嵌入到程序中，而是允许这些值被外部定义。</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>这种分离是将练手项目转化为可可靠部署软件的关键步骤之一。</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## 硬编码值的问题（The Problem with Hard-Coded Values）</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>硬编码值在早期开发中很容易引入。开发者可能会临时在代码中直接指定数据库连接字符串或 API 端点。</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>虽然这看起来无害，但这些嵌入的值创建了隐藏的依赖关系。</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>如果系统需要在不同的环境中运行——比如在另一台机器上、测试服务器或生产平台上——代码本身必须被修改。每次修改都引入风险，增加了配置错误的可能性。</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>硬编码值也使安全共享项目变得困难。密码等敏感信息可能被意外提交到版本控制中，暴露安全风险。</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>专业系统通过将配置视为外部关注点而非内部细节来避免这些问题。</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## 配置作为独立层次（Configuration as a Separate Layer）</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>一个成熟的系统区分**逻辑（logic）**和**配置（configuration）**。</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>逻辑描述系统如何行为。配置描述系统如何连接到它的环境。</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>常见的配置元素包括：</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>数据库连接细节</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>服务端点</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>认证凭据</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>功能开关（feature flags）</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>运行时参数</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>专业系统不是将这些值直接嵌入代码，而是从环境变量或配置文件等配置源加载它们。</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>这种分离使同一代码库可以在不同条件下运行而无需修改。</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>软件变得可移植。它可以通过调整配置从一个环境移动到另一个环境。</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## 环境变量（Environment Variables）</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>管理配置最常见的机制之一是使用**环境变量（environment variables）**。</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>环境变量是在操作系统级别设置的值，可以被运行的程序访问。它们提供了一种将配置信息与代码库分离的简单方式。</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>例如，一个系统可能通过环境变量读取其数据库连接字符串：</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="in">DATABASE_URL=postgresql://user:password@localhost:5432/myapp</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>应用代码读取这个变量，而不是在源代码中包含连接细节。</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>当系统在其他地方部署时，只需要为那个环境设置适当的环境变量。代码本身保持不变。</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## 配置文件（Configuration Files）</span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>环境变量适合管理少量机密值。但对于更复杂的配置，许多系统使用**配置文件（configuration files）**。</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>一个配置文件包含系统运行所需的设置。它可能以 YAML、JSON 或 TOML 等格式组织。</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>例如，一个应用可能有这样的配置文件：</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">host</span><span class="kw">:</span><span class="at"> </span><span class="st">"0.0.0.0"</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8080</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="fu">database</span><span class="kw">:</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">host</span><span class="kw">:</span><span class="at"> </span><span class="st">"localhost"</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">5432</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"myapp"</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span><span class="at"> </span><span class="st">"info"</span></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">format</span><span class="kw">:</span><span class="at"> </span><span class="st">"json"</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>配置文件允许团队维护不同环境的单独配置，而无需修改代码。</span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## 环境特定的配置（Environment-Specific Configuration）</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>真实系统通常运行在多个环境中：</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**开发（development）**：开发者的本地机器</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**测试（testing）**：自动化测试运行的地方</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**预发布（staging）**：模拟生产的测试环境</span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**生产（production）**：真实用户使用的环境</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>每个环境可能需要不同的配置。数据库不同，服务端点不同，日志级别可能不同。</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>专业系统通常为每个环境维护单独的配置，或者允许配置源被覆盖。</span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>例如，系统可能默认加载一个基础配置文件，然后加载一个环境特定的覆盖文件。</span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>这种分层方法使配置既可管理又灵活。</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## 安全地管理机密（Managing Secrets Securely）</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>某些配置值本质上是敏感的。数据库密码、API 令牌和加密密钥必须受到保护。</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>练手项目常常处理不当——将机密存储在代码中或提交到版本控制。</span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>专业系统使用专门的机制来管理机密。环境变量提供了一种基本的防护级别。更敏感的环境可能需要使用机密管理服务（如 Vault、AWS Secrets Manager）。</span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>原则很简单：机密永远不应该出现在代码库中。它们应该被安全地存储，并仅通过受控的机制访问。</span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## 实践指南：从硬编码到配置的转换</span></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>**第一步：识别硬编码值**</span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>扫描代码库，找出所有硬编码的配置值——数据库 URL、API 密钥、文件路径、魔术数字。</span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>**第二步：分类配置值**</span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**环境特定值**：在不同环境间变化（数据库、端点）</span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**机密**：敏感的凭据（密码、令牌、密钥）</span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**应用设置**：运行时行为调节（日志级别、功能开关）</span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>**第三步：实现配置加载**</span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yaml</span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Config:</span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.env <span class="op">=</span> os.getenv(<span class="st">"APP_ENV"</span>, <span class="st">"development"</span>)</span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._load_config()</span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _load_config(<span class="va">self</span>):</span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 加载基础配置</span></span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(<span class="ss">f"config/</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>env<span class="sc">}</span><span class="ss">.yaml"</span>) <span class="im">as</span> f:</span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a>            config <span class="op">=</span> yaml.safe_load(f)</span>
+<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 环境变量覆盖</span></span>
+<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.database_url <span class="op">=</span> os.getenv(<span class="st">"DATABASE_URL"</span>, config[<span class="st">"database"</span>][<span class="st">"url"</span>])</span>
+<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.log_level <span class="op">=</span> os.getenv(<span class="st">"LOG_LEVEL"</span>, config[<span class="st">"logging"</span>][<span class="st">"level"</span>])</span>
+<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a>**第四步：替换硬编码引用**</span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a><span class="co"># 之前</span></span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> <span class="ex">connect</span>(<span class="st">"postgresql://user:pass@localhost:5432/myapp"</span>)</span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a><span class="co"># 之后</span></span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> <span class="ex">connect</span>(config.database_url)</span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a><span class="fu">## 小结</span></span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a>从硬编码值到外部配置的转变，是将练手软件转化为可部署系统的最关键步骤之一。</span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a>通过将配置与代码分离，团队可以管理多个环境、保护敏感信息，并创建可移植、可靠的软件。</span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a>配置管理可能看起来不是软件中最令人兴奋的方面，但它是所有专业系统中的基础工程实践之一。下一章，我们将探讨系统的可观测性——当系统运行时，我们如何理解它在做什么？</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

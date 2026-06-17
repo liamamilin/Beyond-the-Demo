@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>26&nbsp; Security &amp; Trust Basics: The Minimum Level of Credible Security – Beyond the Demo</title>
+<title>26&nbsp; 安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,19 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./chapter-24.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-25.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-25.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,9 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -283,175 +318,175 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -461,14 +496,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#access-control-and-permissions" id="toc-access-control-and-permissions" class="nav-link active" data-scroll-target="#access-control-and-permissions"><span class="header-section-number">26.0.1</span> Access Control and Permissions</a></li>
-  <li><a href="#protecting-sensitive-data" id="toc-protecting-sensitive-data" class="nav-link" data-scroll-target="#protecting-sensitive-data"><span class="header-section-number">26.0.2</span> Protecting Sensitive Data</a></li>
-  <li><a href="#privacy-transparency" id="toc-privacy-transparency" class="nav-link" data-scroll-target="#privacy-transparency"><span class="header-section-number">26.0.3</span> Privacy Transparency</a></li>
-  <li><a href="#avoiding-hidden-risks" id="toc-avoiding-hidden-risks" class="nav-link" data-scroll-target="#avoiding-hidden-risks"><span class="header-section-number">26.0.4</span> Avoiding Hidden Risks</a></li>
-  <li><a href="#security-as-a-trust-signal" id="toc-security-as-a-trust-signal" class="nav-link" data-scroll-target="#security-as-a-trust-signal"><span class="header-section-number">26.0.5</span> Security as a Trust Signal</a></li>
+  <li><a href="#访问控制与权限access-control-and-permissions" id="toc-访问控制与权限access-control-and-permissions" class="nav-link active" data-scroll-target="#访问控制与权限access-control-and-permissions"><span class="header-section-number">26.1</span> 访问控制与权限（Access Control and Permissions）</a></li>
+  <li><a href="#保护敏感数据protecting-sensitive-data" id="toc-保护敏感数据protecting-sensitive-data" class="nav-link" data-scroll-target="#保护敏感数据protecting-sensitive-data"><span class="header-section-number">26.2</span> 保护敏感数据（Protecting Sensitive Data）</a></li>
+  <li><a href="#隐私透明privacy-transparency" id="toc-隐私透明privacy-transparency" class="nav-link" data-scroll-target="#隐私透明privacy-transparency"><span class="header-section-number">26.3</span> 隐私透明（Privacy Transparency）</a></li>
+  <li><a href="#避免隐藏风险avoiding-hidden-risks" id="toc-避免隐藏风险avoiding-hidden-risks" class="nav-link" data-scroll-target="#避免隐藏风险avoiding-hidden-risks"><span class="header-section-number">26.4</span> 避免隐藏风险（Avoiding Hidden Risks）</a></li>
+  <li><a href="#安全即信任信号security-as-a-trust-signal" id="toc-安全即信任信号security-as-a-trust-signal" class="nav-link" data-scroll-target="#安全即信任信号security-as-a-trust-signal"><span class="header-section-number">26.5</span> 安全即信任信号（Security as a Trust Signal）</a></li>
   </ul>
 </nav>
     </div>
@@ -478,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -494,66 +529,76 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#访问控制与权限access-control-and-permissions" id="toc-访问控制与权限access-control-and-permissions"><span class="header-section-number">26.1</span> 访问控制与权限（Access Control and Permissions）</a></li>
+  <li><a href="#保护敏感数据protecting-sensitive-data" id="toc-保护敏感数据protecting-sensitive-data"><span class="header-section-number">26.2</span> 保护敏感数据（Protecting Sensitive Data）</a></li>
+  <li><a href="#隐私透明privacy-transparency" id="toc-隐私透明privacy-transparency"><span class="header-section-number">26.3</span> 隐私透明（Privacy Transparency）</a></li>
+  <li><a href="#避免隐藏风险avoiding-hidden-risks" id="toc-避免隐藏风险avoiding-hidden-risks"><span class="header-section-number">26.4</span> 避免隐藏风险（Avoiding Hidden Risks）</a></li>
+  <li><a href="#安全即信任信号security-as-a-trust-signal" id="toc-安全即信任信号security-as-a-trust-signal"><span class="header-section-number">26.5</span> 安全即信任信号（Security as a Trust Signal）</a></li>
+  </ul>
+</nav>
+<p>当人们评估系统是否感觉专业时，他们不仅观察功能或设计。他们还在问一个更安静的问题：</p>
+<p><strong>这个系统可以被信任吗？</strong></p>
+<p>信任不需要军级安全或复杂的加密基础设施。许多早期阶段的产品不需要高级安全机制。</p>
+<p>然而，专业系统仍然展示<strong>基本的安全意识（basic security awareness）</strong>。它们表明开发者对用户数据和系统访问承担责任。</p>
+<p>练手项目往往完全忽略这些担忧。认证可能不存在，敏感数据可能出现在日志中，项目可能不解释用户信息如何处理。</p>
+<p>专业系统引入了一个最小的安全信号层，让用户确信系统是经过深思熟虑设计的。</p>
+<p>即使是轻量级的措施也能显著改变对可靠性的感知。</p>
+<hr>
+<section id="访问控制与权限access-control-and-permissions" class="level2" data-number="26.1">
+<h2 data-number="26.1" class="anchored" data-anchor-id="访问控制与权限access-control-and-permissions"><span class="header-section-number">26.1</span> 访问控制与权限（Access Control and Permissions）</h2>
+<p>安全最基本的方面之一是控制谁可以执行某些操作。</p>
+<p>在小项目中，每个用户可能对系统拥有不受限制的访问权限。这种简洁在演示中可以工作，但一旦系统与真实用户或敏感数据交互就变得成问题。</p>
+<p>专业系统引入了<strong>权限边界（permission boundaries）</strong>。</p>
+<p>这些边界定义了不同用户被允许执行什么操作。一些用户可能拥有管理权限，而其他用户只能查看或修改他们自己的数据。</p>
+<p>这些边界的目的是不是制造复杂性，而是防止意外或未经授权的操作。</p>
+<p>即使是简单的基于角色的权限也表明系统理解受控访问的重要性。</p>
+<hr>
+</section>
+<section id="保护敏感数据protecting-sensitive-data" class="level2" data-number="26.2">
+<h2 data-number="26.2" class="anchored" data-anchor-id="保护敏感数据protecting-sensitive-data"><span class="header-section-number">26.2</span> 保护敏感数据（Protecting Sensitive Data）</h2>
+<p>最小化安全的另一个重要方面是对敏感数据的处理。</p>
+<p>系统经常处理诸如认证令牌、用户标识符或私人记录等信息。如果这些数据被粗心地存储或传输，可能使用户面临风险。</p>
+<p>专业系统因此采取基本的保护实践。</p>
+<p>敏感值不直接嵌入代码仓库。凭据通过环境变量或安全配置机制来管理。日志避免记录机密信息。</p>
+<p>这些实践可能看起来简单，但它们显著降低了意外暴露的可能性。</p>
+<p>保护敏感数据是系统被负责任地设计的最清晰指标之一。</p>
+<hr>
+</section>
+<section id="隐私透明privacy-transparency" class="level2" data-number="26.3">
+<h2 data-number="26.3" class="anchored" data-anchor-id="隐私透明privacy-transparency"><span class="header-section-number">26.3</span> 隐私透明（Privacy Transparency）</h2>
+<p>用户越来越期望关于他们的数据如何处理有清晰的说明。</p>
+<p>即使是小系统也能从解释它们收集了什么信息以及如何使用这些信息中受益。</p>
+<p>专业项目通常包含一份简短的<strong>隐私声明（privacy statement）</strong>或数据使用说明。这份声明不需要法律上的复杂。它的目的仅仅是沟通透明度。</p>
+<p>用户应该理解系统存储了什么数据、为什么存储它以及这些信息如何被保护。</p>
+<p>这种透明度直接有助于用户信任。</p>
+<p>当系统承认对数据处理的责任时，这表明开发者认真对待用户的担忧。</p>
+<hr>
+</section>
+<section id="避免隐藏风险avoiding-hidden-risks" class="level2" data-number="26.4">
+<h2 data-number="26.4" class="anchored" data-anchor-id="避免隐藏风险avoiding-hidden-risks"><span class="header-section-number">26.4</span> 避免隐藏风险（Avoiding Hidden Risks）</h2>
+<p>许多安全问题不是来自复杂的攻击，而是来自被忽视的细节。</p>
+<p>例如暴露内部错误消息、让管理端点不受保护、或允许无限制的请求压倒系统。</p>
+<p>专业系统通过基本的安全防护来减轻这些风险。</p>
+<p>输入验证防止恶意数据进入系统。速率限制防止过多请求。错误消息避免暴露内部实现细节。</p>
+<p>这些措施并不复杂，但它们显著降低了常见漏洞的可能性。</p>
+<hr>
+</section>
+<section id="安全即信任信号security-as-a-trust-signal" class="level2" data-number="26.5">
+<h2 data-number="26.5" class="anchored" data-anchor-id="安全即信任信号security-as-a-trust-signal"><span class="header-section-number">26.5</span> 安全即信任信号（Security as a Trust Signal）</h2>
+<p>最小化安全的目标不是完美。</p>
+<p>相反，它是为了证明系统在设计时意识到了责任。</p>
+<p>用户很少直接检查安全机制。相反，他们解读表明系统对访问、数据和通信谨慎的信号。</p>
+<p>权限控制显示操作被适当地限制。安全的配置实践显示敏感信息被保护。隐私声明显示数据处理是透明的。</p>
+<p>这些元素共同创造了一个基线水平的可信度。</p>
+<p>即使是轻量级的保护也传达了重要的信息：系统不仅仅是一个演示。</p>
+<p>它是一个承认用户对其信任——并认真对待那种信任的系统。</p>
 
-<p>When people evaluate whether a system feels professional, they are not only observing functionality or design. They are also asking a quieter question:</p>
-<p><strong>Can this system be trusted?</strong></p>
-<p>Trust does not require military-grade security or complex cryptographic infrastructure. Many early-stage products do not need advanced security mechanisms.</p>
-<p>However, professional systems still demonstrate <strong>basic security awareness</strong>. They show that the developers understand responsibility for user data and system access.</p>
-<p>Practice projects often ignore these concerns entirely. Authentication may not exist, sensitive data may appear in logs, and the project may provide no explanation of how user information is handled.</p>
-<p>Professional systems introduce a minimal layer of security signals that reassure users the system is designed with care.</p>
-<p>Even lightweight measures can dramatically change the perception of reliability.</p>
-<hr>
-<section id="access-control-and-permissions" class="level3" data-number="26.0.1">
-<h3 data-number="26.0.1" class="anchored" data-anchor-id="access-control-and-permissions"><span class="header-section-number">26.0.1</span> Access Control and Permissions</h3>
-<p>One of the most fundamental aspects of security is controlling who can perform certain actions.</p>
-<p>In small projects, every user may have unrestricted access to the system. This simplicity works for demonstrations but becomes problematic as soon as the system interacts with real users or sensitive data.</p>
-<p>Professional systems introduce <strong>permission boundaries</strong>.</p>
-<p>These boundaries define what actions different users are allowed to perform. Some users may have administrative privileges, while others can only view or modify their own data.</p>
-<p>The purpose of these boundaries is not to create complexity but to prevent accidental or unauthorized actions.</p>
-<p>Even simple role-based permissions demonstrate that the system understands the importance of controlled access.</p>
-<hr>
-</section>
-<section id="protecting-sensitive-data" class="level3" data-number="26.0.2">
-<h3 data-number="26.0.2" class="anchored" data-anchor-id="protecting-sensitive-data"><span class="header-section-number">26.0.2</span> Protecting Sensitive Data</h3>
-<p>Another important aspect of minimal security is the treatment of sensitive data.</p>
-<p>Systems often handle information such as authentication tokens, user identifiers, or private records. If this data is stored or transmitted carelessly, it can expose users to risk.</p>
-<p>Professional systems therefore adopt basic protective practices.</p>
-<p>Sensitive values are not embedded directly in code repositories. Credentials are managed through environment variables or secure configuration mechanisms. Logs avoid recording confidential information.</p>
-<p>These practices may appear simple, but they significantly reduce the likelihood of accidental exposure.</p>
-<p>Protecting sensitive data is one of the clearest indicators that a system is designed responsibly.</p>
-<hr>
-</section>
-<section id="privacy-transparency" class="level3" data-number="26.0.3">
-<h3 data-number="26.0.3" class="anchored" data-anchor-id="privacy-transparency"><span class="header-section-number">26.0.3</span> Privacy Transparency</h3>
-<p>Users increasingly expect clarity about how their data is handled.</p>
-<p>Even small systems benefit from explaining what information they collect and how it is used.</p>
-<p>Professional projects often include a short <strong>privacy statement</strong> or data usage description. This statement does not need to be legally complex. Its purpose is simply to communicate transparency.</p>
-<p>Users should understand what data the system stores, why it stores it, and how that information is protected.</p>
-<p>This transparency contributes directly to user trust.</p>
-<p>When a system acknowledges responsibility for data handling, it signals that the developers take user concerns seriously.</p>
-<hr>
-</section>
-<section id="avoiding-hidden-risks" class="level3" data-number="26.0.4">
-<h3 data-number="26.0.4" class="anchored" data-anchor-id="avoiding-hidden-risks"><span class="header-section-number">26.0.4</span> Avoiding Hidden Risks</h3>
-<p>Many security problems arise not from sophisticated attacks but from overlooked details.</p>
-<p>Examples include exposing internal error messages, leaving administrative endpoints unprotected, or allowing unlimited requests that can overwhelm the system.</p>
-<p>Professional systems mitigate these risks through basic safeguards.</p>
-<p>Input validation prevents malicious data from entering the system. Rate limits protect against excessive requests. Error messages avoid revealing internal implementation details.</p>
-<p>These measures are not complicated, yet they significantly reduce the likelihood of common vulnerabilities.</p>
-<hr>
-</section>
-<section id="security-as-a-trust-signal" class="level3" data-number="26.0.5">
-<h3 data-number="26.0.5" class="anchored" data-anchor-id="security-as-a-trust-signal"><span class="header-section-number">26.0.5</span> Security as a Trust Signal</h3>
-<p>The goal of minimal security is not perfection.</p>
-<p>Instead, it is to demonstrate that the system has been designed with awareness of responsibility.</p>
-<p>Users rarely examine security mechanisms directly. Instead, they interpret signals that suggest the system is careful with access, data, and communication.</p>
-<p>Permission controls show that actions are restricted appropriately.<br>
-Secure configuration practices show that sensitive information is protected.<br>
-Privacy statements show that data handling is transparent.</p>
-<p>Together, these elements create a baseline level of credibility.</p>
-<p>Even lightweight protections communicate something important: the system is not merely a demonstration.</p>
-<p>It is a system that acknowledges the trust users place in it—and takes that trust seriously.</p>
 
+<!-- -->
 
 </section>
 
@@ -642,6 +687,57 @@ Privacy statements show that data handling is transparent.</p>
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -658,6 +754,13 @@ Privacy statements show that data handling is transparent.</p>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -973,16 +1076,112 @@ Privacy statements show that data handling is transparent.</p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-24.html" class="pagination-link" aria-label="Demo to Product Checklist: A Maturity Verification Framework">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span>
+      <a href="./chapter-24.html" class="pagination-link" aria-label="演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-26.html" class="pagination-link" aria-label="Designing Your “Credible Narrative”">
-        <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-26.html" class="pagination-link" aria-label="设计你的&quot;可信叙事&quot;（Designing Your &quot;Credible Narrative&quot;）">
+        <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>当人们评估系统是否感觉专业时，他们不仅观察功能或设计。他们还在问一个更安静的问题：</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>**这个系统可以被信任吗？**</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>信任不需要军级安全或复杂的加密基础设施。许多早期阶段的产品不需要高级安全机制。</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>然而，专业系统仍然展示**基本的安全意识（basic security awareness）**。它们表明开发者对用户数据和系统访问承担责任。</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>练手项目往往完全忽略这些担忧。认证可能不存在，敏感数据可能出现在日志中，项目可能不解释用户信息如何处理。</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>专业系统引入了一个最小的安全信号层，让用户确信系统是经过深思熟虑设计的。</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>即使是轻量级的措施也能显著改变对可靠性的感知。</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## 访问控制与权限（Access Control and Permissions）</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>安全最基本的方面之一是控制谁可以执行某些操作。</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>在小项目中，每个用户可能对系统拥有不受限制的访问权限。这种简洁在演示中可以工作，但一旦系统与真实用户或敏感数据交互就变得成问题。</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>专业系统引入了**权限边界（permission boundaries）**。</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>这些边界定义了不同用户被允许执行什么操作。一些用户可能拥有管理权限，而其他用户只能查看或修改他们自己的数据。</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>这些边界的目的是不是制造复杂性，而是防止意外或未经授权的操作。</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>即使是简单的基于角色的权限也表明系统理解受控访问的重要性。</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## 保护敏感数据（Protecting Sensitive Data）</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>最小化安全的另一个重要方面是对敏感数据的处理。</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>系统经常处理诸如认证令牌、用户标识符或私人记录等信息。如果这些数据被粗心地存储或传输，可能使用户面临风险。</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>专业系统因此采取基本的保护实践。</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>敏感值不直接嵌入代码仓库。凭据通过环境变量或安全配置机制来管理。日志避免记录机密信息。</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>这些实践可能看起来简单，但它们显著降低了意外暴露的可能性。</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>保护敏感数据是系统被负责任地设计的最清晰指标之一。</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 隐私透明（Privacy Transparency）</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>用户越来越期望关于他们的数据如何处理有清晰的说明。</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>即使是小系统也能从解释它们收集了什么信息以及如何使用这些信息中受益。</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>专业项目通常包含一份简短的**隐私声明（privacy statement）**或数据使用说明。这份声明不需要法律上的复杂。它的目的仅仅是沟通透明度。</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>用户应该理解系统存储了什么数据、为什么存储它以及这些信息如何被保护。</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>这种透明度直接有助于用户信任。</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>当系统承认对数据处理的责任时，这表明开发者认真对待用户的担忧。</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## 避免隐藏风险（Avoiding Hidden Risks）</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>许多安全问题不是来自复杂的攻击，而是来自被忽视的细节。</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>例如暴露内部错误消息、让管理端点不受保护、或允许无限制的请求压倒系统。</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>专业系统通过基本的安全防护来减轻这些风险。</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>输入验证防止恶意数据进入系统。速率限制防止过多请求。错误消息避免暴露内部实现细节。</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>这些措施并不复杂，但它们显著降低了常见漏洞的可能性。</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## 安全即信任信号（Security as a Trust Signal）</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>最小化安全的目标不是完美。</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>相反，它是为了证明系统在设计时意识到了责任。</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>用户很少直接检查安全机制。相反，他们解读表明系统对访问、数据和通信谨慎的信号。</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>权限控制显示操作被适当地限制。安全的配置实践显示敏感信息被保护。隐私声明显示数据处理是透明的。</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>这些元素共同创造了一个基线水平的可信度。</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>即使是轻量级的保护也传达了重要的信息：系统不仅仅是一个演示。</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>它是一个承认用户对其信任——并认真对待那种信任的系统。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

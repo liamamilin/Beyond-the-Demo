@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>27&nbsp; Designing Your “Credible Narrative” – Beyond the Demo</title>
+<title>27&nbsp; 设计你的”可信叙事”（Designing Your “Credible Narrative”） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,19 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./chapter-25.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-26.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-26.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,9 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -283,175 +318,175 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -461,16 +496,15 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#why-systems-need-narratives" id="toc-why-systems-need-narratives" class="nav-link active" data-scroll-target="#why-systems-need-narratives"><span class="header-section-number">27.0.1</span> Why Systems Need Narratives</a></li>
-  <li><a href="#architecture-as-explanation" id="toc-architecture-as-explanation" class="nav-link" data-scroll-target="#architecture-as-explanation"><span class="header-section-number">27.0.2</span> Architecture as Explanation</a></li>
-  <li><a href="#data-models-as-stability-signals" id="toc-data-models-as-stability-signals" class="nav-link" data-scroll-target="#data-models-as-stability-signals"><span class="header-section-number">27.0.3</span> Data Models as Stability Signals</a></li>
-  <li><a href="#boundaries-and-safeguards" id="toc-boundaries-and-safeguards" class="nav-link" data-scroll-target="#boundaries-and-safeguards"><span class="header-section-number">27.0.4</span> Boundaries and Safeguards</a></li>
-  <li><a href="#turning-structure-into-narrative" id="toc-turning-structure-into-narrative" class="nav-link" data-scroll-target="#turning-structure-into-narrative"><span class="header-section-number">27.0.5</span> Turning Structure into Narrative</a></li>
-  <li><a href="#trust-through-transparency" id="toc-trust-through-transparency" class="nav-link" data-scroll-target="#trust-through-transparency"><span class="header-section-number">27.0.6</span> Trust Through Transparency</a></li>
-  <li><a href="#the-system-explains-itself" id="toc-the-system-explains-itself" class="nav-link" data-scroll-target="#the-system-explains-itself"><span class="header-section-number">27.0.7</span> The System Explains Itself</a></li>
+  <li><a href="#系统为什么需要叙事why-systems-need-narratives" id="toc-系统为什么需要叙事why-systems-need-narratives" class="nav-link active" data-scroll-target="#系统为什么需要叙事why-systems-need-narratives"><span class="header-section-number">27.1</span> 系统为什么需要叙事（Why Systems Need Narratives）</a></li>
+  <li><a href="#架构即解释architecture-as-explanation" id="toc-架构即解释architecture-as-explanation" class="nav-link" data-scroll-target="#架构即解释architecture-as-explanation"><span class="header-section-number">27.2</span> 架构即解释（Architecture as Explanation）</a></li>
+  <li><a href="#数据模型即稳定信号data-models-as-stability-signals" id="toc-数据模型即稳定信号data-models-as-stability-signals" class="nav-link" data-scroll-target="#数据模型即稳定信号data-models-as-stability-signals"><span class="header-section-number">27.3</span> 数据模型即稳定信号（Data Models as Stability Signals）</a></li>
+  <li><a href="#边界与保障boundaries-and-safeguards" id="toc-边界与保障boundaries-and-safeguards" class="nav-link" data-scroll-target="#边界与保障boundaries-and-safeguards"><span class="header-section-number">27.4</span> 边界与保障（Boundaries and Safeguards）</a></li>
+  <li><a href="#将结构转化为叙事turning-structure-into-narrative" id="toc-将结构转化为叙事turning-structure-into-narrative" class="nav-link" data-scroll-target="#将结构转化为叙事turning-structure-into-narrative"><span class="header-section-number">27.5</span> 将结构转化为叙事（Turning Structure into Narrative）</a></li>
+  <li><a href="#通过透明赢得信任trust-through-transparency" id="toc-通过透明赢得信任trust-through-transparency" class="nav-link" data-scroll-target="#通过透明赢得信任trust-through-transparency"><span class="header-section-number">27.6</span> 通过透明赢得信任（Trust Through Transparency）</a></li>
   </ul>
 </nav>
     </div>
@@ -480,7 +514,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -496,91 +530,91 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#系统为什么需要叙事why-systems-need-narratives" id="toc-系统为什么需要叙事why-systems-need-narratives"><span class="header-section-number">27.1</span> 系统为什么需要叙事（Why Systems Need Narratives）</a></li>
+  <li><a href="#架构即解释architecture-as-explanation" id="toc-架构即解释architecture-as-explanation"><span class="header-section-number">27.2</span> 架构即解释（Architecture as Explanation）</a></li>
+  <li><a href="#数据模型即稳定信号data-models-as-stability-signals" id="toc-数据模型即稳定信号data-models-as-stability-signals"><span class="header-section-number">27.3</span> 数据模型即稳定信号（Data Models as Stability Signals）</a></li>
+  <li><a href="#边界与保障boundaries-and-safeguards" id="toc-边界与保障boundaries-and-safeguards"><span class="header-section-number">27.4</span> 边界与保障（Boundaries and Safeguards）</a></li>
+  <li><a href="#将结构转化为叙事turning-structure-into-narrative" id="toc-将结构转化为叙事turning-structure-into-narrative"><span class="header-section-number">27.5</span> 将结构转化为叙事（Turning Structure into Narrative）</a></li>
+  <li><a href="#通过透明赢得信任trust-through-transparency" id="toc-通过透明赢得信任trust-through-transparency"><span class="header-section-number">27.6</span> 通过透明赢得信任（Trust Through Transparency）</a></li>
+  </ul>
+</nav>
+<p>当人们遇到一个专业产品时，他们很少阅读整个代码库来确定系统是否可靠。</p>
+<p>相反，他们根据信号形成判断。</p>
+<p>他们看到清晰的架构图。 他们阅读解释数据如何流动的文档。 他们观察到边界、保障和定义良好的接口。</p>
+<p>从这些信号中，他们构建了一个关于系统的心理故事。</p>
+<p>这个故事就是我们所说的<strong>可信叙事（credible narrative）</strong>。</p>
+<p>它不是营销语言，也不是夸张。一个可信叙事只是简单地解释为什么系统可以被信任。</p>
+<p>专业项目理解可靠性不仅必须在内部存在——它还必须<strong>从外部可见和可理解</strong>。</p>
+<hr>
+<section id="系统为什么需要叙事why-systems-need-narratives" class="level2" data-number="27.1">
+<h2 data-number="27.1" class="anchored" data-anchor-id="系统为什么需要叙事why-systems-need-narratives"><span class="header-section-number">27.1</span> 系统为什么需要叙事（Why Systems Need Narratives）</h2>
+<p>软件系统是复杂的。</p>
+<p>即使是中等大小的项目也包含许多组件、依赖项和逻辑层。对于第一次遇到系统的人来说，这种复杂性可能是压倒性的。</p>
+<p>一个可信叙事通过呈现<strong>系统结构和保证的简化解释</strong>来解决这个问题。</p>
+<p>叙事不是迫使人检查每个实现细节，而是回答关键问题：</p>
+<p>系统是如何结构化的？ 数据流向哪里？ 什么防止错误或误用？ 什么保障可靠性？</p>
+<p>通过清晰地回答这些问题，系统变得更容易理解和信任。</p>
+<hr>
+</section>
+<section id="架构即解释architecture-as-explanation" class="level2" data-number="27.2">
+<h2 data-number="27.2" class="anchored" data-anchor-id="架构即解释architecture-as-explanation"><span class="header-section-number">27.2</span> 架构即解释（Architecture as Explanation）</h2>
+<p>创建可信叙事最强大的工具之一是<strong>架构图（architecture diagram）</strong>。</p>
+<p>架构图可视化系统的主要组件以及它们如何交互。</p>
+<p>它可能显示用户与系统交互的接口层、业务逻辑运行的应用层以及数据维护的存储层。</p>
+<p>即使一个简单的图表也能极大地改善理解。</p>
+<p>读者不再想象一个不可见的结构，而是可以看到系统是如何组织的。</p>
+<p>图表成为了系统设计哲学的视觉解释。</p>
+<hr>
+</section>
+<section id="数据模型即稳定信号data-models-as-stability-signals" class="level2" data-number="27.3">
+<h2 data-number="27.3" class="anchored" data-anchor-id="数据模型即稳定信号data-models-as-stability-signals"><span class="header-section-number">27.3</span> 数据模型即稳定信号（Data Models as Stability Signals）</h2>
+<p>可信叙事的另一个重要元素是<strong>数据模型（data model）</strong>。</p>
+<p>当一个系统清晰地定义其实体和关系时，它表明领域已经被仔细地结构化。</p>
+<p>用户和协作者可以看到信息是如何表示的，以及系统的不同部分如何相互依赖。</p>
+<p>一个清晰的数据模型暗示了稳定性。</p>
+<p>它表明系统不是临时拼凑结构，而是建立在其领域的有意表征之上。</p>
+<p>这种清晰度强化了系统是为长期使用而设计的感知。</p>
+<hr>
+</section>
+<section id="边界与保障boundaries-and-safeguards" class="level2" data-number="27.4">
+<h2 data-number="27.4" class="anchored" data-anchor-id="边界与保障boundaries-and-safeguards"><span class="header-section-number">27.4</span> 边界与保障（Boundaries and Safeguards）</h2>
+<p>专业系统也传达保护其运行的边界。</p>
+<p>这些边界可能包括验证规则、权限系统、错误处理策略和监控机制。</p>
+<p>这些元素各自都贡献了系统的韧性。</p>
+<p>当这些保障被清晰地解释时，它们成为可靠性叙事的一部分。</p>
+<p>读者开始理解不仅是系统做什么，还有它如何防止失败和保护数据。</p>
+<p>这种理解加强了对系统设计的信心。</p>
+<hr>
+</section>
+<section id="将结构转化为叙事turning-structure-into-narrative" class="level2" data-number="27.5">
+<h2 data-number="27.5" class="anchored" data-anchor-id="将结构转化为叙事turning-structure-into-narrative"><span class="header-section-number">27.5</span> 将结构转化为叙事（Turning Structure into Narrative）</h2>
+<p>一个可信叙事不需要精心设计的讲故事技巧。</p>
+<p>它只是将技术结构转化为其他人能够理解的解释。</p>
+<p>一个架构图成为系统层级的描述。 一个数据模型成为领域逻辑的表征。 验证规则和错误处理成为可靠性的证据。</p>
+<p>这些元素共同形成了系统行为的连贯解释。</p>
+<p>叙事使外界看到系统是被深思熟虑地设计的，而不是偶然拼凑的。</p>
+<hr>
+</section>
+<section id="通过透明赢得信任trust-through-transparency" class="level2" data-number="27.6">
+<h2 data-number="27.6" class="anchored" data-anchor-id="通过透明赢得信任trust-through-transparency"><span class="header-section-number">27.6</span> 通过透明赢得信任（Trust Through Transparency）</h2>
+<p>在许多练手项目中，系统的内部设计保持隐藏。开发者可能理解架构，但项目提供很少的解释给其他人。</p>
+<p>专业系统认识到透明性加强信任。</p>
+<p>当系统的结构可见且可理解时，用户和协作者可以形成对软件行为方式的现实预期。</p>
+<p>他们可以看到维护可靠性的机制和防止误用的边界。</p>
+<p>这种可见性将技术结构转化为成熟度的公共信号。</p>
+<p>最终，一个可信叙事允许系统解释自己。</p>
+<p>系统不是依赖宣传性质的语言，而是简单地揭示支持其运作的结构。</p>
+<p>架构图展示组件如何交互。 数据模型揭示信息如何组织。 保障措施展示风险如何被控制。</p>
+<p>通过这些解释，系统传达了一个安静但强大的信息：</p>
+<p>它是有意为之的设计。</p>
+<p>当一个系统展示了那种程度的清晰度和意图时，它自然地赢得了使用者的信任。</p>
 
-<p>When people encounter a professional product, they rarely read the entire codebase to determine whether the system is reliable.</p>
-<p>Instead, they form a judgment from signals.</p>
-<p>They see a clear architecture diagram.<br>
-They read documentation that explains how data flows.<br>
-They observe boundaries, safeguards, and well-defined interfaces.</p>
-<p>From these signals, they construct a mental story about the system.</p>
-<p>This story is what we can call a <strong>credible narrative</strong>.</p>
-<p>It is not marketing language, and it is not exaggeration. A credible narrative simply explains why the system can be trusted.</p>
-<p>Professional projects understand that reliability must not only exist internally—it must also be <strong>visible and understandable from the outside</strong>.</p>
-<hr>
-<section id="why-systems-need-narratives" class="level3" data-number="27.0.1">
-<h3 data-number="27.0.1" class="anchored" data-anchor-id="why-systems-need-narratives"><span class="header-section-number">27.0.1</span> Why Systems Need Narratives</h3>
-<p>Software systems are complex.</p>
-<p>Even moderately sized projects contain many components, dependencies, and layers of logic. For someone encountering the system for the first time, this complexity can be overwhelming.</p>
-<p>A credible narrative solves this problem by presenting a <strong>simplified explanation of the system’s structure and guarantees</strong>.</p>
-<p>Instead of forcing people to inspect every implementation detail, the narrative answers key questions:</p>
-<p>How is the system structured?<br>
-Where does data flow?<br>
-What prevents errors or misuse?<br>
-What guarantees reliability?</p>
-<p>By answering these questions clearly, the system becomes easier to understand and easier to trust.</p>
-<hr>
-</section>
-<section id="architecture-as-explanation" class="level3" data-number="27.0.2">
-<h3 data-number="27.0.2" class="anchored" data-anchor-id="architecture-as-explanation"><span class="header-section-number">27.0.2</span> Architecture as Explanation</h3>
-<p>One of the most powerful tools for creating a credible narrative is the <strong>architecture diagram</strong>.</p>
-<p>An architecture diagram visualizes the major components of the system and how they interact.</p>
-<p>It may show the interface layer where users interact with the system, the application layer where business logic operates, and the storage layer where data is maintained.</p>
-<p>Even a simple diagram can dramatically improve understanding.</p>
-<p>Instead of imagining an invisible structure, readers can see how the system is organized.</p>
-<p>The diagram becomes a visual explanation of the system’s design philosophy.</p>
-<hr>
-</section>
-<section id="data-models-as-stability-signals" class="level3" data-number="27.0.3">
-<h3 data-number="27.0.3" class="anchored" data-anchor-id="data-models-as-stability-signals"><span class="header-section-number">27.0.3</span> Data Models as Stability Signals</h3>
-<p>Another important element of credible narratives is the <strong>data model</strong>.</p>
-<p>When a system clearly defines its entities and relationships, it signals that the domain has been carefully structured.</p>
-<p>Users and collaborators can see how information is represented and how different parts of the system depend on one another.</p>
-<p>A clear data model suggests stability.</p>
-<p>It shows that the system is not improvising its structure but is built upon a deliberate representation of its domain.</p>
-<p>This clarity reinforces the perception that the system is designed for long-term use.</p>
-<hr>
-</section>
-<section id="boundaries-and-safeguards" class="level3" data-number="27.0.4">
-<h3 data-number="27.0.4" class="anchored" data-anchor-id="boundaries-and-safeguards"><span class="header-section-number">27.0.4</span> Boundaries and Safeguards</h3>
-<p>Professional systems also communicate the boundaries that protect their operation.</p>
-<p>These boundaries may include validation rules, permission systems, error-handling strategies, and monitoring mechanisms.</p>
-<p>Each of these elements contributes to the system’s resilience.</p>
-<p>When these safeguards are explained clearly, they become part of the narrative of reliability.</p>
-<p>Readers begin to understand not only what the system does but also how it prevents failure and protects data.</p>
-<p>This understanding strengthens confidence in the system’s design.</p>
-<hr>
-</section>
-<section id="turning-structure-into-narrative" class="level3" data-number="27.0.5">
-<h3 data-number="27.0.5" class="anchored" data-anchor-id="turning-structure-into-narrative"><span class="header-section-number">27.0.5</span> Turning Structure into Narrative</h3>
-<p>A credible narrative does not require elaborate storytelling.</p>
-<p>It simply translates technical structure into explanations that others can understand.</p>
-<p>An architecture diagram becomes a description of system layers.<br>
-A data model becomes a representation of domain logic.<br>
-Validation rules and error handling become evidence of reliability.</p>
-<p>Together, these elements form a coherent explanation of the system’s behavior.</p>
-<p>The narrative allows outsiders to see that the system has been designed thoughtfully rather than assembled accidentally.</p>
-<hr>
-</section>
-<section id="trust-through-transparency" class="level3" data-number="27.0.6">
-<h3 data-number="27.0.6" class="anchored" data-anchor-id="trust-through-transparency"><span class="header-section-number">27.0.6</span> Trust Through Transparency</h3>
-<p>In many practice projects, the internal design of the system remains hidden. The developer may understand the architecture, but the project provides little explanation to others.</p>
-<p>Professional systems recognize that transparency strengthens trust.</p>
-<p>When the structure of the system is visible and understandable, users and collaborators can form realistic expectations about how the software behaves.</p>
-<p>They can see the mechanisms that maintain reliability and the boundaries that prevent misuse.</p>
-<p>This visibility transforms technical structure into a public signal of maturity.</p>
-<hr>
-</section>
-<section id="the-system-explains-itself" class="level3" data-number="27.0.7">
-<h3 data-number="27.0.7" class="anchored" data-anchor-id="the-system-explains-itself"><span class="header-section-number">27.0.7</span> The System Explains Itself</h3>
-<p>Ultimately, a credible narrative allows the system to explain itself.</p>
-<p>Instead of relying on promotional language, the project simply reveals the structures that support its operation.</p>
-<p>Architecture diagrams show how components interact.<br>
-Data models reveal how information is organized.<br>
-Safeguards demonstrate how risks are controlled.</p>
-<p>Through these explanations, the system communicates a quiet but powerful message:</p>
-<p>It has been designed deliberately.</p>
-<p>And when a system demonstrates that level of clarity and intention, it naturally earns the trust of those who use it.</p>
 
+<!-- -->
 
 </section>
 
@@ -669,6 +703,57 @@ Safeguards demonstrate how risks are controlled.</p>
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -685,6 +770,13 @@ Safeguards demonstrate how risks are controlled.</p>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1000,16 +1092,145 @@ Safeguards demonstrate how risks are controlled.</p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-25.html" class="pagination-link" aria-label="Security &amp; Trust Basics: The Minimum Level of Credible Security">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span>
+      <a href="./chapter-25.html" class="pagination-link" aria-label="安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-27.html" class="pagination-link" aria-label="Final Chapter: You Are Not Writing Projects, You Are Building Systems">
-        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-27.html" class="pagination-link" aria-label="最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）">
+        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 设计你的"可信叙事"（Designing Your "Credible Narrative"）</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>当人们遇到一个专业产品时，他们很少阅读整个代码库来确定系统是否可靠。</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>相反，他们根据信号形成判断。</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>他们看到清晰的架构图。</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>他们阅读解释数据如何流动的文档。</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>他们观察到边界、保障和定义良好的接口。</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>从这些信号中，他们构建了一个关于系统的心理故事。</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>这个故事就是我们所说的**可信叙事（credible narrative）**。</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>它不是营销语言，也不是夸张。一个可信叙事只是简单地解释为什么系统可以被信任。</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>专业项目理解可靠性不仅必须在内部存在——它还必须**从外部可见和可理解**。</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## 系统为什么需要叙事（Why Systems Need Narratives）</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>软件系统是复杂的。</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>即使是中等大小的项目也包含许多组件、依赖项和逻辑层。对于第一次遇到系统的人来说，这种复杂性可能是压倒性的。</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>一个可信叙事通过呈现**系统结构和保证的简化解释**来解决这个问题。</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>叙事不是迫使人检查每个实现细节，而是回答关键问题：</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>系统是如何结构化的？</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>数据流向哪里？</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>什么防止错误或误用？</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>什么保障可靠性？</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>通过清晰地回答这些问题，系统变得更容易理解和信任。</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## 架构即解释（Architecture as Explanation）</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>创建可信叙事最强大的工具之一是**架构图（architecture diagram）**。</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>架构图可视化系统的主要组件以及它们如何交互。</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>它可能显示用户与系统交互的接口层、业务逻辑运行的应用层以及数据维护的存储层。</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>即使一个简单的图表也能极大地改善理解。</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>读者不再想象一个不可见的结构，而是可以看到系统是如何组织的。</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>图表成为了系统设计哲学的视觉解释。</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## 数据模型即稳定信号（Data Models as Stability Signals）</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>可信叙事的另一个重要元素是**数据模型（data model）**。</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>当一个系统清晰地定义其实体和关系时，它表明领域已经被仔细地结构化。</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>用户和协作者可以看到信息是如何表示的，以及系统的不同部分如何相互依赖。</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>一个清晰的数据模型暗示了稳定性。</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>它表明系统不是临时拼凑结构，而是建立在其领域的有意表征之上。</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>这种清晰度强化了系统是为长期使用而设计的感知。</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## 边界与保障（Boundaries and Safeguards）</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>专业系统也传达保护其运行的边界。</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>这些边界可能包括验证规则、权限系统、错误处理策略和监控机制。</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>这些元素各自都贡献了系统的韧性。</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>当这些保障被清晰地解释时，它们成为可靠性叙事的一部分。</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>读者开始理解不仅是系统做什么，还有它如何防止失败和保护数据。</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>这种理解加强了对系统设计的信心。</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## 将结构转化为叙事（Turning Structure into Narrative）</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>一个可信叙事不需要精心设计的讲故事技巧。</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>它只是将技术结构转化为其他人能够理解的解释。</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>一个架构图成为系统层级的描述。</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>一个数据模型成为领域逻辑的表征。</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>验证规则和错误处理成为可靠性的证据。</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>这些元素共同形成了系统行为的连贯解释。</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>叙事使外界看到系统是被深思熟虑地设计的，而不是偶然拼凑的。</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="fu">## 通过透明赢得信任（Trust Through Transparency）</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>在许多练手项目中，系统的内部设计保持隐藏。开发者可能理解架构，但项目提供很少的解释给其他人。</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>专业系统认识到透明性加强信任。</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>当系统的结构可见且可理解时，用户和协作者可以形成对软件行为方式的现实预期。</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>他们可以看到维护可靠性的机制和防止误用的边界。</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>这种可见性将技术结构转化为成熟度的公共信号。</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>最终，一个可信叙事允许系统解释自己。</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>系统不是依赖宣传性质的语言，而是简单地揭示支持其运作的结构。</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>架构图展示组件如何交互。</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>数据模型揭示信息如何组织。</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>保障措施展示风险如何被控制。</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>通过这些解释，系统传达了一个安静但强大的信息：</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>它是有意为之的设计。</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>当一个系统展示了那种程度的清晰度和意图时，它自然地赢得了使用者的信任。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

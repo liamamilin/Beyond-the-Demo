@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; Process Models: From if–else to Pipelines – Beyond the Demo</title>
+<title>8&nbsp; 流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,19 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./chapter-06.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-07.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-07.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,9 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -283,175 +318,175 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -461,16 +496,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#the-natural-shape-of-many-systems" id="toc-the-natural-shape-of-many-systems" class="nav-link active" data-scroll-target="#the-natural-shape-of-many-systems"><span class="header-section-number">8.0.1</span> The Natural Shape of Many Systems</a></li>
-  <li><a href="#the-problem-with-accumulated-conditionals" id="toc-the-problem-with-accumulated-conditionals" class="nav-link" data-scroll-target="#the-problem-with-accumulated-conditionals"><span class="header-section-number">8.0.2</span> The Problem With Accumulated Conditionals</a></li>
-  <li><a href="#making-the-process-explicit" id="toc-making-the-process-explicit" class="nav-link" data-scroll-target="#making-the-process-explicit"><span class="header-section-number">8.0.3</span> Making the Process Explicit</a></li>
-  <li><a href="#extensibility-through-pipelines" id="toc-extensibility-through-pipelines" class="nav-link" data-scroll-target="#extensibility-through-pipelines"><span class="header-section-number">8.0.4</span> Extensibility Through Pipelines</a></li>
-  <li><a href="#clear-flow-improves-understanding" id="toc-clear-flow-improves-understanding" class="nav-link" data-scroll-target="#clear-flow-improves-understanding"><span class="header-section-number">8.0.5</span> Clear Flow Improves Understanding</a></li>
-  <li><a href="#from-functions-to-processes" id="toc-from-functions-to-processes" class="nav-link" data-scroll-target="#from-functions-to-processes"><span class="header-section-number">8.0.6</span> From Functions to Processes</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">8.1</span> Chapter Summary</a></li>
+  <li><a href="#许多系统的自然形态the-natural-shape-of-many-systems" id="toc-许多系统的自然形态the-natural-shape-of-many-systems" class="nav-link active" data-scroll-target="#许多系统的自然形态the-natural-shape-of-many-systems"><span class="header-section-number">8.1</span> 许多系统的自然形态（The Natural Shape of Many Systems）</a></li>
+  <li><a href="#累积条件的问题the-problem-with-accumulated-conditionals" id="toc-累积条件的问题the-problem-with-accumulated-conditionals" class="nav-link" data-scroll-target="#累积条件的问题the-problem-with-accumulated-conditionals"><span class="header-section-number">8.2</span> 累积条件的问题（The Problem With Accumulated Conditionals）</a></li>
+  <li><a href="#让流程显式化making-the-process-explicit" id="toc-让流程显式化making-the-process-explicit" class="nav-link" data-scroll-target="#让流程显式化making-the-process-explicit"><span class="header-section-number">8.3</span> 让流程显式化（Making the Process Explicit）</a></li>
+  <li><a href="#通过管道实现可扩展性extensibility-through-pipelines" id="toc-通过管道实现可扩展性extensibility-through-pipelines" class="nav-link" data-scroll-target="#通过管道实现可扩展性extensibility-through-pipelines"><span class="header-section-number">8.4</span> 通过管道实现可扩展性（Extensibility Through Pipelines）</a></li>
+  <li><a href="#清晰流程提升理解clear-flow-improves-understanding" id="toc-清晰流程提升理解clear-flow-improves-understanding" class="nav-link" data-scroll-target="#清晰流程提升理解clear-flow-improves-understanding"><span class="header-section-number">8.5</span> 清晰流程提升理解（Clear Flow Improves Understanding）</a></li>
+  <li><a href="#从函数到流程from-functions-to-processes" id="toc-从函数到流程from-functions-to-processes" class="nav-link" data-scroll-target="#从函数到流程from-functions-to-processes"><span class="header-section-number">8.6</span> 从函数到流程（From Functions to Processes）</a></li>
+  <li><a href="#小结" id="toc-小结" class="nav-link" data-scroll-target="#小结"><span class="header-section-number">8.7</span> 小结</a></li>
   </ul>
 </nav>
     </div>
@@ -480,7 +515,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -496,88 +531,92 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#许多系统的自然形态the-natural-shape-of-many-systems" id="toc-许多系统的自然形态the-natural-shape-of-many-systems"><span class="header-section-number">8.1</span> 许多系统的自然形态（The Natural Shape of Many Systems）</a></li>
+  <li><a href="#累积条件的问题the-problem-with-accumulated-conditionals" id="toc-累积条件的问题the-problem-with-accumulated-conditionals"><span class="header-section-number">8.2</span> 累积条件的问题（The Problem With Accumulated Conditionals）</a></li>
+  <li><a href="#让流程显式化making-the-process-explicit" id="toc-让流程显式化making-the-process-explicit"><span class="header-section-number">8.3</span> 让流程显式化（Making the Process Explicit）</a></li>
+  <li><a href="#通过管道实现可扩展性extensibility-through-pipelines" id="toc-通过管道实现可扩展性extensibility-through-pipelines"><span class="header-section-number">8.4</span> 通过管道实现可扩展性（Extensibility Through Pipelines）</a></li>
+  <li><a href="#清晰流程提升理解clear-flow-improves-understanding" id="toc-清晰流程提升理解clear-flow-improves-understanding"><span class="header-section-number">8.5</span> 清晰流程提升理解（Clear Flow Improves Understanding）</a></li>
+  <li><a href="#从函数到流程from-functions-to-processes" id="toc-从函数到流程from-functions-to-processes"><span class="header-section-number">8.6</span> 从函数到流程（From Functions to Processes）</a></li>
+  <li><a href="#小结" id="toc-小结"><span class="header-section-number">8.7</span> 小结</a></li>
+  </ul>
+</nav>
+<p>当开发者开始编写小程序时，执行的结构通常是直接的。程序从主入口点开始，执行一系列操作，产生结果。逻辑逐步展开，通常由 <code>if</code> 和 <code>else</code> 这样的条件语句引导。</p>
+<p>对于简单的脚本来说，这种方法完全够用。开发者可以轻松地跟踪整个执行流程，因为系统很小。</p>
+<p>然而，随着软件的增长，这种控制流风格开始暴露其局限性。当多个职责累积在单个函数或入口点中时，逻辑变得难以扩展、测试或重组。</p>
+<p>系统仍然能运行，但它的结构开始看起来像一串缠绕的条件语句，而不是一个连贯的流程。</p>
+<p>专业系统通过采用不同的视角来解决这个问题：它们不再围绕分支逻辑组织代码，而是围绕<strong>流程管道（process pipelines）</strong>来组织。</p>
+<hr>
+<section id="许多系统的自然形态the-natural-shape-of-many-systems" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="许多系统的自然形态the-natural-shape-of-many-systems"><span class="header-section-number">8.1</span> 许多系统的自然形态（The Natural Shape of Many Systems）</h2>
+<p>许多真实世界的软件系统遵循类似的高层模式。</p>
+<p>信息以某种形式进入系统。然后这些信息必须被解析、检查有效性、存储或处理，并最终呈现给用户或其他系统。</p>
+<p>尽管实现方式各不相同，但概念性的流程通常类似于一个阶段序列：</p>
+<p>输入进入系统 → 输入被解析为结构化格式 → 结构化数据被验证 → 验证后的数据被存储或处理 → 通过查询检索结果 → 信息通过接口呈现</p>
+<p>这个序列代表了一个<strong>流程模型（process model）</strong>。</p>
+<p>成熟的系统不是将所有这些步骤嵌入到单个函数中，而是将它们识别为管道的不同阶段。</p>
+<p>每个阶段执行一个特定的转换，将结果传递给下一个阶段。</p>
+<hr>
+</section>
+<section id="累积条件的问题the-problem-with-accumulated-conditionals" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="累积条件的问题the-problem-with-accumulated-conditionals"><span class="header-section-number">8.2</span> 累积条件的问题（The Problem With Accumulated Conditionals）</h2>
+<p>在练手项目中，这些阶段通常被隐式地实现在一个中心函数内部。开发者从一个简单操作开始，随着新需求的出现逐渐添加更多逻辑。</p>
+<p>随着时间的推移，主函数变得越来越大、越来越复杂。条件分支成倍增加。不同的关注点交织在一起。</p>
+<p>例如，一块代码可能同时读取输入、验证数据、转换数据、存储数据并产生输出。每个新特性都引入额外的条件，创造了一个密集的分支逻辑网络。</p>
+<p>虽然这种方法可能仍然能正确运行，但它掩盖了底层的流程。操作序列变得难以看清，修改一个阶段可能影响到其他阶段。</p>
+<p>程序变得更难推理，因为它的流程是隐式的而不是显式的。</p>
+<hr>
+</section>
+<section id="让流程显式化making-the-process-explicit" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="让流程显式化making-the-process-explicit"><span class="header-section-number">8.3</span> 让流程显式化（Making the Process Explicit）</h2>
+<p>管道导向的设计（pipeline-oriented design）通过让流程的阶段变得显式来解决这个问题。</p>
+<p>系统不是将所有逻辑放在一个位置，而是定义一个转换序列。每个阶段执行单一任务，产生一个定义良好的输出，成为下一个阶段的输入。</p>
+<p>例如，一个请求可能经过这样的阶段：</p>
+<p>解析输入数据 → 验证结构和规则 → 将数据转换为领域对象 → 将这些对象持久化到存储 → 检索相关信息 → 格式化结果以呈现</p>
+<p>每个阶段专注于一个职责，并暴露清晰的接口。</p>
+<p>这种分离使得系统的整体流程变得可见。阅读者可以通过观察阶段的序列来理解流程，而不是追踪每一个条件分支。</p>
+<hr>
+</section>
+<section id="通过管道实现可扩展性extensibility-through-pipelines" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="通过管道实现可扩展性extensibility-through-pipelines"><span class="header-section-number">8.4</span> 通过管道实现可扩展性（Extensibility Through Pipelines）</h2>
+<p>管道设计最重要的优势之一是可扩展性（extensibility）。</p>
+<p>当流程被组织为独立阶段的序列时，新行为通常可以通过在管道中插入额外的步骤来引入，而不是重写现有的逻辑。</p>
+<p>例如，一个新的验证规则可以成为一个额外的验证阶段。日志或监控可以被添加，而不会干扰核心处理逻辑。转换步骤可以被扩展，而不改变早期阶段。</p>
+<p>这种模块化允许系统逐步演化，而不会动摇现有功能。</p>
+<p>开发者不需要修改单个庞大的函数，而是可以通过添加或替换阶段来扩展管道。</p>
+<hr>
+</section>
+<section id="清晰流程提升理解clear-flow-improves-understanding" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="清晰流程提升理解clear-flow-improves-understanding"><span class="header-section-number">8.5</span> 清晰流程提升理解（Clear Flow Improves Understanding）</h2>
+<p>管道也提高了系统的可读性。</p>
+<p>当开发者打开代码库时，操作序列立即变得可见。结构传达了信息如何在系统中流动。</p>
+<p>这种清晰度减少了理解软件所需的脑力劳动。读者不再分析嵌套的条件，而是观察一个直截了当的转换过程。</p>
+<p>代码开始看起来像流程图，而不是指令集合。</p>
+<p>在许多方面，这反映了人类自然地思考工作流的方式。我们将任务描述为一系列步骤，而不是条件语句的网络。</p>
+<p>通过使代码与此心智模型对齐，管道设计使复杂系统更容易理解。</p>
+<hr>
+</section>
+<section id="从函数到流程from-functions-to-processes" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="从函数到流程from-functions-to-processes"><span class="header-section-number">8.6</span> 从函数到流程（From Functions to Processes）</h2>
+<p>从条件逻辑到管道设计的转变，标志着项目成熟化的又一步。</p>
+<p>一个小脚本通常将整个操作视为单个函数。一个专业系统认识到所执行的工作实际上是一个<strong>由阶段组成的流程</strong>。</p>
+<p>通过隔离这些阶段——解析、验证、转换、持久化、查询和呈现——系统获得了清晰度和灵活性。</p>
+<p>程序不再是隐藏在 main 函数中的指令集合。它变成了一个结构化的转换流。</p>
+<p>这种转变反映了从练手项目到专业系统演化过程中的一个更广泛主题：随着软件的成熟，其内部结构变得越来越可见。</p>
+<p>曾经隐式存在于代码中的逻辑，逐渐被提升为显式的架构。</p>
+<hr>
+</section>
+<section id="小结" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="小结"><span class="header-section-number">8.7</span> 小结</h2>
+<p>流程模型将软件从条件语句的集合转化为结构化、可扩展的管道。通过让执行流变得显式，开发者创建了更易理解、维护和扩展的系统。</p>
+<p>从 if-else 逻辑到管道设计的转变，代表了软件结构的根本变化。流程变得可见、可测试，并能随需求变化而演化。</p>
+<p>这种从隐藏逻辑到显式架构的转变，是从练手项目到专业系统的旅程中反复出现的主题。</p>
 
-<p>When developers begin writing small programs, the structure of execution is usually straightforward. The program starts at a main entry point, performs a series of operations, and produces a result. The logic unfolds step by step, often guided by conditional statements such as <code>if</code> and <code>else</code>.</p>
-<p>For simple scripts, this approach is perfectly adequate. A developer can follow the entire flow of execution easily because the system is small.</p>
-<p>However, as software grows, this style of control flow begins to reveal its limitations. When multiple responsibilities accumulate inside a single function or entry point, the logic becomes difficult to extend, test, or reorganize.</p>
-<p>The system still works, but its structure begins to resemble a tangled sequence of conditions rather than a coherent process.</p>
-<p>Professional systems address this problem by adopting a different perspective: instead of organizing code around branching logic, they organize it around <strong>process pipelines</strong>.</p>
-<hr>
-<section id="the-natural-shape-of-many-systems" class="level3" data-number="8.0.1">
-<h3 data-number="8.0.1" class="anchored" data-anchor-id="the-natural-shape-of-many-systems"><span class="header-section-number">8.0.1</span> The Natural Shape of Many Systems</h3>
-<p>Many real-world software systems follow a similar high-level pattern.</p>
-<p>Information enters the system in some form. That information must then be interpreted, checked for validity, stored or processed, and eventually presented to a user or another system.</p>
-<p>Although implementations differ, the conceptual flow often resembles a sequence of stages:</p>
-<p>input enters the system<br>
-the input is parsed into a structured format<br>
-the structured data is validated against rules<br>
-validated data is stored or processed<br>
-results are retrieved through queries<br>
-information is presented through an interface</p>
-<p>This sequence represents a <strong>process model</strong>.</p>
-<p>Instead of embedding all these steps inside a single function, mature systems recognize them as distinct phases of a pipeline.</p>
-<p>Each phase performs a specific transformation, passing the result to the next stage.</p>
-<hr>
-</section>
-<section id="the-problem-with-accumulated-conditionals" class="level3" data-number="8.0.2">
-<h3 data-number="8.0.2" class="anchored" data-anchor-id="the-problem-with-accumulated-conditionals"><span class="header-section-number">8.0.2</span> The Problem With Accumulated Conditionals</h3>
-<p>In practice projects, these stages are often implemented implicitly inside a central function. The developer begins with a simple operation and gradually adds more logic as new needs appear.</p>
-<p>Over time, the main function grows larger and more complex. Conditional branches multiply. Different concerns become interwoven.</p>
-<p>For example, a single block of code might read input, validate it, transform the data, store it, and produce output. Each new feature introduces additional conditions, creating a dense network of branching logic.</p>
-<p>While this approach may still function correctly, it obscures the underlying process. The sequence of operations becomes difficult to see, and modifying one stage risks affecting others.</p>
-<p>The program has become harder to reason about because its flow is implicit rather than explicit.</p>
-<hr>
-</section>
-<section id="making-the-process-explicit" class="level3" data-number="8.0.3">
-<h3 data-number="8.0.3" class="anchored" data-anchor-id="making-the-process-explicit"><span class="header-section-number">8.0.3</span> Making the Process Explicit</h3>
-<p>Pipeline-oriented design solves this problem by making the stages of the process explicit.</p>
-<p>Instead of placing all logic in one location, the system defines a sequence of transformations. Each stage performs a single task and produces a well-defined output that becomes the input for the next stage.</p>
-<p>For example, a request might pass through stages such as:</p>
-<p>parsing the incoming data<br>
-validating the structure and rules<br>
-converting the data into domain objects<br>
-persisting those objects to storage<br>
-retrieving related information<br>
-formatting the result for presentation</p>
-<p>Each stage focuses on one responsibility and exposes a clear interface.</p>
-<p>This separation allows the overall flow of the system to become visible. A reader can understand the process by observing the sequence of stages rather than tracing every conditional branch.</p>
-<hr>
-</section>
-<section id="extensibility-through-pipelines" class="level3" data-number="8.0.4">
-<h3 data-number="8.0.4" class="anchored" data-anchor-id="extensibility-through-pipelines"><span class="header-section-number">8.0.4</span> Extensibility Through Pipelines</h3>
-<p>One of the most important advantages of pipeline design is extensibility.</p>
-<p>When the process is organized as a sequence of independent stages, new behavior can often be introduced by inserting additional steps into the pipeline rather than rewriting existing logic.</p>
-<p>For example, a new validation rule might become an additional validation stage. Logging or monitoring can be added without interfering with the core processing logic. Transformation steps can be extended without altering earlier phases.</p>
-<p>This modularity allows the system to evolve gradually without destabilizing existing functionality.</p>
-<p>Instead of modifying a single monolithic function, developers can extend the pipeline by adding or replacing stages.</p>
-<hr>
-</section>
-<section id="clear-flow-improves-understanding" class="level3" data-number="8.0.5">
-<h3 data-number="8.0.5" class="anchored" data-anchor-id="clear-flow-improves-understanding"><span class="header-section-number">8.0.5</span> Clear Flow Improves Understanding</h3>
-<p>Pipelines also improve the readability of a system.</p>
-<p>When a developer opens the codebase, the sequence of operations becomes immediately visible. The structure communicates how information flows through the system.</p>
-<p>This clarity reduces the mental effort required to understand the software. Rather than analyzing nested conditions, the reader observes a straightforward progression of transformations.</p>
-<p>The code begins to resemble a process diagram rather than a collection of instructions.</p>
-<p>In many ways, this mirrors how humans naturally think about workflows. We describe tasks as sequences of steps rather than as networks of conditional statements.</p>
-<p>By aligning code with this mental model, pipeline design makes complex systems easier to understand.</p>
-<hr>
-</section>
-<section id="from-functions-to-processes" class="level3" data-number="8.0.6">
-<h3 data-number="8.0.6" class="anchored" data-anchor-id="from-functions-to-processes"><span class="header-section-number">8.0.6</span> From Functions to Processes</h3>
-<p>The shift from conditional logic to pipeline design marks another step in the maturation of a project.</p>
-<p>A small script often treats the entire operation as a single function. A professional system recognizes that the work being performed is actually a <strong>process composed of stages</strong>.</p>
-<p>By isolating those stages—parsing, validation, transformation, persistence, querying, and presentation—the system gains clarity and flexibility.</p>
-<p>The program is no longer a collection of instructions hidden inside a main function. It becomes a structured flow of transformations.</p>
-<p>This transformation reflects a broader theme that runs throughout the evolution from practice projects to professional systems: as software matures, its internal structure becomes increasingly visible.</p>
-<p>The logic that once existed implicitly inside code is gradually elevated into explicit architecture.</p>
-<hr>
-</section>
-<section id="chapter-summary" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">8.1</span> Chapter Summary</h2>
-<p>Process models transform software from collections of conditional statements into structured, extensible pipelines. By making execution flow explicit, developers create systems that are easier to understand, maintain, and extend.</p>
-<p>The shift from if-else logic to pipeline design represents a fundamental change in how software is structured. Processes become visible, testable, and capable of evolving as requirements change.</p>
-<p>This transformation from hidden logic to explicit architecture is a recurring theme in the journey from practice projects to professional systems.</p>
 
+<!-- -->
 
 </section>
 
@@ -666,6 +705,57 @@ formatting the result for presentation</p>
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -682,6 +772,13 @@ formatting the result for presentation</p>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -997,16 +1094,132 @@ formatting the result for presentation</p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-06.html" class="pagination-link" aria-label="Domain Models: From Dictionaries to Entities and Relationships">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span>
+      <a href="./chapter-06.html" class="pagination-link" aria-label="领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-08.html" class="pagination-link" aria-label="Interfaces: The Three Faces of a Professional System">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-08.html" class="pagination-link" aria-label="接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>当开发者开始编写小程序时，执行的结构通常是直接的。程序从主入口点开始，执行一系列操作，产生结果。逻辑逐步展开，通常由 <span class="in">`if`</span> 和 <span class="in">`else`</span> 这样的条件语句引导。</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>对于简单的脚本来说，这种方法完全够用。开发者可以轻松地跟踪整个执行流程，因为系统很小。</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>然而，随着软件的增长，这种控制流风格开始暴露其局限性。当多个职责累积在单个函数或入口点中时，逻辑变得难以扩展、测试或重组。</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>系统仍然能运行，但它的结构开始看起来像一串缠绕的条件语句，而不是一个连贯的流程。</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>专业系统通过采用不同的视角来解决这个问题：它们不再围绕分支逻辑组织代码，而是围绕**流程管道（process pipelines）**来组织。</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 许多系统的自然形态（The Natural Shape of Many Systems）</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>许多真实世界的软件系统遵循类似的高层模式。</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>信息以某种形式进入系统。然后这些信息必须被解析、检查有效性、存储或处理，并最终呈现给用户或其他系统。</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>尽管实现方式各不相同，但概念性的流程通常类似于一个阶段序列：</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>输入进入系统 → 输入被解析为结构化格式 → 结构化数据被验证 → 验证后的数据被存储或处理 → 通过查询检索结果 → 信息通过接口呈现</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>这个序列代表了一个**流程模型（process model）**。</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>成熟的系统不是将所有这些步骤嵌入到单个函数中，而是将它们识别为管道的不同阶段。</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>每个阶段执行一个特定的转换，将结果传递给下一个阶段。</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## 累积条件的问题（The Problem With Accumulated Conditionals）</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>在练手项目中，这些阶段通常被隐式地实现在一个中心函数内部。开发者从一个简单操作开始，随着新需求的出现逐渐添加更多逻辑。</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>随着时间的推移，主函数变得越来越大、越来越复杂。条件分支成倍增加。不同的关注点交织在一起。</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>例如，一块代码可能同时读取输入、验证数据、转换数据、存储数据并产生输出。每个新特性都引入额外的条件，创造了一个密集的分支逻辑网络。</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>虽然这种方法可能仍然能正确运行，但它掩盖了底层的流程。操作序列变得难以看清，修改一个阶段可能影响到其他阶段。</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>程序变得更难推理，因为它的流程是隐式的而不是显式的。</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## 让流程显式化（Making the Process Explicit）</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>管道导向的设计（pipeline-oriented design）通过让流程的阶段变得显式来解决这个问题。</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>系统不是将所有逻辑放在一个位置，而是定义一个转换序列。每个阶段执行单一任务，产生一个定义良好的输出，成为下一个阶段的输入。</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>例如，一个请求可能经过这样的阶段：</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>解析输入数据 → 验证结构和规则 → 将数据转换为领域对象 → 将这些对象持久化到存储 → 检索相关信息 → 格式化结果以呈现</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>每个阶段专注于一个职责，并暴露清晰的接口。</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>这种分离使得系统的整体流程变得可见。阅读者可以通过观察阶段的序列来理解流程，而不是追踪每一个条件分支。</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## 通过管道实现可扩展性（Extensibility Through Pipelines）</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>管道设计最重要的优势之一是可扩展性（extensibility）。</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>当流程被组织为独立阶段的序列时，新行为通常可以通过在管道中插入额外的步骤来引入，而不是重写现有的逻辑。</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>例如，一个新的验证规则可以成为一个额外的验证阶段。日志或监控可以被添加，而不会干扰核心处理逻辑。转换步骤可以被扩展，而不改变早期阶段。</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>这种模块化允许系统逐步演化，而不会动摇现有功能。</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>开发者不需要修改单个庞大的函数，而是可以通过添加或替换阶段来扩展管道。</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## 清晰流程提升理解（Clear Flow Improves Understanding）</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>管道也提高了系统的可读性。</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>当开发者打开代码库时，操作序列立即变得可见。结构传达了信息如何在系统中流动。</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>这种清晰度减少了理解软件所需的脑力劳动。读者不再分析嵌套的条件，而是观察一个直截了当的转换过程。</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>代码开始看起来像流程图，而不是指令集合。</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>在许多方面，这反映了人类自然地思考工作流的方式。我们将任务描述为一系列步骤，而不是条件语句的网络。</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>通过使代码与此心智模型对齐，管道设计使复杂系统更容易理解。</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## 从函数到流程（From Functions to Processes）</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>从条件逻辑到管道设计的转变，标志着项目成熟化的又一步。</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>一个小脚本通常将整个操作视为单个函数。一个专业系统认识到所执行的工作实际上是一个**由阶段组成的流程**。</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>通过隔离这些阶段——解析、验证、转换、持久化、查询和呈现——系统获得了清晰度和灵活性。</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>程序不再是隐藏在 main 函数中的指令集合。它变成了一个结构化的转换流。</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>这种转变反映了从练手项目到专业系统演化过程中的一个更广泛主题：随着软件的成熟，其内部结构变得越来越可见。</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>曾经隐式存在于代码中的逻辑，逐渐被提升为显式的架构。</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="fu">## 小结</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>流程模型将软件从条件语句的集合转化为结构化、可扩展的管道。通过让执行流变得显式，开发者创建了更易理解、维护和扩展的系统。</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>从 if-else 逻辑到管道设计的转变，代表了软件结构的根本变化。流程变得可见、可测试，并能随需求变化而演化。</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>这种从隐藏逻辑到显式架构的转变，是从练手项目到专业系统的旅程中反复出现的主题。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

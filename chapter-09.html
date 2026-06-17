@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Interface Contracts: Making Inputs and Outputs Predictable – Beyond the Demo</title>
+<title>10&nbsp; 接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,19 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./chapter-08.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-09.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-09.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,9 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -283,175 +318,175 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -461,14 +496,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#defining-the-shape-of-input" id="toc-defining-the-shape-of-input" class="nav-link active" data-scroll-target="#defining-the-shape-of-input"><span class="header-section-number">10.0.1</span> Defining the Shape of Input</a></li>
-  <li><a href="#ensuring-stable-output" id="toc-ensuring-stable-output" class="nav-link" data-scroll-target="#ensuring-stable-output"><span class="header-section-number">10.0.2</span> Ensuring Stable Output</a></li>
-  <li><a href="#communicating-errors-clearly" id="toc-communicating-errors-clearly" class="nav-link" data-scroll-target="#communicating-errors-clearly"><span class="header-section-number">10.0.3</span> Communicating Errors Clearly</a></li>
-  <li><a href="#feedback-and-guidance" id="toc-feedback-and-guidance" class="nav-link" data-scroll-target="#feedback-and-guidance"><span class="header-section-number">10.0.4</span> Feedback and Guidance</a></li>
-  <li><a href="#constraints-as-a-source-of-trust" id="toc-constraints-as-a-source-of-trust" class="nav-link" data-scroll-target="#constraints-as-a-source-of-trust"><span class="header-section-number">10.0.5</span> Constraints as a Source of Trust</a></li>
+  <li><a href="#定义输入的形状defining-the-shape-of-input" id="toc-定义输入的形状defining-the-shape-of-input" class="nav-link active" data-scroll-target="#定义输入的形状defining-the-shape-of-input"><span class="header-section-number">10.1</span> 定义输入的形状（Defining the Shape of Input）</a></li>
+  <li><a href="#确保稳定的输出ensuring-stable-output" id="toc-确保稳定的输出ensuring-stable-output" class="nav-link" data-scroll-target="#确保稳定的输出ensuring-stable-output"><span class="header-section-number">10.2</span> 确保稳定的输出（Ensuring Stable Output）</a></li>
+  <li><a href="#清晰地传达错误communicating-errors-clearly" id="toc-清晰地传达错误communicating-errors-clearly" class="nav-link" data-scroll-target="#清晰地传达错误communicating-errors-clearly"><span class="header-section-number">10.3</span> 清晰地传达错误（Communicating Errors Clearly）</a></li>
+  <li><a href="#反馈与引导feedback-and-guidance" id="toc-反馈与引导feedback-and-guidance" class="nav-link" data-scroll-target="#反馈与引导feedback-and-guidance"><span class="header-section-number">10.4</span> 反馈与引导（Feedback and Guidance）</a></li>
+  <li><a href="#约束即信任的来源constraints-as-a-source-of-trust" id="toc-约束即信任的来源constraints-as-a-source-of-trust" class="nav-link" data-scroll-target="#约束即信任的来源constraints-as-a-source-of-trust"><span class="header-section-number">10.5</span> 约束即信任的来源（Constraints as a Source of Trust）</a></li>
   </ul>
 </nav>
     </div>
@@ -478,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -494,63 +529,75 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#定义输入的形状defining-the-shape-of-input" id="toc-定义输入的形状defining-the-shape-of-input"><span class="header-section-number">10.1</span> 定义输入的形状（Defining the Shape of Input）</a></li>
+  <li><a href="#确保稳定的输出ensuring-stable-output" id="toc-确保稳定的输出ensuring-stable-output"><span class="header-section-number">10.2</span> 确保稳定的输出（Ensuring Stable Output）</a></li>
+  <li><a href="#清晰地传达错误communicating-errors-clearly" id="toc-清晰地传达错误communicating-errors-clearly"><span class="header-section-number">10.3</span> 清晰地传达错误（Communicating Errors Clearly）</a></li>
+  <li><a href="#反馈与引导feedback-and-guidance" id="toc-反馈与引导feedback-and-guidance"><span class="header-section-number">10.4</span> 反馈与引导（Feedback and Guidance）</a></li>
+  <li><a href="#约束即信任的来源constraints-as-a-source-of-trust" id="toc-约束即信任的来源constraints-as-a-source-of-trust"><span class="header-section-number">10.5</span> 约束即信任的来源（Constraints as a Source of Trust）</a></li>
+  </ul>
+</nav>
+<p>随着系统超出小实验的范畴，它们的接口不再只是简单的入口点。它们变成了<strong>契约（contracts）</strong>。</p>
+<p>一个接口契约定义了系统期望接收什么，以及它承诺返回什么。它描述了输入的结构、输出的格式和错误的传达方式。</p>
+<p>没有这样的契约，软件交互就变得不确定。一个函数可能接受几种不同的输入格式。一个 API 可能根据内部条件返回不同的结构。错误信息可能不可预测地变化。</p>
+<p>在早期实验中，当同一个开发者控制交互双方时，这些不一致可能不重要。但一旦系统被其他人使用——或被集成到更大的工作流中——不确定性很快就会变成问题。</p>
+<p>专业软件通过使接口行为<strong>可预测（predictable）</strong>来消除这种不确定性。</p>
+<hr>
+<section id="定义输入的形状defining-the-shape-of-input" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="定义输入的形状defining-the-shape-of-input"><span class="header-section-number">10.1</span> 定义输入的形状（Defining the Shape of Input）</h2>
+<p>接口契约的首要职责是定义什么构成了有效输入。</p>
+<p>输入可能有多种形式：命令行参数、API 请求、表单提交或配置文件。无论媒介如何，系统必须明确定义它期望什么信息以及这些信息应该如何结构化。</p>
+<p>例如，一个记录交易的操作可能需要金额、类别和时间戳。这些字段必须以已知的格式出现，并遵循清晰的规则。</p>
+<p>如果输入偏离了这些规则——比如缺少必填字段或数据类型不正确——系统应该立即检测到问题。</p>
+<p>输入验证（input validation）保护系统免受不可预知的状态。它确保内部逻辑在符合已知约束的数据上运行。</p>
+<p>实际上，契约在外部世界和内部系统之间建立了一个边界。</p>
+<hr>
+</section>
+<section id="确保稳定的输出ensuring-stable-output" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="确保稳定的输出ensuring-stable-output"><span class="header-section-number">10.2</span> 确保稳定的输出（Ensuring Stable Output）</h2>
+<p>就像输入必须遵循定义的规则一样，输出也必须保持一致。</p>
+<p>与系统交互的调用者期望以可预测的格式接收结果。如果输出结构意外变化，即使底层功能正确，下游代码也可能崩溃。</p>
+<p>专业系统因此定义稳定的响应格式（response formats）。</p>
+<p>一个 API 可能总是返回带有明确定义字段的结构化数据。一个 CLI 命令可能总是产生一致的文字布局。一个用户界面可能总是在相同的视觉框架内显示结果。</p>
+<p>一致性允许用户和开发者依赖系统，而无需不断适应新的行为。</p>
+<p>当输出保持稳定时，接口就变得值得信赖。</p>
+<hr>
+</section>
+<section id="清晰地传达错误communicating-errors-clearly" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="清晰地传达错误communicating-errors-clearly"><span class="header-section-number">10.3</span> 清晰地传达错误（Communicating Errors Clearly）</h2>
+<p>错误是真实系统中不可避免的一部分。网络故障、输入数据无效、内部条件可能阻止操作成功完成。</p>
+<p>区别专业软件的不是没有错误，而是<strong>错误传达的清晰度</strong>。</p>
+<p>接口契约定义了错误如何报告。这可以包括标准化的错误码、描述性的消息，或指示问题性质的结构化响应。</p>
+<p>例如，一个操作可以表明请求是由于无效输入、资源缺失还是内部服务器问题而失败。</p>
+<p>清晰的错误报告允许用户和开发者做出适当的响应。他们不是猜测哪里出了问题，而是获得可操作的信息。</p>
+<p>这种透明度加强了对系统的信任。</p>
+<hr>
+</section>
+<section id="反馈与引导feedback-and-guidance" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="反馈与引导feedback-and-guidance"><span class="header-section-number">10.4</span> 反馈与引导（Feedback and Guidance）</h2>
+<p>除了原始输入和输出，设计良好的接口还提供有用的引导。</p>
+<p>当用户与命令行工具交互时，如果参数缺失，系统可能显示使用说明。当 API 收到无效请求时，它可能返回关于验证错误的详细解释。当用户界面遇到问题时，它可能显示一条清晰的消息，解释下一步该做什么。</p>
+<p>这些消息不仅仅是装饰。它们是接口契约的一部分。</p>
+<p>它们引导用户走向正确的用法，并在问题发生时防止混淆。</p>
+<p>练手项目往往忽视这一维度。错误可能表现为通用异常或晦涩的消息。专业系统则投入精力确保沟通清晰且具有建设性。</p>
+<hr>
+</section>
+<section id="约束即信任的来源constraints-as-a-source-of-trust" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="约束即信任的来源constraints-as-a-source-of-trust"><span class="header-section-number">10.5</span> 约束即信任的来源（Constraints as a Source of Trust）</h2>
+<p>乍看之下，约束可能显得限制性。严格的输入格式、一致的输出结构和预定义的错误码对系统的行为施加了限制。</p>
+<p>然而，这些约束提供了无价的品质：<strong>可预测性（predictability）</strong>。</p>
+<p>当接口行为可预测时，用户和开发者可以围绕它构建可靠的工作流。自动化脚本可以依赖稳定的输出。外部系统可以自信地进行集成。</p>
+<p>相反，松散定义的接口引入了不确定性。即使底层功能正确运行，不一致的行为也会破坏对系统的信心。</p>
+<p>矛盾的是，无约束接口的自由往往导致脆弱性。</p>
+<p>专业系统认识到约束不是障碍，而是基础。通过定义清晰的契约，它们创造一个交互保持稳定和可理解的环境。</p>
+<p>通过这种方式，精心设计的约束成为成熟度最强的信号之一。</p>
+<p>它们展示了系统不仅仅是对输入做出反应，而是有意地、负责任地管理交互。</p>
 
-<p>As systems evolve beyond small experiments, their interfaces become more than simple entry points. They become <strong>contracts</strong>.</p>
-<p>An interface contract defines what a system expects to receive and what it promises to return. It describes the structure of inputs, the format of outputs, and the way errors are communicated.</p>
-<p>Without such contracts, software interactions become uncertain. A function might accept several different input formats. An API might return different structures depending on internal conditions. Error messages might vary unpredictably.</p>
-<p>These inconsistencies may not matter during early experimentation, when the same developer controls both sides of the interaction. But once a system is used by others—or integrated into larger workflows—uncertainty quickly becomes a problem.</p>
-<p>Professional software eliminates this uncertainty by making interface behavior <strong>predictable</strong>.</p>
-<hr>
-<section id="defining-the-shape-of-input" class="level3" data-number="10.0.1">
-<h3 data-number="10.0.1" class="anchored" data-anchor-id="defining-the-shape-of-input"><span class="header-section-number">10.0.1</span> Defining the Shape of Input</h3>
-<p>The first responsibility of an interface contract is to define what valid input looks like.</p>
-<p>Inputs may take many forms: command-line arguments, API requests, form submissions, or configuration files. Regardless of the medium, the system must clearly define what information it expects and how that information should be structured.</p>
-<p>For example, an operation that records a transaction might require an amount, a category, and a timestamp. These fields must appear in a known format and follow clear rules.</p>
-<p>If the input deviates from those rules—perhaps a required field is missing or the data type is incorrect—the system should detect the problem immediately.</p>
-<p>Input validation protects the system from unpredictable states. It ensures that internal logic operates on data that conforms to known constraints.</p>
-<p>In effect, the contract establishes a boundary between the external world and the internal system.</p>
-<hr>
-</section>
-<section id="ensuring-stable-output" class="level3" data-number="10.0.2">
-<h3 data-number="10.0.2" class="anchored" data-anchor-id="ensuring-stable-output"><span class="header-section-number">10.0.2</span> Ensuring Stable Output</h3>
-<p>Just as inputs must follow defined rules, outputs must also remain consistent.</p>
-<p>A caller interacting with the system expects to receive results in a predictable format. If the output structure changes unexpectedly, downstream code may break even if the underlying functionality remains correct.</p>
-<p>Professional systems therefore define stable response formats.</p>
-<p>An API might always return structured data with clearly defined fields. A CLI command might always produce a consistent textual layout. A user interface might always display results within the same visual framework.</p>
-<p>Consistency allows users and developers to rely on the system without constantly adapting to new behaviors.</p>
-<p>When outputs remain stable, the interface becomes trustworthy.</p>
-<hr>
-</section>
-<section id="communicating-errors-clearly" class="level3" data-number="10.0.3">
-<h3 data-number="10.0.3" class="anchored" data-anchor-id="communicating-errors-clearly"><span class="header-section-number">10.0.3</span> Communicating Errors Clearly</h3>
-<p>Errors are an unavoidable part of real systems. Network failures occur, input data may be invalid, and internal conditions may prevent an operation from completing successfully.</p>
-<p>What distinguishes professional software is not the absence of errors but the <strong>clarity with which errors are communicated</strong>.</p>
-<p>An interface contract defines how errors are reported. This may include standardized error codes, descriptive messages, or structured responses that indicate the nature of the problem.</p>
-<p>For example, an operation may indicate whether a request failed due to invalid input, missing resources, or internal server issues.</p>
-<p>Clear error reporting allows users and developers to respond appropriately. Instead of guessing what went wrong, they receive actionable information.</p>
-<p>This transparency strengthens trust in the system.</p>
-<hr>
-</section>
-<section id="feedback-and-guidance" class="level3" data-number="10.0.4">
-<h3 data-number="10.0.4" class="anchored" data-anchor-id="feedback-and-guidance"><span class="header-section-number">10.0.4</span> Feedback and Guidance</h3>
-<p>Beyond raw inputs and outputs, a well-designed interface also provides helpful guidance.</p>
-<p>When a user interacts with a command-line tool, the system might display usage instructions if arguments are missing. When an API receives an invalid request, it might return a detailed explanation of the validation error. When a user interface encounters a problem, it might present a clear message that explains the next step.</p>
-<p>These messages are not merely decorative. They are part of the interface contract.</p>
-<p>They guide the user toward correct usage and prevent confusion when problems occur.</p>
-<p>Practice projects often neglect this dimension. Errors may appear as generic exceptions or cryptic messages. Professional systems invest effort in ensuring that communication remains clear and constructive.</p>
-<hr>
-</section>
-<section id="constraints-as-a-source-of-trust" class="level3" data-number="10.0.5">
-<h3 data-number="10.0.5" class="anchored" data-anchor-id="constraints-as-a-source-of-trust"><span class="header-section-number">10.0.5</span> Constraints as a Source of Trust</h3>
-<p>At first glance, constraints may appear restrictive. Strict input formats, consistent output structures, and predefined error codes impose limits on how a system behaves.</p>
-<p>Yet these constraints provide something invaluable: <strong>predictability</strong>.</p>
-<p>When an interface behaves predictably, users and developers can build reliable workflows around it. Automation scripts can depend on stable output. External systems can integrate with confidence.</p>
-<p>In contrast, loosely defined interfaces introduce uncertainty. Even if the underlying functionality works correctly, inconsistent behavior undermines confidence in the system.</p>
-<p>Paradoxically, the freedom of an unconstrained interface often leads to fragility.</p>
-<p>Professional systems recognize that constraints are not obstacles but foundations. By defining clear contracts, they create an environment in which interactions remain stable and understandable.</p>
-<p>In this way, carefully designed constraints become one of the strongest signals of maturity.</p>
-<p>They show that the system is not merely reacting to inputs but managing interactions deliberately and responsibly.</p>
 
+<!-- -->
 
 </section>
 
@@ -639,6 +686,57 @@ ul.task-list li input[type="checkbox"] {
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -655,6 +753,13 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -970,16 +1075,110 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-08.html" class="pagination-link" aria-label="Interfaces: The Three Faces of a Professional System">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span>
+      <a href="./chapter-08.html" class="pagination-link" aria-label="接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-10.html" class="pagination-link" aria-label="State Design: Empty, Loading, Error, and Success">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-10.html" class="pagination-link" aria-label="状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>随着系统超出小实验的范畴，它们的接口不再只是简单的入口点。它们变成了**契约（contracts）**。</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>一个接口契约定义了系统期望接收什么，以及它承诺返回什么。它描述了输入的结构、输出的格式和错误的传达方式。</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>没有这样的契约，软件交互就变得不确定。一个函数可能接受几种不同的输入格式。一个 API 可能根据内部条件返回不同的结构。错误信息可能不可预测地变化。</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>在早期实验中，当同一个开发者控制交互双方时，这些不一致可能不重要。但一旦系统被其他人使用——或被集成到更大的工作流中——不确定性很快就会变成问题。</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>专业软件通过使接口行为**可预测（predictable）**来消除这种不确定性。</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 定义输入的形状（Defining the Shape of Input）</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>接口契约的首要职责是定义什么构成了有效输入。</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>输入可能有多种形式：命令行参数、API 请求、表单提交或配置文件。无论媒介如何，系统必须明确定义它期望什么信息以及这些信息应该如何结构化。</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>例如，一个记录交易的操作可能需要金额、类别和时间戳。这些字段必须以已知的格式出现，并遵循清晰的规则。</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>如果输入偏离了这些规则——比如缺少必填字段或数据类型不正确——系统应该立即检测到问题。</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>输入验证（input validation）保护系统免受不可预知的状态。它确保内部逻辑在符合已知约束的数据上运行。</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>实际上，契约在外部世界和内部系统之间建立了一个边界。</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## 确保稳定的输出（Ensuring Stable Output）</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>就像输入必须遵循定义的规则一样，输出也必须保持一致。</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>与系统交互的调用者期望以可预测的格式接收结果。如果输出结构意外变化，即使底层功能正确，下游代码也可能崩溃。</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>专业系统因此定义稳定的响应格式（response formats）。</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>一个 API 可能总是返回带有明确定义字段的结构化数据。一个 CLI 命令可能总是产生一致的文字布局。一个用户界面可能总是在相同的视觉框架内显示结果。</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>一致性允许用户和开发者依赖系统，而无需不断适应新的行为。</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>当输出保持稳定时，接口就变得值得信赖。</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## 清晰地传达错误（Communicating Errors Clearly）</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>错误是真实系统中不可避免的一部分。网络故障、输入数据无效、内部条件可能阻止操作成功完成。</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>区别专业软件的不是没有错误，而是**错误传达的清晰度**。</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>接口契约定义了错误如何报告。这可以包括标准化的错误码、描述性的消息，或指示问题性质的结构化响应。</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>例如，一个操作可以表明请求是由于无效输入、资源缺失还是内部服务器问题而失败。</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>清晰的错误报告允许用户和开发者做出适当的响应。他们不是猜测哪里出了问题，而是获得可操作的信息。</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>这种透明度加强了对系统的信任。</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## 反馈与引导（Feedback and Guidance）</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>除了原始输入和输出，设计良好的接口还提供有用的引导。</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>当用户与命令行工具交互时，如果参数缺失，系统可能显示使用说明。当 API 收到无效请求时，它可能返回关于验证错误的详细解释。当用户界面遇到问题时，它可能显示一条清晰的消息，解释下一步该做什么。</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>这些消息不仅仅是装饰。它们是接口契约的一部分。</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>它们引导用户走向正确的用法，并在问题发生时防止混淆。</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>练手项目往往忽视这一维度。错误可能表现为通用异常或晦涩的消息。专业系统则投入精力确保沟通清晰且具有建设性。</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## 约束即信任的来源（Constraints as a Source of Trust）</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>乍看之下，约束可能显得限制性。严格的输入格式、一致的输出结构和预定义的错误码对系统的行为施加了限制。</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>然而，这些约束提供了无价的品质：**可预测性（predictability）**。</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>当接口行为可预测时，用户和开发者可以围绕它构建可靠的工作流。自动化脚本可以依赖稳定的输出。外部系统可以自信地进行集成。</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>相反，松散定义的接口引入了不确定性。即使底层功能正确运行，不一致的行为也会破坏对系统的信心。</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>矛盾的是，无约束接口的自由往往导致脆弱性。</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>专业系统认识到约束不是障碍，而是基础。通过定义清晰的契约，它们创造一个交互保持稳定和可理解的环境。</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>通过这种方式，精心设计的约束成为成熟度最强的信号之一。</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>它们展示了系统不仅仅是对输入做出反应，而是有意地、负责任地管理交互。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

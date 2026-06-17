@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Domain Models: From Dictionaries to Entities and Relationships – Beyond the Demo</title>
+<title>7&nbsp; 领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships） – Beyond the Demo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,19 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./chapter-05.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-234501a227967ac462f24af7be37efa8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-22e83d4e5eff2a99ccc45532742ac980.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ded87e99f929cbe3c176321ddefb79bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b89fdd9c5eb97539b9179335d88987d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-06.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-06.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,9 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Beyond the Demo</a> 
         <div class="sidebar-tools-main">
@@ -283,175 +318,175 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Why Something That Works Still Feels Like Practice</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">为什么能用的东西，仍然像练手项目（Why Something That Works Still Feels Like Practice）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Demo Software and Real Software</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">演示软件与真实软件（Demo Software and Real Software）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What Professional Software Feels Like</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">专业软件的感觉（What Professional Software Feels Like）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Maturity Stack</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">项目成熟度栈（The Project Maturity Stack）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Boundaries: From a Pile of Code to a Modular Map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">边界：从一堆代码到模块化地图（Boundaries: From a Pile of Code to a Modular Map）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-06.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Interfaces: The Three Faces of a Professional System</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">接口：专业系统的三张面孔（Interfaces: The Three Faces of a Professional System）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Interface Contracts: Making Inputs and Outputs Predictable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">接口契约：让输入输出可预测（Interface Contracts: Making Inputs and Outputs Predictable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">State Design: Empty, Loading, Error, and Success</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">状态设计：空状态、加载状态、错误状态与成功状态（State Design: Empty, Loading, Error, and Success）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation as Interface: README, Docs, and Examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">文档即接口：README、文档与示例（Documentation as Interface: README, Docs, and Examples）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Configuration and Environments: From Hard-Coded Values to Deployable Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">配置与环境：从硬编码值到可部署系统（Configuration and Environments: From Hard-Coded Values to Deployable Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Logging and Observability: Making Systems Understandable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">日志与可观测性：让系统可理解（Logging and Observability: Making Systems Understandable）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Error Handling and Recovery: Failure Is the Default</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">错误处理与恢复：失败是默认状态（Error Handling and Recovery: Failure Is the Default）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Testing: From “It Runs” to “It Can Be Trusted”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">测试：从”能运行”到”可信任”（Testing: From “It Runs” to “It Can Be Trusted”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Performance and Limits: Knowing What Will Break</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">性能与限制：知道什么会先坏（Performance and Limits: Knowing What Will Break）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Visual Order: Professional Quality Comes from Consistent Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">视觉秩序：专业质量来自一致规则（Visual Order: Professional Quality Comes from Consistent Rules）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Design Systems: Bridging the Aesthetic Gap with Component Libraries</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">设计系统：用组件库弥合美学差距（Design Systems: Bridging the Aesthetic Gap with Component Libraries）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Information Architecture: Navigation, Hierarchy, and Density</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">信息架构：导航、层级与密度（Information Architecture: Navigation, Hierarchy, and Density）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Micro-Interactions: Making a System Feel Alive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">微交互：让系统感觉有生命（Micro-Interactions: Making a System Feel Alive）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Versioning, Changelogs, and Release Rhythm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">版本管理：语义化版本、变更日志与发布节奏（Versioning, Changelogs, and Release Rhythm）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Roadmaps: Creating a Sense of the Future</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">路线图：创造未来感（Roadmaps: Creating a Sense of the Future）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Packaging: Installation Experience Shapes the First Impression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">打包：安装体验塑造第一印象（Packaging: Installation Experience Shapes the First Impression）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Demo to Product Checklist: A Maturity Verification Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">演示到产品检查清单：成熟度验证框架（Demo to Product Checklist: A Maturity Verification Framework）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Security &amp; Trust Basics: The Minimum Level of Credible Security</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">安全与信任基础：最低限度的可信安全（Security &amp; Trust Basics: The Minimum Level of Credible Security）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Designing Your “Credible Narrative”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">设计你的”可信叙事”（Designing Your “Credible Narrative”）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Final Chapter: You Are Not Writing Projects, You Are Building Systems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">最终章：你不是在写项目，你是在构建系统（You Are Not Writing Projects, You Are Building Systems）</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">附录：模板、速查表与诊断工具（Appendix: Templates, Cheat Sheets &amp; Diagnostic Tools）</span></span></a>
   </div>
 </li>
     </ul>
@@ -461,21 +496,21 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#from-flexible-structures-to-defined-entities" id="toc-from-flexible-structures-to-defined-entities" class="nav-link active" data-scroll-target="#from-flexible-structures-to-defined-entities"><span class="header-section-number">7.0.1</span> From Flexible Structures to Defined Entities</a></li>
-  <li><a href="#value-objects-describing-attributes-with-meaning" id="toc-value-objects-describing-attributes-with-meaning" class="nav-link" data-scroll-target="#value-objects-describing-attributes-with-meaning"><span class="header-section-number">7.0.2</span> Value Objects: Describing Attributes with Meaning</a></li>
-  <li><a href="#aggregates-grouping-related-concepts" id="toc-aggregates-grouping-related-concepts" class="nav-link" data-scroll-target="#aggregates-grouping-related-concepts"><span class="header-section-number">7.0.3</span> Aggregates: Grouping Related Concepts</a></li>
-  <li><a href="#how-data-models-shape-the-system" id="toc-how-data-models-shape-the-system" class="nav-link" data-scroll-target="#how-data-models-shape-the-system"><span class="header-section-number">7.0.4</span> How Data Models Shape the System</a></li>
-  <li><a href="#the-skeleton-of-the-software" id="toc-the-skeleton-of-the-software" class="nav-link" data-scroll-target="#the-skeleton-of-the-software"><span class="header-section-number">7.0.5</span> The Skeleton of the Software</a></li>
-  <li><a href="#practical-guide-domain-modeling-steps" id="toc-practical-guide-domain-modeling-steps" class="nav-link" data-scroll-target="#practical-guide-domain-modeling-steps"><span class="header-section-number">7.1</span> Practical Guide: Domain Modeling Steps</a>
+  <li><a href="#从灵活结构到定义实体from-flexible-structures-to-defined-entities" id="toc-从灵活结构到定义实体from-flexible-structures-to-defined-entities" class="nav-link active" data-scroll-target="#从灵活结构到定义实体from-flexible-structures-to-defined-entities"><span class="header-section-number">7.1</span> 从灵活结构到定义实体（From Flexible Structures to Defined Entities）</a></li>
+  <li><a href="#值对象有意义的属性描述value-objects-describing-attributes-with-meaning" id="toc-值对象有意义的属性描述value-objects-describing-attributes-with-meaning" class="nav-link" data-scroll-target="#值对象有意义的属性描述value-objects-describing-attributes-with-meaning"><span class="header-section-number">7.2</span> 值对象：有意义的属性描述（Value Objects: Describing Attributes with Meaning）</a></li>
+  <li><a href="#聚合对相关概念进行分组aggregates-grouping-related-concepts" id="toc-聚合对相关概念进行分组aggregates-grouping-related-concepts" class="nav-link" data-scroll-target="#聚合对相关概念进行分组aggregates-grouping-related-concepts"><span class="header-section-number">7.3</span> 聚合：对相关概念进行分组（Aggregates: Grouping Related Concepts）</a></li>
+  <li><a href="#数据模型如何塑造系统how-data-models-shape-the-system" id="toc-数据模型如何塑造系统how-data-models-shape-the-system" class="nav-link" data-scroll-target="#数据模型如何塑造系统how-data-models-shape-the-system"><span class="header-section-number">7.4</span> 数据模型如何塑造系统（How Data Models Shape the System）</a></li>
+  <li><a href="#软件的骨架the-skeleton-of-the-software" id="toc-软件的骨架the-skeleton-of-the-software" class="nav-link" data-scroll-target="#软件的骨架the-skeleton-of-the-software"><span class="header-section-number">7.5</span> 软件的骨架（The Skeleton of the Software）</a></li>
+  <li><a href="#实践指南领域建模步骤" id="toc-实践指南领域建模步骤" class="nav-link" data-scroll-target="#实践指南领域建模步骤"><span class="header-section-number">7.6</span> 实践指南：领域建模步骤</a>
   <ul class="collapse">
-  <li><a href="#领域建模sop" id="toc-领域建模sop" class="nav-link" data-scroll-target="#领域建模sop"><span class="header-section-number">7.1.1</span> 领域建模SOP</a></li>
-  <li><a href="#实体-vs-值对象决策树" id="toc-实体-vs-值对象决策树" class="nav-link" data-scroll-target="#实体-vs-值对象决策树"><span class="header-section-number">7.1.2</span> 实体 vs 值对象：决策树</a></li>
-  <li><a href="#quick-diagnosis-is-your-data-model-clear" id="toc-quick-diagnosis-is-your-data-model-clear" class="nav-link" data-scroll-target="#quick-diagnosis-is-your-data-model-clear"><span class="header-section-number">7.1.3</span> Quick Diagnosis: Is Your Data Model Clear?</a></li>
+  <li><a href="#领域建模-sop" id="toc-领域建模-sop" class="nav-link" data-scroll-target="#领域建模-sop"><span class="header-section-number">7.6.1</span> 领域建模 SOP</a></li>
+  <li><a href="#实体-vs-值对象决策树" id="toc-实体-vs-值对象决策树" class="nav-link" data-scroll-target="#实体-vs-值对象决策树"><span class="header-section-number">7.6.2</span> 实体 vs 值对象：决策树</a></li>
+  <li><a href="#快速诊断你的数据模型清晰吗" id="toc-快速诊断你的数据模型清晰吗" class="nav-link" data-scroll-target="#快速诊断你的数据模型清晰吗"><span class="header-section-number">7.6.3</span> 快速诊断：你的数据模型清晰吗？</a></li>
   </ul></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">7.2</span> Chapter Summary</a></li>
+  <li><a href="#小结" id="toc-小结" class="nav-link" data-scroll-target="#小结"><span class="header-section-number">7.7</span> 小结</a></li>
   </ul>
 </nav>
     </div>
@@ -485,7 +520,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Domain Models: From Dictionaries to Entities and Relationships</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -501,80 +536,94 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
-<p>In many practice projects, data begins as something simple and flexible. A developer may store information in dictionaries, lists, or loosely structured JSON objects. These formats are convenient because they allow rapid experimentation without requiring strict definitions.</p>
-<p>At the early stages of development, this flexibility is valuable. It enables ideas to move quickly from concept to working code.</p>
-<p>However, as a project grows, this informal approach to data begins to reveal its limitations. When the system’s data is only loosely defined, the structure of the entire application becomes unstable. Logic spreads across multiple places, assumptions become hidden, and changes become increasingly difficult.</p>
-<p>Professional systems address this problem by developing a <strong>domain model</strong>.</p>
-<p>A domain model is not simply a way of storing data. It is a representation of the core concepts that exist within the system and the relationships between them. Once these concepts are clearly defined, the rest of the system can organize itself around them.</p>
-<p>In this sense, the domain model becomes the <strong>skeleton of the software</strong>.</p>
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#从灵活结构到定义实体from-flexible-structures-to-defined-entities" id="toc-从灵活结构到定义实体from-flexible-structures-to-defined-entities"><span class="header-section-number">7.1</span> 从灵活结构到定义实体（From Flexible Structures to Defined Entities）</a></li>
+  <li><a href="#值对象有意义的属性描述value-objects-describing-attributes-with-meaning" id="toc-值对象有意义的属性描述value-objects-describing-attributes-with-meaning"><span class="header-section-number">7.2</span> 值对象：有意义的属性描述（Value Objects: Describing Attributes with Meaning）</a></li>
+  <li><a href="#聚合对相关概念进行分组aggregates-grouping-related-concepts" id="toc-聚合对相关概念进行分组aggregates-grouping-related-concepts"><span class="header-section-number">7.3</span> 聚合：对相关概念进行分组（Aggregates: Grouping Related Concepts）</a></li>
+  <li><a href="#数据模型如何塑造系统how-data-models-shape-the-system" id="toc-数据模型如何塑造系统how-data-models-shape-the-system"><span class="header-section-number">7.4</span> 数据模型如何塑造系统（How Data Models Shape the System）</a></li>
+  <li><a href="#软件的骨架the-skeleton-of-the-software" id="toc-软件的骨架the-skeleton-of-the-software"><span class="header-section-number">7.5</span> 软件的骨架（The Skeleton of the Software）</a></li>
+  <li><a href="#实践指南领域建模步骤" id="toc-实践指南领域建模步骤"><span class="header-section-number">7.6</span> 实践指南：领域建模步骤</a>
+  <ul>
+  <li><a href="#领域建模-sop" id="toc-领域建模-sop"><span class="header-section-number">7.6.1</span> 领域建模 SOP</a></li>
+  <li><a href="#实体-vs-值对象决策树" id="toc-实体-vs-值对象决策树"><span class="header-section-number">7.6.2</span> 实体 vs 值对象：决策树</a></li>
+  <li><a href="#快速诊断你的数据模型清晰吗" id="toc-快速诊断你的数据模型清晰吗"><span class="header-section-number">7.6.3</span> 快速诊断：你的数据模型清晰吗？</a></li>
+  </ul></li>
+  <li><a href="#小结" id="toc-小结"><span class="header-section-number">7.7</span> 小结</a></li>
+  </ul>
+</nav>
+<p>在许多练手项目中，数据一开始是简单而灵活的。开发者可能用字典、列表或松散结构的 JSON 对象来存储信息。这些格式很方便，因为它们允许在不要求严格定义的情况下进行快速实验。</p>
+<p>在开发的早期阶段，这种灵活性很有价值。它让想法能够快速从概念变为可运行的代码。</p>
+<p>但是，随着项目的增长，这种非正式的数据处理方式开始暴露其局限性。当系统的数据只有松散定义时，整个应用的结构变得不稳定。逻辑散布在多个地方，假设被隐藏起来，变更变得越来越困难。</p>
+<p>专业系统通过建立<strong>领域模型（domain model）</strong>来解决这个问题。</p>
+<p>领域模型不仅仅是存储数据的一种方式。它是系统中核心概念及其关系的表征。一旦这些概念被清晰定义，系统的其他部分就可以围绕它们组织起来。</p>
+<p>从这个意义上说，领域模型成为了<strong>软件的骨架（skeleton of the software）</strong>。</p>
 <hr>
-<section id="from-flexible-structures-to-defined-entities" class="level3" data-number="7.0.1">
-<h3 data-number="7.0.1" class="anchored" data-anchor-id="from-flexible-structures-to-defined-entities"><span class="header-section-number">7.0.1</span> From Flexible Structures to Defined Entities</h3>
-<p>Practice projects often treat data as generic containers. A developer might store information like this:</p>
-<p>A dictionary representing a transaction.<br>
-A list representing tasks.<br>
-A JSON object representing user data.</p>
-<p>These structures work well for quick experimentation, but they do not communicate meaning clearly. A dictionary might contain many fields, yet nothing explicitly states what the object represents within the system.</p>
-<p>As a result, the logic that interprets the data becomes scattered across different parts of the codebase.</p>
-<p>Domain models solve this problem by introducing <strong>entities</strong>—clearly defined objects that represent meaningful concepts in the system.</p>
-<p>An entity is something that has a distinct identity within the system. It can change over time while still representing the same conceptual object.</p>
-<p>Examples might include:</p>
+<section id="从灵活结构到定义实体from-flexible-structures-to-defined-entities" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="从灵活结构到定义实体from-flexible-structures-to-defined-entities"><span class="header-section-number">7.1</span> 从灵活结构到定义实体（From Flexible Structures to Defined Entities）</h2>
+<p>练手项目通常将数据视为通用容器。开发者可能像这样存储信息：</p>
+<p>一个字典代表一个交易。 一个列表代表任务。 一个 JSON 对象代表用户数据。</p>
+<p>这些结构对快速实验来说很好，但它们不能清晰地传达含义。一个字典可能包含许多字段，但没有任何东西明确指出该对象在系统中代表什么。</p>
+<p>结果，解释数据的逻辑散布在代码库的不同部分。</p>
+<p>领域模型通过引入<strong>实体（entities）</strong>来解决这个问题——明确定义的、代表系统中有意义概念的对象。</p>
+<p>实体是在系统中具有独特身份的东西。它可以随时间变化，但始终代表同一个概念对象。</p>
+<p>例如：</p>
 <ul>
-<li><p>a user account</p></li>
-<li><p>a transaction</p></li>
-<li><p>a task</p></li>
-<li><p>a project</p></li>
+<li>一个用户账户</li>
+<li>一笔交易</li>
+<li>一个任务</li>
+<li>一个项目</li>
 </ul>
-<p>Each entity represents a stable concept around which behavior and rules can be organized.</p>
-<p>Once entities are introduced, the system begins to describe itself in terms of real concepts rather than generic containers.</p>
+<p>每个实体代表一个稳定的概念，行为和规则可以围绕它来组织。</p>
+<p>一旦引入实体，系统开始以真实概念而非通用容器来描述自己。</p>
 <hr>
 </section>
-<section id="value-objects-describing-attributes-with-meaning" class="level3" data-number="7.0.2">
-<h3 data-number="7.0.2" class="anchored" data-anchor-id="value-objects-describing-attributes-with-meaning"><span class="header-section-number">7.0.2</span> Value Objects: Describing Attributes with Meaning</h3>
-<p>Not all data in a system needs its own identity.</p>
-<p>Some pieces of information exist only to describe attributes of an entity. These pieces are often referred to as <strong>value objects</strong>.</p>
-<p>A value object does not represent a distinct object in the system. Instead, it represents a meaningful value associated with an entity.</p>
-<p>For example, an amount of money, a timestamp, or a geographic location may function as value objects. Their significance lies not in their identity but in the value they hold.</p>
-<p>By distinguishing between entities and value objects, the system gains clarity. Developers can immediately understand which parts of the data represent core objects and which parts simply describe those objects.</p>
-<p>This separation helps prevent unnecessary complexity while preserving meaningful structure.</p>
+<section id="值对象有意义的属性描述value-objects-describing-attributes-with-meaning" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="值对象有意义的属性描述value-objects-describing-attributes-with-meaning"><span class="header-section-number">7.2</span> 值对象：有意义的属性描述（Value Objects: Describing Attributes with Meaning）</h2>
+<p>并非系统中所有数据都需要自己的身份。</p>
+<p>有些信息只是用来描述实体的属性。这些通常被称为<strong>值对象（value objects）</strong>。</p>
+<p>值对象不代表系统中的独立对象。相反，它代表与实体相关联的有意义的值。</p>
+<p>例如，金额、时间戳或地理位置可以作为值对象。它们的重要性不在于身份，而在于它们持有的值。</p>
+<p>通过区分实体和值对象，系统获得了清晰度。开发者可以立即理解哪些数据代表核心对象，哪些只是描述这些对象。</p>
+<p>这种区分有助于在保持有意义结构的同时防止不必要的复杂性。</p>
 <hr>
 </section>
-<section id="aggregates-grouping-related-concepts" class="level3" data-number="7.0.3">
-<h3 data-number="7.0.3" class="anchored" data-anchor-id="aggregates-grouping-related-concepts"><span class="header-section-number">7.0.3</span> Aggregates: Grouping Related Concepts</h3>
-<p>As systems grow, entities rarely exist in isolation. They often form clusters of related objects that must be managed together.</p>
-<p>An <strong>aggregate</strong> represents such a cluster. It defines a boundary within which certain entities and value objects interact closely.</p>
-<p>Within this boundary, one entity usually acts as the primary reference point for the group. Changes to related objects pass through this central entity, ensuring that the system maintains consistent rules.</p>
-<p>The purpose of aggregates is not to introduce abstract theory but to maintain coherence. By grouping related concepts together, the system prevents scattered logic and uncontrolled interactions between components.</p>
-<p>In simpler terms, aggregates help ensure that related pieces of data move together in predictable ways.</p>
+<section id="聚合对相关概念进行分组aggregates-grouping-related-concepts" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="聚合对相关概念进行分组aggregates-grouping-related-concepts"><span class="header-section-number">7.3</span> 聚合：对相关概念进行分组（Aggregates: Grouping Related Concepts）</h2>
+<p>随着系统的增长，实体很少孤立存在。它们往往形成必须一起管理的相关对象集群。</p>
+<p><strong>聚合（aggregate）</strong>就代表这样一个集群。它定义了一个边界，在这个边界内某些实体和值对象紧密交互。</p>
+<p>在这个边界内，通常有一个实体作为该组的主要参考点。对相关对象的变更都通过这个中心实体进行，确保系统维护一致的规则。</p>
+<p>聚合的目的不是引入抽象理论，而是维持连贯性。通过将相关概念分组在一起，系统防止了分散的逻辑和组件之间的不受控交互。</p>
+<p>简单来说，聚合确保相关的数据片段以可预测的方式一起变动。</p>
 <hr>
 </section>
-<section id="how-data-models-shape-the-system" class="level3" data-number="7.0.4">
-<h3 data-number="7.0.4" class="anchored" data-anchor-id="how-data-models-shape-the-system"><span class="header-section-number">7.0.4</span> How Data Models Shape the System</h3>
-<p>Once the domain model becomes clear, an interesting transformation occurs.</p>
-<p>Many architectural decisions begin to follow naturally from the structure of the data.</p>
-<p>If entities and relationships are well defined, storage strategies become easier to design. Validation rules become clearer. Interfaces begin to reflect the same conceptual structure. Even user interfaces often mirror the organization of the underlying model.</p>
-<p>For example, if a system revolves around transactions and accounts, many features will naturally center around these entities. Interfaces may allow users to create transactions, review account histories, or analyze spending patterns.</p>
-<p>In this way, the domain model influences not only how data is stored but also how the entire system behaves.</p>
-<p>When the data model is weak or ambiguous, the software tends to feel fragmented. When the model is strong, the system gains coherence.</p>
+<section id="数据模型如何塑造系统how-data-models-shape-the-system" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="数据模型如何塑造系统how-data-models-shape-the-system"><span class="header-section-number">7.4</span> 数据模型如何塑造系统（How Data Models Shape the System）</h2>
+<p>一旦领域模型变得清晰，一个有趣的转变就发生了。</p>
+<p>许多架构决策开始自然地遵循数据的结构。</p>
+<p>如果实体和关系定义良好，存储策略就更容易设计。验证规则变得更清晰。接口开始反映相同的概念结构。甚至用户界面也经常反映底层模型的组织方式。</p>
+<p>例如，如果一个系统围绕交易和账户展开，许多功能将自然地以这些实体为中心。接口可能允许用户创建交易、查看账户历史或分析消费模式。</p>
+<p>通过这种方式，领域模型不仅影响数据如何存储，还影响整个系统的行为。</p>
+<p>当数据模型薄弱或模糊时，软件往往会让人感到支离破碎。当模型强大时，系统获得连贯性。</p>
 <hr>
 </section>
-<section id="the-skeleton-of-the-software" class="level3" data-number="7.0.5">
-<h3 data-number="7.0.5" class="anchored" data-anchor-id="the-skeleton-of-the-software"><span class="header-section-number">7.0.5</span> The Skeleton of the Software</h3>
+<section id="软件的骨架the-skeleton-of-the-software" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="软件的骨架the-skeleton-of-the-software"><span class="header-section-number">7.5</span> 软件的骨架（The Skeleton of the Software）</h2>
 <p>从非正式数据结构到清晰领域模型的转变，标志着项目成熟化的重要一步。</p>
 <p>系统不再将数据视为灵活容器的集合，而是开始认识自己的内部概念。实体定义了系统的主要对象。值对象提供了有意义的描述。聚合将相关元素组织成连贯的结构。</p>
 <p>这些元素共同构成了软件的骨架。</p>
 <p>一旦这个骨架存在，系统的其余部分就可以围绕它以更大的稳定性生长。新功能自然集成，职责更容易分配，系统开始反映它所代表的领域。</p>
-<p>在这个阶段，项目不再感觉像一个快速的实验。它开始像一个具有内部结构的系统，能够支持长期的演进。</p>
 <p>没有良好领域模型的系统就像一个没有骨架的生物——它可能暂时存活，但无法承受重量和压力。随着复杂性增加，缺乏结构的数据模型会变得越来越脆弱，难以维护和扩展。</p>
 <p>而一个清晰的领域模型为系统提供了坚实的结构基础。就像建筑物的框架一样，它定义了系统的整体形状，并为其他组件提供了附着点。</p>
 <hr>
 </section>
-<section id="practical-guide-domain-modeling-steps" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="practical-guide-domain-modeling-steps"><span class="header-section-number">7.1</span> Practical Guide: Domain Modeling Steps</h2>
-<p>领域建模不是艺术，而是一门可以学习和实践的技艺。以下是一个实用的建模框架。</p>
-<section id="领域建模sop" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="领域建模sop"><span class="header-section-number">7.1.1</span> 领域建模SOP</h3>
+<section id="实践指南领域建模步骤" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="实践指南领域建模步骤"><span class="header-section-number">7.6</span> 实践指南：领域建模步骤</h2>
+<p>领域建模不是艺术，而是一门可以学习和实践的技艺。</p>
+<section id="领域建模-sop" class="level3" data-number="7.6.1">
+<h3 data-number="7.6.1" class="anchored" data-anchor-id="领域建模-sop"><span class="header-section-number">7.6.1</span> 领域建模 SOP</h3>
 <p><strong>第一步：识别核心概念</strong></p>
 <ol type="1">
 <li>列出系统处理的所有事物</li>
@@ -584,7 +633,7 @@ A JSON object representing user data.</p>
 <p><strong>第二步：定义关系</strong></p>
 <ol type="1">
 <li>识别概念之间的关系（一对一、一对多、多对多）</li>
-<li>为每个关系命名（例如：“拥有”、“包含”、“属于”）</li>
+<li>为每个关系命名（如”拥有”、“包含”、“属于”）</li>
 <li>确定关系的方向和基数</li>
 </ol>
 <p><strong>第三步：定义聚合</strong></p>
@@ -600,8 +649,8 @@ A JSON object representing user data.</p>
 <li>模型是否足够简单以避免过度设计？</li>
 </ol>
 </section>
-<section id="实体-vs-值对象决策树" class="level3" data-number="7.1.2">
-<h3 data-number="7.1.2" class="anchored" data-anchor-id="实体-vs-值对象决策树"><span class="header-section-number">7.1.2</span> 实体 vs 值对象：决策树</h3>
+<section id="实体-vs-值对象决策树" class="level3" data-number="7.6.2">
+<h3 data-number="7.6.2" class="anchored" data-anchor-id="实体-vs-值对象决策树"><span class="header-section-number">7.6.2</span> 实体 vs 值对象：决策树</h3>
 <pre><code>这个对象需要身份吗？
 ├─ 是 → 实体（Entity）
 │   └─ 它有生命周期吗？
@@ -612,12 +661,11 @@ A JSON object representing user data.</p>
         ├─ 是 → 值对象
         └─ 否 → 可能是实体</code></pre>
 </section>
-<section id="quick-diagnosis-is-your-data-model-clear" class="level3" data-number="7.1.3">
-<h3 data-number="7.1.3" class="anchored" data-anchor-id="quick-diagnosis-is-your-data-model-clear"><span class="header-section-number">7.1.3</span> Quick Diagnosis: Is Your Data Model Clear?</h3>
-<p>回答以下问题：</p>
+<section id="快速诊断你的数据模型清晰吗" class="level3" data-number="7.6.3">
+<h3 data-number="7.6.3" class="anchored" data-anchor-id="快速诊断你的数据模型清晰吗"><span class="header-section-number">7.6.3</span> 快速诊断：你的数据模型清晰吗？</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">你能否在一张图上画出所有核心实体及其关系？</label></li>
-<li><label><input type="checkbox">新开发者能否在30分钟内理解主要的数据结构？</label></li>
+<li><label><input type="checkbox">新开发者能否在 30 分钟内理解主要的数据结构？</label></li>
 <li><label><input type="checkbox">是否避免了使用通用的字典或列表来表示领域概念？</label></li>
 <li><label><input type="checkbox">实体和值对象的区别是否清晰？</label></li>
 <li><label><input type="checkbox">聚合边界是否明确定义？</label></li>
@@ -625,8 +673,8 @@ A JSON object representing user data.</p>
 <hr>
 </section>
 </section>
-<section id="chapter-summary" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">7.2</span> Chapter Summary</h2>
+<section id="小结" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="小结"><span class="header-section-number">7.7</span> 小结</h2>
 <p>领域模型是软件的骨架。它将模糊的数据结构转化为明确定义的概念和关系，为整个系统提供结构基础。</p>
 <p>通过实体、值对象和聚合，系统开始反映真实的业务领域。这种反映不仅使代码更易理解，也使系统更稳定、更易维护。</p>
 <p>一个好的领域模型不是凭空出现的，它来自于对业务领域的深入理解和持续的重构。它是一个演化的过程，而不是一次性的设计。</p>
@@ -642,6 +690,8 @@ A JSON object representing user data.</p>
 <p><strong>立即行动：</strong></p>
 <p>选择你的项目中的一个核心功能，尝试画出涉及的所有实体和它们的关系。然后，问自己：这个模型是否清晰反映了业务领域？</p>
 
+
+<!-- -->
 
 </section>
 
@@ -730,6 +780,57 @@ A JSON object representing user data.</p>
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -746,6 +847,13 @@ A JSON object representing user data.</p>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1061,16 +1169,200 @@ A JSON object representing user data.</p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-05.html" class="pagination-link" aria-label="Naming: From Temporary Variables to a Domain Language">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Naming: From Temporary Variables to a Domain Language</span></span>
+      <a href="./chapter-05.html" class="pagination-link" aria-label="命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">命名：从临时变量到领域语言（Naming: From Temporary Variables to a Domain Language）</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-07.html" class="pagination-link" aria-label="Process Models: From if–else to Pipelines">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Process Models: From if–else to Pipelines</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-07.html" class="pagination-link" aria-label="流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">流程模型：从 if-else 到管道（Process Models: From if-else to Pipelines）</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 领域模型：从字典到实体与关系（Domain Models: From Dictionaries to Entities and Relationships）</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>在许多练手项目中，数据一开始是简单而灵活的。开发者可能用字典、列表或松散结构的 JSON 对象来存储信息。这些格式很方便，因为它们允许在不要求严格定义的情况下进行快速实验。</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>在开发的早期阶段，这种灵活性很有价值。它让想法能够快速从概念变为可运行的代码。</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>但是，随着项目的增长，这种非正式的数据处理方式开始暴露其局限性。当系统的数据只有松散定义时，整个应用的结构变得不稳定。逻辑散布在多个地方，假设被隐藏起来，变更变得越来越困难。</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>专业系统通过建立**领域模型（domain model）**来解决这个问题。</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>领域模型不仅仅是存储数据的一种方式。它是系统中核心概念及其关系的表征。一旦这些概念被清晰定义，系统的其他部分就可以围绕它们组织起来。</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>从这个意义上说，领域模型成为了**软件的骨架（skeleton of the software）**。</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## 从灵活结构到定义实体（From Flexible Structures to Defined Entities）</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>练手项目通常将数据视为通用容器。开发者可能像这样存储信息：</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>一个字典代表一个交易。</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>一个列表代表任务。</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>一个 JSON 对象代表用户数据。</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>这些结构对快速实验来说很好，但它们不能清晰地传达含义。一个字典可能包含许多字段，但没有任何东西明确指出该对象在系统中代表什么。</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>结果，解释数据的逻辑散布在代码库的不同部分。</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>领域模型通过引入**实体（entities）**来解决这个问题——明确定义的、代表系统中有意义概念的对象。</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>实体是在系统中具有独特身份的东西。它可以随时间变化，但始终代表同一个概念对象。</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>例如：</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>一个用户账户</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>一笔交易</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>一个任务</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>一个项目</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>每个实体代表一个稳定的概念，行为和规则可以围绕它来组织。</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>一旦引入实体，系统开始以真实概念而非通用容器来描述自己。</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## 值对象：有意义的属性描述（Value Objects: Describing Attributes with Meaning）</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>并非系统中所有数据都需要自己的身份。</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>有些信息只是用来描述实体的属性。这些通常被称为**值对象（value objects）**。</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>值对象不代表系统中的独立对象。相反，它代表与实体相关联的有意义的值。</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>例如，金额、时间戳或地理位置可以作为值对象。它们的重要性不在于身份，而在于它们持有的值。</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>通过区分实体和值对象，系统获得了清晰度。开发者可以立即理解哪些数据代表核心对象，哪些只是描述这些对象。</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>这种区分有助于在保持有意义结构的同时防止不必要的复杂性。</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="fu">## 聚合：对相关概念进行分组（Aggregates: Grouping Related Concepts）</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>随着系统的增长，实体很少孤立存在。它们往往形成必须一起管理的相关对象集群。</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>**聚合（aggregate）**就代表这样一个集群。它定义了一个边界，在这个边界内某些实体和值对象紧密交互。</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>在这个边界内，通常有一个实体作为该组的主要参考点。对相关对象的变更都通过这个中心实体进行，确保系统维护一致的规则。</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>聚合的目的不是引入抽象理论，而是维持连贯性。通过将相关概念分组在一起，系统防止了分散的逻辑和组件之间的不受控交互。</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>简单来说，聚合确保相关的数据片段以可预测的方式一起变动。</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## 数据模型如何塑造系统（How Data Models Shape the System）</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>一旦领域模型变得清晰，一个有趣的转变就发生了。</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>许多架构决策开始自然地遵循数据的结构。</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>如果实体和关系定义良好，存储策略就更容易设计。验证规则变得更清晰。接口开始反映相同的概念结构。甚至用户界面也经常反映底层模型的组织方式。</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>例如，如果一个系统围绕交易和账户展开，许多功能将自然地以这些实体为中心。接口可能允许用户创建交易、查看账户历史或分析消费模式。</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>通过这种方式，领域模型不仅影响数据如何存储，还影响整个系统的行为。</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>当数据模型薄弱或模糊时，软件往往会让人感到支离破碎。当模型强大时，系统获得连贯性。</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## 软件的骨架（The Skeleton of the Software）</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>从非正式数据结构到清晰领域模型的转变，标志着项目成熟化的重要一步。</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>系统不再将数据视为灵活容器的集合，而是开始认识自己的内部概念。实体定义了系统的主要对象。值对象提供了有意义的描述。聚合将相关元素组织成连贯的结构。</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>这些元素共同构成了软件的骨架。</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>一旦这个骨架存在，系统的其余部分就可以围绕它以更大的稳定性生长。新功能自然集成，职责更容易分配，系统开始反映它所代表的领域。</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>没有良好领域模型的系统就像一个没有骨架的生物——它可能暂时存活，但无法承受重量和压力。随着复杂性增加，缺乏结构的数据模型会变得越来越脆弱，难以维护和扩展。</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>而一个清晰的领域模型为系统提供了坚实的结构基础。就像建筑物的框架一样，它定义了系统的整体形状，并为其他组件提供了附着点。</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## 实践指南：领域建模步骤</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>领域建模不是艺术，而是一门可以学习和实践的技艺。</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="fu">### 领域建模 SOP</span></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>**第一步：识别核心概念**</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>列出系统处理的所有事物</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>识别哪些是独立的对象（实体）</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>识别哪些是描述性属性（值对象）</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>**第二步：定义关系**</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>识别概念之间的关系（一对一、一对多、多对多）</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>为每个关系命名（如"拥有"、"包含"、"属于"）</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>确定关系的方向和基数</span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>**第三步：定义聚合**</span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>识别哪些概念总是作为一组被操作</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>为每个聚合定义根实体</span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>确保只有聚合根可以访问聚合内部的其他对象</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>**第四步：验证**</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>模型是否反映了真实的业务领域？</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>是否有遗漏的概念或关系？</span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>模型是否足够简单以避免过度设计？</span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="fu">### 实体 vs 值对象：决策树</span></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a><span class="in">这个对象需要身份吗？</span></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a><span class="in">├─ 是 → 实体（Entity）</span></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a><span class="in">│   └─ 它有生命周期吗？</span></span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a><span class="in">│       ├─ 是 → 实体</span></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a><span class="in">│       └─ 否 → 重新考虑是否需要身份</span></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a><span class="in">└─ 否 → 值对象（Value Object）</span></span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a><span class="in">    └─ 它可以被多个实体共享吗？</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a><span class="in">        ├─ 是 → 值对象</span></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="in">        └─ 否 → 可能是实体</span></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="fu">### 快速诊断：你的数据模型清晰吗？</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 你能否在一张图上画出所有核心实体及其关系？</span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 新开发者能否在 30 分钟内理解主要的数据结构？</span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 是否避免了使用通用的字典或列表来表示领域概念？</span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 实体和值对象的区别是否清晰？</span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 聚合边界是否明确定义？</span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## 小结</span></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>领域模型是软件的骨架。它将模糊的数据结构转化为明确定义的概念和关系，为整个系统提供结构基础。</span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>通过实体、值对象和聚合，系统开始反映真实的业务领域。这种反映不仅使代码更易理解，也使系统更稳定、更易维护。</span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>一个好的领域模型不是凭空出现的，它来自于对业务领域的深入理解和持续的重构。它是一个演化的过程，而不是一次性的设计。</span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>下一章，我们将探讨如何组织代码的执行流程。当控制流从条件分支演变为清晰的管道时，系统的可读性和可维护性会如何提升？</span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>**实践建议：**</span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**从需求开始**：不要直接从数据库表开始建模。先理解业务领域和需求。</span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**迭代改进**：领域模型不需要一次性完美。随着理解的深入，持续改进它。</span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**使用通用语言**：确保技术团队和业务团队使用相同的术语来描述领域概念。</span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**文档化模型**：保持领域模型的文档更新，包括实体图和关系说明。</span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>**立即行动：**</span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>选择你的项目中的一个核心功能，尝试画出涉及的所有实体和它们的关系。然后，问自己：这个模型是否清晰反映了业务领域？</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
